@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://faph87h4jkjb"]
+
+[ext_resource type="Script" uid="uid://dehquvyb0j416" path="res://scripts_and_scenes/ingredients/ingredient.gd" id="1_wiup6"]
+[ext_resource type="Texture2D" uid="uid://bh4my5fdbd7q3" path="res://art/place_holder/Garlic.webp" id="2_qhpac"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/new_theme.tres" id="3_qhpac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cocjv"]
+size = Vector2(219.5, 219)
+
+[node name="Ingredient" type="Node2D" unique_id=348821999]
+z_index = 2
+script = ExtResource("1_wiup6")
+
+[node name="StaticIngredient" type="Node2D" parent="." unique_id=567552491]
+
+[node name="StaticSprite" type="Sprite2D" parent="StaticIngredient" unique_id=86442956]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qhpac")
+
+[node name="StaticIngredientArea" type="Area2D" parent="StaticIngredient" unique_id=847833739]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticIngredient/StaticIngredientArea" unique_id=1475873681]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_cocjv")
+
+[node name="StaticLabel" type="Label" parent="StaticIngredient" unique_id=122138272]
+offset_left = -156.0
+offset_top = 72.0
+offset_right = 26.0
+offset_bottom = 127.0
+theme = ExtResource("3_qhpac")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "XX"
+horizontal_alignment = 2
+
+[node name="DraggedIngredient" type="Node2D" parent="." unique_id=559503073]
+
+[node name="DraggedSprite" type="Sprite2D" parent="DraggedIngredient" unique_id=2008866099]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_qhpac")
+
+[node name="DraggedLabel" type="Label" parent="DraggedIngredient" unique_id=2022509792]
+offset_left = -132.0
+offset_top = 24.0
+offset_right = -44.0
+offset_bottom = 137.0
+theme = ExtResource("3_qhpac")
+text = "XX
+"
+horizontal_alignment = 2
+metadata/_edit_group_ = true
+
+[connection signal="mouse_entered" from="StaticIngredient/StaticIngredientArea" to="." method="_on_static_ingredient_area_mouse_entered"]
+[connection signal="mouse_exited" from="StaticIngredient/StaticIngredientArea" to="." method="_on_static_ingredient_area_mouse_exited"]

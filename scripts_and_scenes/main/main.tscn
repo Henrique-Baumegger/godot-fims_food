@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://0yfyowa4gxej"]
+
+[ext_resource type="PackedScene" uid="uid://faph87h4jkjb" path="res://scripts_and_scenes/ingredients/ingredient.tscn" id="1_8ngdv"]
+[ext_resource type="PackedScene" uid="uid://cy3u8ujq720yj" path="res://scripts_and_scenes/food/food.tscn" id="2_auah4"]
+[ext_resource type="Texture2D" uid="uid://bh4my5fdbd7q3" path="res://art/place_holder/Garlic.webp" id="2_d75j7"]
+[ext_resource type="Texture2D" uid="uid://cpemjii06d5sa" path="res://art/place_holder/BotW_Rock_Salt_Icon.webp" id="4_cu7v3"]
+[ext_resource type="PackedScene" uid="uid://yylk8cf2d84s" path="res://scripts_and_scenes/table/table.tscn" id="4_d75j7"]
+[ext_resource type="Texture2D" uid="uid://c7y7bb2b4nlep" path="res://art/place_holder/silver.webp" id="6_6n4cw"]
+
+[node name="Main" type="Node2D" unique_id=959716859]
+
+[node name="Table" parent="." unique_id=246802026 instance=ExtResource("4_d75j7")]
+position = Vector2(966, 562)
+
+[node name="Ingredient" parent="." unique_id=348821999 instance=ExtResource("1_8ngdv")]
+position = Vector2(378, 931)
+ingredient_name = "vampire_poison"
+sprite = ExtResource("2_d75j7")
+initial_quantity = 24
+
+[node name="Ingredient2" parent="." unique_id=1030776605 instance=ExtResource("1_8ngdv")]
+position = Vector2(960, 945)
+ingredient_name = "skeleton_poison"
+sprite = ExtResource("4_cu7v3")
+initial_quantity = 18
+
+[node name="Ingredient3" parent="." unique_id=596190691 instance=ExtResource("1_8ngdv")]
+position = Vector2(1511, 946)
+ingredient_name = "ghost_poison"
+sprite = ExtResource("6_6n4cw")
+initial_quantity = 6
+
+[node name="Food" parent="." unique_id=1063911873 instance=ExtResource("2_auah4")]
+position = Vector2(1272, 562)
+
+[node name="Food2" parent="." unique_id=1977640114 instance=ExtResource("2_auah4")]
+position = Vector2(344, 561)
+
+[node name="Food3" parent="." unique_id=198361439 instance=ExtResource("2_auah4")]
+position = Vector2(682, 555)
+
+[node name="Food4" parent="." unique_id=909568189 instance=ExtResource("2_auah4")]
+position = Vector2(987, 558)
+
+[node name="Food5" parent="." unique_id=497515527 instance=ExtResource("2_auah4")]
+position = Vector2(1601, 556)

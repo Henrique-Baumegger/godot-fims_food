@@ -1,19 +1,23 @@
 extends Customer
 class_name Vampire
 
-static var sprite_counter = 0
+static var id = 0
 
 @export var sprites: Array[Texture2D]
+const names : Array[String] = ["Bald B", "Bloody Baron", "Tooth", "Liut", "Putz"]
+
 var poisonless_tip_amount = 5
 
+@onready var tool_tip_area: Area2D = $ToolTipArea
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	super._ready()
 	dies.connect(_on_death)
-	sprite_2d.texture = sprites[sprite_counter%5]
-	sprite_counter+=1
-
+	id = (id+1) % 5
+	sprite_2d.texture = sprites[id]
+	identity_name = names[id]
+	tool_tip_area.displayed_text = tool_tip_text()
 
 func _on_death ()-> void:
 	rotation = 90

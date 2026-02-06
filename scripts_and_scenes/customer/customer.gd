@@ -4,11 +4,15 @@ extends Node2D
 var current_poison : int = 0
 var food_this_round : Food = null # Should be assigned by game loop each round
 var dead : bool = false
-var base_tip_amount : int = 1
+var identity_name : String = ""
+var likes : String = ""
+var hates : String = ""
+
 
 var max_poison : int
 var client_type : String
 
+@warning_ignore("unused_signal")
 signal gives_tip(amount)
 signal kills_you
 signal dies
@@ -25,15 +29,8 @@ func _ready() -> void:
 func finish_round() -> void:
 	eat_food()
 	extra_child_finish_round_logic()
-	tips_money()
 	dying_check()
 	killing_you_probability_check()
-
-
-func tips_money() -> void:
-	if dead:
-		return
-	gives_tip.emit(base_tip_amount)
 
 
 func killing_you_probability_check() -> void:
@@ -59,14 +56,31 @@ func eat_food() -> void:
 	food_this_round = null
  
 
+func tool_tip_text() -> String:
+	var type_description
+	if client_type == "skeleton":
+		type_description = "SKELETON — Doubles its poison every round end."
+	elif client_type == "vampire":
+		type_description = "Vampire - Will tip 5 doubloons if 0 poison."
+	
+	var description := """
+[center][b]{identity}[/b][/center]
 
+{type_description}
 
+When sitting next to [color=#6bff95]{likes}[/color] will [color=#6bff95]eat double the poison[/color] this round.
 
+When sitting next to [color=#ff6b6b]{hates}[/color] will [color=#ff6b6b]eat no poison[/color] this round.
 
-
-
-
-
+[center][b]Poison: [color=#b36bff]{current_poison}[/color][/b][/center]
+""".format({
+	"identity": identity_name,
+	"likes": likes,
+	"hates": hates, 
+	"current_poison": current_poison,
+	"type_description": type_description
+})
+	return description
 
 
 

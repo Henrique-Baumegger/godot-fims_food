@@ -16,8 +16,16 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if tip_panel.visible:
-		tip_panel.global_position = get_global_mouse_position() + OFFSET
+	rich_text_label.text = displayed_text
+	if not tip_panel.visible:
+		return
+	var vp := get_viewport_rect().size
+	var s := tip_panel.size
+	var p := get_global_mouse_position() + OFFSET
+	p.x = clamp(p.x, 0.0, vp.x - s.x)
+	p.y = clamp(p.y, 0.0, vp.y - s.y)
+	tip_panel.global_position = p
+
 
 
 func toggle(on: bool):

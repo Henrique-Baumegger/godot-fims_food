@@ -6,14 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_k1ayw"]
 [ext_resource type="Texture2D" uid="uid://cc8icgq8exb6l" path="res://art/skeletons/skeleton2.png" id="3_pqvvh"]
 [ext_resource type="Texture2D" uid="uid://dwr2t2m0lnf8e" path="res://art/skeletons/skeleton4.png" id="5_abggj"]
+[ext_resource type="Texture2D" uid="uid://dw81lpm0koujt" path="res://art/skeletons/skeleton5.png" id="6_abggj"]
 [ext_resource type="PackedScene" uid="uid://dv8xa6kl61ahd" path="res://scripts_and_scenes/UI/poison_indicator.tscn" id="7_pqvvh"]
+[ext_resource type="Texture2D" uid="uid://cuywldlx7ncf5" path="res://art/skeletons/skeleton1d.png" id="7_vcck5"]
+[ext_resource type="Texture2D" uid="uid://dlncfwesos52a" path="res://art/skeletons/skeleton2d.png" id="8_qcjxa"]
+[ext_resource type="Texture2D" uid="uid://ctprrwf5itf4n" path="res://art/skeletons/skeleton3d.png" id="9_ejfx8"]
+[ext_resource type="Texture2D" uid="uid://ky2lq66301jw" path="res://art/skeletons/skeleton4d.png" id="10_a5qyi"]
+[ext_resource type="Texture2D" uid="uid://vledc1gce23d" path="res://art/skeletons/skeleton5d.png" id="11_pvdd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap04t"]
 size = Vector2(181.5, 254)
 
 [node name="Skeleton" type="Node2D" unique_id=925178601]
 script = ExtResource("1_ybtii")
-sprites = Array[Texture2D]([ExtResource("2_27cea"), ExtResource("3_pqvvh"), ExtResource("2_jondo"), ExtResource("5_abggj"), ExtResource("2_27cea")])
+alive_sprites = Array[Texture2D]([ExtResource("2_27cea"), ExtResource("3_pqvvh"), ExtResource("2_jondo"), ExtResource("5_abggj"), ExtResource("6_abggj")])
+dead_sprites = Array[Texture2D]([ExtResource("7_vcck5"), ExtResource("8_qcjxa"), ExtResource("9_ejfx8"), ExtResource("10_a5qyi"), ExtResource("11_pvdd6")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914400132]
 position = Vector2(342.00003, 457)

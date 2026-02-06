@@ -4,9 +4,10 @@ extends Node2D
 var current_poison : int = 0
 var food_this_round : Food = null # Should be assigned by game loop each round
 var dead : bool = false
-var identity_name : String = ""
-var likes : String = ""
-var hates : String = ""
+var identity_name : String 
+var likes : String
+var hates : String
+var percentage_probability_mult_kill_you : float = 0.333
 
 
 var max_poison : int
@@ -22,6 +23,7 @@ signal dies
 @abstract func get_tool_tip_area() -> ToolTipArea
 @abstract func get_poison_indicator() -> PoisonIndicator
 
+
 func _ready() -> void:
 	add_to_group("customers")
 	add_to_group("round_dependers")
@@ -30,7 +32,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	get_tool_tip_area().displayed_text = tool_tip_text()
-	get_poison_indicator().set_poison_indicator(current_poison, max_poison)
+	get_poison_indicator().set_poison_indicator(current_poison, max_poison, dead)
 
 
 func finish_round() -> void:
@@ -38,14 +40,13 @@ func finish_round() -> void:
 		eat_food()
 	
 	extra_child_finish_round_logic()
-	
 	if !dead:
 		dying_check()
 		killing_you_probability_check()
 
 
 func killing_you_probability_check() -> void:
-	var probability := 0.5 * float(current_poison) / float(max_poison)
+	var probability := percentage_probability_mult_kill_you * (float(current_poison) / float(max_poison))
 	if randf() < probability:
 		emit_signal("kills_you")
 
@@ -67,7 +68,7 @@ func eat_food() -> void:
 func tool_tip_text() -> String:
 	var identity_part = "[center][b]"+identity_name+"[/b][/center]"
 	if dead:
-		identity_part = "[center][b][color=#8a8a8a]"+identity_name+" (dead) [/color][/b][/center]"
+		identity_part = "[center][img=64]res://art/enviroment/gravestone good.png[/img][b][color=#8a8a8a] "+identity_name+" [/color][/b][img=64]res://art/enviroment/gravestone good.png[/img][/center]"
 	var type_description
 	if client_type == "skeleton":
 		type_description = "[b]SKELETON[/b] — Doubles its poison every round end."

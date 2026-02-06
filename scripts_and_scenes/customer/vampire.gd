@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _on_death ()-> void:
-	sprite_2d.rotation = 90
+	rotation = 90
 
 
 func set_max_poison_and_client_type() -> void:

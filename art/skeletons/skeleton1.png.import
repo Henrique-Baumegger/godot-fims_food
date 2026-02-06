@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db03afonixiwn"
-path="res://.godot/imported/candles.png-e955f448b2214bf04d6bb9a0ed7b5e27.ctex"
+uid="uid://clo885p4hkli1"
+path="res://.godot/imported/skeleton1.png-e9e75dcfedc49ecc90e6f92259bb2cfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/candles.png"
-dest_files=["res://.godot/imported/candles.png-e955f448b2214bf04d6bb9a0ed7b5e27.ctex"]
+source_file="res://art/skeletons/skeleton1.png"
+dest_files=["res://.godot/imported/skeleton1.png-e9e75dcfedc49ecc90e6f92259bb2cfa.ctex"]
 
 [params]
 

@@ -2,6 +2,9 @@ extends Node2D
 
 var current_round = 1
 var money = 0
+var time_between_rounds : float = 1
+var time_between_days: float = 2
+
 
 @onready var money_label: Label = $MoneyLabel
 @onready var round_label: Label = $RoundLabel
@@ -40,7 +43,7 @@ func _on_next_round_pressed() -> void:
 		get_tree().call_group("round_dependers", "finish_round")
 		get_tree().call_group("round_dependers", "finish_day")
 		next_round.disabled = true
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(time_between_days).timeout
 		lose_the_day_check()
 		next_round.disabled = false
 		get_tree().call_group("round_dependers", "start_day")
@@ -51,7 +54,7 @@ func _on_next_round_pressed() -> void:
 		get_tree().call_group("round_dependers", "assign_food")
 		get_tree().call_group("round_dependers", "finish_round")
 		next_round.disabled = true
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(time_between_rounds).timeout
 		next_round.disabled = false
 		get_tree().call_group("round_dependers", "start_round")
 		current_round += 1

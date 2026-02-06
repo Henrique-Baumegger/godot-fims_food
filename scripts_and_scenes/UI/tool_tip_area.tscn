@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://qj5l5oibevij"]
+
+[ext_resource type="Script" uid="uid://bepvg02drgtk" path="res://scripts_and_scenes/UI/tool_tip_area.gd" id="1_40t2k"]
+
+[node name="ToolTipArea" type="Area2D" unique_id=1783049423]
+script = ExtResource("1_40t2k")
+
+[node name="TipPanel" type="PanelContainer" parent="." unique_id=32814619]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TipPanel" unique_id=697727017]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TipPanel/MarginContainer" unique_id=1044991644]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+tab_size = 6
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

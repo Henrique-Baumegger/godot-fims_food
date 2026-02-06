@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://yylk8cf2d84s"]
 
 [ext_resource type="Script" uid="uid://hntj861nd3un" path="res://scripts_and_scenes/table/table.gd" id="1_83i0c"]
-[ext_resource type="Texture2D" uid="uid://cmiaaxh7td154" path="res://art/full table.png" id="2_kodtr"]
-[ext_resource type="Texture2D" uid="uid://db03afonixiwn" path="res://art/candles.png" id="3_8jwp2"]
+[ext_resource type="Texture2D" uid="uid://cmiaaxh7td154" path="res://art/enviroment/full table.png" id="2_kodtr"]
+[ext_resource type="Texture2D" uid="uid://db03afonixiwn" path="res://art/enviroment/candles.png" id="3_8jwp2"]
 
 [node name="Table" type="Node2D" unique_id=246802026 groups=["round_dependers"]]
 script = ExtResource("1_83i0c")
@@ -39,10 +39,10 @@ position = Vector2(-670, -394)
 position = Vector2(-352, -390)
 
 [node name="Customer3Position" type="Marker2D" parent="CustomerPositions" unique_id=1825936207]
-position = Vector2(-3, -409)
+position = Vector2(1, -388)
 
 [node name="Customer4Position" type="Marker2D" parent="CustomerPositions" unique_id=1298091855]
 position = Vector2(336, -396)
 
 [node name="Customer5Position" type="Marker2D" parent="CustomerPositions" unique_id=178237912]
-position = Vector2(683, -399)
+position = Vector2(684, -379)

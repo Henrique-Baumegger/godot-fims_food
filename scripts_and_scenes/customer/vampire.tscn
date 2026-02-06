@@ -1,16 +1,28 @@
 [gd_scene format=3 uid="uid://5u6g4ksmn4tp"]
 
 [ext_resource type="Script" uid="uid://cf0bph7y7l82n" path="res://scripts_and_scenes/customer/vampire.gd" id="1_js6u7"]
-[ext_resource type="Texture2D" uid="uid://drde21gab6um8" path="res://art/place_holder/EovUK.png" id="2_3ajja"]
-[ext_resource type="Texture2D" uid="uid://j3jfs5hax5od" path="res://art/place_holder/Tw3_journal_regis.webp" id="2_6fg48"]
-[ext_resource type="Texture2D" uid="uid://blciktcen6co3" path="res://art/place_holder/lange-vampir-eckzaehne-dracula-fangs-large-vampire-fangs-35768.webp" id="3_3ajja"]
-[ext_resource type="Texture2D" uid="uid://cs2gtcnblqh2f" path="res://art/place_holder/edward-cullen.webp" id="4_kpu4f"]
-[ext_resource type="Texture2D" uid="uid://cihei17dhvs14" path="res://art/place_holder/gettyimages-1327255565-1024x1024.jpg" id="6_pbexu"]
+[ext_resource type="Texture2D" uid="uid://dwr2t2m0lnf8e" path="res://art/skeletons/skeleton4.png" id="2_bexiu"]
+[ext_resource type="Texture2D" uid="uid://d1ypgbc4ntrnc" path="res://art/skeletons/skeleton3.png" id="3_3ajja"]
+[ext_resource type="Texture2D" uid="uid://cc8icgq8exb6l" path="res://art/skeletons/skeleton2.png" id="4_pbexu"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="6_3ajja"]
+[ext_resource type="Texture2D" uid="uid://clo885p4hkli1" path="res://art/skeletons/skeleton1.png" id="7_pbexu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbexu"]
+size = Vector2(208, 232)
 
 [node name="Vampire" type="Node2D" unique_id=3934645 groups=["customers", "round_dependers"]]
 script = ExtResource("1_js6u7")
-sprites = Array[Texture2D]([ExtResource("2_3ajja"), ExtResource("3_3ajja"), ExtResource("4_kpu4f"), ExtResource("2_6fg48"), ExtResource("6_pbexu")])
+sprites = Array[Texture2D]([ExtResource("2_bexiu"), ExtResource("3_3ajja"), ExtResource("4_pbexu"), ExtResource("7_pbexu"), ExtResource("7_pbexu")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=347719945]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_6fg48")
+position = Vector2(342.00003, 457)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_pbexu")
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("6_3ajja")]
+displayed_text = "[b] Vampire [/b]
+He goes brrrrrrrrrrr"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=554671994]
+position = Vector2(14, 12)
+shape = SubResource("RectangleShape2D_pbexu")

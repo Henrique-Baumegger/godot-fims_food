@@ -29,6 +29,9 @@ func start_day() -> void:
 	new_set_of_customers()
 
 
+func finish_day() -> void:
+	delete_current_customers()
+
 func start_round() -> void:
 	new_round_of_food()
 	shuffle_customers()
@@ -54,9 +57,12 @@ func new_round_of_food() -> void:
 		list_of_foods_this_round.append(new_food)
 
 
-func new_set_of_customers() -> void:
+func delete_current_customers() -> void:
 	for c in clients_of_the_day:
 		c.queue_free()
+
+
+func new_set_of_customers() -> void:
 	clients_of_the_day = AssetDictionary.instantiate_random_customers(table_size)
 	for cust in clients_of_the_day:
 		add_child(cust)

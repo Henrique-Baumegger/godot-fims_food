@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func make_connections() -> void:
 	var customers_in_scene : Array[Node] = get_tree().get_nodes_in_group("customers")
-	print(customers_in_scene)
 	for c in customers_in_scene:
 		c.kills_you.connect(_on_kills_you)
 		c.gives_tip.connect(_on_recives_tip)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://5u6g4ksmn4tp"]
+
+[ext_resource type="Script" uid="uid://cf0bph7y7l82n" path="res://scripts_and_scenes/customer/vampire.gd" id="1_js6u7"]
+[ext_resource type="Texture2D" uid="uid://drde21gab6um8" path="res://art/place_holder/EovUK.png" id="2_3ajja"]
+[ext_resource type="Texture2D" uid="uid://j3jfs5hax5od" path="res://art/place_holder/Tw3_journal_regis.webp" id="2_6fg48"]
+[ext_resource type="Texture2D" uid="uid://blciktcen6co3" path="res://art/place_holder/lange-vampir-eckzaehne-dracula-fangs-large-vampire-fangs-35768.webp" id="3_3ajja"]
+[ext_resource type="Texture2D" uid="uid://cs2gtcnblqh2f" path="res://art/place_holder/edward-cullen.webp" id="4_kpu4f"]
+[ext_resource type="Texture2D" uid="uid://cihei17dhvs14" path="res://art/place_holder/gettyimages-1327255565-1024x1024.jpg" id="6_pbexu"]
+
+[node name="Vampire" type="Node2D" unique_id=3934645 groups=["customers", "round_dependers"]]
+script = ExtResource("1_js6u7")
+sprites = Array[Texture2D]([ExtResource("2_3ajja"), ExtResource("3_3ajja"), ExtResource("4_kpu4f"), ExtResource("2_6fg48"), ExtResource("6_pbexu")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=347719945]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6fg48")

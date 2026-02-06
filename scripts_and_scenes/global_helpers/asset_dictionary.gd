@@ -11,8 +11,19 @@ const sounds: Dictionary[String, AudioStream] = {
 
 
 const instantiables: Dictionary[String, PackedScene] = {
-	#"frequent_impulse_ball": preload("res://scripts_and_scenes/ball_logic/frequent_impulse_ball.tscn"),
+	"food": preload("res://scripts_and_scenes/food/food.tscn"),
+	"vampire": preload("res://scripts_and_scenes/customer/vampire.tscn")
 	}
+
+const customer_types : Array[String] = ["vampire"]
+
+static func instantiate_random_customers(n: int) -> Array[Customer]:
+	var result: Array[Customer] = []
+	for i in range(n):
+		var random_pick = customer_types.pick_random()
+		result.append(instantiate_object(random_pick))
+	return result
+
 
 
 static func instantiate_object(object_name: String) -> Node2D:

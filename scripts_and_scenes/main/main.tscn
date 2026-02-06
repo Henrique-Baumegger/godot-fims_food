@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://0yfyowa4gxej"]
 
 [ext_resource type="PackedScene" uid="uid://faph87h4jkjb" path="res://scripts_and_scenes/ingredients/ingredient.tscn" id="1_8ngdv"]
-[ext_resource type="PackedScene" uid="uid://cy3u8ujq720yj" path="res://scripts_and_scenes/food/food.tscn" id="2_auah4"]
+[ext_resource type="Script" uid="uid://cj3gs41xv2c5m" path="res://scripts_and_scenes/main/main.gd" id="1_cu7v3"]
 [ext_resource type="Texture2D" uid="uid://bh4my5fdbd7q3" path="res://art/place_holder/Garlic.webp" id="2_d75j7"]
 [ext_resource type="Texture2D" uid="uid://cpemjii06d5sa" path="res://art/place_holder/BotW_Rock_Salt_Icon.webp" id="4_cu7v3"]
 [ext_resource type="PackedScene" uid="uid://yylk8cf2d84s" path="res://scripts_and_scenes/table/table.tscn" id="4_d75j7"]
 [ext_resource type="Texture2D" uid="uid://c7y7bb2b4nlep" path="res://art/place_holder/silver.webp" id="6_6n4cw"]
 
 [node name="Main" type="Node2D" unique_id=959716859]
+script = ExtResource("1_cu7v3")
 
 [node name="Table" parent="." unique_id=246802026 instance=ExtResource("4_d75j7")]
 position = Vector2(966, 562)
@@ -16,7 +17,7 @@ position = Vector2(966, 562)
 position = Vector2(378, 931)
 ingredient_name = "vampire_poison"
 sprite = ExtResource("2_d75j7")
-initial_quantity = 24
+initial_quantity = 99
 
 [node name="Ingredient2" parent="." unique_id=1030776605 instance=ExtResource("1_8ngdv")]
 position = Vector2(960, 945)
@@ -30,17 +31,46 @@ ingredient_name = "ghost_poison"
 sprite = ExtResource("6_6n4cw")
 initial_quantity = 6
 
-[node name="Food" parent="." unique_id=1063911873 instance=ExtResource("2_auah4")]
-position = Vector2(1272, 562)
+[node name="NextRound" type="Button" parent="." unique_id=1977712106]
+offset_left = 1665.0
+offset_top = 924.0
+offset_right = 1901.0
+offset_bottom = 1046.0
+theme_override_font_sizes/font_size = 40
+text = "Next Round"
 
-[node name="Food2" parent="." unique_id=1977640114 instance=ExtResource("2_auah4")]
-position = Vector2(344, 561)
+[node name="MoneyLabel" type="Label" parent="." unique_id=1646024981]
+offset_left = 42.0
+offset_top = 655.0
+offset_right = 636.0
+offset_bottom = 807.0
+theme_override_font_sizes/font_size = 100
+text = "0 doubloons"
 
-[node name="Food3" parent="." unique_id=198361439 instance=ExtResource("2_auah4")]
-position = Vector2(682, 555)
+[node name="RoundLabel" type="Label" parent="." unique_id=1015440697]
+offset_left = 1590.0
+offset_top = 682.0
+offset_right = 1862.0
+offset_bottom = 903.0
+theme_override_font_sizes/font_size = 60
+text = "Round 1"
 
-[node name="Food4" parent="." unique_id=909568189 instance=ExtResource("2_auah4")]
-position = Vector2(987, 558)
+[node name="YouDieLabel" type="Label" parent="." unique_id=1284491248]
+visible = false
+offset_left = 548.0
+offset_top = 447.0
+offset_right = 1468.0
+offset_bottom = 769.0
+theme_override_font_sizes/font_size = 125
+text = "You were killed"
 
-[node name="Food5" parent="." unique_id=497515527 instance=ExtResource("2_auah4")]
-position = Vector2(1601, 556)
+[node name="EndOfDayLose" type="Label" parent="." unique_id=934299594]
+visible = false
+offset_left = 244.0
+offset_top = 61.0
+offset_right = 1719.0
+offset_bottom = 260.0
+theme_override_font_sizes/font_size = 125
+text = "You did not kill all dudes"
+
+[connection signal="pressed" from="NextRound" to="." method="_on_next_round_pressed"]

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bb1dv0wixnsmh"]
+
+[ext_resource type="Script" uid="uid://bjbbvo4pjb5i8" path="res://scripts_and_scenes/customer/ghost.gd" id="1_elibt"]
+[ext_resource type="Texture2D" uid="uid://n4pmgvw48e7n" path="res://art/ghosts/ghost1.png" id="2_yam2q"]
+[ext_resource type="Texture2D" uid="uid://son7m30csknk" path="res://art/ghosts/ghost2.png" id="3_2xovo"]
+[ext_resource type="Texture2D" uid="uid://dlkeymue6jrht" path="res://art/ghosts/ghost3.png" id="4_u6df7"]
+[ext_resource type="Texture2D" uid="uid://03wfvm5m54sd" path="res://art/ghosts/ghost4.png" id="5_5jk5q"]
+[ext_resource type="Texture2D" uid="uid://rac3bmnbxj8s" path="res://art/ghosts/ghost5.png" id="6_bgmu7"]
+[ext_resource type="Texture2D" uid="uid://b2kdp2jf3wxx4" path="res://art/ghosts/ghost1d.png" id="7_whtnd"]
+[ext_resource type="PackedScene" uid="uid://dv8xa6kl61ahd" path="res://scripts_and_scenes/UI/poison_indicator.tscn" id="7_yam2q"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="8_2xovo"]
+[ext_resource type="Texture2D" uid="uid://sl5tnv7agbm" path="res://art/ghosts/ghost2d.png" id="8_jtwfd"]
+[ext_resource type="Texture2D" uid="uid://c5vipnuxhxlyh" path="res://art/ghosts/ghost3d.png" id="9_npa8u"]
+[ext_resource type="Texture2D" uid="uid://bnlwbjqn8cm12" path="res://art/ghosts/ghost4d.png" id="10_5tpr8"]
+[ext_resource type="Texture2D" uid="uid://e8tq5fj852pu" path="res://art/ghosts/ghost5d.png" id="11_2ob77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6df7"]
+size = Vector2(270, 292.75)
+
+[node name="Ghost" type="Node2D" unique_id=1737731592]
+script = ExtResource("1_elibt")
+alive_sprites = Array[Texture2D]([ExtResource("2_yam2q"), ExtResource("3_2xovo"), ExtResource("4_u6df7"), ExtResource("5_5jk5q"), ExtResource("6_bgmu7")])
+dead_sprites = Array[Texture2D]([ExtResource("7_whtnd"), ExtResource("8_jtwfd"), ExtResource("9_npa8u"), ExtResource("10_5tpr8"), ExtResource("11_2ob77")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1333112842]
+position = Vector2(342.00003, 457)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_yam2q")
+
+[node name="PoisonIndicator" parent="." unique_id=416598971 instance=ExtResource("7_yam2q")]
+offset_left = 88.0
+offset_top = -38.0
+offset_right = 155.0
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("8_2xovo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=788015626]
+position = Vector2(-2, -15.375)
+shape = SubResource("RectangleShape2D_u6df7")

@@ -33,16 +33,16 @@ position = Vector2(732, -161)
 [node name="CustomerPositions" type="Node2D" parent="." unique_id=452383670]
 
 [node name="Customer1Position" type="Marker2D" parent="CustomerPositions" unique_id=840833476]
-position = Vector2(-670, -394)
+position = Vector2(-670, -401)
 
 [node name="Customer2Position" type="Marker2D" parent="CustomerPositions" unique_id=593585473]
-position = Vector2(-352, -390)
+position = Vector2(-352, -394)
 
 [node name="Customer3Position" type="Marker2D" parent="CustomerPositions" unique_id=1825936207]
-position = Vector2(1, -388)
+position = Vector2(1, -392)
 
 [node name="Customer4Position" type="Marker2D" parent="CustomerPositions" unique_id=1298091855]
 position = Vector2(336, -396)
 
 [node name="Customer5Position" type="Marker2D" parent="CustomerPositions" unique_id=178237912]
-position = Vector2(684, -379)
+position = Vector2(684, -377)

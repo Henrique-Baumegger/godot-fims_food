@@ -4,15 +4,10 @@ class_name ToolTipArea
 const OFFSET: Vector2 = Vector2.ONE * 60.0
 var opacity_tween: Tween = null
 
-@export_multiline var displayed_text : String 
+@export_multiline var displayed_text : String = ""
 
 @onready var tip_panel: PanelContainer = $TipPanel
 @onready var rich_text_label: RichTextLabel = $TipPanel/MarginContainer/RichTextLabel
-
-
-func _ready() -> void:
-	tip_panel.hide()
-	rich_text_label.text = displayed_text
 
 
 func _process(_delta: float) -> void:

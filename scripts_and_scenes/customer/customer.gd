@@ -42,6 +42,7 @@ func finish_round() -> void:
 	extra_child_finish_round_logic()
 	if !dead:
 		dying_check()
+	if !dead:
 		killing_you_probability_check()
 
 
@@ -73,7 +74,9 @@ func tool_tip_text() -> String:
 	if client_type == "skeleton":
 		type_description = "[b]SKELETON[/b] — Doubles its poison every round end."
 	elif client_type == "vampire":
-		type_description = "[b]VAMPIRE[/b] - Will tip 5 doubloons if 0 poison."
+		type_description = "[b]VAMPIRE[/b] - Will tip 5 doubloons after eating if it has 0 poison."
+	elif client_type == "ghost":
+		type_description = "[b]GHOST[/b] - Will tip 10 doubloons before eating if dead."
 	
 	var description := """{identity_part}
 

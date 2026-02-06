@@ -14,6 +14,7 @@ z_index = 4
 script = ExtResource("1_40t2k")
 
 [node name="TipPanel" type="PanelContainer" parent="." unique_id=32814619]
+visible = false
 custom_minimum_size = Vector2(400, 0)
 offset_right = 40.0
 offset_bottom = 40.0

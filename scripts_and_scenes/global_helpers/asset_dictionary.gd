@@ -13,10 +13,11 @@ const sounds: Dictionary[String, AudioStream] = {
 const instantiables: Dictionary[String, PackedScene] = {
 	"food": preload("res://scripts_and_scenes/food/food.tscn"),
 	"vampire": preload("res://scripts_and_scenes/customer/vampire.tscn"),
-	"skeleton":preload("res://scripts_and_scenes/customer/skeleton.tscn")
+	"skeleton":preload("res://scripts_and_scenes/customer/skeleton.tscn"),
+	"ghost":preload("res://scripts_and_scenes/customer/ghost.tscn")
 	}
 
-const customer_types : Array[String] = ["vampire", "skeleton"]
+const customer_types : Array[String] = ["vampire", "skeleton", "ghost"]
 
 static func instantiate_random_customers(n: int) -> Array[Customer]:
 	var result: Array[Customer] = []

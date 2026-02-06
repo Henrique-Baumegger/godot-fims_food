@@ -9,9 +9,9 @@ static var empty_ingredients_dictionary : Dictionary[String, int] = {
 
 
 static var max_amount_for_each_ingredient : Dictionary[String, int] = {
-	"vampire_poison":5,
-	 "ghost_poison":5,
-	 "skeleton_poison":5
+	"vampire_poison":20,
+	 "ghost_poison":20,
+	 "skeleton_poison":20
 	}
 
 

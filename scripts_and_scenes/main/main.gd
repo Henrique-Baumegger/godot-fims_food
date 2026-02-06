@@ -40,10 +40,10 @@ func _on_next_round_pressed() -> void:
 	if last_round:
 		get_tree().call_group("round_dependers", "assign_food")
 		get_tree().call_group("round_dependers", "finish_round")
+		lose_the_day_check()
 		get_tree().call_group("round_dependers", "finish_day")
 		next_round.disabled = true
 		await get_tree().create_timer(time_between_days).timeout
-		lose_the_day_check()
 		next_round.disabled = false
 		get_tree().call_group("round_dependers", "start_day")
 		get_tree().call_group("round_dependers", "start_round")

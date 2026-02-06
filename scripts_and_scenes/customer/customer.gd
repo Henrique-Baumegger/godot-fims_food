@@ -34,46 +34,47 @@ func _process(_delta: float) -> void:
 
 
 func finish_round() -> void:
-	eat_food()
+	if !dead:
+		eat_food()
+	
 	extra_child_finish_round_logic()
-	dying_check()
-	killing_you_probability_check()
+	
+	if !dead:
+		dying_check()
+		killing_you_probability_check()
 
 
 func killing_you_probability_check() -> void:
-	if dead:
-		return
 	var probability := 0.5 * float(current_poison) / float(max_poison)
 	if randf() < probability:
 		emit_signal("kills_you")
 
 
 func dying_check() -> void:
-	if dead:
-		return
 	if current_poison >= max_poison:
 		dead = true
 		dies.emit()
 
 
 func eat_food() -> void:
-	if dead:
-		return
 	current_poison += food_this_round.ingredients_present[client_type + "_poison"]
 	food_this_round = null
  
 
 
 
-
+#region func tool_tip_text() -> String:
 func tool_tip_text() -> String:
+	var identity_part = "[center][b]"+identity_name+"[/b][/center]"
+	if dead:
+		identity_part = "[center][b][color=#8a8a8a]"+identity_name+" (dead) [/color][/b][/center]"
 	var type_description
 	if client_type == "skeleton":
 		type_description = "[b]SKELETON[/b] — Doubles its poison every round end."
 	elif client_type == "vampire":
 		type_description = "[b]VAMPIRE[/b] - Will tip 5 doubloons if 0 poison."
 	
-	var description := """[center][b]{identity}[/b][/center]
+	var description := """{identity_part}
 
 {type_description}
 
@@ -83,15 +84,15 @@ When sitting next to [color=#ff6b6b]{hates}[/color] will [color=#ff6b6b]eat no p
 
 [center][b]Poison: [color=#b36bff]{current_poison} / {max_poison}[/color][/b][/center]
 """.format({
-	"identity": identity_name,
 	"likes": likes,
 	"hates": hates, 
 	"current_poison": current_poison,
 	"type_description": type_description,
-	"max_poison": max_poison
+	"max_poison": max_poison,
+	"identity_part": identity_part
 })
 	return description
-
+#endregion
 
 
 

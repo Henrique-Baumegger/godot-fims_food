@@ -30,7 +30,7 @@ func _ready() -> void:
 
 
 func _on_death ()-> void:
-	rotation = 90
+	pass
 
 
 func set_max_poison_and_client_type() -> void:

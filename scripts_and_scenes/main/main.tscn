@@ -23,13 +23,13 @@ initial_quantity = 99
 position = Vector2(960, 945)
 ingredient_name = "skeleton_poison"
 sprite = ExtResource("4_cu7v3")
-initial_quantity = 18
+initial_quantity = 99
 
 [node name="Ingredient3" parent="." unique_id=596190691 instance=ExtResource("1_8ngdv")]
 position = Vector2(1511, 946)
 ingredient_name = "ghost_poison"
 sprite = ExtResource("6_6n4cw")
-initial_quantity = 6
+initial_quantity = 99
 
 [node name="NextRound" type="Button" parent="." unique_id=1977712106]
 offset_left = 1665.0

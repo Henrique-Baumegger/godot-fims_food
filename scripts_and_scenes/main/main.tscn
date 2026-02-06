@@ -11,7 +11,7 @@
 script = ExtResource("1_cu7v3")
 
 [node name="Table" parent="." unique_id=246802026 instance=ExtResource("4_d75j7")]
-position = Vector2(966, 562)
+position = Vector2(966, 548)
 
 [node name="Ingredient" parent="." unique_id=348821999 instance=ExtResource("1_8ngdv")]
 position = Vector2(378, 931)

@@ -19,11 +19,18 @@ signal dies
 
 @abstract func set_max_poison_and_client_type() -> void
 @abstract func extra_child_finish_round_logic() ->void
+@abstract func get_tool_tip_area() -> ToolTipArea
+@abstract func get_poison_indicator() -> PoisonIndicator
 
 func _ready() -> void:
 	add_to_group("customers")
 	add_to_group("round_dependers")
 	set_max_poison_and_client_type()
+
+
+func _process(_delta: float) -> void:
+	get_tool_tip_area().displayed_text = tool_tip_text()
+	get_poison_indicator().set_poison_indicator(current_poison, max_poison)
 
 
 func finish_round() -> void:
@@ -56,15 +63,17 @@ func eat_food() -> void:
 	food_this_round = null
  
 
+
+
+
 func tool_tip_text() -> String:
 	var type_description
 	if client_type == "skeleton":
-		type_description = "SKELETON — Doubles its poison every round end."
+		type_description = "[b]SKELETON[/b] — Doubles its poison every round end."
 	elif client_type == "vampire":
-		type_description = "Vampire - Will tip 5 doubloons if 0 poison."
+		type_description = "[b]VAMPIRE[/b] - Will tip 5 doubloons if 0 poison."
 	
-	var description := """
-[center][b]{identity}[/b][/center]
+	var description := """[center][b]{identity}[/b][/center]
 
 {type_description}
 
@@ -72,13 +81,14 @@ When sitting next to [color=#6bff95]{likes}[/color] will [color=#6bff95]eat doub
 
 When sitting next to [color=#ff6b6b]{hates}[/color] will [color=#ff6b6b]eat no poison[/color] this round.
 
-[center][b]Poison: [color=#b36bff]{current_poison}[/color][/b][/center]
+[center][b]Poison: [color=#b36bff]{current_poison} / {max_poison}[/color][/b][/center]
 """.format({
 	"identity": identity_name,
 	"likes": likes,
 	"hates": hates, 
 	"current_poison": current_poison,
-	"type_description": type_description
+	"type_description": type_description,
+	"max_poison": max_poison
 })
 	return description
 

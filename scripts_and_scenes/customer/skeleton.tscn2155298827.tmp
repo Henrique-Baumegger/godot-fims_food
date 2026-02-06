@@ -29,7 +29,7 @@ position = Vector2(14.25, 4)
 shape = SubResource("RectangleShape2D_ap04t")
 
 [node name="PoisonIndicator" parent="." unique_id=416598971 instance=ExtResource("7_pqvvh")]
-offset_left = 34.0
-offset_top = -120.0
-offset_right = 101.0
-offset_bottom = -82.0
+offset_left = -28.0
+offset_top = -164.0
+offset_right = 28.0
+offset_bottom = -131.0

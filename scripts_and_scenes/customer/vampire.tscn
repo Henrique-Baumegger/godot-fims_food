@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ypgbc4ntrnc" path="res://art/skeletons/skeleton3.png" id="3_3ajja"]
 [ext_resource type="Texture2D" uid="uid://cc8icgq8exb6l" path="res://art/skeletons/skeleton2.png" id="4_pbexu"]
 [ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="6_3ajja"]
+[ext_resource type="PackedScene" uid="uid://dv8xa6kl61ahd" path="res://scripts_and_scenes/UI/poison_indicator.tscn" id="7_kpu4f"]
 [ext_resource type="Texture2D" uid="uid://clo885p4hkli1" path="res://art/skeletons/skeleton1.png" id="7_pbexu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbexu"]
@@ -26,3 +27,9 @@ He goes brrrrrrrrrrr"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=554671994]
 position = Vector2(14, 12)
 shape = SubResource("RectangleShape2D_pbexu")
+
+[node name="PoisonIndicator" parent="." unique_id=416598971 instance=ExtResource("7_kpu4f")]
+offset_left = 41.0
+offset_top = -107.0
+offset_right = 108.0
+offset_bottom = -69.0

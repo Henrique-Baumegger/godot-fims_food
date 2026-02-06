@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name ToolTipArea
 
 const OFFSET: Vector2 = Vector2.ONE * 60.0
 var opacity_tween: Tween = null

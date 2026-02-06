@@ -10,6 +10,16 @@ var poisonless_tip_amount = 5
 
 @onready var tool_tip_area: Area2D = $ToolTipArea
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var poison_indicator: PoisonIndicator = $PoisonIndicator
+
+
+func get_tool_tip_area() -> ToolTipArea:
+	return tool_tip_area
+
+
+func get_poison_indicator() -> PoisonIndicator:
+	return poison_indicator
+
 
 func _ready() -> void:
 	super._ready()
@@ -17,7 +27,7 @@ func _ready() -> void:
 	id = (id+1) % 5
 	sprite_2d.texture = sprites[id]
 	identity_name = names[id]
-	tool_tip_area.displayed_text = tool_tip_text()
+
 
 func _on_death ()-> void:
 	rotation = 90

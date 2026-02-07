@@ -4,9 +4,12 @@ class_name Ingredient
 @export var ingredient_name : String = "no name yet"
 @export var sprite : Texture2D = null
 @export var initial_quantity : int 
+@export var sprite_scale_mult : float = 1
 
+var is_dessert : bool = false
 var dragging : bool = false
 var mouse_is_on_static_ingredient : bool = false
+var customers_are_sitting : bool = false
 
 var static_quantity : int 
 var dragged_quantity = 0
@@ -20,14 +23,42 @@ var dragged_quantity = 0
 
 
 func _ready() -> void:
+	if ingredient_name == "go_right_dessert" or ingredient_name == "go_left_dessert" or ingredient_name == "stay_dessert":
+		is_dessert = true
+	
+	static_sprite.scale = static_sprite.scale * sprite_scale_mult
+	dragged_sprite.scale = dragged_sprite.scale * sprite_scale_mult
 	dragged_ingredient.visible = false
 	static_quantity = initial_quantity
 	update_labels()
 	set_up_sprites()
 
 func _process(_delta):
+	if (customers_are_sitting and not is_dessert) or (not customers_are_sitting and is_dessert):
+		if dragging:
+			cancel_drag()
+		return
+		
 	handle_potential_click()
 	handle_potential_dragging_movement()
+
+
+func clients_go_to_table() -> void:
+	customers_are_sitting = true
+	if not is_dessert:
+		modulate = Color(0.8, 0.8, 0.8, 0.6)
+	else:
+		modulate = Color.WHITE
+
+
+
+func start_round() -> void:
+	customers_are_sitting = false
+	if not is_dessert:
+		modulate = Color.WHITE
+	else:
+		modulate = Color(0.8, 0.8, 0.8, 0.6)
+
 
 func handle_potential_click() -> void:
 	if not Input.is_action_just_pressed("left_click"):

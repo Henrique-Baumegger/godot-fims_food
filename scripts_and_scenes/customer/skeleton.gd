@@ -7,7 +7,7 @@ var this_instance_id
 
 @export var alive_sprites: Array[Texture2D]
 @export var dead_sprites: Array[Texture2D]
-const names : Array[String] = ["Sir calcium", "Big Bones", "Medium Bones", "Eye Brows", "Markc"]
+const names : Array[String] = ["Sir calcium", "Ms. Sturdy", "Skulless lord", "Dead Steven", "Bob Bones"]
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var tool_tip_area: Area2D = $ToolTipArea

@@ -25,9 +25,6 @@ func clients_go_to_table() -> void:
 
 
 func try_to_add(ingredient_name: String, quantity: int) -> int:
-	if not warm_food_step:
-		return 0
-	
 	if not ingredients_present.has(ingredient_name):
 		return 0
 	

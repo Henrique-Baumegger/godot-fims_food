@@ -7,7 +7,7 @@ var this_instance_id
 @export var alive_sprites: Array[Texture2D]
 @export var dead_sprites: Array[Texture2D]
 
-const names : Array[String] = ["Bald B", "Bloody Baron", "Tooth", "Liut", "Putz"]
+const names : Array[String] = ["Ariela", "Catty", "Chad", "Margareth", "Leek"]
 
 var poisonless_tip_amount = 5
 

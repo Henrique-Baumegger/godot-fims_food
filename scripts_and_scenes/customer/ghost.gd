@@ -8,7 +8,7 @@ const dead_tip_amount = 10
 
 @export var alive_sprites: Array[Texture2D]
 @export var dead_sprites: Array[Texture2D]
-const names : Array[String] = ["A", "B", "C", "D", "E"]
+const names : Array[String] = ["Phantom of Grief", "Ghost of Greed", "Spirit of distrust", "Specter of hatred", "Linda"]
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var tool_tip_area: Area2D = $ToolTipArea

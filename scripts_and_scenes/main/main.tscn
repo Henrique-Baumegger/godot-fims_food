@@ -2,10 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://faph87h4jkjb" path="res://scripts_and_scenes/ingredients/ingredient.tscn" id="1_8ngdv"]
 [ext_resource type="Script" uid="uid://cj3gs41xv2c5m" path="res://scripts_and_scenes/main/main.gd" id="1_cu7v3"]
-[ext_resource type="Texture2D" uid="uid://bh4my5fdbd7q3" path="res://art/place_holder/Garlic.webp" id="2_d75j7"]
-[ext_resource type="Texture2D" uid="uid://cpemjii06d5sa" path="res://art/place_holder/BotW_Rock_Salt_Icon.webp" id="4_cu7v3"]
+[ext_resource type="Texture2D" uid="uid://kynw3kqa7dla" path="res://art/food/poisons/garlic.png" id="4_cu7v3"]
 [ext_resource type="PackedScene" uid="uid://yylk8cf2d84s" path="res://scripts_and_scenes/table/table.tscn" id="4_d75j7"]
-[ext_resource type="Texture2D" uid="uid://c7y7bb2b4nlep" path="res://art/place_holder/silver.webp" id="6_6n4cw"]
+[ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="5_6n4cw"]
+[ext_resource type="Texture2D" uid="uid://bqa864xcxjlh4" path="res://art/food/poisons/silver.png" id="6_y5nuw"]
+[ext_resource type="Texture2D" uid="uid://cpco8dlho3uwe" path="res://art/food/dessert/drink g.png" id="7_qbahw"]
+[ext_resource type="Texture2D" uid="uid://ck2i48y4qpov6" path="res://art/food/dessert/drink p.png" id="8_86746"]
+[ext_resource type="Texture2D" uid="uid://b614ttf1mpkua" path="res://art/food/dessert/drink.png" id="9_e3vim"]
+[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="10_86746"]
 
 [node name="Main" type="Node2D" unique_id=959716859]
 script = ExtResource("1_cu7v3")
@@ -13,29 +17,50 @@ script = ExtResource("1_cu7v3")
 [node name="Table" parent="." unique_id=246802026 instance=ExtResource("4_d75j7")]
 position = Vector2(966, 548)
 
-[node name="Ingredient" parent="." unique_id=348821999 instance=ExtResource("1_8ngdv")]
-position = Vector2(378, 931)
+[node name="Onion" parent="." unique_id=348821999 instance=ExtResource("1_8ngdv")]
+position = Vector2(178, 944)
 ingredient_name = "vampire_poison"
-sprite = ExtResource("2_d75j7")
-initial_quantity = 99
-
-[node name="Ingredient2" parent="." unique_id=1030776605 instance=ExtResource("1_8ngdv")]
-position = Vector2(960, 945)
-ingredient_name = "skeleton_poison"
 sprite = ExtResource("4_cu7v3")
 initial_quantity = 99
 
-[node name="Ingredient3" parent="." unique_id=596190691 instance=ExtResource("1_8ngdv")]
-position = Vector2(1511, 946)
-ingredient_name = "ghost_poison"
-sprite = ExtResource("6_6n4cw")
+[node name="Salt" parent="." unique_id=1030776605 instance=ExtResource("1_8ngdv")]
+position = Vector2(415, 942)
+ingredient_name = "skeleton_poison"
+sprite = ExtResource("5_6n4cw")
 initial_quantity = 99
 
+[node name="Silver" parent="." unique_id=596190691 instance=ExtResource("1_8ngdv")]
+position = Vector2(650, 943)
+ingredient_name = "ghost_poison"
+sprite = ExtResource("6_y5nuw")
+initial_quantity = 99
+
+[node name="LeftDessert" parent="." unique_id=594223459 instance=ExtResource("1_8ngdv")]
+position = Vector2(934, 949)
+ingredient_name = "go_left_dessert"
+sprite = ExtResource("7_qbahw")
+initial_quantity = 3
+sprite_scale_mult = 1.9
+
+[node name="StayDessert" parent="." unique_id=184809859 instance=ExtResource("1_8ngdv")]
+position = Vector2(1172, 953)
+ingredient_name = "stay_dessert"
+sprite = ExtResource("8_86746")
+initial_quantity = 3
+sprite_scale_mult = 1.9
+
+[node name="RightDessert" parent="." unique_id=1082072973 instance=ExtResource("1_8ngdv")]
+position = Vector2(1404, 955)
+ingredient_name = "go_right_dessert"
+sprite = ExtResource("9_e3vim")
+initial_quantity = 3
+sprite_scale_mult = 1.9
+
 [node name="NextRound" type="Button" parent="." unique_id=1977712106]
-offset_left = 1665.0
-offset_top = 924.0
-offset_right = 1901.0
-offset_bottom = 1046.0
+offset_left = 1572.0
+offset_top = 918.0
+offset_right = 1808.0
+offset_bottom = 1040.0
 theme_override_font_sizes/font_size = 40
 text = "Next Round"
 
@@ -72,5 +97,10 @@ offset_right = 1730.0
 offset_bottom = 646.0
 theme_override_font_sizes/font_size = 125
 text = "You did not kill all dudes"
+
+[node name="BackGround" type="Sprite2D" parent="." unique_id=81512445]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("10_86746")
 
 [connection signal="pressed" from="NextRound" to="." method="_on_next_round_pressed"]

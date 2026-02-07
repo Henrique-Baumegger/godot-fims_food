@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://cy3u8ujq720yj"]
 
 [ext_resource type="Script" uid="uid://d2y0qgipcum2s" path="res://scripts_and_scenes/food/food.gd" id="1_aohis"]
-[ext_resource type="Texture2D" uid="uid://cud77rmjr53yj" path="res://art/place_holder/feijoada.png" id="2_q2kjr"]
+[ext_resource type="Texture2D" uid="uid://bjp1fg4matt2b" path="res://art/food/warm/beef.png" id="2_hpgca"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/new_theme.tres" id="3_h3cyt"]
+[ext_resource type="Texture2D" uid="uid://tqjoie2qw2gi" path="res://art/food/warm/chicken.png" id="3_xacjw"]
+[ext_resource type="Texture2D" uid="uid://cy7w643klhh1w" path="res://art/food/warm/pasta.png" id="4_skh7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aohis"]
 size = Vector2(90.79999, 88.09999)
 
-[node name="Food" type="Area2D" unique_id=1063911873 groups=["food_area"]]
+[node name="Food" type="Area2D" unique_id=1063911873 groups=["food_area", "round_dependers"]]
 z_index = 1
 script = ExtResource("1_aohis")
+list_of_sprites = Array[Texture]([ExtResource("2_hpgca"), ExtResource("3_xacjw"), ExtResource("4_skh7j")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930218971]
 position = Vector2(3.999998, 9.749992)
@@ -17,8 +20,8 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_aohis")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1433303779]
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("2_q2kjr")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_hpgca")
 
 [node name="Label" type="Label" parent="." unique_id=705170775]
 offset_left = -222.0

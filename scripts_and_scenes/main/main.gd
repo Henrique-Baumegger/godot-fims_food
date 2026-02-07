@@ -3,8 +3,8 @@ extends Node2D
 var current_round = 1
 var money = 0
 var time_between_rounds : float = 1
-var time_between_days: float = 2
-
+var time_between_days: float = 0.8
+var customers_already_sitting: bool = false
 
 @onready var money_label: Label = $MoneyLabel
 @onready var round_label: Label = $RoundLabel
@@ -17,6 +17,7 @@ func _ready() -> void:
 	get_tree().call_group("round_dependers", "start_day")
 	get_tree().call_group("round_dependers", "start_round")
 	make_connections()
+	next_round.text = "Move to dessets"
 
 
 func make_connections() -> void:
@@ -36,29 +37,43 @@ func _on_kills_you()-> void:
 
 
 func _on_next_round_pressed() -> void:
-	var last_round : bool = current_round >= 3
-	if last_round:
-		get_tree().call_group("round_dependers", "assign_food")
-		get_tree().call_group("round_dependers", "finish_round")
-		lose_the_day_check()
+	
+	if not customers_already_sitting:
+		get_tree().call_group("round_dependers", "clients_go_to_table")
+		customers_already_sitting = true
 		next_round.disabled = true
 		await get_tree().create_timer(time_between_days).timeout
-		get_tree().call_group("round_dependers", "finish_day")
-		await get_tree().create_timer(time_between_days).timeout
 		next_round.disabled = false
-		get_tree().call_group("round_dependers", "start_day")
-		get_tree().call_group("round_dependers", "start_round")
-		current_round = 1
-		make_connections()
+		next_round.text = "Finish round"
+		
 	else:
-		get_tree().call_group("round_dependers", "assign_food")
-		get_tree().call_group("round_dependers", "finish_round")
-		next_round.disabled = true
-		await get_tree().create_timer(time_between_rounds).timeout
-		next_round.disabled = false
-		get_tree().call_group("round_dependers", "start_round")
-		current_round += 1
-	round_label.text = "Round: "+ str(current_round)
+		var last_round : bool = current_round >= 3
+		if last_round:
+			get_tree().call_group("round_dependers", "assign_food")
+			get_tree().call_group("round_dependers", "finish_round")
+			lose_the_day_check()
+			next_round.disabled = true
+			await get_tree().create_timer(time_between_days).timeout
+			get_tree().call_group("round_dependers", "finish_day")
+			await get_tree().create_timer(time_between_days).timeout
+			next_round.disabled = false
+			get_tree().call_group("round_dependers", "start_day")
+			get_tree().call_group("round_dependers", "start_round")
+			current_round = 1
+			make_connections()
+			next_round.text = "Move to dessets"
+			customers_already_sitting = false
+		else:
+			get_tree().call_group("round_dependers", "assign_food")
+			get_tree().call_group("round_dependers", "finish_round")
+			next_round.disabled = true
+			await get_tree().create_timer(time_between_rounds).timeout
+			next_round.disabled = false
+			get_tree().call_group("round_dependers", "start_round")
+			current_round += 1
+			next_round.text = "Move to dessets"
+			customers_already_sitting = false
+	round_label.text = "Round: "+ str(current_round)+"/3"
 
 
 func lose_the_day_check() -> void: 

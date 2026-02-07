@@ -7,6 +7,15 @@ var list_of_foods_this_round : Array[Food]
 var clients_of_the_day : Array[Customer]
 var client_positions_of_this_round : Array[Customer]
 
+@onready var customer_list: Node2D = $CustomerList
+@onready var list_position_1: Marker2D = $CustomerList/list_position1
+@onready var list_position_2: Marker2D = $CustomerList/list_position2
+@onready var list_position_3: Marker2D = $CustomerList/list_position3
+@onready var list_position_4: Marker2D = $CustomerList/list_position4
+@onready var list_position_5: Marker2D = $CustomerList/list_position5
+@onready var label: Label = $CustomerList/Label
+
+
 @onready var food_1_position: Marker2D = $FoodPositions/Food1Position
 @onready var food_2_position: Marker2D = $FoodPositions/Food2Position
 @onready var food_3_position: Marker2D = $FoodPositions/Food3Position
@@ -20,23 +29,27 @@ var client_positions_of_this_round : Array[Customer]
 @onready var customer_5_position: Marker2D = $CustomerPositions/Customer5Position
 
 
+func start_day() -> void:
+	new_set_of_customers()
+
+
+func start_round() -> void:
+	handle_list(true)
+	new_round_of_food()
+
+
+func clients_go_to_table() -> void:
+	handle_list(false)
+	shuffle_customers()
+
+
 func assign_food() -> void:
 	for i in range(table_size):
 		client_positions_of_this_round[i].food_this_round = list_of_foods_this_round[i]
 
 
-func start_day() -> void:
-	new_set_of_customers()
-	set_new_customer_relations()
-
-
 func finish_day() -> void:
 	delete_current_customers()
-
-func start_round() -> void:
-	new_round_of_food()
-	shuffle_customers()
-	set_left_and_rights_of_customers()
 
 
 func new_round_of_food() -> void:
@@ -66,6 +79,7 @@ func new_set_of_customers() -> void:
 	clients_of_the_day = AssetDictionary.instantiate_random_customers(table_size)
 	for cust in clients_of_the_day:
 		add_child(cust)
+	set_new_customer_relations()
 
 
 func shuffle_customers() -> void:
@@ -81,6 +95,8 @@ func shuffle_customers() -> void:
 	for i in range(table_size):
 		var c: Customer = client_positions_of_this_round[i]
 		c.position = customer_markers[i].position
+	
+	set_left_and_rights_of_customers()
 
 
 func set_left_and_rights_of_customers() -> void:
@@ -106,8 +122,23 @@ func set_new_customer_relations() -> void:
 	customers_for_relations[3].hated_name = customers_for_relations[2].identity_name
 
 
-
-
+func handle_list(put_on_list: bool) -> void:
+	customer_list.visible = put_on_list
+	var list_markers: Array[Marker2D] = [
+		list_position_1,
+		list_position_2,
+		list_position_3,
+		list_position_4,
+		list_position_5
+	]
+	if put_on_list:
+		for i in range(table_size):
+			var c: Customer = clients_of_the_day[i]
+			c.position = list_markers[i].position
+			c.scale = Vector2.ONE * 0.5
+	else:
+		for c: Customer in clients_of_the_day:
+			c.scale = Vector2.ONE
 
 
 

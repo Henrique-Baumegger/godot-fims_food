@@ -7,6 +7,7 @@
 (not obligatory)
 	- func start_day() -> void:
 	- func start_round() -> void:
+	- func clients_go_to_table() -> void:
+	- func assign_food() -> void:
 	- func finish_round() -> void:
 	- func finish_day() -> void:
-	- func assign_food() -> void:

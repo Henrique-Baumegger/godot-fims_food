@@ -1,19 +1,18 @@
 [gd_scene format=3 uid="uid://5u6g4ksmn4tp"]
 
 [ext_resource type="Script" uid="uid://cf0bph7y7l82n" path="res://scripts_and_scenes/customer/vampire.gd" id="1_js6u7"]
-[ext_resource type="Texture2D" uid="uid://dwptq3m6hknxo" path="res://art/vampire/vampire1.png" id="2_wvpbf"]
-[ext_resource type="Texture2D" uid="uid://c72pekmj138hs" path="res://art/vampire/vampire2.png" id="3_78m3r"]
-[ext_resource type="Texture2D" uid="uid://byyq150c7bwg6" path="res://art/vampire/vampire3.png" id="4_qfupa"]
-[ext_resource type="Texture2D" uid="uid://bm26amqolheg8" path="res://art/vampire/vampire4.png" id="5_k3gdo"]
+[ext_resource type="Texture2D" uid="uid://dwptq3m6hknxo" path="res://art/characters/vampire/vampire1.png" id="2_wvpbf"]
+[ext_resource type="Texture2D" uid="uid://c72pekmj138hs" path="res://art/characters/vampire/vampire2.png" id="3_78m3r"]
+[ext_resource type="Texture2D" uid="uid://byyq150c7bwg6" path="res://art/characters/vampire/vampire3.png" id="4_qfupa"]
+[ext_resource type="Texture2D" uid="uid://bm26amqolheg8" path="res://art/characters/vampire/vampire4.png" id="5_k3gdo"]
 [ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="6_3ajja"]
-[ext_resource type="Texture2D" uid="uid://bmi6njxljtcf8" path="res://art/vampire/vampire5.png" id="6_l7adl"]
-[ext_resource type="Texture2D" uid="uid://clg788p2dhx2a" path="res://art/vampire/vampire1d.png" id="7_4igmh"]
+[ext_resource type="Texture2D" uid="uid://bmi6njxljtcf8" path="res://art/characters/vampire/vampire5.png" id="6_l7adl"]
+[ext_resource type="Texture2D" uid="uid://clg788p2dhx2a" path="res://art/characters/vampire/vampire1d.png" id="7_4igmh"]
 [ext_resource type="PackedScene" uid="uid://dv8xa6kl61ahd" path="res://scripts_and_scenes/UI/poison_indicator.tscn" id="7_kpu4f"]
-[ext_resource type="Texture2D" uid="uid://clo885p4hkli1" path="res://art/skeletons/skeleton1.png" id="7_pbexu"]
-[ext_resource type="Texture2D" uid="uid://dhngd2ib2vlmh" path="res://art/vampire/vampire2d.png" id="8_hsceg"]
-[ext_resource type="Texture2D" uid="uid://5kiu4yg0a3q1" path="res://art/vampire/vampire3d.png" id="9_oayg1"]
-[ext_resource type="Texture2D" uid="uid://eb50yj5iku6g" path="res://art/vampire/vampire4d.png" id="10_q4a45"]
-[ext_resource type="Texture2D" uid="uid://cyuy4cxjo30ic" path="res://art/vampire/vampire5d.png" id="11_up04k"]
+[ext_resource type="Texture2D" uid="uid://dhngd2ib2vlmh" path="res://art/characters/vampire/vampire2d.png" id="8_hsceg"]
+[ext_resource type="Texture2D" uid="uid://5kiu4yg0a3q1" path="res://art/characters/vampire/vampire3d.png" id="9_oayg1"]
+[ext_resource type="Texture2D" uid="uid://eb50yj5iku6g" path="res://art/characters/vampire/vampire4d.png" id="10_q4a45"]
+[ext_resource type="Texture2D" uid="uid://cyuy4cxjo30ic" path="res://art/characters/vampire/vampire5d.png" id="11_up04k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbexu"]
 size = Vector2(208, 232)
@@ -26,7 +25,7 @@ dead_sprites = Array[Texture2D]([ExtResource("7_4igmh"), ExtResource("8_hsceg"),
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=347719945]
 position = Vector2(342.00003, 457)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("7_pbexu")
+texture = ExtResource("2_wvpbf")
 
 [node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("6_3ajja")]
 displayed_text = "[b] Vampire [/b]
@@ -37,6 +36,6 @@ position = Vector2(14, 12)
 shape = SubResource("RectangleShape2D_pbexu")
 
 [node name="PoisonIndicator" parent="." unique_id=416598971 instance=ExtResource("7_kpu4f")]
-offset_left = 47.0
+offset_left = 64.0
 offset_top = -38.0
-offset_right = 114.0
+offset_right = 131.0

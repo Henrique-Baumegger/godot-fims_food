@@ -27,8 +27,10 @@ signal dies
 @abstract func set_max_poison_and_client_type() -> void
 @abstract func extra_child_finish_round_logic() ->void
 @abstract func get_tool_tip_area() -> ToolTipArea
+@abstract func get_collider_of_tool_tip() -> CollisionShape2D
 @abstract func get_poison_indicator() -> PoisonIndicator
-
+@abstract func get_sprite() -> Sprite2D
+@abstract func get_counter_position(on_list) -> Marker2D
 
 func _ready() -> void:
 	add_to_group("customers")
@@ -39,6 +41,23 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	get_tool_tip_area().displayed_text = tool_tip_text()
 	get_poison_indicator().set_poison_indicator(current_poison, max_poison, dead)
+	if is_lover:
+		get_poison_indicator() .make_green()
+	if is_hater:
+		get_poison_indicator() .make_red()
+
+
+func list_format(make_list : bool) -> void:
+	var list_scale = 0.625
+	var normal_scale = 1.25
+	if make_list:
+		get_collider_of_tool_tip().scale = Vector2.ONE * list_scale
+		get_sprite().scale = Vector2.ONE * list_scale
+		get_poison_indicator().position = get_counter_position(true).position
+	else:
+		get_collider_of_tool_tip().scale = Vector2.ONE * normal_scale
+		get_sprite().scale = Vector2.ONE * normal_scale
+		get_poison_indicator().position = get_counter_position(false).position
 
 
 func finish_round() -> void:

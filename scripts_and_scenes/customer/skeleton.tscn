@@ -23,9 +23,9 @@ alive_sprites = Array[Texture2D]([ExtResource("2_27cea"), ExtResource("3_pqvvh")
 dead_sprites = Array[Texture2D]([ExtResource("7_vcck5"), ExtResource("8_qcjxa"), ExtResource("9_ejfx8"), ExtResource("10_a5qyi"), ExtResource("11_pvdd6")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914400132]
-position = Vector2(342.00003, 457)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_jondo")
+offset = Vector2(274, 365)
 
 [node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_k1ayw")]
 displayed_text = "[center][b]Big Bones[/b]
@@ -36,6 +36,13 @@ position = Vector2(14.25, 4)
 shape = SubResource("RectangleShape2D_ap04t")
 
 [node name="PoisonIndicator" parent="." unique_id=416598971 instance=ExtResource("7_pqvvh")]
-offset_left = 42.0
-offset_top = -38.0
-offset_right = 109.0
+offset_left = 57.0
+offset_top = -39.0
+offset_right = 124.0
+offset_bottom = -1.0
+
+[node name="NormalCounterPos" type="Marker2D" parent="." unique_id=1516056754]
+position = Vector2(57, -39)
+
+[node name="ListCounterPost" type="Marker2D" parent="." unique_id=1489160873]
+position = Vector2(-33, 72)

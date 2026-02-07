@@ -23,17 +23,24 @@ alive_sprites = Array[Texture2D]([ExtResource("2_yam2q"), ExtResource("3_2xovo")
 dead_sprites = Array[Texture2D]([ExtResource("7_whtnd"), ExtResource("8_jtwfd"), ExtResource("9_npa8u"), ExtResource("10_5tpr8"), ExtResource("11_2ob77")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1333112842]
-position = Vector2(342.00003, 457)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_yam2q")
+offset = Vector2(274, 365)
 
 [node name="PoisonIndicator" parent="." unique_id=416598971 instance=ExtResource("7_yam2q")]
-offset_left = 88.0
-offset_top = -38.0
-offset_right = 155.0
+offset_left = 57.0
+offset_top = -39.0
+offset_right = 124.0
+offset_bottom = -1.0
 
 [node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("8_2xovo")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=788015626]
 position = Vector2(-2, -15.375)
 shape = SubResource("RectangleShape2D_u6df7")
+
+[node name="NormalCounterPos" type="Marker2D" parent="." unique_id=1688184170]
+position = Vector2(57, -39)
+
+[node name="ListCounterPost" type="Marker2D" parent="." unique_id=6821710]
+position = Vector2(-33, 72)

@@ -108,18 +108,14 @@ func set_left_and_rights_of_customers() -> void:
 
 
 func set_new_customer_relations() -> void:
-	var customers_for_relations : Array[Customer]
-	customers_for_relations = clients_of_the_day.duplicate()
-	customers_for_relations.erase(customers_for_relations.pick_random())
-	customers_for_relations.shuffle()
-	customers_for_relations[0].is_lover = true
-	customers_for_relations[1].is_lover = true
-	customers_for_relations[0].loved_name = customers_for_relations[1].identity_name
-	customers_for_relations[1].loved_name = customers_for_relations[0].identity_name
-	customers_for_relations[2].is_hater = true
-	customers_for_relations[3].is_hater = true
-	customers_for_relations[2].hated_name = customers_for_relations[3].identity_name
-	customers_for_relations[3].hated_name = customers_for_relations[2].identity_name
+	clients_of_the_day[0].is_lover = true
+	clients_of_the_day[1].is_lover = true
+	clients_of_the_day[0].loved_name = clients_of_the_day[1].identity_name
+	clients_of_the_day[1].loved_name = clients_of_the_day[0].identity_name
+	clients_of_the_day[2].is_hater = true
+	clients_of_the_day[3].is_hater = true
+	clients_of_the_day[2].hated_name = clients_of_the_day[3].identity_name
+	clients_of_the_day[3].hated_name = clients_of_the_day[2].identity_name
 
 
 func handle_list(put_on_list: bool) -> void:
@@ -135,10 +131,10 @@ func handle_list(put_on_list: bool) -> void:
 		for i in range(table_size):
 			var c: Customer = clients_of_the_day[i]
 			c.position = list_markers[i].position
-			c.scale = Vector2.ONE * 0.5
+			c.list_format(true)
 	else:
 		for c: Customer in clients_of_the_day:
-			c.scale = Vector2.ONE
+			c.list_format(false)
 
 
 

@@ -14,7 +14,24 @@ var poisonless_tip_amount = 5
 @onready var tool_tip_area: Area2D = $ToolTipArea
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var poison_indicator: PoisonIndicator = $PoisonIndicator
+@onready var collision_shape_2d: CollisionShape2D = $ToolTipArea/CollisionShape2D
+@onready var normal_counter_pos: Marker2D = $NormalCounterPos
+@onready var list_counter_post: Marker2D = $ListCounterPost
 
+
+func get_counter_position(on_list) -> Marker2D:
+	if on_list:
+		return list_counter_post
+	else:
+		return normal_counter_pos
+
+
+func get_sprite() -> Sprite2D:
+	return sprite_2d
+
+
+func get_collider_of_tool_tip() -> CollisionShape2D:
+	return collision_shape_2d
 
 func get_tool_tip_area() -> ToolTipArea:
 	return tool_tip_area

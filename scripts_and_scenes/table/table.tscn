@@ -38,19 +38,19 @@ texture = ExtResource("6_4m5wr")
 [node name="FoodPositions" type="Node2D" parent="." unique_id=1491461972]
 
 [node name="Food1Position" type="Marker2D" parent="FoodPositions" unique_id=626382619]
-position = Vector2(-692, -198)
+position = Vector2(-692, -230)
 
 [node name="Food2Position" type="Marker2D" parent="FoodPositions" unique_id=1949923779]
-position = Vector2(-324, -186)
+position = Vector2(-324, -230)
 
 [node name="Food3Position" type="Marker2D" parent="FoodPositions" unique_id=871336898]
-position = Vector2(3, -180)
+position = Vector2(3, -230)
 
 [node name="Food4Position" type="Marker2D" parent="FoodPositions" unique_id=1043265175]
-position = Vector2(344, -189)
+position = Vector2(344, -230)
 
 [node name="Food5Position" type="Marker2D" parent="FoodPositions" unique_id=225601222]
-position = Vector2(738, -188)
+position = Vector2(738, -230)
 
 [node name="CustomerPositions" type="Node2D" parent="." unique_id=452383670]
 
@@ -72,25 +72,25 @@ position = Vector2(684, -377)
 [node name="CustomerList" type="Node2D" parent="." unique_id=1065999942]
 
 [node name="list_position1" type="Marker2D" parent="CustomerList" unique_id=1532930138]
-position = Vector2(-275, -460)
+position = Vector2(-280, -460)
 
 [node name="list_position2" type="Marker2D" parent="CustomerList" unique_id=563355306]
-position = Vector2(-135, -460)
+position = Vector2(-140, -460)
 
 [node name="list_position3" type="Marker2D" parent="CustomerList" unique_id=1948745618]
-position = Vector2(1, -460)
+position = Vector2(0, -460)
 
 [node name="list_position4" type="Marker2D" parent="CustomerList" unique_id=1736282547]
-position = Vector2(145, -460)
+position = Vector2(140, -460)
 
 [node name="list_position5" type="Marker2D" parent="CustomerList" unique_id=879663938]
-position = Vector2(277, -460)
+position = Vector2(280, -460)
 
 [node name="Label" type="Label" parent="CustomerList" unique_id=1104054420]
-offset_left = -688.0
-offset_top = -501.0
-offset_right = -349.0
-offset_bottom = -446.0
+offset_left = -698.0
+offset_top = -496.0
+offset_right = -359.0
+offset_bottom = -441.0
 theme = ExtResource("8_8e2ag")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Customers today:"

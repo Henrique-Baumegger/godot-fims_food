@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 	tip_panel.global_position = p
 
 
-
 func toggle(on: bool):
 	if on:
 		tip_panel.visible = true

@@ -2,8 +2,11 @@ extends Customer
 class_name Vampire
 
 static var id = 0
+var this_instance_id
 
-@export var sprites: Array[Texture2D]
+@export var alive_sprites: Array[Texture2D]
+@export var dead_sprites: Array[Texture2D]
+
 const names : Array[String] = ["Bald B", "Bloody Baron", "Tooth", "Liut", "Putz"]
 
 var poisonless_tip_amount = 5
@@ -25,12 +28,14 @@ func _ready() -> void:
 	super._ready()
 	dies.connect(_on_death)
 	id = (id+1) % 5
-	sprite_2d.texture = sprites[id]
-	identity_name = names[id]
+	this_instance_id = id
+	sprite_2d.texture = alive_sprites[this_instance_id]
+	identity_name = names[this_instance_id]
 
 
 func _on_death ()-> void:
-	pass
+	sprite_2d.texture = dead_sprites[this_instance_id]
+
 
 
 func set_max_poison_and_client_type() -> void:

@@ -5,8 +5,14 @@ var current_poison : int = 0
 var food_this_round : Food = null # Should be assigned by game loop each round
 var dead : bool = false
 var identity_name : String 
-var likes : String
-var hates : String
+
+var is_lover : bool
+var is_hater : bool
+var loved_name : String 
+var hated_name : String
+var left_customer : Customer = null
+var right_customer : Customer = null
+
 var percentage_probability_mult_kill_you : float = 0.333
 
 
@@ -59,7 +65,23 @@ func dying_check() -> void:
 
 
 func eat_food() -> void:
-	current_poison += food_this_round.ingredients_present[client_type + "_poison"]
+	var is_seating_next_to_hated : bool = is_hater and \
+	((left_customer != null and left_customer.identity_name == hated_name )or \
+	(right_customer != null and right_customer.identity_name == hated_name))
+	
+	var is_seating_next_to_loved : bool = is_lover and \
+	((left_customer != null and left_customer.identity_name == loved_name )or \
+	(right_customer != null and right_customer.identity_name == loved_name))
+	
+	var potential_love_multiplier = 1
+	
+	if is_seating_next_to_loved:
+		potential_love_multiplier = 2
+	
+	if not is_seating_next_to_hated:
+		current_poison += potential_love_multiplier * food_this_round.ingredients_present[client_type + "_poison"]
+	
+	food_this_round.queue_free()
 	food_this_round = null
  
 
@@ -67,10 +89,11 @@ func eat_food() -> void:
 
 #region func tool_tip_text() -> String:
 func tool_tip_text() -> String:
-	var identity_part = "[center][b]"+identity_name+"[/b][/center]"
+	var identity_part = "[center][b]" + identity_name + "[/b][/center]"
 	if dead:
-		identity_part = "[center][img=64]res://art/enviroment/gravestone good.png[/img][b][color=#8a8a8a] "+identity_name+" [/color][/b][img=64]res://art/enviroment/gravestone good.png[/img][/center]"
-	var type_description
+		identity_part = "[center][img=64]res://art/enviroment/gravestone good.png[/img][b][color=#8a8a8a] " + identity_name + " [/color][/b][img=64]res://art/enviroment/gravestone good.png[/img][/center]"
+	
+	var type_description: String = ""
 	if client_type == "skeleton":
 		type_description = "[b]SKELETON[/b] — Doubles its poison every round end."
 	elif client_type == "vampire":
@@ -78,24 +101,30 @@ func tool_tip_text() -> String:
 	elif client_type == "ghost":
 		type_description = "[b]GHOST[/b] - Will tip 10 doubloons before eating if dead."
 	
+	var lover_line := ""
+	if is_lover:
+		lover_line = "\nWhile sitting next to [color=#6bff95]" + loved_name + "[/color] : will [color=#6bff95]eat double poison.[/color]\n"
+	
+	var hater_line := ""
+	if is_hater:
+		hater_line = "\nWhile sitting next to [color=#ff6b6b]" + hated_name + "[/color] : will [color=#ff6b6b]not eat.[/color]\n"
+	
 	var description := """{identity_part}
 
 {type_description}
-
-When sitting next to [color=#6bff95]{likes}[/color] will [color=#6bff95]eat double the poison[/color] this round.
-
-When sitting next to [color=#ff6b6b]{hates}[/color] will [color=#ff6b6b]eat no poison[/color] this round.
-
+{lover_line}{hater_line}
 [center][b]Poison: [color=#b36bff]{current_poison} / {max_poison}[/color][/b][/center]
 """.format({
-	"likes": likes,
-	"hates": hates, 
-	"current_poison": current_poison,
-	"type_description": type_description,
-	"max_poison": max_poison,
-	"identity_part": identity_part
-})
+		"current_poison": current_poison,
+		"type_description": type_description,
+		"max_poison": max_poison,
+		"identity_part": identity_part,
+		"lover_line": lover_line,
+		"hater_line": hater_line,
+	})
+	
 	return description
+
 #endregion
 
 

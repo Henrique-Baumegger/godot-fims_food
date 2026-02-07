@@ -57,19 +57,19 @@ text = "Round 1"
 
 [node name="YouDieLabel" type="Label" parent="." unique_id=1284491248]
 visible = false
-offset_left = 548.0
-offset_top = 447.0
-offset_right = 1468.0
-offset_bottom = 769.0
+offset_left = 577.0
+offset_top = 529.0
+offset_right = 1497.0
+offset_bottom = 851.0
 theme_override_font_sizes/font_size = 125
 text = "You were killed"
 
 [node name="EndOfDayLose" type="Label" parent="." unique_id=934299594]
 visible = false
-offset_left = 244.0
-offset_top = 61.0
-offset_right = 1719.0
-offset_bottom = 260.0
+offset_left = 255.0
+offset_top = 447.0
+offset_right = 1730.0
+offset_bottom = 646.0
 theme_override_font_sizes/font_size = 125
 text = "You did not kill all dudes"
 

@@ -13,7 +13,6 @@ var customers_already_sitting: bool = false
 @onready var end_of_day_lose: Label = $EndOfDayLose
 
 func _ready() -> void:
-	
 	get_tree().call_group("round_dependers", "start_day")
 	get_tree().call_group("round_dependers", "start_round")
 	make_connections()

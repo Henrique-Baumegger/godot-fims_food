@@ -78,13 +78,13 @@ position = Vector2(-275, -460)
 position = Vector2(-135, -460)
 
 [node name="list_position3" type="Marker2D" parent="CustomerList" unique_id=1948745618]
-position = Vector2(0, -460)
+position = Vector2(1, -460)
 
 [node name="list_position4" type="Marker2D" parent="CustomerList" unique_id=1736282547]
-position = Vector2(154, -460)
+position = Vector2(145, -460)
 
 [node name="list_position5" type="Marker2D" parent="CustomerList" unique_id=879663938]
-position = Vector2(279, -460)
+position = Vector2(277, -460)
 
 [node name="Label" type="Label" parent="CustomerList" unique_id=1104054420]
 offset_left = -688.0

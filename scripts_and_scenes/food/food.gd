@@ -12,18 +12,14 @@ var warm_food_step : bool
 
 
 func _ready() -> void:
+	warm_food_step = true
 	ingredients_present = AllIngredientsHelper.get_empty_ingredients_base_dictionary_copy()
 	max_amount_for_each_ingredient = AllIngredientsHelper.get_max_amount_for_each_ingredient_dictionary_copy()
 	sprite_2d.texture = list_of_sprites.pick_random()
 
 
-func start_round() -> void:
-	print ("warm food")
-	warm_food_step = true
-
 
 func clients_go_to_table() -> void:
-	print ("dessert")
 	warm_food_step = false
 
 

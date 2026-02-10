@@ -22,7 +22,6 @@ window/size/viewport_height=1080
 [global_group]
 
 food_area="Food areas 2D"
-round_dependers=""
 customers=""
 
 [input]

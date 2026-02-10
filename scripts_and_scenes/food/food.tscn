@@ -16,7 +16,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aohis"]
 size = Vector2(90.79999, 159.67499)
 
-[node name="Food" type="Area2D" unique_id=1063911873 groups=["food_area", "round_dependers"]]
+[node name="Food" type="Area2D" unique_id=1063911873 groups=["food_area"]]
 z_index = 1
 script = ExtResource("1_aohis")
 list_of_foo_sprites = Array[Texture]([ExtResource("2_hpgca"), ExtResource("3_xacjw"), ExtResource("4_a75k6"), ExtResource("5_xacjw"), ExtResource("4_skh7j")])

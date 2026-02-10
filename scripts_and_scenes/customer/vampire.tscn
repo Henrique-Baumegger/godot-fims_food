@@ -17,7 +17,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbexu"]
 size = Vector2(208, 232)
 
-[node name="Vampire" type="Node2D" unique_id=3934645 groups=["customers", "round_dependers"]]
+[node name="Vampire" type="Node2D" unique_id=3934645 groups=["customers"]]
 script = ExtResource("1_js6u7")
 alive_sprites = Array[Texture2D]([ExtResource("2_wvpbf"), ExtResource("3_78m3r"), ExtResource("4_qfupa"), ExtResource("5_k3gdo"), ExtResource("6_l7adl")])
 dead_sprites = Array[Texture2D]([ExtResource("7_4igmh"), ExtResource("8_hsceg"), ExtResource("9_oayg1"), ExtResource("10_q4a45"), ExtResource("11_up04k")])

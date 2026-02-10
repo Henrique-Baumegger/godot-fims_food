@@ -1,7 +1,7 @@
 extends Area2D
 class_name Food
 
-var ingredients_present : Dictionary[String, int]
+var ingredients_present : Dictionary[Customer.Creatures, int]
 var max_amount_for_each_ingredient : Dictionary[String, int]
 var warm_food_step : bool
 
@@ -23,6 +23,7 @@ func _ready() -> void:
 	max_amount_for_each_ingredient = AllIngredientsHelper.get_max_amount_for_each_ingredient_dictionary_copy()
 	food_sprite.texture = list_of_foo_sprites.pick_random()
 	rich_text_label.visible = false
+
 
 
 

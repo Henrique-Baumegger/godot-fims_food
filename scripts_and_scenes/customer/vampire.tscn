@@ -1,48 +1,24 @@
 [gd_scene format=3 uid="uid://5u6g4ksmn4tp"]
 
+[ext_resource type="PackedScene" uid="uid://b04d3wilep18r" path="res://scripts_and_scenes/customer/customer.tscn" id="1_6fg48"]
 [ext_resource type="Script" uid="uid://cf0bph7y7l82n" path="res://scripts_and_scenes/customer/vampire.gd" id="1_js6u7"]
 [ext_resource type="Texture2D" uid="uid://dwptq3m6hknxo" path="res://art/characters/vampire/vampire1.png" id="2_wvpbf"]
 [ext_resource type="Texture2D" uid="uid://c72pekmj138hs" path="res://art/characters/vampire/vampire2.png" id="3_78m3r"]
 [ext_resource type="Texture2D" uid="uid://byyq150c7bwg6" path="res://art/characters/vampire/vampire3.png" id="4_qfupa"]
 [ext_resource type="Texture2D" uid="uid://bm26amqolheg8" path="res://art/characters/vampire/vampire4.png" id="5_k3gdo"]
-[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="6_3ajja"]
 [ext_resource type="Texture2D" uid="uid://bmi6njxljtcf8" path="res://art/characters/vampire/vampire5.png" id="6_l7adl"]
 [ext_resource type="Texture2D" uid="uid://clg788p2dhx2a" path="res://art/characters/vampire/vampire1d.png" id="7_4igmh"]
-[ext_resource type="PackedScene" uid="uid://dv8xa6kl61ahd" path="res://scripts_and_scenes/UI/poison_indicator.tscn" id="7_kpu4f"]
 [ext_resource type="Texture2D" uid="uid://dhngd2ib2vlmh" path="res://art/characters/vampire/vampire2d.png" id="8_hsceg"]
 [ext_resource type="Texture2D" uid="uid://5kiu4yg0a3q1" path="res://art/characters/vampire/vampire3d.png" id="9_oayg1"]
 [ext_resource type="Texture2D" uid="uid://eb50yj5iku6g" path="res://art/characters/vampire/vampire4d.png" id="10_q4a45"]
 [ext_resource type="Texture2D" uid="uid://cyuy4cxjo30ic" path="res://art/characters/vampire/vampire5d.png" id="11_up04k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbexu"]
-size = Vector2(208, 232)
+[node name="Vampire" type="Node2D" unique_id=3934645]
 
-[node name="Vampire" type="Node2D" unique_id=3934645 groups=["customers"]]
+[node name="Customer" parent="." unique_id=1737731592 instance=ExtResource("1_6fg48")]
 script = ExtResource("1_js6u7")
-alive_sprites = Array[Texture2D]([ExtResource("2_wvpbf"), ExtResource("3_78m3r"), ExtResource("4_qfupa"), ExtResource("5_k3gdo"), ExtResource("6_l7adl")])
-dead_sprites = Array[Texture2D]([ExtResource("7_4igmh"), ExtResource("8_hsceg"), ExtResource("9_oayg1"), ExtResource("10_q4a45"), ExtResource("11_up04k")])
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=347719945]
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_wvpbf")
-offset = Vector2(274, 365)
-
-[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("6_3ajja")]
-displayed_text = "[b] Vampire [/b]
-He goes brrrrrrrrrrr"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=554671994]
-position = Vector2(4, 8)
-shape = SubResource("RectangleShape2D_pbexu")
-
-[node name="PoisonIndicator" parent="." unique_id=416598971 instance=ExtResource("7_kpu4f")]
-offset_left = 57.0
-offset_top = -39.0
-offset_right = 124.0
-offset_bottom = -1.0
-
-[node name="NormalCounterPos" type="Marker2D" parent="." unique_id=1123650398]
-position = Vector2(57, -39)
-
-[node name="ListCounterPost" type="Marker2D" parent="." unique_id=1119752031]
-position = Vector2(-29, 72)
+creature_type = 3
+max_poison = 10
+names_per_id = Array[String](["Ariela", "Catty", "Chad", "Margareth", "Leek"])
+alive_textures_per_id = Array[Texture2D]([ExtResource("2_wvpbf"), ExtResource("3_78m3r"), ExtResource("4_qfupa"), ExtResource("5_k3gdo"), ExtResource("6_l7adl")])
+dead_textures_per_id = Array[Texture2D]([ExtResource("7_4igmh"), ExtResource("8_hsceg"), ExtResource("9_oayg1"), ExtResource("10_q4a45"), ExtResource("11_up04k")])

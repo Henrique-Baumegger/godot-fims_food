@@ -1,7 +1,9 @@
 extends Area2D
+## This class needs a collisonShape2D as a child to work
 class_name ToolTipArea
 
 const OFFSET: Vector2 = Vector2.ONE * 60.0
+
 var opacity_tween: Tween = null
 
 @export_multiline var displayed_text : String = ""
@@ -10,8 +12,12 @@ var opacity_tween: Tween = null
 @onready var rich_text_label: RichTextLabel = $TipPanel/MarginContainer/RichTextLabel
 
 
-func _process(_delta: float) -> void:
+func change_displayed_text(new_text : String) -> void:
+	displayed_text = new_text
 	rich_text_label.text = displayed_text
+
+
+func _process(_delta: float) -> void:
 	if not tip_panel.visible:
 		return
 	var vp := get_viewport_rect().size
@@ -22,19 +28,19 @@ func _process(_delta: float) -> void:
 	tip_panel.global_position = p
 
 
-func toggle(on: bool):
+func _toggle(on: bool):
 	if on:
 		tip_panel.visible = true
 		tip_panel.modulate.a = 0.0
-		tween_opacity(1.0)
+		_tween_opacity(1.0)
 	else:
 		tip_panel.modulate.a = 1.0
-		await tween_opacity(0.0).finished
+		await _tween_opacity(0.0).finished
 		tip_panel.visible = false
 		tip_panel.position = Vector2.ZERO # relative to parent
 
 
-func tween_opacity(to: float):
+func _tween_opacity(to: float):
 	if opacity_tween:
 		opacity_tween.kill()
 	opacity_tween = get_tree().create_tween()
@@ -43,8 +49,8 @@ func tween_opacity(to: float):
 
 
 func _on_mouse_entered() -> void:
-	toggle(true)
+	_toggle(true)
 
 
 func _on_mouse_exited() -> void:
-	toggle(false)
+	_toggle(false)

@@ -1,48 +1,24 @@
 [gd_scene format=3 uid="uid://b62ng2ie1m0rd"]
 
+[ext_resource type="PackedScene" uid="uid://b04d3wilep18r" path="res://scripts_and_scenes/customer/customer.tscn" id="1_6l7rs"]
 [ext_resource type="Script" uid="uid://brng8om06cwia" path="res://scripts_and_scenes/customer/skeleton.gd" id="1_ybtii"]
 [ext_resource type="Texture2D" uid="uid://clo885p4hkli1" path="res://art/characters/skeletons/skeleton1.png" id="2_27cea"]
 [ext_resource type="Texture2D" uid="uid://d1ypgbc4ntrnc" path="res://art/characters/skeletons/skeleton3.png" id="2_jondo"]
-[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_k1ayw"]
 [ext_resource type="Texture2D" uid="uid://cc8icgq8exb6l" path="res://art/characters/skeletons/skeleton2.png" id="3_pqvvh"]
 [ext_resource type="Texture2D" uid="uid://dwr2t2m0lnf8e" path="res://art/characters/skeletons/skeleton4.png" id="5_abggj"]
 [ext_resource type="Texture2D" uid="uid://dw81lpm0koujt" path="res://art/characters/skeletons/skeleton5.png" id="6_abggj"]
-[ext_resource type="PackedScene" uid="uid://dv8xa6kl61ahd" path="res://scripts_and_scenes/UI/poison_indicator.tscn" id="7_pqvvh"]
 [ext_resource type="Texture2D" uid="uid://cuywldlx7ncf5" path="res://art/characters/skeletons/skeleton1d.png" id="7_vcck5"]
 [ext_resource type="Texture2D" uid="uid://dlncfwesos52a" path="res://art/characters/skeletons/skeleton2d.png" id="8_qcjxa"]
 [ext_resource type="Texture2D" uid="uid://ctprrwf5itf4n" path="res://art/characters/skeletons/skeleton3d.png" id="9_ejfx8"]
 [ext_resource type="Texture2D" uid="uid://ky2lq66301jw" path="res://art/characters/skeletons/skeleton4d.png" id="10_a5qyi"]
 [ext_resource type="Texture2D" uid="uid://vledc1gce23d" path="res://art/characters/skeletons/skeleton5d.png" id="11_pvdd6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ap04t"]
-size = Vector2(181.5, 254)
-
 [node name="Skeleton" type="Node2D" unique_id=925178601]
+
+[node name="Customer" parent="." unique_id=1737731592 instance=ExtResource("1_6l7rs")]
 script = ExtResource("1_ybtii")
-alive_sprites = Array[Texture2D]([ExtResource("2_27cea"), ExtResource("3_pqvvh"), ExtResource("2_jondo"), ExtResource("5_abggj"), ExtResource("6_abggj")])
-dead_sprites = Array[Texture2D]([ExtResource("7_vcck5"), ExtResource("8_qcjxa"), ExtResource("9_ejfx8"), ExtResource("10_a5qyi"), ExtResource("11_pvdd6")])
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914400132]
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_jondo")
-offset = Vector2(274, 365)
-
-[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_k1ayw")]
-displayed_text = "[center][b]Big Bones[/b]
-"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=1295749860]
-position = Vector2(14.25, 4)
-shape = SubResource("RectangleShape2D_ap04t")
-
-[node name="PoisonIndicator" parent="." unique_id=416598971 instance=ExtResource("7_pqvvh")]
-offset_left = 57.0
-offset_top = -39.0
-offset_right = 124.0
-offset_bottom = -1.0
-
-[node name="NormalCounterPos" type="Marker2D" parent="." unique_id=1516056754]
-position = Vector2(57, -39)
-
-[node name="ListCounterPost" type="Marker2D" parent="." unique_id=1489160873]
-position = Vector2(-33, 72)
+creature_type = 2
+max_poison = 20
+names_per_id = Array[String](["Sir calcium", "Ms. Sturdy", "Skulless lord", "Dead Steven", "Bob Bones"])
+alive_textures_per_id = Array[Texture2D]([ExtResource("2_27cea"), ExtResource("3_pqvvh"), ExtResource("2_jondo"), ExtResource("5_abggj"), ExtResource("6_abggj")])
+dead_textures_per_id = Array[Texture2D]([ExtResource("7_vcck5"), ExtResource("8_qcjxa"), ExtResource("9_ejfx8"), ExtResource("10_a5qyi"), ExtResource("11_pvdd6")])

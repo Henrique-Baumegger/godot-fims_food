@@ -1,11 +1,18 @@
-extends Area2D
+## Lifecycle functions that should be called by parent:
+## clients_go_drink_step()
 class_name Food
+extends Area2D
 
-var ingredients_present : Dictionary[Customer.Creatures, int]
-var max_amount_for_each_ingredient : Dictionary[String, int]
+
+enum Drinks {GO_LEFT, GO_RIGHT, STAY}
+
+
+@export var list_of_warm_food_textures : Array[Texture]
+
+
+var poison_present : Dictionary[Customer.Creatures, int]
+var single_drink_present : Drinks
 var warm_food_step : bool
-
-@export var list_of_foo_sprites : Array[Texture]
 
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
 @onready var food_sprite: Sprite2D = $FoodSprite
@@ -15,19 +22,21 @@ var warm_food_step : bool
 @onready var mini_garlic: Sprite2D = $MiniGarlic
 @onready var mini_salt: Sprite2D = $MiniSalt
 @onready var mini_silver: Sprite2D = $MiniSilver
+@onready var sprite_2d_of_poison_type: Dictionary[Customer.Creatures, Sprite2D] = {
+	Customer.Creatures.GHOST: mini_garlic,
+	Customer.Creatures.SKELETON: mini_salt,
+	Customer.Creatures.VAMPIRE: mini_silver
+}
 
 
 func _ready() -> void:
 	warm_food_step = true
-	ingredients_present = AllIngredientsHelper.get_empty_ingredients_base_dictionary_copy()
 	max_amount_for_each_ingredient = AllIngredientsHelper.get_max_amount_for_each_ingredient_dictionary_copy()
 	food_sprite.texture = list_of_foo_sprites.pick_random()
 	rich_text_label.visible = false
 
 
-
-
-func clients_go_to_table() -> void:
+func clients_go_drink_step() -> void:
 	warm_food_step = false
 
 

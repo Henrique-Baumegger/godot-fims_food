@@ -26,6 +26,26 @@ position = Vector2(3.999998, 81.325)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_aohis")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=890447616]
+visible = false
+offset_left = -80.0
+offset_top = 75.0
+offset_right = -40.0
+offset_bottom = 246.0
+size_flags_horizontal = 3
+theme_override_constants/line_separation = 12
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "0
+0
+0"
+fit_content = true
+autowrap_mode = 0
+
 [node name="FoodSprite" type="Sprite2D" parent="." unique_id=1433303779]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_hpgca")
@@ -47,26 +67,6 @@ visible = false
 position = Vector2(34, 155)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("6_malub")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=890447616]
-visible = false
-offset_left = -80.0
-offset_top = 75.0
-offset_right = -40.0
-offset_bottom = 183.0
-size_flags_horizontal = 3
-theme_override_constants/line_separation = 12
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-bbcode_enabled = true
-text = "0
-0
-0"
-fit_content = true
-autowrap_mode = 0
 
 [node name="MiniGarlic" type="Sprite2D" parent="." unique_id=815083377]
 visible = false

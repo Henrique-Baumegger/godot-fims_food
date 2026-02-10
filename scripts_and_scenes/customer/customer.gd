@@ -98,6 +98,17 @@ var percentage_probability_mult_kill_you : float = float(1)/float(3)
 #endregion
 
 
+func set_up_relations(loved:Customer, hated:Customer) -> void:
+	if loved != null:
+		loved_customer = loved
+		is_lover = true
+		poison_indicator.make_green()
+	elif hated != null:
+		hated_customer = hated
+		is_hater = true
+		poison_indicator.make_red()
+
+
 func make_list_format(make_list : bool) -> void:
 	var list_scale = 0.625
 	var normal_scale = 1.25
@@ -188,10 +199,6 @@ func _set_name_and_texture() -> void:
 func _process(_delta: float) -> void:
 	tool_tip_area.change_displayed_text(_get_updated_tool_tip_text())
 	poison_indicator.set_poison_indicator(current_poison, max_poison, dead)
-	if is_lover:
-		poison_indicator.make_green()
-	if is_hater:
-		poison_indicator.make_red()
 
 
 func _on_death ()-> void:

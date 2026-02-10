@@ -22,6 +22,9 @@
 		- killing_you_probability_check()
 		- end_of_day_ability()
 
+- Make base scene, and from that, recreate all 4 classes
+
+
 ### Food
 - Modify ingredients_present logic, and how food stores its ingredients.
 		- Potentially modify how customers eat the food

@@ -1,16 +1,14 @@
 # godot-fims-food
 
+## My conventions
+### Function order
+- possible overrider
+- public : no "_" at the start
+- private : "_" at the start
+
 ## Groups
 
-### round_dependers
-- Can define following functions that will be called by main loop 
-(not obligatory)
-	- func start_day() -> void:
-	- func start_round() -> void:
-	- func clients_go_to_table() -> void:
-	- func assign_food() -> void:
-	- func finish_round() -> void:
-	- func finish_day() -> void:
+
 
 
 ## TODO
@@ -23,3 +21,7 @@
 		- dying_check(), 
 		- killing_you_probability_check()
 		- end_of_day_ability()
+
+### Food
+- Modify ingredients_present logic, and how food stores its ingredients.
+		- Potentially modify how customers eat the food

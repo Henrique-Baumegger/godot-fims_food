@@ -1,6 +1,7 @@
 extends Node2D
 class_name Ingredient
 
+
 @export var ingredient_name : String = "no name yet"
 @export var sprite : Texture2D = null
 @export var initial_quantity : int 

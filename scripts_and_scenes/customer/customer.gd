@@ -18,7 +18,7 @@ signal dies
 
 # const act as static
 # enum are const
-enum Creatures {NONE, GHOST, SKELETON, VAMPIRE} 
+enum Creatures {NONE, VAMPIRE, SKELETON, GHOST} 
 const creature_type_description_BBCode : Dictionary[Creatures, String] ={
 	Creatures.GHOST : "[b]GHOST[/b] - Tips 10 doubloons on round end if dead.",
 	Creatures.SKELETON : "[b]SKELETON[/b] — Doubles its poison on round end.",
@@ -141,7 +141,7 @@ func eat_and_free_food() -> void:
 	if is_seating_next_to_hated:
 		potential_love_multiplier = 0
 	
-	current_poison += potential_love_multiplier * food_this_round.ingredients_present[creature_type]
+	current_poison += potential_love_multiplier * food_this_round.poison_present[creature_type]
 	
 	food_this_round.queue_free()
 	food_this_round = null

@@ -48,13 +48,9 @@ func _ready() -> void:
 func _update_visuals() -> void:
 	var lines: Array[String] = []
 	
-	
-	
 	for poison_type in Customer.Creatures.values():
 		if poison_type == Customer.Creatures.NONE:
 			continue
-		
-		
 		var current = poison_present.get(poison_type, 0)
 		if current == 0:
 			sprite_of_poison_type[poison_type].visible = false

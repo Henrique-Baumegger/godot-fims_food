@@ -27,10 +27,10 @@ var initial_scale_dragged_ingredient : Vector2
 
 
 func toggle_warm_ingredients_selectability(on : bool)-> void:
-	if on:
+	if not on:
 		warm_ingredients_blocked = false
 		modulate = Color(0.8, 0.8, 0.8, 0.6)
-	elif not on:
+	elif on:
 		warm_ingredients_blocked = true
 		modulate = Color.WHITE
 

@@ -11,86 +11,35 @@
 [node name="Table" type="Node2D" unique_id=246802026 groups=["round_dependers"]]
 script = ExtResource("1_83i0c")
 
-[node name="TableSprites" type="Sprite2D" parent="." unique_id=350445370]
+[node name="TableSprite" type="Sprite2D" parent="." unique_id=350445370]
 position = Vector2(-6, 0)
 texture = ExtResource("2_kodtr")
 
-[node name="Candle1" type="Sprite2D" parent="TableSprites" unique_id=36186053]
+[node name="Candle1" type="Sprite2D" parent="TableSprite" unique_id=36186053]
 position = Vector2(-502, -238)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_fars2")
 
-[node name="candle2" type="Sprite2D" parent="TableSprites" unique_id=2062229543]
+[node name="candle2" type="Sprite2D" parent="TableSprite" unique_id=2062229543]
 position = Vector2(-152, -238)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_hgd6c")
 
-[node name="candle3" type="Sprite2D" parent="TableSprites" unique_id=257564620]
+[node name="candle3" type="Sprite2D" parent="TableSprite" unique_id=257564620]
 position = Vector2(167, -238)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_8e2ag")
 
-[node name="candle4" type="Sprite2D" parent="TableSprites" unique_id=1953955972]
+[node name="candle4" type="Sprite2D" parent="TableSprite" unique_id=1953955972]
 position = Vector2(531, -238)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_4m5wr")
 
-[node name="FoodPositions" type="Node2D" parent="." unique_id=1491461972]
-
-[node name="Food1Position" type="Marker2D" parent="FoodPositions" unique_id=626382619]
-position = Vector2(-692, -230)
-
-[node name="Food2Position" type="Marker2D" parent="FoodPositions" unique_id=1949923779]
-position = Vector2(-324, -230)
-
-[node name="Food3Position" type="Marker2D" parent="FoodPositions" unique_id=871336898]
-position = Vector2(3, -230)
-
-[node name="Food4Position" type="Marker2D" parent="FoodPositions" unique_id=1043265175]
-position = Vector2(344, -230)
-
-[node name="Food5Position" type="Marker2D" parent="FoodPositions" unique_id=225601222]
-position = Vector2(738, -230)
-
-[node name="CustomerPositions" type="Node2D" parent="." unique_id=452383670]
-
-[node name="Customer1Position" type="Marker2D" parent="CustomerPositions" unique_id=840833476]
-position = Vector2(-670, -401)
-
-[node name="Customer2Position" type="Marker2D" parent="CustomerPositions" unique_id=593585473]
-position = Vector2(-327, -392)
-
-[node name="Customer3Position" type="Marker2D" parent="CustomerPositions" unique_id=1825936207]
-position = Vector2(1, -392)
-
-[node name="Customer4Position" type="Marker2D" parent="CustomerPositions" unique_id=1298091855]
-position = Vector2(336, -396)
-
-[node name="Customer5Position" type="Marker2D" parent="CustomerPositions" unique_id=178237912]
-position = Vector2(684, -377)
-
-[node name="CustomerList" type="Node2D" parent="." unique_id=1065999942]
-
-[node name="list_position1" type="Marker2D" parent="CustomerList" unique_id=1532930138]
-position = Vector2(-280, -460)
-
-[node name="list_position2" type="Marker2D" parent="CustomerList" unique_id=563355306]
-position = Vector2(-140, -460)
-
-[node name="list_position3" type="Marker2D" parent="CustomerList" unique_id=1948745618]
-position = Vector2(0, -460)
-
-[node name="list_position4" type="Marker2D" parent="CustomerList" unique_id=1736282547]
-position = Vector2(140, -460)
-
-[node name="list_position5" type="Marker2D" parent="CustomerList" unique_id=879663938]
-position = Vector2(280, -460)
-
-[node name="Label" type="Label" parent="CustomerList" unique_id=1104054420]
-offset_left = -698.0
-offset_top = -496.0
-offset_right = -359.0
-offset_bottom = -441.0
+[node name="Label" type="Label" parent="." unique_id=1104054420]
+offset_left = -725.0
+offset_top = -502.0
+offset_right = -386.0
+offset_bottom = -447.0
 theme = ExtResource("8_8e2ag")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Customers today:"

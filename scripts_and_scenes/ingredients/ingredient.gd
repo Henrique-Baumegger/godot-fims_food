@@ -1,3 +1,5 @@
+## Lifecycle mathods to be called by parent:
+## toggle_warm_ingredients_selectability
 extends Node2D
 class_name Ingredient
 

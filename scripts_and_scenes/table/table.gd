@@ -2,7 +2,8 @@ extends Node2D
 class_name Table
 
 
-var table_size = 5
+@export var table_size : int = 5
+
 var list_of_foods_this_round : Array[Food]
 var clients_of_the_day : Array[Customer]
 var client_positions_of_this_round : Array[Customer]
@@ -64,7 +65,7 @@ func new_round_of_food() -> void:
 	list_of_foods_this_round.clear()
 	
 	for i in range(table_size):
-		var new_food = AssetDictionary.instantiate_object("food")
+		var new_food = AssetDictionary.instantiate_general_object("food")
 		new_food.position = food_markers[i].position
 		add_child(new_food)
 		list_of_foods_this_round.append(new_food)

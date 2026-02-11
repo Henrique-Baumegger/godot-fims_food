@@ -45,6 +45,7 @@ var customer_name : String
 var current_poison : int = 0
 var dead : bool = false
 
+var last_drink_eaten : Food.Drinks = Food.Drinks.NONE
 var food_this_round : Food = null 
 
 var is_lover : bool = false
@@ -96,6 +97,12 @@ var percentage_probability_mult_kill_you : float = float(1)/float(3)
 #func end_of_day_ability() ->void:
 	#pass
 #endregion
+
+
+func get_and_delete_last_drink_eaten() -> Food.Drinks:
+	var result : Food.Drinks = last_drink_eaten
+	last_drink_eaten = Food.Drinks.NONE
+	return result
 
 
 func set_up_relations(loved:Customer, hated:Customer) -> void:

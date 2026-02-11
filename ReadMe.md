@@ -24,11 +24,18 @@
 	- end_of_day_ability()
 
 
-### Food
-- Modify ingredients_present logic, and how food stores its ingredients.
-		- Potentially modify how customers eat the food
+### Table
+- Make 1 instantiatible scene for each table size, up to 5. This we, we can place markers manually
+- On the base table scene, we export a bunch of markers, so that we can use that node on a scene,
+and add markers as children. At _ready, check if all list sizes are equal, and check if Label List marker was added
+	- Label List marker
+	- Array of food markers
+	- Array of list customers markers
+	- Array of normal customer markers
+	- Array of Candles position markers (-1 size)
 
+- Export textures for candles and pick randomly
 
-### Ingredient
-- drink_type : Food.Drinks = Food.Drinks.NONE
-- poison_type : Customer.Creatures = Customer.Creatures.NONE
+- Table should manage initialization and call customer lifecycle methods.
+
+- Table itself should have lifecycle methods that will be called by main

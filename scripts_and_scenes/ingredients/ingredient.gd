@@ -2,18 +2,21 @@ extends Node2D
 class_name Ingredient
 
 
-@export var ingredient_name : String = "no name yet"
-@export var sprite : Texture2D = null
-@export var initial_quantity : int 
-@export var sprite_scale_mult : float = 1
+@export var poison_type : Customer.Creatures = Customer.Creatures.NONE
+@export var drink_type : Food.Drinks = Food.Drinks.NONE
 
-var is_dessert : bool = false
+@export var initial_quantity : int = 0
+@export var texture : Texture2D = null
+
 var dragging : bool = false
 var mouse_is_on_static_ingredient : bool = false
-var customers_are_sitting : bool = false
+var warm_ingredients_blocked : bool = false
 
 var static_quantity : int 
-var dragged_quantity = 0
+var dragged_quantity : int = 0
+
+var initial_scale_static_ingredient : Vector2 
+var initial_scale_dragged_ingredient : Vector2 
 
 @onready var static_ingredient: Node2D = $StaticIngredient
 @onready var dragged_ingredient: Node2D = $DraggedIngredient
@@ -23,66 +26,57 @@ var dragged_quantity = 0
 @onready var dragged_sprite: Sprite2D = $DraggedIngredient/DraggedSprite
 
 
+func toggle_warm_ingredients_selectability(on : bool)-> void:
+	if on:
+		warm_ingredients_blocked = false
+		modulate = Color(0.8, 0.8, 0.8, 0.6)
+	elif not on:
+		warm_ingredients_blocked = true
+		modulate = Color.WHITE
+
+
 func _ready() -> void:
-	if ingredient_name == "go_right_dessert" or ingredient_name == "go_left_dessert" or ingredient_name == "stay_dessert":
-		is_dessert = true
-	
-	static_sprite.scale = static_sprite.scale * sprite_scale_mult
-	dragged_sprite.scale = dragged_sprite.scale * sprite_scale_mult
+	initial_scale_static_ingredient = static_sprite.scale
+	initial_scale_dragged_ingredient = dragged_sprite.scale
 	dragged_ingredient.visible = false
 	static_quantity = initial_quantity
-	update_labels()
-	set_up_sprites()
+	static_sprite.texture = texture
+	dragged_sprite.texture = texture
+	_update_labels()
+
 
 func _process(_delta):
-	if (customers_are_sitting and not is_dessert) or (not customers_are_sitting and is_dessert):
+	if (warm_ingredients_blocked and drink_type == Food.Drinks.NONE):
 		if dragging:
-			cancel_drag()
+			_cancel_drag()
 		return
-		
-	handle_potential_click()
-	handle_potential_dragging_movement()
+	
+	_handle_potential_click()
+	_handle_potential_dragging_movement()
 
 
-func clients_go_to_table() -> void:
-	customers_are_sitting = true
-	if not is_dessert:
-		modulate = Color(0.8, 0.8, 0.8, 0.6)
-	else:
-		modulate = Color.WHITE
-
-
-
-func start_round() -> void:
-	customers_are_sitting = false
-	if not is_dessert:
-		modulate = Color.WHITE
-	else:
-		modulate = Color(0.8, 0.8, 0.8, 0.6)
-
-
-func handle_potential_click() -> void:
+func _handle_potential_click() -> void:
 	if not Input.is_action_just_pressed("left_click"):
 		return
 	
-	var potential_food : Food = get_potential_food()
+	var potential_food : Food = _get_potential_food()
 	if potential_food != null and dragged_quantity > 0:
-		handle_ingredient_addition(potential_food)
-		cancel_drag()
+		_handle_ingredient_addition(potential_food)
+		_cancel_drag()
 	elif dragged_quantity == 0 and mouse_is_on_static_ingredient and static_quantity >0:
-		start_dragging()
+		_start_dragging()
 		dragged_quantity = 1
 		static_quantity -= 1
-		update_labels()
+		_update_labels()
 	elif dragged_quantity > 0 and mouse_is_on_static_ingredient and static_quantity >0:
 		dragged_quantity += 1
 		static_quantity -= 1
-		update_labels()
+		_update_labels()
 	elif not mouse_is_on_static_ingredient and dragging:
-		cancel_drag()
+		_cancel_drag()
 
 
-func get_potential_food() -> Food: # Null if none
+func _get_potential_food() -> Food: # Null if none
 	var result : Food = null
 	
 	var space_state = get_world_2d().direct_space_state
@@ -91,40 +85,40 @@ func get_potential_food() -> Food: # Null if none
 	pq.collide_with_areas = true
 	var results_as_array_of_dictionaries = space_state.intersect_point(pq)
 	for current_dict in results_as_array_of_dictionaries:
-		if current_dict["collider"].is_in_group("food_area"):
-			result = current_dict["collider"]
+		var node_found = current_dict["collider"]
+		if node_found is Food:
+			result = node_found
 			break
 	return result
 
 
-func handle_ingredient_addition(_current_food: Food) -> void:
-	var added = _current_food.try_to_add(ingredient_name, dragged_quantity)
-	dragged_quantity = dragged_quantity- added
+func _handle_ingredient_addition(found_food: Food) -> void:
+	var added = found_food.try_to_add(self, dragged_quantity)
+	dragged_quantity = dragged_quantity - added
 	return
 
 
-func cancel_drag() -> void:
+func _cancel_drag() -> void:
 	static_quantity = dragged_quantity + static_quantity
 	dragged_quantity = 0
-	update_labels()
+	_update_labels()
 	
 	dragging = false
 	dragged_ingredient.visible = false
 	dragged_ingredient.position = Vector2(0,0) # Relative to the parent
 
 
-func update_labels() -> void:
+func _update_labels() -> void:
 	static_label.text = str(static_quantity)
 	dragged_label.text = str(dragged_quantity)
 
 
-func start_dragging() -> void:
+func _start_dragging() -> void:
 	dragging = true
 	dragged_ingredient.visible = true
-	handle_potential_dragging_movement()
 
 
-func handle_potential_dragging_movement() -> void:
+func _handle_potential_dragging_movement() -> void:
 	if !dragging:
 		return
 	dragged_ingredient.global_position = get_global_mouse_position()
@@ -136,8 +130,3 @@ func _on_static_ingredient_area_mouse_entered() -> void:
 
 func _on_static_ingredient_area_mouse_exited() -> void:
 	mouse_is_on_static_ingredient = false
-
-
-func set_up_sprites() -> void:
-	static_sprite.texture = sprite
-	dragged_sprite.texture = sprite

@@ -1,5 +1,3 @@
-## Lifecycle functions that should be called by parent:
-## clients_go_drink_step()
 class_name Food
 extends Area2D
 
@@ -10,7 +8,6 @@ enum Drinks {NONE, GO_LEFT, GO_RIGHT, STAY}
 @export var drink_textures : Dictionary [Drinks, Texture2D] 
 
 var sprite_of_poison_type: Dictionary[Customer.Creatures, Sprite2D]
-var warm_food_step : bool = true
 
 var poison_present : Dictionary[Customer.Creatures, int]
 var single_drink_present : Drinks = Drinks.NONE
@@ -20,23 +17,10 @@ var single_drink_present : Drinks = Drinks.NONE
 @onready var drink_sprite: Sprite2D = $DrinkSprite
 
 
-func move_to_drink_step()->void:
-	warm_food_step = false
-
-
-func _ready() -> void:
-	sprite_of_poison_type = {
-		Customer.Creatures.GHOST: $MiniSilver,
-		Customer.Creatures.SKELETON: $MiniSalt,
-		Customer.Creatures.VAMPIRE: $MiniGarlic
-	}
-	food_sprite.texture = list_of_warm_food_textures.pick_random()
-
-
 func try_to_add(ing: Ingredient, quantity: int) -> int:
 	var added = 0
 	
-	if ing.poison_type != Customer.Creatures.NONE && warm_food_step:
+	if ing.poison_type != Customer.Creatures.NONE:
 		var current = poison_present.get(ing.poison_type, 0)
 		poison_present[ing.poison_type] = current + quantity
 		added = quantity
@@ -48,12 +32,20 @@ func try_to_add(ing: Ingredient, quantity: int) -> int:
 		elif single_drink_present == ing.drink_type:
 			added = 0
 	
-	update_visuals()
+	_update_visuals()
 	return added
 
 
+func _ready() -> void:
+	sprite_of_poison_type = {
+		Customer.Creatures.GHOST: $MiniSilver,
+		Customer.Creatures.SKELETON: $MiniSalt,
+		Customer.Creatures.VAMPIRE: $MiniGarlic
+	}
+	food_sprite.texture = list_of_warm_food_textures.pick_random()
 
-func update_visuals() -> void:
+
+func _update_visuals() -> void:
 	var lines: Array[String] = []
 	for poison_type in Customer.Creatures:
 		var current = poison_present.get(poison_type, 0)

@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aohis"]
 size = Vector2(90.79999, 159.67499)
 
-[node name="Food" type="Area2D" unique_id=1063911873 groups=["food_area"]]
+[node name="Food" type="Area2D" unique_id=1063911873]
 z_index = 1
 script = ExtResource("1_aohis")
 

@@ -10,6 +10,9 @@ size = Vector2(219.5, 219)
 [node name="Ingredient" type="Node2D" unique_id=348821999]
 z_index = 2
 script = ExtResource("1_wiup6")
+poison_type = null
+drink_type = null
+initial_quantity = null
 
 [node name="StaticIngredient" type="Node2D" parent="." unique_id=567552491]
 

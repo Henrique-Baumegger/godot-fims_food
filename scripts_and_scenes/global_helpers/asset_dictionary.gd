@@ -1,7 +1,8 @@
 class_name AssetDictionary
 extends Node
 
-const scenes: Dictionary[String, PackedScene] = {
+
+const general_scenes: Dictionary[String, PackedScene] = {
 	
 }
 
@@ -9,24 +10,25 @@ const sounds: Dictionary[String, AudioStream] = {
 	
 }
 
-
-const instantiables: Dictionary[String, PackedScene] = {
+const general_instantiables: Dictionary[String, PackedScene] = {
 	"food": preload("res://scripts_and_scenes/food/food.tscn"),
-	"vampire": preload("res://scripts_and_scenes/customer/vampire.tscn"),
-	"skeleton":preload("res://scripts_and_scenes/customer/skeleton.tscn"),
-	"ghost":preload("res://scripts_and_scenes/customer/ghost.tscn")
 	}
 
-const customer_types : Array[String] = ["vampire", "skeleton", "ghost"]
+const customer_instantiables: Dictionary[Customer.Creatures, PackedScene] = {
+	Customer.Creatures.VAMPIRE: preload("res://scripts_and_scenes/customer/vampire.tscn"),
+	Customer.Creatures.SKELETON: preload("res://scripts_and_scenes/customer/skeleton.tscn"),
+	Customer.Creatures.GHOST: preload("res://scripts_and_scenes/customer/ghost.tscn")
+	}
+
 
 static func instantiate_random_customers(n: int) -> Array[Customer]:
+	var customer_keys : Array [Customer.Creatures] = customer_instantiables.keys()
 	var result: Array[Customer] = []
 	for i in range(n):
-		var random_pick = customer_types.pick_random()
-		result.append(instantiate_object(random_pick))
+		var random_pick : PackedScene = customer_instantiables[customer_keys.pick_random()]
+		result.append(random_pick.instantiate())
 	return result
 
 
-
-static func instantiate_object(object_name: String) -> Node2D:
-	return instantiables[object_name].instantiate()
+static func instantiate_general_object(object_name: Variant) -> Node2D:
+	return general_instantiables[object_name].instantiate()

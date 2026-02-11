@@ -6,17 +6,14 @@ class_name Ingredient
 @export var drink_type : Food.Drinks = Food.Drinks.NONE
 
 @export var initial_quantity : int = 0
-@export var texture : Texture2D = null
+@export var current_texture : Texture2D = null
 
 var dragging : bool = false
 var mouse_is_on_static_ingredient : bool = false
-var warm_ingredients_blocked : bool = false
+var blocked : bool = false
 
 var static_quantity : int 
 var dragged_quantity : int = 0
-
-var initial_scale_static_ingredient : Vector2 
-var initial_scale_dragged_ingredient : Vector2 
 
 @onready var static_ingredient: Node2D = $StaticIngredient
 @onready var dragged_ingredient: Node2D = $DraggedIngredient
@@ -27,26 +24,24 @@ var initial_scale_dragged_ingredient : Vector2
 
 
 func toggle_warm_ingredients_selectability(on : bool)-> void:
-	if not on:
-		warm_ingredients_blocked = false
+	if !on and drink_type == Food.Drinks.NONE:
+		blocked = false
 		modulate = Color(0.8, 0.8, 0.8, 0.6)
 	elif on:
-		warm_ingredients_blocked = true
+		blocked = true
 		modulate = Color.WHITE
 
 
 func _ready() -> void:
-	initial_scale_static_ingredient = static_sprite.scale
-	initial_scale_dragged_ingredient = dragged_sprite.scale
 	dragged_ingredient.visible = false
 	static_quantity = initial_quantity
-	static_sprite.texture = texture
-	dragged_sprite.texture = texture
+	static_sprite.texture = current_texture
+	dragged_sprite.texture = current_texture
 	_update_labels()
 
 
 func _process(_delta):
-	if (warm_ingredients_blocked and drink_type == Food.Drinks.NONE):
+	if blocked:
 		if dragging:
 			_cancel_drag()
 		return

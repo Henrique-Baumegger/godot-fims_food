@@ -5,8 +5,8 @@ extends Area2D
 enum Drinks {NONE, GO_LEFT, GO_RIGHT, STAY}
 
 @export var list_of_warm_food_textures : Array[Texture2D]
-@export var drink_textures : Dictionary [Drinks, Texture2D] 
 
+var current_drink_texture : Texture = null
 var sprite_of_poison_type: Dictionary[Customer.Creatures, Sprite2D]
 
 var poison_present : Dictionary[Customer.Creatures, int]
@@ -29,6 +29,7 @@ func try_to_add(ing: Ingredient, quantity: int) -> int:
 		if single_drink_present != ing.drink_type:
 			single_drink_present = ing.drink_type
 			added = 1
+			current_drink_texture = ing.current_texture
 		elif single_drink_present == ing.drink_type:
 			added = 0
 	
@@ -63,7 +64,7 @@ func _update_visuals() -> void:
 	
 	if single_drink_present != Drinks.NONE:
 		drink_sprite.visible = true
-		drink_sprite.texture = drink_textures[single_drink_present]
+		drink_sprite.texture = current_drink_texture
 
 
 

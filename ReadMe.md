@@ -25,14 +25,14 @@
 
 
 ### Table
-- Make 1 instantiatible scene for each table size, up to 5. This we, we can place markers manually
+- Make 1 instantiatible scene for each table size, up to 5. This way, we can place markers manually
 - On the base table scene, we export a bunch of markers, so that we can use that node on a scene,
 and add markers as children. At _ready, check if all list sizes are equal, and check if Label List marker was added
-	- Label List marker
 	- Array of food markers
-	- Array of list customers markers
 	- Array of normal customer markers
 	- Array of Candles position markers (-1 size)
+
+- List positions simply go from right to left, thus positions of list are constant across table sizes
 
 - Export textures for candles and pick randomly
 

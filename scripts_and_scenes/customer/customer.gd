@@ -154,20 +154,24 @@ func eat_and_free_food() -> void:
 	food_this_round = null
  
 
-func dying_check() -> void:
+func dying_check() -> bool:
 	if dead:
-		return
+		return false
 	if current_poison >= max_poison:
 		dead = true
 		dies.emit()
+		return true
+	return false
 
 
-func killing_you_probability_check() -> void:
+func killing_you_probability_check() -> bool:
 	if dead:
-		return
+		return false
 	var probability := percentage_probability_mult_kill_you * (float(current_poison) / float(max_poison))
 	if randf() < probability:
 		emit_signal("kills_you")
+		return true
+	return false
 
 
 func _ready() -> void:

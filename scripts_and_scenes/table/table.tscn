@@ -2,44 +2,42 @@
 
 [ext_resource type="Script" uid="uid://hntj861nd3un" path="res://scripts_and_scenes/table/table.gd" id="1_83i0c"]
 [ext_resource type="Texture2D" uid="uid://cmiaaxh7td154" path="res://art/enviroment/full table.png" id="2_kodtr"]
-[ext_resource type="Texture2D" uid="uid://ckf1qqkyo4a85" path="res://art/enviroment/candle1.png" id="3_fars2"]
-[ext_resource type="Texture2D" uid="uid://bae3xky6crxre" path="res://art/enviroment/candle2.png" id="4_hgd6c"]
-[ext_resource type="Texture2D" uid="uid://bnx2a80bqgn1k" path="res://art/enviroment/candle3.png" id="5_8e2ag"]
-[ext_resource type="Texture2D" uid="uid://s5a0g24lowqg" path="res://art/enviroment/candle4.png" id="6_4m5wr"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/new_theme.tres" id="8_8e2ag"]
 
-[node name="Table" type="Node2D" unique_id=246802026 groups=["round_dependers"]]
+[node name="Table" type="Node2D" unique_id=246802026]
 script = ExtResource("1_83i0c")
+table_size = null
 
 [node name="TableSprite" type="Sprite2D" parent="." unique_id=350445370]
 position = Vector2(-6, 0)
 texture = ExtResource("2_kodtr")
 
-[node name="Candle1" type="Sprite2D" parent="TableSprite" unique_id=36186053]
-position = Vector2(-502, -238)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_fars2")
+[node name="List" type="Node2D" parent="." unique_id=836089181]
 
-[node name="candle2" type="Sprite2D" parent="TableSprite" unique_id=2062229543]
-position = Vector2(-152, -238)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("4_hgd6c")
-
-[node name="candle3" type="Sprite2D" parent="TableSprite" unique_id=257564620]
-position = Vector2(167, -238)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("5_8e2ag")
-
-[node name="candle4" type="Sprite2D" parent="TableSprite" unique_id=1953955972]
-position = Vector2(531, -238)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("6_4m5wr")
-
-[node name="Label" type="Label" parent="." unique_id=1104054420]
-offset_left = -725.0
-offset_top = -502.0
-offset_right = -386.0
-offset_bottom = -447.0
+[node name="Label" type="Label" parent="List" unique_id=1104054420]
+offset_left = -730.0
+offset_top = -500.0
+offset_right = -391.0
+offset_bottom = -445.0
 theme = ExtResource("8_8e2ag")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Customers today:"
+metadata/_edit_use_anchors_ = true
+
+[node name="ListPosition1" type="Marker2D" parent="List" unique_id=1635667103]
+position = Vector2(-300, -470)
+
+[node name="ListPosition2" type="Marker2D" parent="List" unique_id=301895197]
+position = Vector2(-150, -470)
+
+[node name="ListPosition3" type="Marker2D" parent="List" unique_id=547659936]
+position = Vector2(0, -470)
+
+[node name="ListPosition4" type="Marker2D" parent="List" unique_id=1841629979]
+position = Vector2(150, -470)
+
+[node name="ListPosition5" type="Marker2D" parent="List" unique_id=1387616078]
+position = Vector2(300, -470)
+
+[node name="ListPosition6" type="Marker2D" parent="List" unique_id=1587783244]
+position = Vector2(450, -470)

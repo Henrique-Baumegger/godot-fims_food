@@ -2,49 +2,40 @@ extends Node2D
 class_name Table
 
 
-@export var table_size : int = 5
+@export var table_size : int = 2 ## {2, 3, 4, 5, 6}
 
-var list_of_foods_this_round : Array[Food]
+@export var food_markers : Array [Marker2D] 
+@export var customers_on_table_markers : Array [Marker2D]
+@export var candle_markers : Array [Marker2D]
+
+var customers_on_list_markers : Array [Marker2D]
+
 var clients_of_the_day : Array[Customer]
 var client_positions_of_this_round : Array[Customer]
+var list_of_foods_this_round : Array[Food]
 
-@onready var customer_list: Node2D = $CustomerList
-@onready var list_position_1: Marker2D = $CustomerList/list_position1
-@onready var list_position_2: Marker2D = $CustomerList/list_position2
-@onready var list_position_3: Marker2D = $CustomerList/list_position3
-@onready var list_position_4: Marker2D = $CustomerList/list_position4
-@onready var list_position_5: Marker2D = $CustomerList/list_position5
-@onready var label: Label = $CustomerList/Label
-
-
-@onready var food_1_position: Marker2D = $FoodPositions/Food1Position
-@onready var food_2_position: Marker2D = $FoodPositions/Food2Position
-@onready var food_3_position: Marker2D = $FoodPositions/Food3Position
-@onready var food_4_position: Marker2D = $FoodPositions/Food4Position
-@onready var food_5_position: Marker2D = $FoodPositions/Food5Position
-
-@onready var customer_1_position: Marker2D = $CustomerPositions/Customer1Position
-@onready var customer_2_position: Marker2D = $CustomerPositions/Customer2Position
-@onready var customer_3_position: Marker2D = $CustomerPositions/Customer3Position
-@onready var customer_4_position: Marker2D = $CustomerPositions/Customer4Position
-@onready var customer_5_position: Marker2D = $CustomerPositions/Customer5Position
+@onready var list: Node2D = $List
+@onready var label: Label = $List/Label
+@onready var list_position_1: Marker2D = $List/ListPosition1
+@onready var list_position_2: Marker2D = $List/ListPosition2
+@onready var list_position_3: Marker2D = $List/ListPosition3
+@onready var list_position_4: Marker2D = $List/ListPosition4
+@onready var list_position_5: Marker2D = $List/ListPosition5
+@onready var list_position_6: Marker2D = $List/ListPosition6
 
 
-func start_day() -> void:
-	new_set_of_customers()
+func _ready() -> void:
+	customers_on_list_markers = [
+		list_position_1,
+		list_position_2,
+		list_position_3,
+		list_position_4,
+		list_position_5,
+		list_position_6
+	]
 
 
-func start_round() -> void:
-	handle_list(true)
-	new_round_of_food()
-
-
-func clients_go_to_table() -> void:
-	handle_list(false)
-	shuffle_customers()
-
-
-func assign_food() -> void:
+func _assign_food() -> void:
 	for i in range(table_size):
 		client_positions_of_this_round[i].food_this_round = list_of_foods_this_round[i]
 
@@ -54,16 +45,7 @@ func finish_day() -> void:
 
 
 func new_round_of_food() -> void:
-	var food_markers: Array[Marker2D] = [
-		food_1_position,
-		food_2_position,
-		food_3_position,
-		food_4_position,
-		food_5_position
-	]
-	
 	list_of_foods_this_round.clear()
-	
 	for i in range(table_size):
 		var new_food = AssetDictionary.instantiate_general_object("food")
 		new_food.position = food_markers[i].position
@@ -121,13 +103,7 @@ func set_new_customer_relations() -> void:
 
 func handle_list(put_on_list: bool) -> void:
 	customer_list.visible = put_on_list
-	var list_markers: Array[Marker2D] = [
-		list_position_1,
-		list_position_2,
-		list_position_3,
-		list_position_4,
-		list_position_5
-	]
+	
 	if put_on_list:
 		for i in range(table_size):
 			var c: Customer = clients_of_the_day[i]

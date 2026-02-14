@@ -6,7 +6,9 @@ class_name Table
 
 @export var food_markers : Array [Marker2D] 
 @export var customers_on_table_markers : Array [Marker2D]
-@export var candle_markers : Array [Marker2D]
+
+@export var candle_sprites : Array [Sprite2D]
+@export var candle_textures : Array [Texture2D]
 
 var customers_on_list_markers : Array [Marker2D]
 
@@ -14,7 +16,8 @@ var clients_of_the_day : Array[Customer]
 var client_positions_of_this_round : Array[Customer]
 var list_of_foods_this_round : Array[Food]
 
-@onready var list: Node2D = $List
+
+@onready var customer_list: Node2D = $CustomerList
 @onready var label: Label = $List/Label
 @onready var list_position_1: Marker2D = $List/ListPosition1
 @onready var list_position_2: Marker2D = $List/ListPosition2
@@ -33,18 +36,15 @@ func _ready() -> void:
 		list_position_5,
 		list_position_6
 	]
+	
+	assert(food_markers.size() == customers_on_table_markers.size(), "food_markers and customers_on_table_markers exports must have same size")
+	assert(food_markers.size() == table_size, "table size and array sizes do not match")
+	
+	for spri in candle_sprites:
+		spri.texture = candle_textures.pick_random()
 
 
-func _assign_food() -> void:
-	for i in range(table_size):
-		client_positions_of_this_round[i].food_this_round = list_of_foods_this_round[i]
-
-
-func finish_day() -> void:
-	delete_current_customers()
-
-
-func new_round_of_food() -> void:
+func _new_round_of_food() -> void:
 	list_of_foods_this_round.clear()
 	for i in range(table_size):
 		var new_food = AssetDictionary.instantiate_general_object("food")
@@ -53,62 +53,75 @@ func new_round_of_food() -> void:
 		list_of_foods_this_round.append(new_food)
 
 
-func delete_current_customers() -> void:
-	for c in clients_of_the_day:
-		c.queue_free()
+func _assign_food() -> void:
+	for i in range(table_size):
+		client_positions_of_this_round[i].give_food(list_of_foods_this_round[i]) 
 
 
-func new_set_of_customers() -> void:
+func _new_set_of_customers() -> void:
 	clients_of_the_day = AssetDictionary.instantiate_random_customers(table_size)
-	for cust in clients_of_the_day:
-		add_child(cust)
-	set_new_customer_relations()
-
-
-func shuffle_customers() -> void:
 	client_positions_of_this_round = clients_of_the_day.duplicate()
 	client_positions_of_this_round.shuffle()
-	var customer_markers: Array[Marker2D] = [
-		customer_1_position,
-		customer_2_position,
-		customer_3_position,
-		customer_4_position,
-		customer_5_position
-	]
-	for i in range(table_size):
-		var c: Customer = client_positions_of_this_round[i]
-		c.position = customer_markers[i].position
 	
-	set_left_and_rights_of_customers()
+	for cust in clients_of_the_day:
+		add_child(cust)
+	
+	var treshold_for_love_relations = 3
+	var treshold_for_hate_relations = 4
+	if table_size >= treshold_for_love_relations:
+		clients_of_the_day[0].set_up_relations(clients_of_the_day[1], null)
+		clients_of_the_day[1].set_up_relations(clients_of_the_day[0], null)
+	if table_size >= treshold_for_hate_relations:
+		clients_of_the_day[2].set_up_relations(clients_of_the_day[3], null)
+		clients_of_the_day[3].set_up_relations(clients_of_the_day[2], null)
 
 
-func set_left_and_rights_of_customers() -> void:
-	client_positions_of_this_round[0].right_customer = client_positions_of_this_round[1]
-	client_positions_of_this_round[4].left_customer = client_positions_of_this_round[3]
-	for i in range(1, table_size-1):
-		client_positions_of_this_round[i].right_customer = client_positions_of_this_round[i-1]
-		client_positions_of_this_round[i].left_customer = client_positions_of_this_round[i+1]
+func _sit_customers() -> void:
+	var not_allocated : Array [Customer] = client_positions_of_this_round.duplicate()
+	var new_positions : Array [Customer] = []
+	new_positions.resize(table_size)
+	
+	for i in range(table_size):
+		var drink : Food.Drinks = client_positions_of_this_round[i].get_and_delete_last_drink_eaten()
+		if drink != Food.Drinks.NONE:
+			new_positions[posmod(i + Food.drink_to_offset[drink], table_size)] = client_positions_of_this_round[i] 
+			# If 2 customers have the same seat preference, the customer to the right will overwritte the one on the left
+	
+	for i in range(table_size):
+		if new_positions.has(client_positions_of_this_round[i]):
+			not_allocated.erase(client_positions_of_this_round[i])
+	
+	for i in range(table_size):
+		if new_positions[i] == null:
+			var random_c = not_allocated.pick_random()
+			new_positions[i] = random_c
+			not_allocated.erase(random_c)
+	
+	client_positions_of_this_round = new_positions
+	
+	
+	for i in range(table_size):
+		client_positions_of_this_round[i].position = customers_on_table_markers[i].position
+	
+	for i in range(0, table_size):
+		client_positions_of_this_round[i].right_customer = client_positions_of_this_round[posmod(i+1, table_size)]
+		client_positions_of_this_round[i].left_customer = client_positions_of_this_round[posmod(i-1, table_size)]
 
 
-func set_new_customer_relations() -> void:
-	clients_of_the_day[0].is_lover = true
-	clients_of_the_day[1].is_lover = true
-	clients_of_the_day[0].loved_name = clients_of_the_day[1].identity_name
-	clients_of_the_day[1].loved_name = clients_of_the_day[0].identity_name
-	clients_of_the_day[2].is_hater = true
-	clients_of_the_day[3].is_hater = true
-	clients_of_the_day[2].hated_name = clients_of_the_day[3].identity_name
-	clients_of_the_day[3].hated_name = clients_of_the_day[2].identity_name
+func _delete_current_customers() -> void:
+	for c in clients_of_the_day:
+		c.queue_free()
+	clients_of_the_day.clear()
+	client_positions_of_this_round.clear()
 
 
-func handle_list(put_on_list: bool) -> void:
+func _handle_list(put_on_list: bool) -> void:
 	customer_list.visible = put_on_list
 	
 	if put_on_list:
 		for i in range(table_size):
-			var c: Customer = clients_of_the_day[i]
-			c.position = list_markers[i].position
-			c.list_format(true)
+			clients_of_the_day[i].position = customers_on_list_markers[i].position
+			clients_of_the_day[i].list_format(true)
 	else:
 		for c: Customer in clients_of_the_day:
 			c.list_format(false)

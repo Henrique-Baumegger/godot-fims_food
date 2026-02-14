@@ -3,13 +3,18 @@ extends Area2D
 
 
 enum Drinks {NONE, GO_LEFT, GO_RIGHT, STAY}
+const drink_to_offset : Dictionary [Drinks, int] = {
+	Drinks.GO_LEFT : -1 ,
+	Drinks.GO_RIGHT : 1 ,
+	Drinks.STAY : 0
+}
 
 @export var list_of_warm_food_textures : Array[Texture2D]
 
 var current_drink_texture : Texture = null
 var sprite_of_poison_type: Dictionary[Customer.Creatures, Sprite2D]
 
-var poison_present : Dictionary[Customer.Creatures, int]
+var poison_present : Dictionary[Customer.Creatures, int] ={}
 var single_drink_present : Drinks = Drinks.NONE
 
 @onready var rich_text_label: RichTextLabel = $RichTextLabel

@@ -13,8 +13,7 @@ extends Node2D
 
 @warning_ignore("unused_signal")
 signal gives_tip(amount)
-signal kills_you
-signal dies
+
 
 # const act as static
 # enum are const
@@ -99,6 +98,10 @@ var percentage_probability_mult_kill_you : float = float(1)/float(3)
 #endregion
 
 
+func give_food(new_food : Food) ->void:
+	food_this_round = new_food
+
+
 func get_and_delete_last_drink_eaten() -> Food.Drinks:
 	var result : Food.Drinks = last_drink_eaten
 	last_drink_eaten = Food.Drinks.NONE
@@ -116,7 +119,7 @@ func set_up_relations(loved:Customer, hated:Customer) -> void:
 		poison_indicator.make_red()
 
 
-func make_list_format(make_list : bool) -> void:
+func list_format(make_list : bool) -> void:
 	var list_scale = 0.625
 	var normal_scale = 1.25
 	if make_list:
@@ -131,6 +134,8 @@ func make_list_format(make_list : bool) -> void:
 
 func eat_and_free_food() -> void:
 	if dead:
+		food_this_round.queue_free()
+		food_this_round = null
 		return
 	
 	var is_seating_next_to_hated : bool = is_hater and \
@@ -148,7 +153,9 @@ func eat_and_free_food() -> void:
 	if is_seating_next_to_hated:
 		potential_love_multiplier = 0
 	
-	current_poison += potential_love_multiplier * food_this_round.poison_present[creature_type]
+	current_poison += potential_love_multiplier * food_this_round.poison_present.get(creature_type, 0)
+	
+	last_drink_eaten = food_this_round.single_drink_present
 	
 	food_this_round.queue_free()
 	food_this_round = null
@@ -159,7 +166,7 @@ func dying_check() -> bool:
 		return false
 	if current_poison >= max_poison:
 		dead = true
-		dies.emit()
+		sprite_2d.texture = dead_textures_per_id[this_instance_id]
 		return true
 	return false
 
@@ -169,7 +176,6 @@ func killing_you_probability_check() -> bool:
 		return false
 	var probability := percentage_probability_mult_kill_you * (float(current_poison) / float(max_poison))
 	if randf() < probability:
-		emit_signal("kills_you")
 		return true
 	return false
 
@@ -177,8 +183,6 @@ func killing_you_probability_check() -> bool:
 func _ready() -> void:
 	_check_exports()
 	_set_name_and_texture()
-	
-	dies.connect(_on_death)
 	
 	add_to_group("customers")
 
@@ -201,8 +205,8 @@ func _check_exports() -> void:
 
 
 func _set_name_and_texture() -> void:
-	id_for_names_and_textures = (id_for_names_and_textures+1) % names_per_id.size()
 	this_instance_id = id_for_names_and_textures
+	id_for_names_and_textures = (id_for_names_and_textures+1) % names_per_id.size()
 	customer_name = names_per_id[this_instance_id]
 	sprite_2d.texture = alive_textures_per_id[this_instance_id]
 
@@ -212,11 +216,7 @@ func _process(_delta: float) -> void:
 	poison_indicator.set_poison_indicator(current_poison, max_poison, dead)
 
 
-func _on_death ()-> void:
-	sprite_2d.texture = dead_textures_per_id[this_instance_id]
-
-
-#region func tool_tip_text() -> String:
+#region func _get_updated_tool_tip_text() -> String:
 func _get_updated_tool_tip_text() -> String:
 	var identity_part = "[center][b]" + customer_name + "[/b][/center]"
 	if dead:

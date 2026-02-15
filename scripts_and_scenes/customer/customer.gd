@@ -1,7 +1,7 @@
-## Lifecycle (owner should call these stages in a consistent order)
-##   start_of_day_ability()
-##   start_of_round_ability()
-##   eat_and_free_food()
+## LIFECYCLE methods: (owner should call these stages in a consistent order)
+##   start_of_day_ability() 
+##   start_of_round_ability() 
+##   eat_and_free_food() 
 ##   after_eating_ability()
 ##   dying_check()
 ##   killing_you_probability_check()
@@ -20,7 +20,7 @@ signal gives_tip(amount)
 enum Creatures {NONE, VAMPIRE, SKELETON, GHOST} 
 const creature_type_description_BBCode : Dictionary[Creatures, String] ={
 	Creatures.GHOST : "[b]GHOST[/b] - Tips 10 doubloons on round end if dead.",
-	Creatures.SKELETON : "[b]SKELETON[/b] — Doubles its poison on round end.",
+	Creatures.SKELETON : "[b]SKELETON[/b] — Doubles its poison after eating.",
 	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - Tips 5 doubloons after eating if 0 poison."
 	}
 
@@ -146,16 +146,14 @@ func eat_and_free_food() -> void:
 	((left_customer != null and left_customer == loved_customer )or \
 	(right_customer != null and right_customer == loved_customer))
 	
-	var potential_love_multiplier = 1
 	
+	var potential_love_multiplier = 1
 	if is_seating_next_to_loved:
 		potential_love_multiplier = 2
-	if is_seating_next_to_hated:
-		potential_love_multiplier = 0
+	if not is_seating_next_to_hated:
+		current_poison += potential_love_multiplier * food_this_round.poison_present.get(creature_type, 0)
+		last_drink_eaten = food_this_round.single_drink_present
 	
-	current_poison += potential_love_multiplier * food_this_round.poison_present.get(creature_type, 0)
-	
-	last_drink_eaten = food_this_round.single_drink_present
 	
 	food_this_round.queue_free()
 	food_this_round = null

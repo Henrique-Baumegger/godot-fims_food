@@ -1,6 +1,20 @@
+## LIFECYCLE methods:
+## start_day()
+## start_round()
+## move_to_drink_phase()
+## end_round()
+## end_day() -> bool
+
+## Useful interface:
+## signal kills_you
+## signal recive_tip(amount)
+
 extends Node2D
 class_name Table
 
+
+signal player_is_killed
+signal recive_tip(amount)
 
 @export var table_size : int = 2 ## {2, 3, 4, 5, 6}
 
@@ -27,6 +41,53 @@ var list_of_foods_this_round : Array[Food]
 @onready var list_position_6: Marker2D = $List/ListPosition6
 
 
+func start_day() -> void:
+	_new_set_of_customers()
+	_handle_list(true)
+	for c in clients_of_the_day:
+		c.start_of_day_ability()
+
+
+func start_round() -> void:
+	_handle_list(true)
+	_new_round_of_food()
+	for c in clients_of_the_day:
+		c.start_of_round_ability()
+
+
+func move_to_drink_phase() -> void:
+	_sit_customers()
+	_assign_food()
+	_handle_list(false)
+
+
+func end_round() -> void:
+	for c in clients_of_the_day:
+		c.eat_and_free_food()
+	for c in clients_of_the_day:
+		c.after_eating_ability()
+	for c in clients_of_the_day:
+		c.dying_check()
+	for c in clients_of_the_day:
+		if c.killing_you_probability_check():
+			player_is_killed.emit()
+	for c in clients_of_the_day:
+		c.end_of_round_ability()
+
+
+func end_day() -> bool:
+	for c in clients_of_the_day:
+		c.end_of_day_ability()
+	
+	var you_killed_them_all = true
+	for c in clients_of_the_day:
+		if not c.dead:
+			you_killed_them_all = false
+	
+	_delete_current_customers()
+	return you_killed_them_all
+
+
 func _ready() -> void:
 	customers_on_list_markers = [
 		list_position_1,
@@ -38,13 +99,13 @@ func _ready() -> void:
 	]
 	
 	assert(food_markers.size() == customers_on_table_markers.size(), "food_markers and customers_on_table_markers exports must have same size")
-	assert(food_markers.size() == table_size, "table size and array sizes do not match")
+	assert(food_markers.size() == table_size, "table size and array sizes must match")
 	
 	for spri in candle_sprites:
 		spri.texture = candle_textures.pick_random()
 
 
-func _new_round_of_food() -> void:
+func _new_round_of_food() -> void: #
 	list_of_foods_this_round.clear()
 	for i in range(table_size):
 		var new_food = AssetDictionary.instantiate_general_object("food")
@@ -53,18 +114,19 @@ func _new_round_of_food() -> void:
 		list_of_foods_this_round.append(new_food)
 
 
-func _assign_food() -> void:
+func _assign_food() -> void: #
 	for i in range(table_size):
 		client_positions_of_this_round[i].give_food(list_of_foods_this_round[i]) 
 
 
-func _new_set_of_customers() -> void:
+func _new_set_of_customers() -> void: #
 	clients_of_the_day = AssetDictionary.instantiate_random_customers(table_size)
 	client_positions_of_this_round = clients_of_the_day.duplicate()
 	client_positions_of_this_round.shuffle()
 	
 	for cust in clients_of_the_day:
 		add_child(cust)
+		cust.gives_tip.connect(recive_tip.emit)
 	
 	var treshold_for_love_relations = 3
 	var treshold_for_hate_relations = 4
@@ -76,7 +138,7 @@ func _new_set_of_customers() -> void:
 		clients_of_the_day[3].set_up_relations(clients_of_the_day[2], null)
 
 
-func _sit_customers() -> void:
+func _sit_customers() -> void: #
 	var not_allocated : Array [Customer] = client_positions_of_this_round.duplicate()
 	var new_positions : Array [Customer] = []
 	new_positions.resize(table_size)

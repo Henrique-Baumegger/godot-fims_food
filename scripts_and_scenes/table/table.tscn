@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://yylk8cf2d84s"]
 
 [ext_resource type="Script" uid="uid://hntj861nd3un" path="res://scripts_and_scenes/table/table.gd" id="1_83i0c"]
+[ext_resource type="Texture2D" uid="uid://ckf1qqkyo4a85" path="res://art/enviroment/candle1.png" id="2_hgd6c"]
 [ext_resource type="Texture2D" uid="uid://cmiaaxh7td154" path="res://art/enviroment/full table.png" id="2_kodtr"]
+[ext_resource type="Texture2D" uid="uid://bae3xky6crxre" path="res://art/enviroment/candle2.png" id="3_8e2ag"]
+[ext_resource type="Texture2D" uid="uid://bnx2a80bqgn1k" path="res://art/enviroment/candle3.png" id="4_4m5wr"]
+[ext_resource type="Texture2D" uid="uid://s5a0g24lowqg" path="res://art/enviroment/candle4.png" id="5_r3q4s"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/new_theme.tres" id="8_8e2ag"]
 
 [node name="Table" type="Node2D" unique_id=246802026]
 script = ExtResource("1_83i0c")
+candle_textures = Array[Texture2D]([ExtResource("2_hgd6c"), ExtResource("3_8e2ag"), ExtResource("4_4m5wr"), ExtResource("5_r3q4s")])
 
 [node name="TableSprite" type="Sprite2D" parent="." unique_id=350445370]
 position = Vector2(-6, 0)

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://gdtipgv7q088"]
+
+[ext_resource type="PackedScene" uid="uid://yylk8cf2d84s" path="res://scripts_and_scenes/table/table.tscn" id="1_p6n2t"]
+[ext_resource type="Texture2D" uid="uid://csw5lv0g3ya3d" path="res://art/food/warm/fish.png" id="2_p6n2t"]
+[ext_resource type="Texture2D" uid="uid://n4pmgvw48e7n" path="res://art/characters/ghosts/ghost1.png" id="3_am227"]
+
+[node name="2SeatTable" type="Node2D" unique_id=1961462625]
+
+[node name="Table" parent="." unique_id=246802026 node_paths=PackedStringArray("food_markers", "customers_on_table_markers", "candle_sprites") instance=ExtResource("1_p6n2t")]
+food_markers = [NodePath("FoodMarkers/FoodMarker1"), NodePath("FoodMarkers/FoodMarker2")]
+customers_on_table_markers = [NodePath("CustomerMarkers/CustomerMarker1"), NodePath("CustomerMarkers/CustomerMarker2")]
+candle_sprites = [NodePath("Candles/Candle1"), NodePath("Candles/Candle2"), NodePath("Candles/Candle3"), NodePath("Candles/Candle4")]
+
+[node name="Candles" type="Node2D" parent="Table" unique_id=688424681]
+
+[node name="Candle1" type="Sprite2D" parent="Table/Candles" unique_id=114062243]
+position = Vector2(0, -255)
+
+[node name="Candle2" type="Sprite2D" parent="Table/Candles" unique_id=177649798]
+position = Vector2(0, -100)
+
+[node name="Candle3" type="Sprite2D" parent="Table/Candles" unique_id=158017427]
+position = Vector2(540, -177)
+
+[node name="Candle4" type="Sprite2D" parent="Table/Candles" unique_id=755020516]
+position = Vector2(-540, -177)
+
+[node name="FoodMarkers" type="Node2D" parent="Table" unique_id=445483271]
+
+[node name="FoodMarker1" type="Marker2D" parent="Table/FoodMarkers" unique_id=975917519]
+position = Vector2(258, -215)
+
+[node name="FoodMarker2" type="Marker2D" parent="Table/FoodMarkers" unique_id=78309228]
+position = Vector2(-246, -215)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker2" unique_id=830620158]
+visible = false
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_p6n2t")
+
+[node name="CustomerMarkers" type="Node2D" parent="Table" unique_id=1023468991]
+
+[node name="CustomerMarker1" type="Marker2D" parent="Table/CustomerMarkers" unique_id=733570949]
+position = Vector2(-250, -364)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker1" unique_id=522539637]
+visible = false
+texture = ExtResource("3_am227")
+offset = Vector2(274, 365)
+
+[node name="CustomerMarker2" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1438009699]
+position = Vector2(250, -375)

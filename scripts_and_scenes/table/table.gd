@@ -5,7 +5,7 @@
 ## end_round()
 ## end_day() -> bool
 
-## Useful interface:
+## other useful INTERFACE:
 ## signal kills_you
 ## signal recive_tip(amount)
 

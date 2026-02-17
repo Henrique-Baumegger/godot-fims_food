@@ -6,7 +6,7 @@
 ## end_day() -> bool
 
 ## other useful INTERFACE:
-## signal kills_you
+## signal player_is_killed
 ## signal recive_tip(amount)
 
 extends Node2D

@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bsvk1r7u6c4vu"]
+
+[ext_resource type="PackedScene" uid="uid://yylk8cf2d84s" path="res://scripts_and_scenes/table/table.tscn" id="1_3afou"]
+[ext_resource type="Script" uid="uid://c1n1stu56dvku" path="res://scripts_and_scenes/table/variable_seat_amount_table_container.gd" id="1_tr54w"]
+[ext_resource type="Texture2D" uid="uid://csw5lv0g3ya3d" path="res://art/food/warm/fish.png" id="2_tr54w"]
+[ext_resource type="Texture2D" uid="uid://n4pmgvw48e7n" path="res://art/characters/ghosts/ghost1.png" id="3_hyhy5"]
+
+[node name="5SeatTable" type="Node2D" unique_id=1402043585]
+script = ExtResource("1_tr54w")
+
+[node name="Table" parent="." unique_id=246802026 node_paths=PackedStringArray("food_markers", "customers_on_table_markers", "candle_sprites") instance=ExtResource("1_3afou")]
+table_size = 5
+food_markers = [NodePath("FoodMarkers/FoodMarker1"), NodePath("FoodMarkers/FoodMarker2"), NodePath("FoodMarkers/FoodMarker3"), NodePath("FoodMarkers/FoodMarker4"), NodePath("FoodMarkers/FoodMarker5")]
+customers_on_table_markers = [NodePath("CustomerMarkers/CustomerMarker1"), NodePath("CustomerMarkers/CustomerMarker2"), NodePath("CustomerMarkers/CustomerMarker3"), NodePath("CustomerMarkers/CustomerMarker4"), NodePath("CustomerMarkers/CustomerMarker5")]
+candle_sprites = [NodePath("Candles/Candle2"), NodePath("Candles/Candle2"), NodePath("Candles/Candle3"), NodePath("Candles/Candle4"), NodePath("Candles/Candle5"), NodePath("Candles/Candle6"), NodePath("Candles/Candle7"), NodePath("Candles/Candle8")]
+
+[node name="Candles" type="Node2D" parent="Table" unique_id=1445026649]
+
+[node name="Candle1" type="Sprite2D" parent="Table/Candles" unique_id=494054410]
+position = Vector2(-904, -62)
+
+[node name="Candle2" type="Sprite2D" parent="Table/Candles" unique_id=1138510016]
+position = Vector2(-780, -279)
+
+[node name="Candle3" type="Sprite2D" parent="Table/Candles" unique_id=1468366575]
+position = Vector2(789, -253)
+
+[node name="Candle4" type="Sprite2D" parent="Table/Candles" unique_id=1571777049]
+position = Vector2(887, -43)
+
+[node name="Candle5" type="Sprite2D" parent="Table/Candles" unique_id=330189045]
+position = Vector2(-493, -188)
+
+[node name="Candle6" type="Sprite2D" parent="Table/Candles" unique_id=39350306]
+position = Vector2(-177, -192)
+
+[node name="Candle7" type="Sprite2D" parent="Table/Candles" unique_id=118787800]
+position = Vector2(496, -176)
+
+[node name="Candle8" type="Sprite2D" parent="Table/Candles" unique_id=203711801]
+position = Vector2(165, -189)
+
+[node name="FoodMarkers" type="Node2D" parent="Table" unique_id=232007042]
+
+[node name="FoodMarker1" type="Marker2D" parent="Table/FoodMarkers" unique_id=1311783162]
+position = Vector2(-638, -222)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker1" unique_id=1456380491]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_tr54w")
+
+[node name="FoodMarker2" type="Marker2D" parent="Table/FoodMarkers" unique_id=2051008157]
+position = Vector2(-336, -216)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker2" unique_id=2018197519]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_tr54w")
+
+[node name="FoodMarker3" type="Marker2D" parent="Table/FoodMarkers" unique_id=2059892555]
+position = Vector2(-3, -206)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker3" unique_id=1318573562]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_tr54w")
+
+[node name="FoodMarker4" type="Marker2D" parent="Table/FoodMarkers" unique_id=1628952362]
+position = Vector2(344, -205)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker4" unique_id=237657480]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_tr54w")
+
+[node name="FoodMarker5" type="Marker2D" parent="Table/FoodMarkers" unique_id=392293631]
+position = Vector2(646, -199)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker5" unique_id=194370166]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_tr54w")
+
+[node name="CustomerMarkers" type="Node2D" parent="Table" unique_id=1908430157]
+
+[node name="CustomerMarker1" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1688912060]
+position = Vector2(-621, -375)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker1" unique_id=757466232]
+texture = ExtResource("3_hyhy5")
+offset = Vector2(274, 365)
+
+[node name="CustomerMarker2" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1784467720]
+position = Vector2(-322, -369)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker2" unique_id=1718233282]
+texture = ExtResource("3_hyhy5")
+offset = Vector2(274, 365)
+
+[node name="CustomerMarker3" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1178165888]
+position = Vector2(1, -369)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker3" unique_id=1040590321]
+texture = ExtResource("3_hyhy5")
+offset = Vector2(274, 365)
+
+[node name="CustomerMarker4" type="Marker2D" parent="Table/CustomerMarkers" unique_id=665207468]
+position = Vector2(347, -378)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker4" unique_id=1573307972]
+texture = ExtResource("3_hyhy5")
+offset = Vector2(274, 365)
+
+[node name="CustomerMarker5" type="Marker2D" parent="Table/CustomerMarkers" unique_id=203554950]
+position = Vector2(644, -358)
+
+[node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker5" unique_id=1654670634]
+texture = ExtResource("3_hyhy5")
+offset = Vector2(274, 365)

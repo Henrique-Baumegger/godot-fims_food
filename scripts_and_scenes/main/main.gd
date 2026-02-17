@@ -1,34 +1,38 @@
 extends Node2D
 
-var current_round = 1
-var money = 0
-var time_between_rounds : float = 1
-var time_between_days: float = 0.8
-var customers_already_sitting: bool = false
+const day_size = 3
 
+var pre_sit_phase : bool = true
+var current_round = 0
+var money = 0
+var wait_time : float = 0.6
+
+@onready var next_round_button: Button = $NextRoundButton
 @onready var money_label: Label = $MoneyLabel
 @onready var round_label: Label = $RoundLabel
 @onready var you_die_label: Label = $YouDieLabel
-@onready var next_round: Button = $NextRound
 @onready var end_of_day_lose: Label = $EndOfDayLose
 
+@onready var _4_seat_table: VariableSeatAmountTableContainer = $"4SeatTable"
+
+@onready var onion: Ingredient = $Onion
+@onready var salt: Ingredient = $Salt
+@onready var silver: Ingredient = $Silver
+
+
 func _ready() -> void:
-	get_tree().call_group("round_dependers", "start_day")
-	get_tree().call_group("round_dependers", "start_round")
-	make_connections()
-	next_round.text = "Move to dessets"
-
-
-func make_connections() -> void:
-	var customers_in_scene : Array[Node] = get_tree().get_nodes_in_group("customers")
-	for c in customers_in_scene:
-		c.kills_you.connect(_on_kills_you)
-		c.gives_tip.connect(_on_recives_tip)
+	var table : Table = _4_seat_table.get_table()
+	table.player_is_killed.connect(_on_kills_you)
+	table.recive_tip.connect(_on_recives_tip)
+	
+	table.start_day()
+	table.start_round()
+	next_round_button.text = "Sit custommers"
 
 
 func _on_recives_tip(amount:int) -> void:
 	money += amount
-	money_label.text = "doubloons "+ str(money)
+	money_label.text = str(money)+" doubloons"
 
 
 func _on_kills_you()-> void:
@@ -36,47 +40,59 @@ func _on_kills_you()-> void:
 
 
 func _on_next_round_pressed() -> void:
+	if pre_sit_phase:
+		pre_sit_press()
+	else: 
+		pos_sit_press()
+	pre_sit_phase = not pre_sit_phase
+
+
+func pre_sit_press() -> void:
+	next_round_button.disabled = true
+	var table : Table = _4_seat_table.get_table()
 	
-	if not customers_already_sitting:
-		get_tree().call_group("round_dependers", "clients_go_to_table")
-		customers_already_sitting = true
-		next_round.disabled = true
-		await get_tree().create_timer(time_between_days).timeout
-		next_round.disabled = false
-		next_round.text = "Finish round"
-		
+	onion.toggle_warm_ingredients_selectability(false)
+	salt.toggle_warm_ingredients_selectability(false)
+	silver.toggle_warm_ingredients_selectability(false)
+	
+	
+	table.move_to_drink_phase()
+	await get_tree().create_timer(wait_time).timeout
+	
+	if current_round == day_size-1:
+		next_round_button.text = "Finish day"
 	else:
-		var last_round : bool = current_round >= 3
-		if last_round:
-			get_tree().call_group("round_dependers", "assign_food")
-			get_tree().call_group("round_dependers", "finish_round")
-			lose_the_day_check()
-			next_round.disabled = true
-			await get_tree().create_timer(time_between_days).timeout
-			get_tree().call_group("round_dependers", "finish_day")
-			await get_tree().create_timer(time_between_days).timeout
-			next_round.disabled = false
-			get_tree().call_group("round_dependers", "start_day")
-			get_tree().call_group("round_dependers", "start_round")
-			current_round = 1
-			make_connections()
-			next_round.text = "Move to dessets"
-			customers_already_sitting = false
-		else:
-			get_tree().call_group("round_dependers", "assign_food")
-			get_tree().call_group("round_dependers", "finish_round")
-			next_round.disabled = true
-			await get_tree().create_timer(time_between_rounds).timeout
-			next_round.disabled = false
-			get_tree().call_group("round_dependers", "start_round")
-			current_round += 1
-			next_round.text = "Move to dessets"
-			customers_already_sitting = false
-	round_label.text = "Round: "+ str(current_round)+"/3"
+		next_round_button.text = "Finish meal"
+	
+	next_round_button.disabled = false
 
 
-func lose_the_day_check() -> void: 
-	var customers_in_scene : Array[Node] = get_tree().get_nodes_in_group("customers")
-	for c in customers_in_scene:
-		if not c.dead:
+func pos_sit_press() -> void:
+	next_round_button.disabled = true
+	var table : Table = _4_seat_table.get_table()
+	
+	onion.toggle_warm_ingredients_selectability(true)
+	salt.toggle_warm_ingredients_selectability(true)
+	silver.toggle_warm_ingredients_selectability(true)
+	
+	table.end_round()
+	await get_tree().create_timer(wait_time).timeout
+	
+	if current_round == day_size-1:
+		var we_succeded : bool = table.end_day()
+		await get_tree().create_timer(wait_time).timeout
+		
+		if not we_succeded:
 			end_of_day_lose.visible = true
+		
+		table.start_day()
+		await get_tree().create_timer(wait_time).timeout
+	
+	table.start_round()
+	await get_tree().create_timer(wait_time).timeout
+	
+	next_round_button.text = "Sit custommers"
+	current_round = (current_round+1)% day_size
+	round_label.text = str(current_round+1) + "/" + str(day_size)+ " meals"
+	
+	next_round_button.disabled = false

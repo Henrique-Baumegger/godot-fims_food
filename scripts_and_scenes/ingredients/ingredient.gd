@@ -1,4 +1,4 @@
-## Lifecycle mathods to be called by parent:
+## Lifecycle methods to be called by parent:
 ## toggle_warm_ingredients_selectability
 extends Node2D
 class_name Ingredient
@@ -27,10 +27,10 @@ var dragged_quantity : int = 0
 
 func toggle_warm_ingredients_selectability(on : bool)-> void:
 	if !on and drink_type == Food.Drinks.NONE:
-		blocked = false
+		blocked = true
 		modulate = Color(0.8, 0.8, 0.8, 0.6)
 	elif on:
-		blocked = true
+		blocked = false
 		modulate = Color.WHITE
 
 

@@ -32,13 +32,13 @@ var list_of_foods_this_round : Array[Food]
 
 
 @onready var customer_list: Node2D = $CustomerList
-@onready var label: Label = $List/Label
-@onready var list_position_1: Marker2D = $List/ListPosition1
-@onready var list_position_2: Marker2D = $List/ListPosition2
-@onready var list_position_3: Marker2D = $List/ListPosition3
-@onready var list_position_4: Marker2D = $List/ListPosition4
-@onready var list_position_5: Marker2D = $List/ListPosition5
-@onready var list_position_6: Marker2D = $List/ListPosition6
+@onready var label: Label = $CustomerList/Label
+@onready var list_position_1: Marker2D = $CustomerList/ListPosition1
+@onready var list_position_2: Marker2D = $CustomerList/ListPosition2
+@onready var list_position_3: Marker2D = $CustomerList/ListPosition3
+@onready var list_position_4: Marker2D = $CustomerList/ListPosition4
+@onready var list_position_5: Marker2D = $CustomerList/ListPosition5
+@onready var list_position_6: Marker2D = $CustomerList/ListPosition6
 
 
 func start_day() -> void:

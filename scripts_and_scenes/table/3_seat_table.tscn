@@ -46,6 +46,7 @@ position = Vector2(616, -184)
 position = Vector2(-449, -213)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker1" unique_id=1121227186]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_4um16")
 
@@ -53,6 +54,7 @@ texture = ExtResource("2_4um16")
 position = Vector2(-4, -201)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker2" unique_id=1776469665]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_4um16")
 
@@ -60,6 +62,7 @@ texture = ExtResource("2_4um16")
 position = Vector2(451, -205)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker3" unique_id=157514929]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_4um16")
 
@@ -69,6 +72,7 @@ texture = ExtResource("2_4um16")
 position = Vector2(-437, -370)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker1" unique_id=455315865]
+visible = false
 texture = ExtResource("3_rskcv")
 offset = Vector2(274, 365)
 
@@ -76,6 +80,7 @@ offset = Vector2(274, 365)
 position = Vector2(1, -367)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker2" unique_id=946854850]
+visible = false
 texture = ExtResource("3_rskcv")
 offset = Vector2(274, 365)
 
@@ -83,5 +88,6 @@ offset = Vector2(274, 365)
 position = Vector2(451, -374)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker3" unique_id=41974181]
+visible = false
 texture = ExtResource("3_rskcv")
 offset = Vector2(274, 365)

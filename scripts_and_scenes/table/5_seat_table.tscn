@@ -46,6 +46,7 @@ position = Vector2(165, -189)
 position = Vector2(-638, -222)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker1" unique_id=1456380491]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_tr54w")
 
@@ -53,6 +54,7 @@ texture = ExtResource("2_tr54w")
 position = Vector2(-336, -216)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker2" unique_id=2018197519]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_tr54w")
 
@@ -60,6 +62,7 @@ texture = ExtResource("2_tr54w")
 position = Vector2(-3, -206)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker3" unique_id=1318573562]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_tr54w")
 
@@ -67,6 +70,7 @@ texture = ExtResource("2_tr54w")
 position = Vector2(344, -205)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker4" unique_id=237657480]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_tr54w")
 
@@ -74,6 +78,7 @@ texture = ExtResource("2_tr54w")
 position = Vector2(646, -199)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker5" unique_id=194370166]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_tr54w")
 
@@ -83,6 +88,7 @@ texture = ExtResource("2_tr54w")
 position = Vector2(-621, -375)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker1" unique_id=757466232]
+visible = false
 texture = ExtResource("3_hyhy5")
 offset = Vector2(274, 365)
 
@@ -90,6 +96,7 @@ offset = Vector2(274, 365)
 position = Vector2(-322, -369)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker2" unique_id=1718233282]
+visible = false
 texture = ExtResource("3_hyhy5")
 offset = Vector2(274, 365)
 
@@ -97,6 +104,7 @@ offset = Vector2(274, 365)
 position = Vector2(1, -369)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker3" unique_id=1040590321]
+visible = false
 texture = ExtResource("3_hyhy5")
 offset = Vector2(274, 365)
 
@@ -104,6 +112,7 @@ offset = Vector2(274, 365)
 position = Vector2(347, -378)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker4" unique_id=1573307972]
+visible = false
 texture = ExtResource("3_hyhy5")
 offset = Vector2(274, 365)
 
@@ -111,5 +120,6 @@ offset = Vector2(274, 365)
 position = Vector2(644, -358)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker5" unique_id=1654670634]
+visible = false
 texture = ExtResource("3_hyhy5")
 offset = Vector2(274, 365)

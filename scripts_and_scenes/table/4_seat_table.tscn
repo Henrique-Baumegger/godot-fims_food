@@ -46,6 +46,7 @@ position = Vector2(413, -84)
 position = Vector2(-597, -219)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker1" unique_id=1720000816]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_bj088")
 
@@ -53,6 +54,7 @@ texture = ExtResource("2_bj088")
 position = Vector2(-192, -213)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker2" unique_id=550182316]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_bj088")
 
@@ -60,6 +62,7 @@ texture = ExtResource("2_bj088")
 position = Vector2(229, -206)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker3" unique_id=1421582602]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_bj088")
 
@@ -67,6 +70,7 @@ texture = ExtResource("2_bj088")
 position = Vector2(581, -205)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker4" unique_id=1551536537]
+visible = false
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_bj088")
 
@@ -76,6 +80,7 @@ texture = ExtResource("2_bj088")
 position = Vector2(-580, -373)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker1" unique_id=391448913]
+visible = false
 texture = ExtResource("3_q2lk5")
 offset = Vector2(274, 365)
 
@@ -83,6 +88,7 @@ offset = Vector2(274, 365)
 position = Vector2(-189, -367)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker2" unique_id=591941303]
+visible = false
 texture = ExtResource("3_q2lk5")
 offset = Vector2(274, 365)
 
@@ -90,6 +96,7 @@ offset = Vector2(274, 365)
 position = Vector2(224, -371)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker3" unique_id=296427924]
+visible = false
 texture = ExtResource("3_q2lk5")
 offset = Vector2(274, 365)
 
@@ -97,5 +104,6 @@ offset = Vector2(274, 365)
 position = Vector2(576, -363)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker4" unique_id=867788430]
+visible = false
 texture = ExtResource("3_q2lk5")
 offset = Vector2(274, 365)

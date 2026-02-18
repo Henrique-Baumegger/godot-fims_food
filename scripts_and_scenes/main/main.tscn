@@ -15,55 +15,58 @@
 script = ExtResource("1_cu7v3")
 
 [node name="5SeatTable" parent="." unique_id=1402043585 instance=ExtResource("2_86746")]
-position = Vector2(957, 600)
+position = Vector2(966, 560)
 
 [node name="Onion" parent="." unique_id=348821999 instance=ExtResource("1_8ngdv")]
-position = Vector2(178, 944)
+position = Vector2(150, 940)
 poison_type = 1
-drink_type = 0
 initial_quantity = 30
+static_sprite_offset = Vector2(-100, 0)
 current_texture = ExtResource("4_cu7v3")
 
 [node name="Salt" parent="." unique_id=1030776605 instance=ExtResource("1_8ngdv")]
-position = Vector2(415, 942)
+position = Vector2(350, 940)
 poison_type = 2
-drink_type = 0
 initial_quantity = 25
+static_sprite_offset = Vector2(-85, 0)
 current_texture = ExtResource("5_6n4cw")
 
 [node name="Silver" parent="." unique_id=596190691 instance=ExtResource("1_8ngdv")]
-position = Vector2(650, 943)
+position = Vector2(550, 940)
 poison_type = 3
-drink_type = 0
 initial_quantity = 35
+static_sprite_offset = Vector2(-30, 20)
 current_texture = ExtResource("6_86746")
 
 [node name="LeftDessert" parent="." unique_id=594223459 instance=ExtResource("1_8ngdv")]
-position = Vector2(934, 949)
-poison_type = 0
+position = Vector2(800, 940)
 drink_type = 1
 initial_quantity = 10
+sprite_scale = 0.65
+static_sprite_offset = Vector2(0, -40)
 current_texture = ExtResource("5_y5nuw")
 
 [node name="StayDessert" parent="." unique_id=184809859 instance=ExtResource("1_8ngdv")]
-position = Vector2(1172, 953)
-poison_type = 0
+position = Vector2(1000, 940)
 drink_type = 3
 initial_quantity = 12
+sprite_scale = 0.65
+static_sprite_offset = Vector2(0, -40)
 current_texture = ExtResource("6_qbahw")
 
 [node name="RightDessert" parent="." unique_id=1082072973 instance=ExtResource("1_8ngdv")]
-position = Vector2(1404, 955)
-poison_type = 0
+position = Vector2(1200, 940)
 drink_type = 2
 initial_quantity = 8
+sprite_scale = 0.65
+static_sprite_offset = Vector2(0, -40)
 current_texture = ExtResource("7_86746")
 
 [node name="NextRoundButton" type="Button" parent="." unique_id=1977712106]
-offset_left = 1572.0
-offset_top = 918.0
-offset_right = 1808.0
-offset_bottom = 1040.0
+offset_left = 1395.0
+offset_top = 845.0
+offset_right = 1631.0
+offset_bottom = 967.0
 theme_override_font_sizes/font_size = 40
 text = "P.C. text"
 
@@ -76,10 +79,10 @@ theme_override_font_sizes/font_size = 100
 text = "0 doubloons"
 
 [node name="RoundLabel" type="Label" parent="." unique_id=1015440697]
-offset_left = 1590.0
-offset_top = 682.0
-offset_right = 1862.0
-offset_bottom = 903.0
+offset_left = 1398.0
+offset_top = 972.0
+offset_right = 1670.0
+offset_bottom = 1193.0
 theme_override_font_sizes/font_size = 60
 text = "P.C. "
 

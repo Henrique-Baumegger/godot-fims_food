@@ -25,7 +25,7 @@ static func instantiate_table_container(number_of_seats : int) ->VariableSeatAmo
 	return table_instantiables[number_of_seats].instantiate()
 
 
-static func instantiate_random_customers(n: int) -> Array[CustomerContainer]:
+static func instantiate_random_customers_container(n: int) -> Array[CustomerContainer]:
 	var customer_keys : Array [Customer.Creatures] = customer_containers_instantiables.keys()
 	var result: Array[CustomerContainer] = []
 	for i in range(n):

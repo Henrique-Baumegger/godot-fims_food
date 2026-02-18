@@ -52,7 +52,8 @@ func _on_next_round_pressed() -> void:
 func pre_sit_press() -> void:
 	next_round_button.disabled = true
 	
-	if current_round == day_size-1:
+	var last_round : bool = current_round == day_size-1
+	if last_round:
 		next_round_button.text = "Finish day"
 	else:
 		next_round_button.text = "Finish meal"
@@ -71,9 +72,10 @@ func pre_sit_press() -> void:
 
 func pos_sit_press() -> void:
 	next_round_button.disabled = true
+	var last_round : bool = current_round == day_size-1
 	
 	next_round_button.text = "Sit custommers"
-	current_round = (current_round+1)% day_size
+	current_round = (current_round+1) % day_size
 	round_label.text = str(current_round+1) + "/" + str(day_size)+ " meals"
 	
 	var table : Table = _4_seat_table.get_table()
@@ -85,7 +87,7 @@ func pos_sit_press() -> void:
 	table.end_round()
 	await get_tree().create_timer(wait_time).timeout
 	
-	if current_round == day_size-1:
+	if last_round:
 		var we_succeded : bool = table.end_day()
 		await get_tree().create_timer(wait_time).timeout
 		

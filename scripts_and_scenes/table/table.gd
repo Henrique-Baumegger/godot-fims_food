@@ -120,7 +120,7 @@ func _assign_food() -> void: #
 
 
 func _new_set_of_customers() -> void: #
-	var random_customer_containers : Array [CustomerContainer] = AssetDictionary.instantiate_random_customers(table_size)
+	var random_customer_containers : Array [CustomerContainer] = AssetDictionary.instantiate_random_customers_container(table_size)
 	for cc in random_customer_containers:
 		add_child(cc)
 		clients_of_the_day.append(cc.get_customer())
@@ -167,9 +167,11 @@ func _sit_customers() -> void: #
 	for i in range(table_size):
 		client_positions_of_this_round[i].position = customers_on_table_markers[i].position
 	
-	for i in range(0, table_size):
-		client_positions_of_this_round[i].right_customer = client_positions_of_this_round[posmod(i+1, table_size)]
-		client_positions_of_this_round[i].left_customer = client_positions_of_this_round[posmod(i-1, table_size)]
+	client_positions_of_this_round[0].right_customer = client_positions_of_this_round[1]
+	client_positions_of_this_round[table_size-1].left_customer = client_positions_of_this_round[table_size-2]
+	for i in range(1, table_size-1):
+		client_positions_of_this_round[i].right_customer = client_positions_of_this_round[i+1]
+		client_positions_of_this_round[i].left_customer = client_positions_of_this_round[i-1]
 
 
 func _delete_current_customers() -> void:

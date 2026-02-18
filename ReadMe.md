@@ -10,5 +10,5 @@
 
 
 ## TODO
-- Understand missmatch between customer sprite position at runtime and at variable tables
-- Find a way to make (only) drink sprites bigger
+- If table size == 6, table does not initialize customers randomly, it uses a 
+(new) asset dictionary method to initialize 2 of each race (randomly)

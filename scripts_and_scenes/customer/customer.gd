@@ -229,7 +229,7 @@ func _get_updated_tool_tip_text() -> String:
 	
 	var hater_part := ""
 	if is_hater:
-		hater_part = "\nWhile sitting next to [color=#ff6b6b]" + hated_customer.customer_name + "[/color] : will [color=#ff6b6b]not eat.[/color]\n"
+		hater_part = "\nWhile sitting next to [color=#ff6b6b]" + hated_customer.customer_name + "[/color] : will [color=#ff6b6b]not eat or drink.[/color]\n"
 	
 	var description := """{identity_part}
 

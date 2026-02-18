@@ -8,6 +8,9 @@ class_name Ingredient
 @export var drink_type : Food.Drinks = Food.Drinks.NONE
 
 @export var initial_quantity : int = 0
+
+@export var sprite_scale : float = 0.325
+@export var static_sprite_offset : Vector2 = Vector2(0,0)
 @export var current_texture : Texture2D = null
 
 var dragging : bool = false
@@ -16,6 +19,8 @@ var blocked : bool = false
 
 var static_quantity : int 
 var dragged_quantity : int = 0
+
+var dragged_scale_proportional_to_normal : float = 0.7
 
 @onready var static_ingredient: Node2D = $StaticIngredient
 @onready var dragged_ingredient: Node2D = $DraggedIngredient
@@ -35,6 +40,10 @@ func toggle_warm_ingredients_selectability(on : bool)-> void:
 
 
 func _ready() -> void:
+	static_sprite.offset = static_sprite_offset
+	static_sprite.scale = Vector2.ONE * sprite_scale 
+	dragged_sprite.scale = Vector2.ONE * sprite_scale * dragged_scale_proportional_to_normal
+	
 	dragged_ingredient.visible = false
 	static_quantity = initial_quantity
 	static_sprite.texture = current_texture
@@ -43,7 +52,7 @@ func _ready() -> void:
 
 
 func _process(_delta):
-	if blocked:
+	if blocked or Input.is_action_just_pressed("right_click"):
 		if dragging:
 			_cancel_drag()
 		return

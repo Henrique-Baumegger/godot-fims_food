@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d2y0qgipcum2s" path="res://scripts_and_scenes/food/food.gd" id="1_aohis"]
 [ext_resource type="Texture2D" uid="uid://bjp1fg4matt2b" path="res://art/food/warm/beef.png" id="2_hpgca"]
+[ext_resource type="Texture2D" uid="uid://tqjoie2qw2gi" path="res://art/food/warm/chicken.png" id="3_a75k6"]
+[ext_resource type="Texture2D" uid="uid://csw5lv0g3ya3d" path="res://art/food/warm/fish.png" id="4_qfvhr"]
 [ext_resource type="Texture2D" uid="uid://cpco8dlho3uwe" path="res://art/food/drinks/drink g.png" id="4_xacjw"]
+[ext_resource type="Texture2D" uid="uid://dq7u6a3si3gkf" path="res://art/food/warm/heart.png" id="5_uh3om"]
+[ext_resource type="Texture2D" uid="uid://cy7w643klhh1w" path="res://art/food/warm/pasta.png" id="6_xfinb"]
 [ext_resource type="Texture2D" uid="uid://kynw3kqa7dla" path="res://art/food/poisons/garlic.png" id="10_a75k6"]
 [ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="11_uh3om"]
 [ext_resource type="Texture2D" uid="uid://bqa864xcxjlh4" path="res://art/food/poisons/silver.png" id="12_xfinb"]
@@ -13,6 +17,7 @@ size = Vector2(90.79999, 159.67499)
 [node name="Food" type="Area2D" unique_id=1063911873]
 z_index = 1
 script = ExtResource("1_aohis")
+list_of_warm_food_textures = Array[Texture2D]([ExtResource("2_hpgca"), ExtResource("3_a75k6"), ExtResource("4_qfvhr"), ExtResource("5_uh3om"), ExtResource("6_xfinb")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930218971]
 position = Vector2(3.999998, 81.325)

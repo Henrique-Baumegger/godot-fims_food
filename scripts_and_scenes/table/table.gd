@@ -120,12 +120,14 @@ func _assign_food() -> void: #
 
 
 func _new_set_of_customers() -> void: #
-	clients_of_the_day = AssetDictionary.instantiate_random_customers(table_size)
+	var random_customer_containers : Array [CustomerContainer] = AssetDictionary.instantiate_random_customers(table_size)
+	for cc in random_customer_containers:
+		add_child(cc)
+		clients_of_the_day.append(cc.get_customer())
 	client_positions_of_this_round = clients_of_the_day.duplicate()
 	client_positions_of_this_round.shuffle()
 	
 	for cust in clients_of_the_day:
-		add_child(cust)
 		cust.gives_tip.connect(recive_tip.emit)
 	
 	var treshold_for_love_relations = 3
@@ -134,8 +136,8 @@ func _new_set_of_customers() -> void: #
 		clients_of_the_day[0].set_up_relations(clients_of_the_day[1], null)
 		clients_of_the_day[1].set_up_relations(clients_of_the_day[0], null)
 	if table_size >= treshold_for_hate_relations:
-		clients_of_the_day[2].set_up_relations(clients_of_the_day[3], null)
-		clients_of_the_day[3].set_up_relations(clients_of_the_day[2], null)
+		clients_of_the_day[2].set_up_relations(null, clients_of_the_day[3])
+		clients_of_the_day[3].set_up_relations(null, clients_of_the_day[2])
 
 
 func _sit_customers() -> void: #

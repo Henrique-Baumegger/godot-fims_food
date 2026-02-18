@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bb1dv0wixnsmh"]
 
 [ext_resource type="Script" uid="uid://bjbbvo4pjb5i8" path="res://scripts_and_scenes/customer/ghost.gd" id="1_elibt"]
+[ext_resource type="Script" uid="uid://c6rhnqre66cbe" path="res://scripts_and_scenes/customer/CustomerContainer.gd" id="1_whtnd"]
 [ext_resource type="Texture2D" uid="uid://n4pmgvw48e7n" path="res://art/characters/ghosts/ghost1.png" id="2_yam2q"]
 [ext_resource type="PackedScene" uid="uid://b04d3wilep18r" path="res://scripts_and_scenes/customer/customer.tscn" id="2_yminy"]
 [ext_resource type="Texture2D" uid="uid://son7m30csknk" path="res://art/characters/ghosts/ghost2.png" id="3_2xovo"]
@@ -14,10 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://e8tq5fj852pu" path="res://art/characters/ghosts/ghost5d.png" id="11_2ob77"]
 
 [node name="Ghost" type="Node2D" unique_id=1737731592]
+script = ExtResource("1_whtnd")
 
 [node name="Customer" parent="." unique_id=848679735 instance=ExtResource("2_yminy")]
 script = ExtResource("1_elibt")
-creature_type = 1
+creature_type = 3
 max_poison = 10
 names_per_id = Array[String](["Phantom of Grief", "Ghost of Greed", "Spirit of distrust", "Specter of hatred", "Spooky Linda"])
 alive_textures_per_id = Array[Texture2D]([ExtResource("2_yam2q"), ExtResource("3_2xovo"), ExtResource("4_u6df7"), ExtResource("5_5jk5q"), ExtResource("6_bgmu7")])

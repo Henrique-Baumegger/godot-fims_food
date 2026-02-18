@@ -39,3 +39,9 @@ and add markers as children. At _ready, check if all list sizes are equal, and c
 - Table should manage initialization and call customer lifecycle methods.
 
 - Table itself should have lifecycle methods that will be called by main
+
+
+
+# TODO
+- On entire codebase, adjust Customer references to CustomerContainer, 
+and use CustomerContainer.get_customer() when necessary

@@ -28,6 +28,8 @@ func _ready() -> void:
 	table.start_day()
 	table.start_round()
 	next_round_button.text = "Sit custommers"
+	round_label.text = str(current_round+1) + "/" + str(day_size)+ " meals"
+
 
 
 func _on_recives_tip(amount:int) -> void:

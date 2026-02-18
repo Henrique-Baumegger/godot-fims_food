@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://kynw3kqa7dla" path="res://art/food/poisons/garlic.png" id="4_cu7v3"]
 [ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="5_6n4cw"]
 [ext_resource type="Texture2D" uid="uid://cpco8dlho3uwe" path="res://art/food/drinks/drink g.png" id="5_y5nuw"]
+[ext_resource type="Texture2D" uid="uid://bqa864xcxjlh4" path="res://art/food/poisons/silver.png" id="6_86746"]
 [ext_resource type="Texture2D" uid="uid://ck2i48y4qpov6" path="res://art/food/drinks/drink p.png" id="6_qbahw"]
 [ext_resource type="Texture2D" uid="uid://b614ttf1mpkua" path="res://art/food/drinks/drink.png" id="7_86746"]
 [ext_resource type="PackedScene" uid="uid://cqp7orusi82q3" path="res://scripts_and_scenes/table/4_seat_table.tscn" id="9_qbahw"]
@@ -35,26 +36,27 @@ position = Vector2(650, 943)
 poison_type = 3
 drink_type = 0
 initial_quantity = 35
+current_texture = ExtResource("6_86746")
 
 [node name="LeftDessert" parent="." unique_id=594223459 instance=ExtResource("1_8ngdv")]
 position = Vector2(934, 949)
 poison_type = 0
 drink_type = 1
-initial_quantity = 3
+initial_quantity = 10
 current_texture = ExtResource("5_y5nuw")
 
 [node name="StayDessert" parent="." unique_id=184809859 instance=ExtResource("1_8ngdv")]
 position = Vector2(1172, 953)
 poison_type = 0
 drink_type = 3
-initial_quantity = 2
+initial_quantity = 12
 current_texture = ExtResource("6_qbahw")
 
 [node name="RightDessert" parent="." unique_id=1082072973 instance=ExtResource("1_8ngdv")]
 position = Vector2(1404, 955)
 poison_type = 0
 drink_type = 2
-initial_quantity = 1
+initial_quantity = 8
 current_texture = ExtResource("7_86746")
 
 [node name="NextRoundButton" type="Button" parent="." unique_id=1977712106]

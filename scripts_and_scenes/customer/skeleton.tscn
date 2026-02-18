@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b62ng2ie1m0rd"]
 
 [ext_resource type="PackedScene" uid="uid://b04d3wilep18r" path="res://scripts_and_scenes/customer/customer.tscn" id="1_6l7rs"]
+[ext_resource type="Script" uid="uid://c6rhnqre66cbe" path="res://scripts_and_scenes/customer/CustomerContainer.gd" id="1_vcck5"]
 [ext_resource type="Script" uid="uid://brng8om06cwia" path="res://scripts_and_scenes/customer/skeleton.gd" id="1_ybtii"]
 [ext_resource type="Texture2D" uid="uid://clo885p4hkli1" path="res://art/characters/skeletons/skeleton1.png" id="2_27cea"]
 [ext_resource type="Texture2D" uid="uid://d1ypgbc4ntrnc" path="res://art/characters/skeletons/skeleton3.png" id="2_jondo"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://vledc1gce23d" path="res://art/characters/skeletons/skeleton5d.png" id="11_pvdd6"]
 
 [node name="Skeleton" type="Node2D" unique_id=925178601]
+script = ExtResource("1_vcck5")
 
 [node name="Customer" parent="." unique_id=1737731592 instance=ExtResource("1_6l7rs")]
 script = ExtResource("1_ybtii")

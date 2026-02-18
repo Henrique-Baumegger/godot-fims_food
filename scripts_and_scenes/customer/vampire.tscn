@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5u6g4ksmn4tp"]
 
 [ext_resource type="PackedScene" uid="uid://b04d3wilep18r" path="res://scripts_and_scenes/customer/customer.tscn" id="1_6fg48"]
+[ext_resource type="Script" uid="uid://c6rhnqre66cbe" path="res://scripts_and_scenes/customer/CustomerContainer.gd" id="1_8gol2"]
 [ext_resource type="Script" uid="uid://cf0bph7y7l82n" path="res://scripts_and_scenes/customer/vampire.gd" id="1_js6u7"]
 [ext_resource type="Texture2D" uid="uid://dwptq3m6hknxo" path="res://art/characters/vampire/vampire1.png" id="2_wvpbf"]
 [ext_resource type="Texture2D" uid="uid://c72pekmj138hs" path="res://art/characters/vampire/vampire2.png" id="3_78m3r"]
@@ -14,10 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://cyuy4cxjo30ic" path="res://art/characters/vampire/vampire5d.png" id="11_up04k"]
 
 [node name="Vampire" type="Node2D" unique_id=3934645]
+script = ExtResource("1_8gol2")
 
 [node name="Customer" parent="." unique_id=1737731592 instance=ExtResource("1_6fg48")]
 script = ExtResource("1_js6u7")
-creature_type = 3
+creature_type = 1
 max_poison = 10
 names_per_id = Array[String](["Ariela", "Catty", "Chad", "Margareth", "Leek"])
 alive_textures_per_id = Array[Texture2D]([ExtResource("2_wvpbf"), ExtResource("3_78m3r"), ExtResource("4_qfupa"), ExtResource("5_k3gdo"), ExtResource("6_l7adl")])

@@ -90,49 +90,55 @@ texture = ExtResource("2_wy7f4")
 [node name="CustomerMarkers" type="Node2D" parent="Table" unique_id=238174076]
 
 [node name="CustomerMarker1" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1570293676]
-position = Vector2(-680, -375)
+position = Vector2(-680, -389)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker1" unique_id=908660970]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_uv0tj")
 offset = Vector2(274, 365)
 
 [node name="CustomerMarker2" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1215768536]
-position = Vector2(-403, -371)
+position = Vector2(-403, -386)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker2" unique_id=443142457]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_uv0tj")
 offset = Vector2(274, 365)
 
 [node name="CustomerMarker3" type="Marker2D" parent="Table/CustomerMarkers" unique_id=808595472]
-position = Vector2(-141, -365)
+position = Vector2(-141, -381)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker3" unique_id=1798170079]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_uv0tj")
 offset = Vector2(274, 365)
 
 [node name="CustomerMarker4" type="Marker2D" parent="Table/CustomerMarkers" unique_id=470064842]
-position = Vector2(125, -367)
+position = Vector2(125, -386)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker4" unique_id=623594908]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_uv0tj")
 offset = Vector2(274, 365)
 
 [node name="CustomerMarker5" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1775222234]
-position = Vector2(398, -374)
+position = Vector2(398, -391)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker5" unique_id=1214599395]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_uv0tj")
 offset = Vector2(274, 365)
 
 [node name="CustomerMarker6" type="Marker2D" parent="Table/CustomerMarkers" unique_id=263255648]
-position = Vector2(663, -356)
+position = Vector2(668, -372)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker6" unique_id=118199113]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_uv0tj")
 offset = Vector2(274, 365)

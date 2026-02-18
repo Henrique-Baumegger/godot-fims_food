@@ -48,17 +48,19 @@ texture = ExtResource("2_p6n2t")
 [node name="CustomerMarkers" type="Node2D" parent="Table" unique_id=1023468991]
 
 [node name="CustomerMarker1" type="Marker2D" parent="Table/CustomerMarkers" unique_id=733570949]
-position = Vector2(-250, -364)
+position = Vector2(-250, -377)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker1" unique_id=522539637]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_am227")
 offset = Vector2(274, 365)
 
 [node name="CustomerMarker2" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1438009699]
-position = Vector2(250, -375)
+position = Vector2(250, -385)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker2" unique_id=317588227]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_am227")
 offset = Vector2(274, 365)

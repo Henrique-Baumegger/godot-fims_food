@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://faph87h4jkjb" path="res://scripts_and_scenes/ingredients/ingredient.tscn" id="1_8ngdv"]
 [ext_resource type="Script" uid="uid://cj3gs41xv2c5m" path="res://scripts_and_scenes/main/main.gd" id="1_cu7v3"]
-[ext_resource type="PackedScene" uid="uid://gdtipgv7q088" path="res://scripts_and_scenes/table/2_seat_table.tscn" id="2_86746"]
+[ext_resource type="PackedScene" uid="uid://bsvk1r7u6c4vu" path="res://scripts_and_scenes/table/5_seat_table.tscn" id="2_86746"]
 [ext_resource type="Texture2D" uid="uid://kynw3kqa7dla" path="res://art/food/poisons/garlic.png" id="4_cu7v3"]
 [ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="5_6n4cw"]
 [ext_resource type="Texture2D" uid="uid://cpco8dlho3uwe" path="res://art/food/drinks/drink g.png" id="5_y5nuw"]
@@ -14,8 +14,8 @@
 [node name="Main" type="Node2D" unique_id=959716859]
 script = ExtResource("1_cu7v3")
 
-[node name="2SeatTable" parent="." unique_id=1961462625 instance=ExtResource("2_86746")]
-position = Vector2(966, 544)
+[node name="5SeatTable" parent="." unique_id=1402043585 instance=ExtResource("2_86746")]
+position = Vector2(957, 600)
 
 [node name="Onion" parent="." unique_id=348821999 instance=ExtResource("1_8ngdv")]
 position = Vector2(178, 944)

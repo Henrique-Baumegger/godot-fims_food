@@ -13,7 +13,7 @@ var wait_time : float = 0.6
 @onready var you_die_label: Label = $YouDieLabel
 @onready var end_of_day_lose: Label = $EndOfDayLose
 
-@onready var _4_seat_table: VariableSeatAmountTableContainer = $"2SeatTable"
+@onready var _4_seat_table: VariableSeatAmountTableContainer = $"5SeatTable"
 
 @onready var onion: Ingredient = $Onion
 @onready var salt: Ingredient = $Salt

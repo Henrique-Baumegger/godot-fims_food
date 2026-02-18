@@ -69,25 +69,28 @@ texture = ExtResource("2_4um16")
 [node name="CustomerMarkers" type="Node2D" parent="Table" unique_id=1158434239]
 
 [node name="CustomerMarker1" type="Marker2D" parent="Table/CustomerMarkers" unique_id=308066419]
-position = Vector2(-437, -370)
+position = Vector2(-437, -384)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker1" unique_id=455315865]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_rskcv")
 offset = Vector2(274, 365)
 
 [node name="CustomerMarker2" type="Marker2D" parent="Table/CustomerMarkers" unique_id=1405793154]
-position = Vector2(1, -367)
+position = Vector2(1, -383)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker2" unique_id=946854850]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_rskcv")
 offset = Vector2(274, 365)
 
 [node name="CustomerMarker3" type="Marker2D" parent="Table/CustomerMarkers" unique_id=435523009]
-position = Vector2(451, -374)
+position = Vector2(451, -387)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/CustomerMarkers/CustomerMarker3" unique_id=41974181]
 visible = false
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_rskcv")
 offset = Vector2(274, 365)

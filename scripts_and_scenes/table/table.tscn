@@ -17,6 +17,7 @@ position = Vector2(-6, 0)
 texture = ExtResource("2_kodtr")
 
 [node name="CustomerList" type="Node2D" parent="." unique_id=836089181]
+position = Vector2(75, 35)
 
 [node name="Label" type="Label" parent="CustomerList" unique_id=1104054420]
 offset_left = -730.0

@@ -13,7 +13,7 @@ var wait_time : float = 0.6
 @onready var you_die_label: Label = $YouDieLabel
 @onready var end_of_day_lose: Label = $EndOfDayLose
 
-@onready var _4_seat_table: VariableSeatAmountTableContainer = $"4SeatTable"
+@onready var _4_seat_table: VariableSeatAmountTableContainer = $"2SeatTable"
 
 @onready var onion: Ingredient = $Onion
 @onready var salt: Ingredient = $Salt
@@ -51,26 +51,31 @@ func _on_next_round_pressed() -> void:
 
 func pre_sit_press() -> void:
 	next_round_button.disabled = true
-	var table : Table = _4_seat_table.get_table()
-	
-	onion.toggle_warm_ingredients_selectability(false)
-	salt.toggle_warm_ingredients_selectability(false)
-	silver.toggle_warm_ingredients_selectability(false)
-	
-	
-	table.move_to_drink_phase()
-	await get_tree().create_timer(wait_time).timeout
 	
 	if current_round == day_size-1:
 		next_round_button.text = "Finish day"
 	else:
 		next_round_button.text = "Finish meal"
 	
+	var table : Table = _4_seat_table.get_table()
+	
+	onion.toggle_warm_ingredients_selectability(false)
+	salt.toggle_warm_ingredients_selectability(false)
+	silver.toggle_warm_ingredients_selectability(false)
+	
+	table.move_to_drink_phase()
+	await get_tree().create_timer(wait_time).timeout
+	
 	next_round_button.disabled = false
 
 
 func pos_sit_press() -> void:
 	next_round_button.disabled = true
+	
+	next_round_button.text = "Sit custommers"
+	current_round = (current_round+1)% day_size
+	round_label.text = str(current_round+1) + "/" + str(day_size)+ " meals"
+	
 	var table : Table = _4_seat_table.get_table()
 	
 	onion.toggle_warm_ingredients_selectability(true)
@@ -92,9 +97,5 @@ func pos_sit_press() -> void:
 	
 	table.start_round()
 	await get_tree().create_timer(wait_time).timeout
-	
-	next_round_button.text = "Sit custommers"
-	current_round = (current_round+1)% day_size
-	round_label.text = str(current_round+1) + "/" + str(day_size)+ " meals"
 	
 	next_round_button.disabled = false

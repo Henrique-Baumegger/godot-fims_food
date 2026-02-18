@@ -184,7 +184,7 @@ func _handle_list(put_on_list: bool) -> void:
 	
 	if put_on_list:
 		for i in range(table_size):
-			clients_of_the_day[i].position = customers_on_list_markers[i].position
+			clients_of_the_day[i].global_position = customers_on_list_markers[i].global_position
 			clients_of_the_day[i].list_format(true)
 	else:
 		for c: Customer in clients_of_the_day:

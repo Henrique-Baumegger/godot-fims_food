@@ -1,6 +1,9 @@
 extends Node2D
 
+
 const day_size = 3
+
+@export var var_seat_table: VariableSeatAmountTableContainer
 
 var pre_sit_phase : bool = true
 var current_round = 0
@@ -13,15 +16,13 @@ var wait_time : float = 0.6
 @onready var you_die_label: Label = $YouDieLabel
 @onready var end_of_day_lose: Label = $EndOfDayLose
 
-@onready var _4_seat_table: VariableSeatAmountTableContainer = $"5SeatTable"
-
 @onready var onion: Ingredient = $Onion
 @onready var salt: Ingredient = $Salt
 @onready var silver: Ingredient = $Silver
 
 
 func _ready() -> void:
-	var table : Table = _4_seat_table.get_table()
+	var table : Table = var_seat_table.get_table()
 	table.player_is_killed.connect(_on_kills_you)
 	table.recive_tip.connect(_on_recives_tip)
 	
@@ -58,7 +59,7 @@ func pre_sit_press() -> void:
 	else:
 		next_round_button.text = "Finish meal"
 	
-	var table : Table = _4_seat_table.get_table()
+	var table : Table = var_seat_table.get_table()
 	
 	onion.toggle_warm_ingredients_selectability(false)
 	salt.toggle_warm_ingredients_selectability(false)
@@ -78,7 +79,7 @@ func pos_sit_press() -> void:
 	current_round = (current_round+1) % day_size
 	round_label.text = str(current_round+1) + "/" + str(day_size)+ " meals"
 	
-	var table : Table = _4_seat_table.get_table()
+	var table : Table = var_seat_table.get_table()
 	
 	onion.toggle_warm_ingredients_selectability(true)
 	salt.toggle_warm_ingredients_selectability(true)

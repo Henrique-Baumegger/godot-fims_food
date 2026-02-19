@@ -25,12 +25,24 @@ static func instantiate_table_container(number_of_seats : int) ->VariableSeatAmo
 	return table_instantiables[number_of_seats].instantiate()
 
 
-static func instantiate_random_customers_container(n: int) -> Array[CustomerContainer]:
+static func instantiate_random_customer_containers(n: int) -> Array[CustomerContainer]:
 	var customer_keys : Array [Customer.Creatures] = customer_containers_instantiables.keys()
 	var result: Array[CustomerContainer] = []
 	for i in range(n):
 		var random_pick : PackedScene = customer_containers_instantiables[customer_keys.pick_random()]
 		result.append(random_pick.instantiate())
+	return result
+
+
+static func instantiate_balanced_customer_containers(n:int) -> Array[CustomerContainer]:
+	assert((n % customer_containers_instantiables.size()) == 0, "for balanced number, n must be multiple of 3")
+	@warning_ignore("integer_division")
+	var number_of_each_type : int = n/customer_containers_instantiables.size()
+	var result : Array [CustomerContainer]
+	for key in customer_containers_instantiables.keys():
+		for i in range(number_of_each_type):
+			result.append(customer_containers_instantiables[key].instantiate())
+	result.shuffle()
 	return result
 
 

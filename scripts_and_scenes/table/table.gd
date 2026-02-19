@@ -120,8 +120,13 @@ func _assign_food() -> void: #
 
 
 func _new_set_of_customers() -> void: #
-	var random_customer_containers : Array [CustomerContainer] = AssetDictionary.instantiate_random_customers_container(table_size)
-	for cc in random_customer_containers:
+	var rigged_random_customer_containers : Array [CustomerContainer]
+	if ((table_size % AssetDictionary.customer_containers_instantiables.size()) == 0):
+		rigged_random_customer_containers = AssetDictionary.instantiate_balanced_customer_containers(table_size)
+	else:
+		rigged_random_customer_containers = AssetDictionary.instantiate_random_customer_containers(table_size)
+	
+	for cc in rigged_random_customer_containers:
 		add_child(cc)
 		clients_of_the_day.append(cc.get_customer())
 	client_positions_of_this_round = clients_of_the_day.duplicate()

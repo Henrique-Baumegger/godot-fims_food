@@ -10,5 +10,7 @@
 
 
 ## TODO
-- If table size == 6, table does not initialize customers randomly, it uses a 
-(new) asset dictionary method to initialize 2 of each race (randomly)
+- Create candle scene that applies random sprite
+- Position them on tables manually
+
+- Solve 2 of the same customers appearing on table of size 6

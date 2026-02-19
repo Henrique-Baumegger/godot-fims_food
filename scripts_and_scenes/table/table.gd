@@ -21,9 +21,6 @@ signal recive_tip(amount)
 @export var food_markers : Array [Marker2D] 
 @export var customers_on_table_markers : Array [Marker2D]
 
-@export var candle_sprites : Array [Sprite2D]
-@export var candle_textures : Array [Texture2D]
-
 var customers_on_list_markers : Array [Marker2D]
 
 var clients_of_the_day : Array[Customer]
@@ -100,9 +97,6 @@ func _ready() -> void:
 	
 	assert(food_markers.size() == customers_on_table_markers.size(), "food_markers and customers_on_table_markers exports must have same size")
 	assert(food_markers.size() == table_size, "table size and array sizes must match")
-	
-	for spri in candle_sprites:
-		spri.texture = candle_textures.pick_random()
 
 
 func _new_round_of_food() -> void: #

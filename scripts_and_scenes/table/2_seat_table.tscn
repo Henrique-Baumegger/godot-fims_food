@@ -8,10 +8,9 @@
 [node name="2SeatTable" type="Node2D" unique_id=1961462625]
 script = ExtResource("1_pjrlv")
 
-[node name="Table" parent="." unique_id=246802026 node_paths=PackedStringArray("food_markers", "customers_on_table_markers", "candle_sprites") instance=ExtResource("1_p6n2t")]
+[node name="Table" parent="." unique_id=246802026 node_paths=PackedStringArray("food_markers", "customers_on_table_markers") instance=ExtResource("1_p6n2t")]
 food_markers = [NodePath("FoodMarkers/FoodMarker1"), NodePath("FoodMarkers/FoodMarker2")]
 customers_on_table_markers = [NodePath("CustomerMarkers/CustomerMarker1"), NodePath("CustomerMarkers/CustomerMarker2")]
-candle_sprites = [NodePath("Candles/Candle1"), NodePath("Candles/Candle2"), NodePath("Candles/Candle3"), NodePath("Candles/Candle4")]
 
 [node name="Candles" type="Node2D" parent="Table" unique_id=688424681]
 

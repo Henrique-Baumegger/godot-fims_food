@@ -12,20 +12,6 @@ script = ExtResource("1_pjrlv")
 food_markers = [NodePath("FoodMarkers/FoodMarker1"), NodePath("FoodMarkers/FoodMarker2")]
 customers_on_table_markers = [NodePath("CustomerMarkers/CustomerMarker1"), NodePath("CustomerMarkers/CustomerMarker2")]
 
-[node name="Candles" type="Node2D" parent="Table" unique_id=688424681]
-
-[node name="Candle1" type="Sprite2D" parent="Table/Candles" unique_id=114062243]
-position = Vector2(0, -255)
-
-[node name="Candle2" type="Sprite2D" parent="Table/Candles" unique_id=177649798]
-position = Vector2(0, -100)
-
-[node name="Candle3" type="Sprite2D" parent="Table/Candles" unique_id=158017427]
-position = Vector2(540, -177)
-
-[node name="Candle4" type="Sprite2D" parent="Table/Candles" unique_id=755020516]
-position = Vector2(-540, -177)
-
 [node name="FoodMarkers" type="Node2D" parent="Table" unique_id=445483271]
 
 [node name="FoodMarker1" type="Marker2D" parent="Table/FoodMarkers" unique_id=975917519]

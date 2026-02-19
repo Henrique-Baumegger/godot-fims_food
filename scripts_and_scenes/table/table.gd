@@ -21,6 +21,7 @@ signal recive_tip(amount)
 @export var food_markers : Array [Marker2D] 
 @export var customers_on_table_markers : Array [Marker2D]
 
+
 var customers_on_list_markers : Array [Marker2D]
 
 var clients_of_the_day : Array[Customer]
@@ -114,15 +115,11 @@ func _assign_food() -> void: #
 
 
 func _new_set_of_customers() -> void: #
-	var rigged_random_customer_containers : Array [CustomerContainer]
-	if ((table_size % AssetDictionary.customer_containers_instantiables.size()) == 0):
-		rigged_random_customer_containers = AssetDictionary.instantiate_balanced_customer_containers(table_size)
-	else:
-		rigged_random_customer_containers = AssetDictionary.instantiate_random_customer_containers(table_size)
-	
-	for cc in rigged_random_customer_containers:
+	var ordered_customer_containers : Array [CustomerContainer] = AssetDictionary.instantiate_customer_containers_in_order(table_size)
+	for cc in ordered_customer_containers:
 		add_child(cc)
 		clients_of_the_day.append(cc.get_customer())
+	clients_of_the_day.shuffle()
 	client_positions_of_this_round = clients_of_the_day.duplicate()
 	client_positions_of_this_round.shuffle()
 	

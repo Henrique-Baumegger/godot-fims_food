@@ -11,6 +11,4 @@
 
 ## TODO
 - Create candle scene that applies random sprite
-- Position them on tables manually
-
-- Solve 2 of the same customers appearing on table of size 6
+- Position them on tables manually at variable_size table scenes

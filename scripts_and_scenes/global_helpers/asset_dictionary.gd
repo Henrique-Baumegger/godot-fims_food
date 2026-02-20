@@ -25,10 +25,11 @@ static func instantiate_table_container(number_of_seats : int) ->VariableSeatAmo
 	return table_instantiables[number_of_seats].instantiate()
 
 
+## These customers containers need to be added to the scene tree in array order
+## After that, they can be shuffled
 static func instantiate_customer_containers_in_order(n:int) -> Array[CustomerContainer]:
 	assert(n >= 0, "n must be non-negative")
 	assert(n <= 15, "Maximum total is 15 (5 of each type)")
-
 	var keys: Array[Customer.Creatures] = customer_containers_instantiables.keys()
 	var counts : Dictionary[Customer.Creatures, int] = {}
 	for key in keys:

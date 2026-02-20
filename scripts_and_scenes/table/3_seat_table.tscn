@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://yylk8cf2d84s" path="res://scripts_and_scenes/table/table.tscn" id="1_gaew1"]
 [ext_resource type="Texture2D" uid="uid://csw5lv0g3ya3d" path="res://art/food/warm/fish.png" id="2_4um16"]
 [ext_resource type="Texture2D" uid="uid://n4pmgvw48e7n" path="res://art/characters/ghosts/ghost1.png" id="3_rskcv"]
+[ext_resource type="PackedScene" uid="uid://cdxnwrltokqxu" path="res://scripts_and_scenes/table/candle.tscn" id="5_rskcv"]
 
 [node name="3SeatTable" type="Node2D" unique_id=398776792]
 script = ExtResource("1_4um16")
@@ -67,3 +68,29 @@ visible = false
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_rskcv")
 offset = Vector2(274, 365)
+
+[node name="Candles" type="Node2D" parent="." unique_id=505238029]
+
+[node name="Candle" parent="Candles" unique_id=212600361 instance=ExtResource("5_rskcv")]
+position = Vector2(-285, -31)
+
+[node name="Candle2" parent="Candles" unique_id=835899085 instance=ExtResource("5_rskcv")]
+position = Vector2(-173, -31)
+
+[node name="Candle3" parent="Candles" unique_id=524807691 instance=ExtResource("5_rskcv")]
+position = Vector2(-216, -180)
+
+[node name="Candle4" parent="Candles" unique_id=853799947 instance=ExtResource("5_rskcv")]
+position = Vector2(182, -33)
+
+[node name="Candle5" parent="Candles" unique_id=2014284532 instance=ExtResource("5_rskcv")]
+position = Vector2(312, -38)
+
+[node name="Candle6" parent="Candles" unique_id=901788801 instance=ExtResource("5_rskcv")]
+position = Vector2(237, -194)
+
+[node name="Candle7" parent="Candles" unique_id=204669763 instance=ExtResource("5_rskcv")]
+position = Vector2(-745, -178)
+
+[node name="Candle8" parent="Candles" unique_id=1114459664 instance=ExtResource("5_rskcv")]
+position = Vector2(730, -154)

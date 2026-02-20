@@ -1,6 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://c3pgctkp31gj8"]
 
+[ext_resource type="FontFile" uid="uid://bpbkgod5ykrij" path="res://art/fonts/BLKCHCRY.TTF" id="1_j8o4c"]
+
 [resource]
+default_font = ExtResource("1_j8o4c")
 Label/colors/font_color = Color(0.72156864, 0.5372549, 1, 1)
 Label/constants/outline_size = 11
 Label/font_sizes/font_size = 40

@@ -10,5 +10,8 @@
 
 
 ## TODO
-- Create candle scene that applies random sprite
-- Position them on tables manually at variable_size table scenes
+- Mess around with themes
+- Understand difference between theme editor on lower screen or on right screen.
+- Apply base_theme to a UI_base_theme control node scene, and instantiate it everywhere on top of UI 
+(so that, that UI tree can inherit this theme)
+- Adjust text overwrittens all over the project

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dehquvyb0j416" path="res://scripts_and_scenes/ingredients/ingredient.gd" id="1_wiup6"]
 [ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="2_e7njv"]
-[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/new_theme.tres" id="3_qhpac"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="3_qhpac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cocjv"]
 size = Vector2(219.5, 219)

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c1n1stu56dvku" path="res://scripts_and_scenes/table/variable_seat_amount_table_container.gd" id="1_tr54w"]
 [ext_resource type="Texture2D" uid="uid://csw5lv0g3ya3d" path="res://art/food/warm/fish.png" id="2_tr54w"]
 [ext_resource type="Texture2D" uid="uid://n4pmgvw48e7n" path="res://art/characters/ghosts/ghost1.png" id="3_hyhy5"]
+[ext_resource type="PackedScene" uid="uid://cdxnwrltokqxu" path="res://scripts_and_scenes/table/candle.tscn" id="5_hyhy5"]
 
 [node name="5SeatTable" type="Node2D" unique_id=1402043585]
 script = ExtResource("1_tr54w")
@@ -32,7 +33,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_tr54w")
 
 [node name="FoodMarker3" type="Marker2D" parent="Table/FoodMarkers" unique_id=2059892555]
-position = Vector2(-3, -206)
+position = Vector2(-2, -211)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker3" unique_id=1318573562]
 visible = false
@@ -48,7 +49,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_tr54w")
 
 [node name="FoodMarker5" type="Marker2D" parent="Table/FoodMarkers" unique_id=392293631]
-position = Vector2(646, -199)
+position = Vector2(646, -204)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker5" unique_id=194370166]
 visible = false
@@ -101,3 +102,29 @@ visible = false
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_hyhy5")
 offset = Vector2(274, 365)
+
+[node name="Candles" type="Node2D" parent="." unique_id=1575155507]
+
+[node name="Candle" parent="Candles" unique_id=212600361 instance=ExtResource("5_hyhy5")]
+position = Vector2(-914, -68)
+
+[node name="Candle2" parent="Candles" unique_id=1895883909 instance=ExtResource("5_hyhy5")]
+position = Vector2(883, -73)
+
+[node name="Candle3" parent="Candles" unique_id=1834855627 instance=ExtResource("5_hyhy5")]
+position = Vector2(-829, -222)
+
+[node name="Candle4" parent="Candles" unique_id=29456997 instance=ExtResource("5_hyhy5")]
+position = Vector2(-496, -256)
+
+[node name="Candle5" parent="Candles" unique_id=1189244254 instance=ExtResource("5_hyhy5")]
+position = Vector2(-163, -249)
+
+[node name="Candle6" parent="Candles" unique_id=920139868 instance=ExtResource("5_hyhy5")]
+position = Vector2(171, -254)
+
+[node name="Candle7" parent="Candles" unique_id=1981212806 instance=ExtResource("5_hyhy5")]
+position = Vector2(493, -243)
+
+[node name="Candle8" parent="Candles" unique_id=437416769 instance=ExtResource("5_hyhy5")]
+position = Vector2(812, -199)

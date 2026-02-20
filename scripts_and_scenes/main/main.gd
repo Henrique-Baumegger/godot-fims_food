@@ -22,6 +22,7 @@ var wait_time : float = 0.6
 
 
 func _ready() -> void:
+	var_seat_table.position = Vector2(966, 546)
 	var table : Table = var_seat_table.get_table()
 	table.player_is_killed.connect(_on_kills_you)
 	table.recive_tip.connect(_on_recives_tip)

@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://cdxnwrltokqxu"]
 
-[node name="Candle" type="Node2D" unique_id=1496116338]
+[ext_resource type="Script" uid="uid://d32hhb0tncgml" path="res://scripts_and_scenes/table/candle.gd" id="1_i3kv0"]
+[ext_resource type="Texture2D" uid="uid://ckf1qqkyo4a85" path="res://art/enviroment/candle1.png" id="2_rm5fs"]
+[ext_resource type="Texture2D" uid="uid://bae3xky6crxre" path="res://art/enviroment/candle2.png" id="3_85x2k"]
+[ext_resource type="Texture2D" uid="uid://bnx2a80bqgn1k" path="res://art/enviroment/candle3.png" id="4_l0iwq"]
+[ext_resource type="Texture2D" uid="uid://s5a0g24lowqg" path="res://art/enviroment/candle4.png" id="5_l4jnv"]
+
+[node name="Candle" type="Sprite2D" unique_id=212600361]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_rm5fs")
+script = ExtResource("1_i3kv0")
+candle_sprites = Array[Texture2D]([ExtResource("2_rm5fs"), ExtResource("3_85x2k"), ExtResource("4_l0iwq"), ExtResource("5_l4jnv")])

@@ -84,3 +84,5 @@ visible = false
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_q2lk5")
 offset = Vector2(274, 365)
+
+[node name="Candles" type="Node2D" parent="." unique_id=618031216]

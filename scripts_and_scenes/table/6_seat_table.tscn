@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c1n1stu56dvku" path="res://scripts_and_scenes/table/variable_seat_amount_table_container.gd" id="1_wy7f4"]
 [ext_resource type="Texture2D" uid="uid://csw5lv0g3ya3d" path="res://art/food/warm/fish.png" id="2_wy7f4"]
 [ext_resource type="Texture2D" uid="uid://n4pmgvw48e7n" path="res://art/characters/ghosts/ghost1.png" id="3_uv0tj"]
+[ext_resource type="PackedScene" uid="uid://cdxnwrltokqxu" path="res://scripts_and_scenes/table/candle.tscn" id="5_uv0tj"]
 
 [node name="6SeatTable" type="Node2D" unique_id=94503533]
 script = ExtResource("1_wy7f4")
@@ -118,3 +119,26 @@ visible = false
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_uv0tj")
 offset = Vector2(274, 365)
+
+[node name="Canldes" type="Node2D" parent="." unique_id=1442484274]
+
+[node name="Candle" parent="Canldes" unique_id=212600361 instance=ExtResource("5_uv0tj")]
+position = Vector2(-914.00006, -82)
+
+[node name="Candle2" parent="Canldes" unique_id=1210877235 instance=ExtResource("5_uv0tj")]
+position = Vector2(883, -74)
+
+[node name="Candle3" parent="Canldes" unique_id=2139363743 instance=ExtResource("5_uv0tj")]
+position = Vector2(-553, -229)
+
+[node name="Candle4" parent="Canldes" unique_id=940146539 instance=ExtResource("5_uv0tj")]
+position = Vector2(-274, -236)
+
+[node name="Candle5" parent="Canldes" unique_id=995294257 instance=ExtResource("5_uv0tj")]
+position = Vector2(-3, -229.00002)
+
+[node name="Candle6" parent="Canldes" unique_id=1903190410 instance=ExtResource("5_uv0tj")]
+position = Vector2(270, -226)
+
+[node name="Candle7" parent="Canldes" unique_id=433456373 instance=ExtResource("5_uv0tj")]
+position = Vector2(545, -219)

@@ -63,7 +63,7 @@ func _update_visuals() -> void:
 			lines.append("")
 		elif current > 0:
 			sprite_of_poison_type[poison_type].visible = true
-			lines.append("[b][outline_size=8][outline_color=#000000][color=#b36bff]%d[/color][/outline_color][/outline_size][/b]" %current)
+			lines.append("%d" %current)
 	rich_text_label.visible = true
 	rich_text_label.text = "\n".join(lines)
 	

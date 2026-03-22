@@ -32,4 +32,4 @@ shape = SubResource("RectangleShape2D_u6df7")
 position = Vector2(57, -39)
 
 [node name="ListCounterPost" type="Marker2D" parent="." unique_id=6821710]
-position = Vector2(-33, 72)
+position = Vector2(-44, 72)

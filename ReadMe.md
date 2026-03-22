@@ -10,8 +10,12 @@
 
 
 ## TODO
-- Mess around with themes
-- Understand difference between theme editor on lower screen or on right screen.
-- Apply base_theme to a UI_base_theme control node scene, and instantiate it everywhere on top of UI 
-(so that, that UI tree can inherit this theme) - bad idea, do it individually
-- Adjust text overwrittens all over the project
+- Lives system: a hit is not instakill, it just takes 1 hearth
+- Visual check for killing you
+
+- Shop: One shop visit inbetween days. 
+The more you buy of an ingredient/drink in a single shop visit, the cheaper it gets, 
+so you are incentivized to buy a specific product in bulk.
+(first buy is 20->19->18->...->1->1->1->1...)
+Always all 3 ingredients, but only one drink type. Amount avalible is infinite.
+Each product has a chance to be on sale, or expensive. This influences the initial price for it.

@@ -3,15 +3,6 @@
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="1_7df4x"]
 [ext_resource type="Script" uid="uid://cvvonpco8bfro" path="res://scripts_and_scenes/UI/poison_indicator.gd" id="1_ewxhp"]
 
-[sub_resource type="Theme" id="Theme_ewxhp"]
-RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
-RichTextLabel/constants/outline_size = 5
-RichTextLabel/font_sizes/bold_font_size = 22
-RichTextLabel/font_sizes/bold_italics_font_size = 22
-RichTextLabel/font_sizes/italics_font_size = 22
-RichTextLabel/font_sizes/mono_font_size = 22
-RichTextLabel/font_sizes/normal_font_size = 22
-
 [node name="PoisonIndicator" type="PanelContainer" unique_id=416598971]
 theme = ExtResource("1_7df4x")
 script = ExtResource("1_ewxhp")
@@ -21,7 +12,12 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1174487144]
 layout_mode = 2
-theme = SubResource("Theme_ewxhp")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
 bbcode_enabled = true
 text = "YY/XX"
 fit_content = true

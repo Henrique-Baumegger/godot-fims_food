@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://qj5l5oibevij"]
 
 [ext_resource type="Script" uid="uid://bepvg02drgtk" path="res://scripts_and_scenes/UI/tool_tip_area.gd" id="1_40t2k"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="2_1pja3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40t2k"]
 bg_color = Color(0, 0, 0, 0.9411765)
@@ -18,6 +19,7 @@ visible = false
 custom_minimum_size = Vector2(400, 0)
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("2_1pja3")
 theme_override_styles/panel = SubResource("StyleBoxFlat_40t2k")
 
 [node name="MarginContainer" type="MarginContainer" parent="TipPanel" unique_id=697727017]
@@ -29,11 +31,11 @@ theme_override_constants/margin_bottom = 16
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TipPanel/MarginContainer" unique_id=1044991644]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-theme_override_font_sizes/bold_italics_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
-theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 28
+theme_override_font_sizes/bold_italics_font_size = 28
+theme_override_font_sizes/italics_font_size = 28
+theme_override_font_sizes/mono_font_size = 28
 bbcode_enabled = true
 text = "Place holder"
 fit_content = true

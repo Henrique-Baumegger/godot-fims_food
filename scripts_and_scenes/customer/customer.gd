@@ -19,9 +19,9 @@ signal gives_tip(amount)
 # enum are const
 enum Creatures {NONE, VAMPIRE, SKELETON, GHOST} 
 const creature_type_description_BBCode : Dictionary[Creatures, String] ={
-	Creatures.GHOST : "[b]GHOST[/b] - Tips 10 doubloons on round end if dead.",
-	Creatures.SKELETON : "[b]SKELETON[/b] — Doubles its poison after eating.",
-	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - Tips 5 doubloons after eating if 0 poison."
+	Creatures.GHOST : "[b]GHOST[/b] - tips 10 doubloons on round end if dead.",
+	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating.",
+	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - tips 5 doubloons after eating if 0 poison."
 	}
 
 const MAX_POISON_NOT_SET : int = -1
@@ -225,11 +225,11 @@ func _get_updated_tool_tip_text() -> String:
 	
 	var lover_part := ""
 	if is_lover:
-		lover_part = "\nWhile sitting next to [color=#6bff95]" + loved_customer.customer_name + "[/color] : will [color=#6bff95]eat double poison.[/color]\n"
+		lover_part = "\nwhile sitting next to [color=#6bff95]" + loved_customer.customer_name + "[/color] : will [color=#6bff95]eat double poison.[/color]\n"
 	
 	var hater_part := ""
 	if is_hater:
-		hater_part = "\nWhile sitting next to [color=#ff6b6b]" + hated_customer.customer_name + "[/color] : will [color=#ff6b6b]not eat or drink.[/color]\n"
+		hater_part = "\nwhile sitting next to [color=#ff6b6b]" + hated_customer.customer_name + "[/color] : will [color=#ff6b6b]not eat or drink.[/color]\n"
 	
 	var description := """{identity_part}
 

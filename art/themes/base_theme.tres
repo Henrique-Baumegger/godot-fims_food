@@ -11,7 +11,7 @@ corner_radius_bottom_left = 12
 corner_detail = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfg6y"]
-bg_color = Color(0.1460543, 0.33737308, 0.26339763, 0.8745098)
+bg_color = Color(0.1428732, 0.3346558, 0.28892982, 0.8745098)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -34,12 +34,19 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 corner_detail = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4jhv"]
+bg_color = Color(0.11764706, 0.11764706, 0.11764706, 0.8039216)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [resource]
 default_font = ExtResource("1_j8o4c")
-Button/constants/outline_size = 6
 Button/styles/disabled = SubResource("StyleBoxFlat_j8o4c")
 Button/styles/hover = SubResource("StyleBoxFlat_sfg6y")
 Button/styles/normal = SubResource("StyleBoxFlat_xonc0")
 Button/styles/pressed = SubResource("StyleBoxFlat_h6isj")
 Label/constants/outline_size = 11
 Label/font_sizes/font_size = 40
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_l4jhv")

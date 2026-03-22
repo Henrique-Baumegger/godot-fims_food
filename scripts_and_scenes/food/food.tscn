@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpco8dlho3uwe" path="res://art/food/drinks/drink g.png" id="4_xacjw"]
 [ext_resource type="Texture2D" uid="uid://dq7u6a3si3gkf" path="res://art/food/warm/heart.png" id="5_uh3om"]
 [ext_resource type="Texture2D" uid="uid://cy7w643klhh1w" path="res://art/food/warm/pasta.png" id="6_xfinb"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="7_qfvhr"]
 [ext_resource type="Texture2D" uid="uid://kynw3kqa7dla" path="res://art/food/poisons/garlic.png" id="10_a75k6"]
 [ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="11_uh3om"]
 [ext_resource type="Texture2D" uid="uid://bqa864xcxjlh4" path="res://art/food/poisons/silver.png" id="12_xfinb"]
@@ -31,12 +32,14 @@ offset_top = 75.0
 offset_right = -40.0
 offset_bottom = 246.0
 size_flags_horizontal = 3
+theme = ExtResource("7_qfvhr")
 theme_override_constants/line_separation = 12
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 35
+theme_override_font_sizes/bold_font_size = 35
+theme_override_font_sizes/bold_italics_font_size = 35
+theme_override_font_sizes/italics_font_size = 35
+theme_override_font_sizes/mono_font_size = 35
 bbcode_enabled = true
 text = "0
 0

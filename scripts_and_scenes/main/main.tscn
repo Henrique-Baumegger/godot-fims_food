@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ck2i48y4qpov6" path="res://art/food/drinks/drink p.png" id="6_qbahw"]
 [ext_resource type="Texture2D" uid="uid://b614ttf1mpkua" path="res://art/food/drinks/drink.png" id="7_86746"]
 [ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="10_86746"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="10_e3vim"]
 
 [node name="Main" type="Node2D" unique_id=959716859 node_paths=PackedStringArray("var_seat_table")]
 script = ExtResource("1_cu7v3")
@@ -63,10 +64,12 @@ static_sprite_offset = Vector2(0, -40)
 current_texture = ExtResource("7_86746")
 
 [node name="NextRoundButton" type="Button" parent="." unique_id=1977712106]
+custom_minimum_size = Vector2(300, 0)
 offset_left = 1395.0
 offset_top = 845.0
 offset_right = 1631.0
 offset_bottom = 967.0
+theme = ExtResource("10_e3vim")
 theme_override_font_sizes/font_size = 40
 text = "P.C. text"
 
@@ -75,14 +78,16 @@ offset_left = 42.0
 offset_top = 655.0
 offset_right = 636.0
 offset_bottom = 807.0
+theme = ExtResource("10_e3vim")
 theme_override_font_sizes/font_size = 100
 text = "0 doubloons"
 
 [node name="RoundLabel" type="Label" parent="." unique_id=1015440697]
-offset_left = 1398.0
+offset_left = 1435.0
 offset_top = 972.0
-offset_right = 1670.0
+offset_right = 1707.0
 offset_bottom = 1193.0
+theme = ExtResource("10_e3vim")
 theme_override_font_sizes/font_size = 60
 text = "P.C. "
 
@@ -92,6 +97,7 @@ offset_left = 577.0
 offset_top = 529.0
 offset_right = 1497.0
 offset_bottom = 851.0
+theme = ExtResource("10_e3vim")
 theme_override_font_sizes/font_size = 125
 text = "You were killed"
 
@@ -101,6 +107,7 @@ offset_left = 255.0
 offset_top = 447.0
 offset_right = 1730.0
 offset_bottom = 646.0
+theme = ExtResource("10_e3vim")
 theme_override_font_sizes/font_size = 125
 text = "You did not kill all dudes"
 

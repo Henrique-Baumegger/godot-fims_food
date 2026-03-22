@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://dv8xa6kl61ahd"]
 
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="1_7df4x"]
 [ext_resource type="Script" uid="uid://cvvonpco8bfro" path="res://scripts_and_scenes/UI/poison_indicator.gd" id="1_ewxhp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7df4x"]
-bg_color = Color(0, 0, 0, 0.2627451)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_ewxhp"]
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -19,15 +13,11 @@ RichTextLabel/font_sizes/mono_font_size = 22
 RichTextLabel/font_sizes/normal_font_size = 22
 
 [node name="PoisonIndicator" type="PanelContainer" unique_id=416598971]
-theme_override_styles/panel = SubResource("StyleBoxFlat_7df4x")
+theme = ExtResource("1_7df4x")
 script = ExtResource("1_ewxhp")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2052749939]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1174487144]
 layout_mode = 2

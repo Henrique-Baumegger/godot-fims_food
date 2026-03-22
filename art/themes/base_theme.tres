@@ -2,8 +2,44 @@
 
 [ext_resource type="FontFile" uid="uid://bpbkgod5ykrij" path="res://art/fonts/BLKCHCRY.TTF" id="1_j8o4c"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8o4c"]
+bg_color = Color(0.030548185, 0.11516564, 0.081091054, 0.8745098)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfg6y"]
+bg_color = Color(0.1460543, 0.33737308, 0.26339763, 0.8745098)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xonc0"]
+bg_color = Color(0.20392157, 0.45490196, 0.35686275, 0.8745098)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6isj"]
+bg_color = Color(0.44056064, 0.4006842, 0.21911055, 0.8745098)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
 [resource]
 default_font = ExtResource("1_j8o4c")
-Label/colors/font_color = Color(0.72156864, 0.5372549, 1, 1)
+Button/constants/outline_size = 6
+Button/styles/disabled = SubResource("StyleBoxFlat_j8o4c")
+Button/styles/hover = SubResource("StyleBoxFlat_sfg6y")
+Button/styles/normal = SubResource("StyleBoxFlat_xonc0")
+Button/styles/pressed = SubResource("StyleBoxFlat_h6isj")
 Label/constants/outline_size = 11
 Label/font_sizes/font_size = 40

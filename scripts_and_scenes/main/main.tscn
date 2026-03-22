@@ -63,39 +63,11 @@ sprite_scale = 0.65
 static_sprite_offset = Vector2(0, -40)
 current_texture = ExtResource("7_86746")
 
-[node name="NextRoundButton" type="Button" parent="." unique_id=1977712106]
-custom_minimum_size = Vector2(300, 0)
-offset_left = 1395.0
-offset_top = 845.0
-offset_right = 1631.0
-offset_bottom = 967.0
-theme = ExtResource("10_e3vim")
-theme_override_font_sizes/font_size = 40
-text = "P.C. text"
-
-[node name="MoneyLabel" type="Label" parent="." unique_id=1646024981]
-offset_left = 42.0
-offset_top = 655.0
-offset_right = 636.0
-offset_bottom = 807.0
-theme = ExtResource("10_e3vim")
-theme_override_font_sizes/font_size = 100
-text = "0 doubloons"
-
-[node name="RoundLabel" type="Label" parent="." unique_id=1015440697]
-offset_left = 1435.0
-offset_top = 972.0
-offset_right = 1707.0
-offset_bottom = 1193.0
-theme = ExtResource("10_e3vim")
-theme_override_font_sizes/font_size = 60
-text = "P.C. "
-
 [node name="YouDieLabel" type="Label" parent="." unique_id=1284491248]
 visible = false
-offset_left = 577.0
+offset_left = 646.0
 offset_top = 529.0
-offset_right = 1497.0
+offset_right = 1566.0
 offset_bottom = 851.0
 theme = ExtResource("10_e3vim")
 theme_override_font_sizes/font_size = 125
@@ -103,10 +75,10 @@ text = "You were killed"
 
 [node name="EndOfDayLose" type="Label" parent="." unique_id=934299594]
 visible = false
-offset_left = 255.0
-offset_top = 447.0
-offset_right = 1730.0
-offset_bottom = 646.0
+offset_left = 428.0
+offset_top = 452.0
+offset_right = 1903.0
+offset_bottom = 651.0
 theme = ExtResource("10_e3vim")
 theme_override_font_sizes/font_size = 125
 text = "You did not kill all dudes"
@@ -115,5 +87,38 @@ text = "You did not kill all dudes"
 z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("10_86746")
+
+[node name="NextRoundButton" type="Button" parent="." unique_id=1977712106]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 1386.0
+offset_top = 903.0
+offset_right = 1686.0
+offset_bottom = 1025.0
+theme = ExtResource("10_e3vim")
+theme_override_font_sizes/font_size = 40
+text = "P.C. text"
+
+[node name="RoundLabel" type="Label" parent="." unique_id=1015440697]
+offset_left = 1637.0
+offset_top = 894.0
+offset_right = 1909.0
+offset_bottom = 1128.0
+theme = ExtResource("10_e3vim")
+theme_override_constants/line_spacing = -10
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 60
+text = "1/3 
+meals
+"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=1646024981]
+offset_left = 1365.0
+offset_top = 776.0
+offset_right = 1959.0
+offset_bottom = 928.0
+theme = ExtResource("10_e3vim")
+theme_override_font_sizes/font_size = 100
+text = "0 doubloons"
 
 [connection signal="pressed" from="NextRoundButton" to="." method="_on_next_round_pressed"]

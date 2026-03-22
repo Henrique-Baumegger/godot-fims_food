@@ -30,7 +30,7 @@ func _ready() -> void:
 	table.start_day()
 	table.start_round()
 	next_round_button.text = "Sit custommers"
-	round_label.text = str(current_round+1) + "/" + str(day_size)+ " meals"
+	round_label.text = str(current_round+1) + "/" + str(day_size)+ "\n meals"
 
 
 
@@ -78,7 +78,7 @@ func pos_sit_press() -> void:
 	
 	next_round_button.text = "Sit custommers"
 	current_round = (current_round+1) % day_size
-	round_label.text = str(current_round+1) + "/" + str(day_size)+ " meals"
+	round_label.text = str(current_round+1) + "/" + str(day_size)+ "\n meals"
 	
 	var table : Table = var_seat_table.get_table()
 	

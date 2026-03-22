@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://damrmtcl4tuqm"]
+
+[ext_resource type="Script" uid="uid://dslqjvpca2o2b" path="res://scripts_and_scenes/UI/check_bar.gd" id="1_ywyfq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywyfq"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[node name="CheckBar" type="Control" unique_id=1162446462]
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 50.0
+script = ExtResource("1_ywyfq")
+
+[node name="Border" type="Panel" parent="." unique_id=1992349578]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywyfq")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1353718219]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+
+[node name="PurpleBar" type="ColorRect" parent="." unique_id=2135349514]
+layout_mode = 0
+offset_right = 330.0
+offset_bottom = 50.0
+color = Color(0.48235294, 0.1764706, 0.54509807, 1)
+
+[node name="RedZone" type="ColorRect" parent="." unique_id=57260027]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 50.0
+color = Color(0.8, 0.16078432, 0.21176471, 1)
+
+[node name="Needle" type="ColorRect" parent="." unique_id=1583027390]
+z_index = 1
+layout_mode = 1
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 60.0

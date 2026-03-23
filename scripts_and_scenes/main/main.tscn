@@ -21,21 +21,21 @@ var_seat_table = NodePath("5SeatTable")
 [node name="Onion" parent="." unique_id=348821999 instance=ExtResource("1_8ngdv")]
 position = Vector2(150, 940)
 poison_type = 1
-initial_quantity = 30
+initial_quantity = 99
 static_sprite_offset = Vector2(-100, 0)
 current_texture = ExtResource("4_cu7v3")
 
 [node name="Salt" parent="." unique_id=1030776605 instance=ExtResource("1_8ngdv")]
 position = Vector2(350, 940)
 poison_type = 2
-initial_quantity = 25
+initial_quantity = 99
 static_sprite_offset = Vector2(-85, 0)
 current_texture = ExtResource("5_6n4cw")
 
 [node name="Silver" parent="." unique_id=596190691 instance=ExtResource("1_8ngdv")]
 position = Vector2(550, 940)
 poison_type = 3
-initial_quantity = 35
+initial_quantity = 99
 static_sprite_offset = Vector2(-30, 20)
 current_texture = ExtResource("6_86746")
 

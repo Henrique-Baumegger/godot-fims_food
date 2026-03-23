@@ -15,11 +15,12 @@ expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
 [node name="CheckBar" type="Control" unique_id=1162446462]
-custom_minimum_size = Vector2(600, 50)
+z_index = 2
+custom_minimum_size = Vector2(400, 36)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 600.0
-offset_bottom = 50.0
+offset_right = 400.0
+offset_bottom = 36.0
 script = ExtResource("1_ywyfq")
 
 [node name="Border" type="Panel" parent="." unique_id=1992349578]
@@ -41,15 +42,15 @@ grow_vertical = 2
 color = Color(0.101960786, 0.101960786, 0.18039216, 1)
 
 [node name="PurpleBar" type="ColorRect" parent="." unique_id=2135349514]
-layout_mode = 0
-offset_right = 330.0
-offset_bottom = 50.0
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 36.0
 color = Color(0.48235294, 0.1764706, 0.54509807, 1)
 
 [node name="RedZone" type="ColorRect" parent="." unique_id=57260027]
 layout_mode = 0
-offset_right = 150.0
-offset_bottom = 50.0
+offset_right = 100.0
+offset_bottom = 36.0
 color = Color(0.8, 0.16078432, 0.21176471, 1)
 
 [node name="Needle" type="ColorRect" parent="." unique_id=1583027390]
@@ -57,4 +58,4 @@ z_index = 1
 layout_mode = 1
 offset_top = -10.0
 offset_right = 4.0
-offset_bottom = 60.0
+offset_bottom = 50.0

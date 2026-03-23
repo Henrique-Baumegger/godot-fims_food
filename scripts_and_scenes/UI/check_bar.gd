@@ -1,5 +1,5 @@
 extends Control
-
+class_name CheckBar
 
 const fade_in_out_time : float = 0.2
 
@@ -39,7 +39,8 @@ func run_check(poison: float, max_poison: float, percentage_of_poison_to_kill: f
 func _ready() -> void:
 	visible = false
 	bar_width = background.size.x
-	run_check(6, 10, 1.0/2.0)
+	#test:
+	#run_check(6, 10, 0.5)
 
 
 func _appear_and_disappear(appear:bool) -> void:

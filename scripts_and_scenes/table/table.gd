@@ -49,7 +49,7 @@ func start_day() -> void:
 func start_round() -> void:
 	_handle_list(true)
 	_new_round_of_food()
-	for c in clients_of_the_day:
+	for c in client_positions_of_this_round:
 		c.start_of_round_ability()
 
 
@@ -60,21 +60,22 @@ func move_to_drink_phase() -> void:
 
 
 func end_round() -> void:
-	for c in clients_of_the_day:
+	for c in client_positions_of_this_round:
 		c.eat_and_free_food()
-	for c in clients_of_the_day:
+	for c in client_positions_of_this_round:
 		c.after_eating_ability()
-	for c in clients_of_the_day:
+	for c in client_positions_of_this_round:
 		c.dying_check()
-	for c in clients_of_the_day:
-		if c.killing_you_probability_check():
+	for c in client_positions_of_this_round:
+		var did_hit_you = await c.killing_you_probability_check()
+		if did_hit_you:
 			player_is_killed.emit()
-	for c in clients_of_the_day:
+	for c in client_positions_of_this_round:
 		c.end_of_round_ability()
 
 
 func end_day() -> bool:
-	for c in clients_of_the_day:
+	for c in client_positions_of_this_round:
 		c.end_of_day_ability()
 	
 	var you_killed_them_all = true

@@ -86,7 +86,7 @@ func pos_sit_press() -> void:
 	salt.toggle_warm_ingredients_selectability(true)
 	silver.toggle_warm_ingredients_selectability(true)
 	
-	table.end_round()
+	await table.end_round()
 	await get_tree().create_timer(wait_time).timeout
 	
 	if last_round:

@@ -20,12 +20,12 @@ signal gives_tip(amount)
 enum Creatures {NONE, VAMPIRE, SKELETON, GHOST} 
 const creature_type_description_BBCode : Dictionary[Creatures, String] ={
 	Creatures.GHOST : "[b]GHOST[/b] - tips 15 doubloons on round end if dead.",
-	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating; tips 20 upon death",
+	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating. tips 20 upon death",
 	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - tips equal to poison at round start."
 	}
 
 const MAX_POISON_NOT_SET : int = -1
-
+const percentage_probability_mult_kill_you : float = float(1)/float(3)
 
 static var id_for_names_and_textures = 0
 
@@ -37,6 +37,7 @@ static var id_for_names_and_textures = 0
 @export var alive_textures_per_id : Array[Texture2D] = []
 ##Must have consistent index with names_per_id and alive_textures_per_id
 @export var dead_textures_per_id : Array[Texture2D] = []
+
 
 var this_instance_id : int
 var customer_name : String 
@@ -54,14 +55,13 @@ var hated_customer : Customer = null
 var left_customer : Customer = null
 var right_customer : Customer = null
 
-var percentage_probability_mult_kill_you : float = float(1)/float(3)
-
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var poison_indicator: PoisonIndicator = $PoisonIndicator
 @onready var tool_tip_area: ToolTipArea = $ToolTipArea
 @onready var collider_of_tool_tip: CollisionShape2D = $ToolTipArea/CollisionShape2D
 @onready var normal_counter_pos: Marker2D = $NormalCounterPos
 @onready var on_list_counter_marker: Marker2D = $ListCounterPost
+@onready var check_bar: CheckBar = $CheckBar
 
 
 #region abstracts
@@ -177,12 +177,10 @@ func dying_check() -> bool:
 
 
 func killing_you_probability_check() -> bool:
-	if dead:
+	if dead or current_poison == 0:
 		return false
-	var probability := percentage_probability_mult_kill_you * (float(current_poison) / float(max_poison))
-	if randf() < probability:
-		return true
-	return false
+	var did_hit_you = await check_bar.run_check(current_poison, max_poison, percentage_probability_mult_kill_you)
+	return did_hit_you
 
 
 func _ready() -> void:
@@ -212,7 +210,6 @@ func _check_exports() -> void:
 func tips(amount : int)-> void:
 	gives_tip.emit(amount)
 	return
-
 
 
 func _set_name_and_texture() -> void:

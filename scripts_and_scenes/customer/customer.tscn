@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfrgh45gtljxv" path="res://scripts_and_scenes/customer/customer_placeholder.gd" id="1_o22br"]
 [ext_resource type="Texture2D" uid="uid://n4pmgvw48e7n" path="res://art/characters/ghosts/ghost1.png" id="2_nq3sq"]
+[ext_resource type="PackedScene" uid="uid://damrmtcl4tuqm" path="res://scripts_and_scenes/UI/check_bar.tscn" id="5_kip86"]
 [ext_resource type="PackedScene" uid="uid://dv8xa6kl61ahd" path="res://scripts_and_scenes/UI/poison_indicator.tscn" id="12_quc0p"]
 [ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="13_10mlj"]
 
@@ -33,3 +34,9 @@ position = Vector2(57, -39)
 
 [node name="ListCounterPost" type="Marker2D" parent="." unique_id=6821710]
 position = Vector2(-44, 72)
+
+[node name="CheckBar" parent="." unique_id=1162446462 instance=ExtResource("5_kip86")]
+offset_left = -200.0
+offset_top = 143.0
+offset_right = 200.0
+offset_bottom = 179.0

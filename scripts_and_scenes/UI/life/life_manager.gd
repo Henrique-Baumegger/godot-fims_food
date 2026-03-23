@@ -21,16 +21,16 @@ func get_life() -> int:
 
 
 func add_life_and_return_is_dead(amount : int) -> bool:
-	current_life = current_life + amount
+	current_life = max(current_life + amount , 0)
 	_update_hat_visuals()
-	var is_dead : bool = current_life <= 0
+	var is_dead : bool = (current_life == 0)
 	return is_dead
 
 
 func _update_hat_visuals() -> void:
 	for i in range(current_life):
-		all_hats[i].texture = full_hat
-	for i in range(current_life, max_life):
+		all_hats[(max_life-1)-i].texture = full_hat
+	for i in range(max_life - current_life):
 		all_hats[i].texture = broken_hat
 
 

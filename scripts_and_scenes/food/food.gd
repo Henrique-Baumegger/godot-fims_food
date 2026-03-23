@@ -25,11 +25,19 @@ var single_drink_present : Drinks = Drinks.NONE
 func try_to_add(ing: Ingredient, quantity: int) -> int:
 	var added = 0
 	
-	if ing.poison_type != Customer.Creatures.NONE:
+	if ing.is_holly_water:
+		for creature in Customer.Creatures.values():
+			if creature == Customer.Creatures.NONE:
+				continue
+			var current = poison_present.get(creature, 0)
+			poison_present[creature] = current + quantity
+		added = quantity
+		
+	elif ing.poison_type != Customer.Creatures.NONE:
 		var current = poison_present.get(ing.poison_type, 0)
 		poison_present[ing.poison_type] = current + quantity
 		added = quantity
-	
+		
 	elif ing.drink_type != Drinks.NONE:
 		if single_drink_present != ing.drink_type:
 			single_drink_present = ing.drink_type

@@ -21,7 +21,7 @@ enum Creatures {NONE, VAMPIRE, SKELETON, GHOST}
 const creature_type_description_BBCode : Dictionary[Creatures, String] ={
 	Creatures.GHOST : "[b]GHOST[/b] - tips 15 doubloons on round end if dead.",
 	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating. tips 20 upon death",
-	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - tips equal to poison at round start."
+	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - if alive tips equal to poison at round start."
 	}
 
 const MAX_POISON_NOT_SET : int = -1

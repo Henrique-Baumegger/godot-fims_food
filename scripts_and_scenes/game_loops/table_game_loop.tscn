@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://0yfyowa4gxej"]
+
+[ext_resource type="Script" uid="uid://cj3gs41xv2c5m" path="res://scripts_and_scenes/game_loops/table_game_loop.gd" id="1_snveh"]
+[ext_resource type="PackedScene" uid="uid://bsvk1r7u6c4vu" path="res://scripts_and_scenes/table/5_seat_table.tscn" id="2_2h71t"]
+[ext_resource type="PackedScene" uid="uid://vbubgf4220dc" path="res://scripts_and_scenes/ingredients/ingredients_manager.tscn" id="7_7gbcl"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="10_4smxc"]
+[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="11_iedsa"]
+[ext_resource type="PackedScene" uid="uid://dl0myvfp8j3eb" path="res://scripts_and_scenes/UI/life/life_manager.tscn" id="12_2lxdl"]
+[ext_resource type="PackedScene" uid="uid://dq2cprw3crs1n" path="res://scripts_and_scenes/UI/life/DamageEffect.tscn" id="13_plnn2"]
+
+[node name="TableGameLoop" type="Node2D" unique_id=959716859 node_paths=PackedStringArray("var_seat_table")]
+script = ExtResource("1_snveh")
+var_seat_table = NodePath("5SeatTable")
+
+[node name="5SeatTable" parent="." unique_id=1402043585 instance=ExtResource("2_2h71t")]
+
+[node name="YouDieLabel" type="Label" parent="." unique_id=1284491248]
+visible = false
+offset_left = 646.0
+offset_top = 529.0
+offset_right = 1566.0
+offset_bottom = 851.0
+theme = ExtResource("10_4smxc")
+theme_override_font_sizes/font_size = 125
+text = "You were killed"
+
+[node name="EndOfDayLose" type="Label" parent="." unique_id=934299594]
+visible = false
+offset_left = 428.0
+offset_top = 452.0
+offset_right = 1903.0
+offset_bottom = 651.0
+theme = ExtResource("10_4smxc")
+theme_override_font_sizes/font_size = 125
+text = "You did not kill all dudes"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=81512445]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("11_iedsa")
+
+[node name="NextRoundButton" type="Button" parent="." unique_id=1977712106]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 1438.0
+offset_top = 903.0
+offset_right = 1738.0
+offset_bottom = 1025.0
+theme = ExtResource("10_4smxc")
+theme_override_font_sizes/font_size = 40
+text = "P.C. text"
+
+[node name="RoundLabel" type="Label" parent="." unique_id=1015440697]
+offset_left = 1689.0
+offset_top = 894.0
+offset_right = 1961.0
+offset_bottom = 1128.0
+theme = ExtResource("10_4smxc")
+theme_override_constants/line_spacing = -10
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 60
+text = "1/3 
+meals
+"
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=1646024981]
+offset_left = 1418.0
+offset_top = 776.0
+offset_right = 2012.0
+offset_bottom = 928.0
+theme = ExtResource("10_4smxc")
+theme_override_font_sizes/font_size = 100
+text = "0 doubloons"
+
+[node name="LifeManager" parent="." unique_id=534100850 instance=ExtResource("12_2lxdl")]
+offset_left = 1415.0
+offset_top = 700.0
+offset_right = 1781.0
+offset_bottom = 770.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1523813709]
+
+[node name="DamageEffect" parent="CanvasLayer" unique_id=2013741325 instance=ExtResource("13_plnn2")]
+z_index = 3
+
+[node name="IngredientsManager" parent="." unique_id=1971960619 instance=ExtResource("7_7gbcl")]
+
+[connection signal="pressed" from="NextRoundButton" to="." method="_on_next_round_pressed"]

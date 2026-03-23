@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name TableGameLoop
 
 const day_size = 3
 
@@ -9,6 +9,7 @@ var pre_sit_phase : bool = true
 var current_round = 0
 var money = 0
 var wait_time : float = 0.6
+var ingredients_manager : IngredientsManager = null
 
 @onready var life_manager: LifeManager = $LifeManager
 @onready var damage_effect: DamageEffect = $CanvasLayer/DamageEffect
@@ -19,12 +20,11 @@ var wait_time : float = 0.6
 @onready var you_die_label: Label = $YouDieLabel
 @onready var end_of_day_lose: Label = $EndOfDayLose
 
-@onready var onion: Ingredient = $Onion
-@onready var salt: Ingredient = $Salt
-@onready var silver: Ingredient = $Silver
-
 
 func _ready() -> void:
+	ingredients_manager = get_tree().get_first_node_in_group("ingredients_manager")
+	assert(ingredients_manager != null, "The scene tree must always have a IngredientsManager")
+	
 	var_seat_table.position = Vector2(966, 546)
 	var table : Table = var_seat_table.get_table()
 	table.player_is_hitted.connect(_on_hits_you)
@@ -34,7 +34,6 @@ func _ready() -> void:
 	table.start_round()
 	next_round_button.text = "Sit custommers"
 	round_label.text = str(current_round+1) + "/" + str(day_size)+ "\n meals"
-
 
 
 func _on_recives_tip(amount:int) -> void:
@@ -68,9 +67,7 @@ func pre_sit_press() -> void:
 	
 	var table : Table = var_seat_table.get_table()
 	
-	onion.toggle_warm_ingredients_selectability(false)
-	salt.toggle_warm_ingredients_selectability(false)
-	silver.toggle_warm_ingredients_selectability(false)
+	ingredients_manager.toggle_warm_ingredients_selectability(false)
 	
 	table.move_to_drink_phase()
 	await get_tree().create_timer(wait_time).timeout
@@ -88,9 +85,7 @@ func pos_sit_press() -> void:
 	
 	var table : Table = var_seat_table.get_table()
 	
-	onion.toggle_warm_ingredients_selectability(true)
-	salt.toggle_warm_ingredients_selectability(true)
-	silver.toggle_warm_ingredients_selectability(true)
+	ingredients_manager.toggle_warm_ingredients_selectability(true)
 	
 	await table.end_round()
 	await get_tree().create_timer(wait_time).timeout

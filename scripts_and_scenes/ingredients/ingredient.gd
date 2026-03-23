@@ -1,13 +1,12 @@
 ## Lifecycle methods to be called by parent:
-## toggle_warm_ingredients_selectability
+## toggle_warm_ingredient_selectability
 extends Node2D
 class_name Ingredient
 
 
 @export var poison_type : Customer.Creatures = Customer.Creatures.NONE
 @export var drink_type : Food.Drinks = Food.Drinks.NONE
-
-@export var initial_quantity : int = 0
+@export var is_holly_water : bool = false
 
 @export var sprite_scale : float = 0.325
 @export var static_sprite_offset : Vector2 = Vector2(0,0)
@@ -17,6 +16,7 @@ var dragging : bool = false
 var mouse_is_on_static_ingredient : bool = false
 var blocked : bool = false
 
+var initial_quantity : int = -1
 var static_quantity : int 
 var dragged_quantity : int = 0
 
@@ -30,16 +30,26 @@ var dragged_scale_proportional_to_normal : float = 0.7
 @onready var dragged_sprite: Sprite2D = $DraggedIngredient/DraggedSprite
 
 
-func toggle_warm_ingredients_selectability(on : bool)-> void:
-	if !on and drink_type == Food.Drinks.NONE:
-		blocked = true
-		modulate = Color(0.8, 0.8, 0.8, 0.6)
-	elif on:
+func set_initial_quantity(amount : int) -> void:
+	initial_quantity = amount
+
+
+func toggle_selectability(on : bool)-> void:
+	if on:
 		blocked = false
 		modulate = Color.WHITE
+	else:
+		blocked = true
+		modulate = Color(0.8, 0.8, 0.8, 0.6)
 
 
 func _ready() -> void:
+	assert(initial_quantity >= 0, "Parent must call this.set_initial_quantity at its _enter_tree")
+	assert(
+	int(is_holly_water) + int(poison_type != Customer.Creatures.NONE) + int(drink_type != Food.Drinks.NONE) <= 1,
+	"Ingredient has multiple types set: %s" % name
+	)
+	
 	static_sprite.offset = static_sprite_offset
 	static_sprite.scale = Vector2.ONE * sprite_scale 
 	dragged_sprite.scale = Vector2.ONE * sprite_scale * dragged_scale_proportional_to_normal

@@ -21,7 +21,7 @@ texture = ExtResource("2_e7njv")
 [node name="StaticIngredientArea" type="Area2D" parent="StaticIngredient" unique_id=847833739]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticIngredient/StaticIngredientArea" unique_id=1475873681]
-scale = Vector2(0.85, 0.85)
+scale = Vector2(0.75, 1)
 shape = SubResource("RectangleShape2D_cocjv")
 
 [node name="StaticLabel" type="Label" parent="StaticIngredient" unique_id=122138272]

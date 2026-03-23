@@ -37,6 +37,6 @@ position = Vector2(-44, 72)
 
 [node name="CheckBar" parent="." unique_id=1162446462 instance=ExtResource("5_kip86")]
 offset_left = -200.0
-offset_top = 143.0
+offset_top = 150.0
 offset_right = 200.0
-offset_bottom = 179.0
+offset_bottom = 186.0

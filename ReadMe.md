@@ -11,7 +11,6 @@
 
 ## TODO
 - Lives system: a hit is not instakill, it just takes 1 hearth
-- Visual check for killing you
 
 - Shop: One shop visit inbetween days. 
 The more you buy of an ingredient/drink in a single shop visit, the cheaper it gets, 

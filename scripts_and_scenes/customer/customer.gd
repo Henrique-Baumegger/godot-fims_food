@@ -19,9 +19,9 @@ signal gives_tip(amount)
 # enum are const
 enum Creatures {NONE, VAMPIRE, SKELETON, GHOST} 
 const creature_type_description_BBCode : Dictionary[Creatures, String] ={
-	Creatures.GHOST : "[b]GHOST[/b] - tips 10 doubloons on round end if dead.",
-	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating.",
-	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - tips 5 doubloons after eating if 0 poison."
+	Creatures.GHOST : "[b]GHOST[/b] - tips 15 doubloons on round end if dead.",
+	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating; tips 20 upon death",
+	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - tips equal to poison at round start."
 	}
 
 const MAX_POISON_NOT_SET : int = -1
@@ -76,6 +76,8 @@ var percentage_probability_mult_kill_you : float = float(1)/float(3)
 
 @abstract func end_of_day_ability() ->void
 
+@abstract func upon_death_ability() -> void
+
 # CRT+C , CRT+V , uncomment
 #func start_of_round_ability() ->void:
 	#pass
@@ -94,6 +96,10 @@ var percentage_probability_mult_kill_you : float = float(1)/float(3)
 #
 #
 #func end_of_day_ability() ->void:
+	#pass
+#
+#
+#func upon_death_ability() ->void:
 	#pass
 #endregion
 
@@ -164,6 +170,7 @@ func dying_check() -> bool:
 		return false
 	if current_poison >= max_poison:
 		dead = true
+		upon_death_ability()
 		sprite_2d.texture = dead_textures_per_id[this_instance_id]
 		return true
 	return false
@@ -200,6 +207,12 @@ func _check_exports() -> void:
 	
 	for cond in conditions:
 		assert(cond, "Not all necessary export varibales of the customer parent class where set in the editor")
+
+
+func tips(amount : int)-> void:
+	gives_tip.emit(amount)
+	return
+
 
 
 func _set_name_and_texture() -> void:

@@ -2,11 +2,11 @@ extends Customer
 class_name Vampire
 
 
-var poisonless_tip_amount = 5
-
-
 func start_of_round_ability() ->void:
-	pass
+	if dead:
+		return
+	if current_poison != 0:
+		tips(current_poison)
 
 
 func end_of_round_ability() ->void:
@@ -14,10 +14,7 @@ func end_of_round_ability() ->void:
 
 
 func after_eating_ability() -> void:
-	if dead:
-		return
-	if current_poison == 0:
-		gives_tip.emit(poisonless_tip_amount)
+	pass
 
 
 func start_of_day_ability() ->void:
@@ -25,4 +22,8 @@ func start_of_day_ability() ->void:
 
 
 func end_of_day_ability() ->void:
+	pass
+
+
+func upon_death_ability() -> void:
 	pass

@@ -2,7 +2,7 @@ extends Customer
 class_name Ghost
 
 
-const dead_tip_amount = 10
+const dead_tip_amount = 15
 
 
 func start_of_round_ability() ->void:
@@ -11,7 +11,7 @@ func start_of_round_ability() ->void:
 
 func end_of_round_ability() ->void:
 	if dead:
-		gives_tip.emit(dead_tip_amount)
+		tips(dead_tip_amount)
 
 
 func after_eating_ability() ->void:
@@ -23,4 +23,8 @@ func start_of_day_ability() ->void:
 
 
 func end_of_day_ability() ->void:
+	pass
+
+
+func upon_death_ability() -> void:
 	pass

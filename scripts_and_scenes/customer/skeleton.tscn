@@ -20,7 +20,7 @@ script = ExtResource("1_vcck5")
 [node name="Customer" parent="." unique_id=1737731592 instance=ExtResource("1_6l7rs")]
 script = ExtResource("1_ybtii")
 creature_type = 2
-max_poison = 20
+max_poison = 30
 names_per_id = Array[String](["Sir calcium", "Ms. Sturdy", "Skulless lord", "Dead Steven", "Bob Bones"])
 alive_textures_per_id = Array[Texture2D]([ExtResource("2_27cea"), ExtResource("3_pqvvh"), ExtResource("2_jondo"), ExtResource("5_abggj"), ExtResource("6_abggj")])
 dead_textures_per_id = Array[Texture2D]([ExtResource("7_vcck5"), ExtResource("8_qcjxa"), ExtResource("9_ejfx8"), ExtResource("10_a5qyi"), ExtResource("11_pvdd6")])

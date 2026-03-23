@@ -2,6 +2,9 @@ extends Customer
 class_name Skeleton
 
 
+const upon_death_tip = 20
+
+
 func start_of_round_ability() ->void:
 	pass
 
@@ -22,3 +25,7 @@ func start_of_day_ability() ->void:
 
 func end_of_day_ability() ->void:
 	pass
+
+
+func upon_death_ability() -> void:
+	tips(upon_death_tip)

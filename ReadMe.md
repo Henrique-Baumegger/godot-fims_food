@@ -10,11 +10,13 @@
 
 
 ## TODO
-- Lives system: a hit is not instakill, it just takes 1 hearth
+###Lives system: a hit is not instakill, it just takes 1 hearth
+- 
 
-- Shop: One shop visit inbetween days. 
+###Shop: One shop visit inbetween days. 
 The more you buy of an ingredient/drink in a single shop visit, the cheaper it gets, 
 so you are incentivized to buy a specific product in bulk.
 (first buy is 20->19->18->...->1->1->1->1...)
 Always all 3 ingredients, but only one drink type. Amount avalible is infinite.
-Each product has a chance to be on sale, or expensive. This influences the initial price for it.
+Each product has a chance to be on sale, or expensive. This influences the initial price for it..
+Also at each shop you can pay to refill your whole health. It always costs the same, no matter the health. Very expensive.

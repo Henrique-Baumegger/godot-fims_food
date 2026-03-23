@@ -1,13 +1,17 @@
 extends PanelContainer
 class_name PoisonIndicator 
 
+const gravestone_path = "res://art/enviroment/gravestone good.png"
+
 @onready var rich_text_label: RichTextLabel = $MarginContainer/RichTextLabel
+
 
 func set_poison_indicator(current_poison:int, max_poison:int, is_dead:bool) -> void:
 	if not is_dead:
 		rich_text_label.text = "[center][color=#b36bff]"+str(current_poison) + "[/color] / " + str(max_poison)+"[/center]"
 	elif is_dead:
-		visible = false
+		rich_text_label.text = "[center][img=64]"+gravestone_path+"[/img]"
+
 
 
 func make_red() -> void:

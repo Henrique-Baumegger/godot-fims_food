@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dq2cprw3crs1n"]
+
+[ext_resource type="Script" uid="uid://cghfaecqweqth" path="res://scripts_and_scenes/UI/life/damage_effect.gd" id="1_p45mf"]
+
+[sub_resource type="Animation" id="Animation_ctwby"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p45mf"]
+resource_name = "damage_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.4),
+"transitions": PackedFloat32Array(1, 1, 2.07053),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.18431373), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivh85"]
+_data = {
+&"RESET": SubResource("Animation_ctwby"),
+&"damage_animation": SubResource("Animation_p45mf")
+}
+
+[node name="DamageEffect" type="ColorRect" unique_id=2013741325]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.9019608, 0.15686275, 0.23529412, 1)
+script = ExtResource("1_p45mf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=448074283]
+libraries/ = SubResource("AnimationLibrary_ivh85")

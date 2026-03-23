@@ -10,6 +10,9 @@ var current_round = 0
 var money = 0
 var wait_time : float = 0.6
 
+@onready var life_manager: LifeManager = $LifeManager
+@onready var damage_effect: DamageEffect = $CanvasLayer/DamageEffect
+
 @onready var next_round_button: Button = $NextRoundButton
 @onready var money_label: Label = $MoneyLabel
 @onready var round_label: Label = $RoundLabel
@@ -24,7 +27,7 @@ var wait_time : float = 0.6
 func _ready() -> void:
 	var_seat_table.position = Vector2(966, 546)
 	var table : Table = var_seat_table.get_table()
-	table.player_is_killed.connect(_on_kills_you)
+	table.player_is_hitted.connect(_on_hits_you)
 	table.recive_tip.connect(_on_recives_tip)
 	
 	table.start_day()
@@ -39,8 +42,11 @@ func _on_recives_tip(amount:int) -> void:
 	money_label.text = str(money)+" doubloons"
 
 
-func _on_kills_you()-> void:
-	you_die_label.visible = true
+func _on_hits_you()-> void:
+	damage_effect.play_damage_animation()
+	var player_life_went_to_zero = life_manager.add_life_and_return_is_dead(-1)
+	if player_life_went_to_zero:
+		you_die_label.visible = true
 
 
 func _on_next_round_pressed() -> void:

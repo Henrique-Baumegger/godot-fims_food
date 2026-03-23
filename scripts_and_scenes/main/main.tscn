@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://b614ttf1mpkua" path="res://art/food/drinks/drink.png" id="7_86746"]
 [ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="10_86746"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="10_e3vim"]
+[ext_resource type="PackedScene" uid="uid://dl0myvfp8j3eb" path="res://scripts_and_scenes/UI/life/life_manager.tscn" id="12_tvu05"]
+[ext_resource type="PackedScene" uid="uid://dq2cprw3crs1n" path="res://scripts_and_scenes/UI/life/DamageEffect.tscn" id="13_tn4r4"]
 
 [node name="Main" type="Node2D" unique_id=959716859 node_paths=PackedStringArray("var_seat_table")]
 script = ExtResource("1_cu7v3")
@@ -120,5 +122,16 @@ offset_bottom = 928.0
 theme = ExtResource("10_e3vim")
 theme_override_font_sizes/font_size = 100
 text = "0 doubloons"
+
+[node name="LifeManager" parent="." unique_id=534100850 instance=ExtResource("12_tvu05")]
+offset_left = 1470.0
+offset_top = 700.0
+offset_right = 1836.0
+offset_bottom = 770.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1523813709]
+
+[node name="DamageEffect" parent="CanvasLayer" unique_id=2013741325 instance=ExtResource("13_tn4r4")]
+z_index = 3
 
 [connection signal="pressed" from="NextRoundButton" to="." method="_on_next_round_pressed"]

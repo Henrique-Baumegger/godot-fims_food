@@ -4,7 +4,7 @@
 ##   eat_and_free_food() 
 ##   after_eating_ability()
 ##   dying_check()
-##   killing_you_probability_check()
+##   hitting_you_probability_check()
 ##   end_of_round_ability()
 ##   end_of_day_ability()
 @abstract class_name Customer
@@ -25,7 +25,7 @@ const creature_type_description_BBCode : Dictionary[Creatures, String] ={
 	}
 
 const MAX_POISON_NOT_SET : int = -1
-const percentage_probability_mult_kill_you : float = float(1)/float(3)
+const percentage_probability_mult_hit_you : float = 0.5
 
 static var id_for_names_and_textures = 0
 
@@ -176,10 +176,10 @@ func dying_check() -> bool:
 	return false
 
 
-func killing_you_probability_check() -> bool:
+func hitting_you_probability_check() -> bool:
 	if dead or current_poison == 0:
 		return false
-	var did_hit_you = await check_bar.run_check(current_poison, max_poison, percentage_probability_mult_kill_you)
+	var did_hit_you = await check_bar.run_hit_check(current_poison, max_poison, percentage_probability_mult_hit_you)
 	return did_hit_you
 
 
@@ -228,7 +228,7 @@ func _process(_delta: float) -> void:
 func _get_updated_tool_tip_text() -> String:
 	var identity_part = "[center][b]" + customer_name + "[/b][/center]"
 	if dead:
-		var gravestone_path = "res://art/enviroment/gravestone good.png"
+		const gravestone_path = "res://art/enviroment/gravestone good.png"
 		identity_part = "[center][img=64]"+gravestone_path+"[/img][b][color=#8a8a8a] "+customer_name+" [/color][/b][img=64]"+gravestone_path+"[/img][/center]"
 	
 	var type_description_part : String = creature_type_description_BBCode[creature_type]

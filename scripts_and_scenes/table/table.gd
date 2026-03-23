@@ -6,14 +6,14 @@
 ## end_day() -> bool
 
 ## other useful INTERFACE:
-## signal player_is_killed
+## signal player_is_hitted
 ## signal recive_tip(amount)
 
 extends Node2D
 class_name Table
 
 
-signal player_is_killed
+signal player_is_hitted
 signal recive_tip(amount)
 
 @export var table_size : int = 2 ## {2, 3, 4, 5, 6}
@@ -67,9 +67,9 @@ func end_round() -> void:
 	for c in client_positions_of_this_round:
 		c.dying_check()
 	for c in client_positions_of_this_round:
-		var did_hit_you = await c.killing_you_probability_check()
+		var did_hit_you = await c.hitting_you_probability_check()
 		if did_hit_you:
-			player_is_killed.emit()
+			player_is_hitted.emit()
 	for c in client_positions_of_this_round:
 		c.end_of_round_ability()
 

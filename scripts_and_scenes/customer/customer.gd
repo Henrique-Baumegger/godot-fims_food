@@ -186,8 +186,6 @@ func hitting_you_probability_check() -> bool:
 func _ready() -> void:
 	_check_exports()
 	_set_name_and_texture()
-	
-	add_to_group("customers")
 
 
 func _check_exports() -> void:

@@ -2,13 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bepvg02drgtk" path="res://scripts_and_scenes/UI/tool_tip_area.gd" id="1_40t2k"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="2_1pja3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40t2k"]
-bg_color = Color(0, 0, 0, 0.9411765)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[ext_resource type="StyleBox" uid="uid://3v38s1fwfsw" path="res://art/themes/cool_black_style_box_flat.tres" id="3_lgbvn"]
 
 [node name="ToolTipArea" type="Area2D" unique_id=1783049423]
 z_index = 4
@@ -20,7 +14,7 @@ custom_minimum_size = Vector2(400, 0)
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("2_1pja3")
-theme_override_styles/panel = SubResource("StyleBoxFlat_40t2k")
+theme_override_styles/panel = ExtResource("3_lgbvn")
 
 [node name="MarginContainer" type="MarginContainer" parent="TipPanel" unique_id=697727017]
 layout_mode = 2

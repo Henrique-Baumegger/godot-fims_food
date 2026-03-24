@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cvjd7mb2l2rft"]
+
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="1_5iu42"]
+
+[node name="ContinueButton" type="Button" unique_id=1605215447 groups=["continue_button"]]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 1438.0
+offset_top = 903.0
+offset_right = 1738.0
+offset_bottom = 1025.0
+theme = ExtResource("1_5iu42")
+theme_override_font_sizes/font_size = 40
+text = "P.C. text"

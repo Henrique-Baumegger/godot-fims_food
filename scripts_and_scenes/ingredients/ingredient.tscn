@@ -37,6 +37,7 @@ horizontal_alignment = 2
 [node name="DraggedIngredient" type="Node2D" parent="." unique_id=559503073]
 
 [node name="DraggedSprite" type="Sprite2D" parent="DraggedIngredient" unique_id=2008866099]
+z_index = 100
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("2_e7njv")
 

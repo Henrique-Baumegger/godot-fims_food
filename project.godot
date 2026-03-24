@@ -21,10 +21,10 @@ window/size/viewport_height=1080
 
 [global_group]
 
-customers=""
 ingredients_manager="Only contains exactly one IngredientsManager."
 money_manager="For exactly one \"MoneyManager\" node"
 life_manager="For exactly one \"LifeManager\" node"
+continue_button=""
 
 [input]
 

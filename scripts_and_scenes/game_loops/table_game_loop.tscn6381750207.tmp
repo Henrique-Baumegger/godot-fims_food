@@ -18,35 +18,12 @@ z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("11_iedsa")
 
-[node name="UI" type="Node" parent="." unique_id=768813572]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1523813709]
 
-[node name="PanelContainer" type="PanelContainer" parent="UI" unique_id=1521482625]
-offset_left = 854.0
-offset_top = 630.0
-offset_right = 1055.0
-offset_bottom = 714.0
-theme_override_styles/panel = ExtResource("5_bjfpk")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/PanelContainer" unique_id=1029966607]
-layout_mode = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 8
-
-[node name="RoundLabel" type="Label" parent="UI/PanelContainer/MarginContainer" unique_id=1015440697]
-layout_mode = 2
-theme = ExtResource("10_4smxc")
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 54
-text = "meal 1/3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DamageEffect" parent="UI" unique_id=2013741325 instance=ExtResource("13_plnn2")]
+[node name="DamageEffect" parent="CanvasLayer" unique_id=2013741325 instance=ExtResource("13_plnn2")]
 z_index = 3
 
-[node name="YouDieLabel" type="Label" parent="UI" unique_id=1284491248]
+[node name="YouDieLabel" type="Label" parent="CanvasLayer" unique_id=1284491248]
 visible = false
 z_index = 3
 offset_left = 646.0
@@ -57,7 +34,7 @@ theme = ExtResource("10_4smxc")
 theme_override_font_sizes/font_size = 125
 text = "You were killed"
 
-[node name="EndOfDayLose" type="Label" parent="UI" unique_id=934299594]
+[node name="EndOfDayLose" type="Label" parent="CanvasLayer" unique_id=934299594]
 visible = false
 z_index = 3
 offset_left = 428.0
@@ -67,3 +44,23 @@ offset_bottom = 651.0
 theme = ExtResource("10_4smxc")
 theme_override_font_sizes/font_size = 125
 text = "You did not kill all dudes"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1521482625]
+offset_left = 854.0
+offset_top = 622.0
+offset_right = 1117.0
+offset_bottom = 726.0
+theme_override_styles/panel = ExtResource("5_bjfpk")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1029966607]
+layout_mode = 2
+
+[node name="RoundLabel" type="Label" parent="PanelContainer/MarginContainer" unique_id=1015440697]
+layout_mode = 2
+theme = ExtResource("10_4smxc")
+theme_override_constants/line_spacing = -10
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 60
+text = "meal 1/3"
+horizontal_alignment = 1
+vertical_alignment = 1

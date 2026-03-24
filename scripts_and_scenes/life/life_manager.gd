@@ -1,0 +1,44 @@
+extends HBoxContainer
+class_name LifeManager
+
+const max_life = 5
+
+@export var full_hat : Texture2D = null
+@export var broken_hat : Texture2D = null
+
+var all_hats : Array[TextureRect] = []
+var current_life = max_life
+
+@onready var hat_1: TextureRect = $Hat1
+@onready var hat_2: TextureRect = $Hat2
+@onready var hat_3: TextureRect = $Hat3
+@onready var hat_4: TextureRect = $Hat4
+@onready var hat_5: TextureRect = $Hat5
+
+
+func get_life() -> int:
+	return current_life
+
+
+func add_life_and_return_is_dead(amount : int) -> bool:
+	current_life = max(current_life + amount , 0)
+	_update_hat_visuals()
+	var is_dead : bool = (current_life == 0)
+	return is_dead
+
+
+func _update_hat_visuals() -> void:
+	for i in range(current_life):
+		all_hats[(max_life-1)-i].texture = full_hat
+	for i in range(max_life - current_life):
+		all_hats[i].texture = broken_hat
+
+
+func _ready() -> void:
+	_check_exports()
+	all_hats = [hat_1, hat_2, hat_3, hat_4, hat_5]
+
+
+func _check_exports() -> void:
+	assert(full_hat != null)
+	assert(broken_hat != null)

@@ -15,7 +15,7 @@ var ingredients_manager : IngredientsManager = null
 @onready var damage_effect: DamageEffect = $CanvasLayer/DamageEffect
 
 @onready var next_round_button: Button = $NextRoundButton
-@onready var money_label: Label = $MoneyLabel
+@onready var money_label: RichTextLabel = $MoneyLabel
 @onready var round_label: Label = $RoundLabel
 @onready var you_die_label: Label = $YouDieLabel
 @onready var end_of_day_lose: Label = $EndOfDayLose
@@ -38,7 +38,8 @@ func _ready() -> void:
 
 func _on_recives_tip(amount:int) -> void:
 	money += amount
-	money_label.text = str(money)+" doubloons"
+	const doubloon_img_path : String = "res://art/place_holder/placeholder_doubloon.png"
+	money_label.text = str(money)+" [img=98x98]"+doubloon_img_path+"[/img]"
 
 
 func _on_hits_you()-> void:
@@ -95,6 +96,7 @@ func pos_sit_press() -> void:
 		await get_tree().create_timer(wait_time).timeout
 		
 		if not we_succeded:
+			print("we lost")
 			end_of_day_lose.visible = true
 		
 		table.start_day()

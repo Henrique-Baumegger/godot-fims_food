@@ -228,8 +228,8 @@ func _process(_delta: float) -> void:
 func _get_updated_tool_tip_text() -> String:
 	var identity_part = "[center][b]" + customer_name + "[/b][/center]"
 	if dead:
-		const gravestone_path = "res://art/enviroment/gravestone good.png"
-		identity_part = "[center][img=64]"+gravestone_path+"[/img][b][color=#8a8a8a] "+customer_name+" [/color][/b][img=64]"+gravestone_path+"[/img][/center]"
+		const gravestone_img_path = "res://art/enviroment/gravestone good.png"
+		identity_part = "[center][img=64]"+gravestone_img_path+"[/img][b][color=#8a8a8a] "+customer_name+" [/color][/b][img=64]"+gravestone_img_path+"[/img][/center]"
 	
 	var type_description_part : String = creature_type_description_BBCode[creature_type]
 	

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b2ivt8qq0feqp"]
+
+[ext_resource type="PackedScene" uid="uid://vbubgf4220dc" path="res://scripts_and_scenes/ingredients/ingredients_manager.tscn" id="1_jk826"]
+[ext_resource type="PackedScene" uid="uid://0yfyowa4gxej" path="res://scripts_and_scenes/game_loops/table_game_loop.tscn" id="2_1cire"]
+
+[node name="Main" type="Node2D" unique_id=1379625702]
+
+[node name="IngredientsManager" parent="." unique_id=1971960619 instance=ExtResource("1_jk826")]
+
+[node name="TableGameLoop" parent="." unique_id=959716859 instance=ExtResource("2_1cire")]

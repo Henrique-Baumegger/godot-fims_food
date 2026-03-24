@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cmd7h4w7hs6pb"]
+
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="1_1i03g"]
+[ext_resource type="Script" uid="uid://wcaqg7jhxma5" path="res://scripts_and_scenes/money/money_manager.gd" id="2_qx3mp"]
+
+[node name="MoneyManager" type="RichTextLabel" unique_id=105379311 groups=["money_manager"]]
+offset_right = 221.0
+offset_bottom = 128.0
+theme = ExtResource("1_1i03g")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+bbcode_enabled = true
+text = "0 [img=98x98]res://art/place_holder/placeholder_doubloon.png[/img]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_qx3mp")

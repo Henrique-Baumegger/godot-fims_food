@@ -3,30 +3,37 @@ class_name TableGameLoop
 
 const day_size = 3
 
-@export var var_seat_table: VariableSeatAmountTableContainer
+@export var variable_seat_table: VariableSeatAmountTableContainer = null
 
 var pre_sit_phase : bool = true
 var current_round = 0
-var money = 0
 var wait_time : float = 0.6
+
 var ingredients_manager : IngredientsManager = null
+var money_manager: MoneyManager = null
+var life_manager: LifeManager = null
 
-@onready var life_manager: LifeManager = $LifeManager
 @onready var damage_effect: DamageEffect = $CanvasLayer/DamageEffect
-
 @onready var next_round_button: Button = $NextRoundButton
-@onready var money_label: RichTextLabel = $MoneyLabel
 @onready var round_label: Label = $RoundLabel
 @onready var you_die_label: Label = $YouDieLabel
 @onready var end_of_day_lose: Label = $EndOfDayLose
+@onready var table: Table = variable_seat_table.get_table()
 
 
 func _ready() -> void:
 	ingredients_manager = get_tree().get_first_node_in_group("ingredients_manager")
-	assert(ingredients_manager != null, "The scene tree must always have a IngredientsManager")
+	money_manager = get_tree().get_first_node_in_group("money_manager")
+	life_manager = get_tree().get_first_node_in_group("life_manager")
 	
-	var_seat_table.position = Vector2(966, 546)
-	var table : Table = var_seat_table.get_table()
+	assert(ingredients_manager != null, "The scene tree must always have a IngredientsManager")
+	assert(money_manager != null, "The scene tree must always have a MoneyManager")	
+	assert(life_manager != null, "The scene tree must always have a LifeManager")	
+	
+	assert(variable_seat_table != null, "We need a VariableSeatAmountTableContainer")
+	
+	variable_seat_table.position = Vector2(966, 546)
+	
 	table.player_is_hitted.connect(_on_hits_you)
 	table.recive_tip.connect(_on_recives_tip)
 	
@@ -37,9 +44,7 @@ func _ready() -> void:
 
 
 func _on_recives_tip(amount:int) -> void:
-	money += amount
-	const doubloon_img_path : String = "res://art/place_holder/placeholder_doubloon.png"
-	money_label.text = str(money)+" [img=98x98]"+doubloon_img_path+"[/img]"
+	money_manager.add_money(amount)
 
 
 func _on_hits_you()-> void:
@@ -66,8 +71,6 @@ func pre_sit_press() -> void:
 	else:
 		next_round_button.text = "Finish meal"
 	
-	var table : Table = var_seat_table.get_table()
-	
 	ingredients_manager.toggle_warm_ingredients_selectability(false)
 	
 	table.move_to_drink_phase()
@@ -84,8 +87,6 @@ func pos_sit_press() -> void:
 	current_round = (current_round+1) % day_size
 	round_label.text = str(current_round+1) + "/" + str(day_size)+ "\n meals"
 	
-	var table : Table = var_seat_table.get_table()
-	
 	ingredients_manager.toggle_warm_ingredients_selectability(true)
 	
 	await table.end_round()
@@ -96,7 +97,6 @@ func pos_sit_press() -> void:
 		await get_tree().create_timer(wait_time).timeout
 		
 		if not we_succeded:
-			print("we lost")
 			end_of_day_lose.visible = true
 		
 		table.start_day()

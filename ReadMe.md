@@ -10,8 +10,15 @@
 
 
 ## TODO
-- Use icon on dobloons
+- Real icon on dobloons
 - Real icons for chef hats
+
+- Make a "GameLoopUIManager" (add it into a group) with:
+meals on the center, days on the left
+button, money and lives on the right.
+Apply the cool styleBox to them all (except button)
+potentially add outlines to button ands its text.
+Make moenyLabel into MoneyManager. 
 
 -Shop: One shop visit inbetween days. 
 The more you buy of an ingredient/drink in a single shop visit, the cheaper it gets, 

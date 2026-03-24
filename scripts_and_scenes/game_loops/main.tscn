@@ -2,9 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://vbubgf4220dc" path="res://scripts_and_scenes/ingredients/ingredients_manager.tscn" id="1_jk826"]
 [ext_resource type="PackedScene" uid="uid://0yfyowa4gxej" path="res://scripts_and_scenes/game_loops/table_game_loop.tscn" id="2_1cire"]
+[ext_resource type="PackedScene" uid="uid://dl0myvfp8j3eb" path="res://scripts_and_scenes/life/life_manager.tscn" id="3_1cire"]
+[ext_resource type="PackedScene" uid="uid://cmd7h4w7hs6pb" path="res://scripts_and_scenes/money/money_manager.tscn" id="4_sy4rv"]
 
 [node name="Main" type="Node2D" unique_id=1379625702]
 
+[node name="TableGameLoop" parent="." unique_id=959716859 instance=ExtResource("2_1cire")]
+
 [node name="IngredientsManager" parent="." unique_id=1971960619 instance=ExtResource("1_jk826")]
 
-[node name="TableGameLoop" parent="." unique_id=959716859 instance=ExtResource("2_1cire")]
+[node name="LifeManager" parent="." unique_id=534100850 instance=ExtResource("3_1cire")]
+offset_left = 1393.0
+offset_top = 784.0
+offset_right = 1759.0
+offset_bottom = 854.0
+
+[node name="MoneyManager" parent="." unique_id=105379311 instance=ExtResource("4_sy4rv")]
+offset_left = 1573.0
+offset_top = 637.0
+offset_right = 1794.0
+offset_bottom = 765.0

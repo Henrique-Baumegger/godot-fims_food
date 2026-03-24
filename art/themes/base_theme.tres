@@ -4,6 +4,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8o4c"]
 bg_color = Color(0.030548185, 0.11516564, 0.081091054, 0.8745098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -12,6 +17,11 @@ corner_detail = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfg6y"]
 bg_color = Color(0.1428732, 0.3346558, 0.28892982, 0.8745098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -20,6 +30,11 @@ corner_detail = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xonc0"]
 bg_color = Color(0.20392157, 0.45490196, 0.35686275, 0.8745098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -28,6 +43,12 @@ corner_detail = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6isj"]
 bg_color = Color(0.44056064, 0.4006842, 0.21911055, 0.8745098)
+border_width_left = 14
+border_width_top = 14
+border_width_right = 14
+border_width_bottom = 14
+border_color = Color(0, 0, 0, 1)
+border_blend = true
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -43,6 +64,7 @@ corner_radius_bottom_left = 8
 
 [resource]
 default_font = ExtResource("1_j8o4c")
+Button/constants/outline_size = 6
 Button/styles/disabled = SubResource("StyleBoxFlat_j8o4c")
 Button/styles/hover = SubResource("StyleBoxFlat_sfg6y")
 Button/styles/normal = SubResource("StyleBoxFlat_xonc0")

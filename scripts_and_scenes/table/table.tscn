@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hntj861nd3un" path="res://scripts_and_scenes/table/table.gd" id="1_83i0c"]
 [ext_resource type="Texture2D" uid="uid://cmiaaxh7td154" path="res://art/enviroment/full table.png" id="2_kodtr"]
+[ext_resource type="StyleBox" uid="uid://c2lxio4kf5aag" path="res://art/themes/mildly_black_style_box_flat.tres" id="3_8jwp2"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="8_8e2ag"]
 
 [node name="Table" type="Node2D" unique_id=246802026]
@@ -14,11 +15,22 @@ texture = ExtResource("2_kodtr")
 [node name="CustomerList" type="Node2D" parent="." unique_id=836089181]
 position = Vector2(75, 35)
 
-[node name="Label" type="Label" parent="CustomerList" unique_id=1104054420]
+[node name="PanelContainer" type="PanelContainer" parent="CustomerList" unique_id=969575560]
 offset_left = -730.0
 offset_top = -500.0
-offset_right = -391.0
-offset_bottom = -445.0
+offset_right = -690.0
+offset_bottom = -460.0
+theme_override_styles/panel = ExtResource("3_8jwp2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CustomerList/PanelContainer" unique_id=1183503587]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 6
+
+[node name="Label" type="Label" parent="CustomerList/PanelContainer/MarginContainer" unique_id=1104054420]
+layout_mode = 2
 theme = ExtResource("8_8e2ag")
 text = "Customers today:"
 metadata/_edit_use_anchors_ = true

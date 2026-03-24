@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj3gs41xv2c5m" path="res://scripts_and_scenes/game_loops/table_game_loop.gd" id="1_snveh"]
 [ext_resource type="PackedScene" uid="uid://bsvk1r7u6c4vu" path="res://scripts_and_scenes/table/5_seat_table.tscn" id="2_2h71t"]
-[ext_resource type="StyleBox" uid="uid://3v38s1fwfsw" path="res://art/themes/cool_black_style_box_flat.tres" id="5_bjfpk"]
+[ext_resource type="StyleBox" uid="uid://c2lxio4kf5aag" path="res://art/themes/mildly_black_style_box_flat.tres" id="4_bjfpk"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="10_4smxc"]
 [ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="11_iedsa"]
 [ext_resource type="PackedScene" uid="uid://dq2cprw3crs1n" path="res://scripts_and_scenes/life/DamageEffect.tscn" id="13_plnn2"]
@@ -22,10 +22,10 @@ texture = ExtResource("11_iedsa")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI" unique_id=1521482625]
 offset_left = 854.0
-offset_top = 630.0
-offset_right = 1055.0
-offset_bottom = 714.0
-theme_override_styles/panel = ExtResource("5_bjfpk")
+offset_top = 644.0
+offset_right = 1055.0005
+offset_bottom = 728.0
+theme_override_styles/panel = ExtResource("4_bjfpk")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/PanelContainer" unique_id=1029966607]
 layout_mode = 2

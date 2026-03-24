@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bepvg02drgtk" path="res://scripts_and_scenes/UI/tool_tip_area.gd" id="1_40t2k"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="2_1pja3"]
-[ext_resource type="StyleBox" uid="uid://3v38s1fwfsw" path="res://art/themes/cool_black_style_box_flat.tres" id="3_lgbvn"]
+[ext_resource type="StyleBox" uid="uid://3v38s1fwfsw" path="res://art/themes/very_black_style_box_flat.tres" id="3_lgbvn"]
 
 [node name="ToolTipArea" type="Area2D" unique_id=1783049423]
 z_index = 4

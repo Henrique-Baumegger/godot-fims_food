@@ -30,7 +30,6 @@ var list_of_foods_this_round : Array[Food]
 
 
 @onready var customer_list: Node2D = $CustomerList
-@onready var label: Label = $CustomerList/Label
 @onready var list_position_1: Marker2D = $CustomerList/ListPosition1
 @onready var list_position_2: Marker2D = $CustomerList/ListPosition2
 @onready var list_position_3: Marker2D = $CustomerList/ListPosition3
@@ -65,7 +64,7 @@ func end_round() -> void:
 	for c in client_positions_of_this_round:
 		c.after_eating_ability()
 	for c in client_positions_of_this_round:
-		c.dying_check()
+		await c.dying_check()
 	for c in client_positions_of_this_round:
 		var did_hit_you = await c.hitting_you_probability_check()
 		if did_hit_you:

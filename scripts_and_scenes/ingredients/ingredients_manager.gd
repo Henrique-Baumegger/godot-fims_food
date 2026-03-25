@@ -1,9 +1,9 @@
 extends Node2D
 class_name IngredientsManager
 
-@export var initial_holly_water_quantity = 99
-@export var initial_warm_ingredient_quantity = 99
-@export var initial_drinks_quantity = 99
+@export var initial_holly_water_quantity = 200
+@export var initial_warm_ingredient_quantity = 200
+@export var initial_drinks_quantity = 200
 
 
 @onready var holy_water: Ingredient = $HolyWater

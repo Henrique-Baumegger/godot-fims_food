@@ -55,7 +55,9 @@ var hated_customer : Customer = null
 var left_customer : Customer = null
 var right_customer : Customer = null
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprites_wrapper: Node2D = $SpritesWrapper
+@onready var alive_sprite: Sprite2D = $SpritesWrapper/AliveSprite
+@onready var dead_sprite: Sprite2D = $SpritesWrapper/DeadSprite
 @onready var poison_indicator: PoisonIndicator = $PoisonIndicator
 @onready var tool_tip_area: ToolTipArea = $ToolTipArea
 @onready var collider_of_tool_tip: CollisionShape2D = $ToolTipArea/CollisionShape2D
@@ -130,11 +132,11 @@ func list_format(make_list : bool) -> void:
 	var normal_scale = 1.25
 	if make_list:
 		collider_of_tool_tip.scale = Vector2.ONE * list_scale
-		sprite_2d.scale = Vector2.ONE * list_scale
+		sprites_wrapper.scale = Vector2.ONE * list_scale
 		poison_indicator.position = on_list_counter_marker.position
 	else:
 		collider_of_tool_tip.scale = Vector2.ONE * normal_scale
-		sprite_2d.scale = Vector2.ONE * normal_scale
+		sprites_wrapper.scale = Vector2.ONE * normal_scale
 		poison_indicator.position = normal_counter_pos.position
 
 
@@ -169,9 +171,7 @@ func dying_check() -> bool:
 	if dead:
 		return false
 	if current_poison >= max_poison:
-		dead = true
-		upon_death_ability()
-		sprite_2d.texture = dead_textures_per_id[this_instance_id]
+		await _die()
 		return true
 	return false
 
@@ -181,6 +181,11 @@ func hitting_you_probability_check() -> bool:
 		return false
 	var did_hit_you = await check_bar.run_hit_check(current_poison, max_poison, percentage_probability_mult_hit_you)
 	return did_hit_you
+
+
+func tips(amount : int)-> void:
+	gives_tip.emit(amount)
+	return
 
 
 func _ready() -> void:
@@ -195,7 +200,7 @@ func _check_exports() -> void:
 	conditions.push_back(tool_tip_area != null)
 	conditions.push_back(collider_of_tool_tip != null)
 	conditions.push_back(poison_indicator != null)
-	conditions.push_back(sprite_2d != null)
+	conditions.push_back(alive_sprite != null)
 	conditions.push_back(on_list_counter_marker != null)
 	conditions.push_back(normal_counter_pos != null)	
 	conditions.push_back(names_per_id.size() > 0 and names_per_id.size() == alive_textures_per_id.size() \
@@ -205,8 +210,36 @@ func _check_exports() -> void:
 		assert(cond, "Not all necessary export varibales of the customer parent class where set in the editor")
 
 
-func tips(amount : int)-> void:
-	gives_tip.emit(amount)
+func _die()-> void:
+	dead = true
+	upon_death_ability()
+	
+	dead_sprite.visible = true
+	dead_sprite.modulate.a = 0.0
+	
+	var tween = create_tween().set_parallel(true)
+	
+	# Alive sprite: fade out + shift to a dark purple tint
+	tween.tween_property(alive_sprite, "modulate", Color(0.45, 0.2, 0.55, 0.0), 0.8)\
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	
+	# Alive sprite: slight shrink as life drains
+	tween.tween_property(alive_sprite, "scale", alive_sprite.scale * 0.9, 0.8)\
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	
+	# Dead sprite: fade in with a slight delay so it emerges from the purple
+	tween.tween_property(dead_sprite, "modulate:a", 1.0, 0.6)\
+		.set_delay(0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	
+	# A little "soul leaving the body" float upward then settle back
+	var orig_y = position.y
+	tween.tween_property(self, "position:y", orig_y - 6.0, 0.4)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	
+	tween.tween_property(self, "position:y", orig_y, 0.4)\
+		.set_delay(0.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	
+	await tween.finished
 	return
 
 
@@ -214,7 +247,8 @@ func _set_name_and_texture() -> void:
 	this_instance_id = id_for_names_and_textures
 	id_for_names_and_textures = (id_for_names_and_textures+1) % names_per_id.size()
 	customer_name = names_per_id[this_instance_id]
-	sprite_2d.texture = alive_textures_per_id[this_instance_id]
+	alive_sprite.texture = alive_textures_per_id[this_instance_id]
+	dead_sprite.texture = dead_textures_per_id[this_instance_id]
 
 
 func _process(_delta: float) -> void:

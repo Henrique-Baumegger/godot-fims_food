@@ -142,7 +142,7 @@ func list_format(make_list : bool) -> void:
 
 func eat_and_free_food() -> void:
 	if dead:
-		food_this_round.queue_free()
+		await food_this_round.slowely_dissapear()
 		food_this_round = null
 		return
 	
@@ -163,7 +163,7 @@ func eat_and_free_food() -> void:
 		last_drink_eaten = food_this_round.single_drink_present
 	
 	
-	food_this_round.queue_free()
+	await food_this_round.be_eaten()
 	food_this_round = null
  
 

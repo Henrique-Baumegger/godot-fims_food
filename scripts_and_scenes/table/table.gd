@@ -59,8 +59,12 @@ func move_to_drink_phase() -> void:
 
 
 func end_round() -> void:
-	for c in client_positions_of_this_round:
-		c.eat_and_free_food()
+	for i in client_positions_of_this_round.size():
+		var c = client_positions_of_this_round[i]
+		if i == client_positions_of_this_round.size() - 1:
+			await c.eat_and_free_food()
+		else:
+			c.eat_and_free_food()
 	for c in client_positions_of_this_round:
 		c.after_eating_ability()
 	for c in client_positions_of_this_round:

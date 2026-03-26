@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cxtrxgrmo2g8g"]
+
+[ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_sudha"]
+[ext_resource type="Texture2D" uid="uid://b61su7lejdsv6" path="res://art/food/poisons/holly_water.png" id="2_upg8y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upg8y"]
+size = Vector2(182.25, 138.5)
+
+[node name="HolyWaterForSale" type="Node2D" unique_id=26116076]
+
+[node name="IngredientForSale" parent="." unique_id=1843319738 node_paths=PackedStringArray("collision_2d", "sprite_node") instance=ExtResource("1_sudha")]
+collision_2d = NodePath("CollisionShape2D")
+sprite_node = NodePath("SpritesWrapper")
+is_holy_water = true
+price = 0
+batch_quantity = 10
+batch_increment = 0
+
+[node name="SpritesWrapper" type="Node2D" parent="IngredientForSale" unique_id=652209326]
+
+[node name="Sprite2D" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=1466832373]
+position = Vector2(45.999996, 8.999998)
+rotation = 0.50440013
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_upg8y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=1521301232]
+position = Vector2(8.000001, 0)
+rotation = 0.0837758
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_upg8y")
+
+[node name="Sprite2D3" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=1354919200]
+position = Vector2(-36, 30.999998)
+rotation = -0.7557276
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_upg8y")
+
+[node name="Sprite2D4" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=1119571375]
+position = Vector2(-29.000002, -23)
+rotation = -0.3351032
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_upg8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=1025202025]
+position = Vector2(9.875, -15.25)
+shape = SubResource("RectangleShape2D_upg8y")

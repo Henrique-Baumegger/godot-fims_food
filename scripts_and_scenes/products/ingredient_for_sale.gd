@@ -1,10 +1,12 @@
 extends Area2D
 class_name IngredientForSale
 
+const doubloon_img_path : String = "res://art/place_holder/placeholder_doubloon.png"
+
 @export var collision_2d : CollisionShape2D = null
 @export var sprite_node : Node = null
 
-@export var is_health_potion : bool = false
+@export var is_sewing_kit : bool = false
 @export var is_holy_water : bool = false
 @export var poison_type : Customer.Creatures = Customer.Creatures.NONE
 @export var drink_type : Food.Drinks = Food.Drinks.NONE
@@ -12,7 +14,8 @@ class_name IngredientForSale
 @export var price : int = 5
 @export var batch_quantity : int = 5
 @export var batch_increment : int = 1
-@export var is_single_purchase : bool = false
+
+var is_single_purchase : bool = false
 
 var has_been_purchased : bool = false
 
@@ -22,7 +25,8 @@ var money_manager : MoneyManager = null
 var life_manager : LifeManager = null
 var ingredients_manager : IngredientsManager = null
 
-@onready var item_quantity: Label = $ItemQuantity
+@onready var batch_quantity_label: Label = $BatchQuantityLabel
+@onready var cost_label: RichTextLabel = $CostLabel
 
 
 func _ready() -> void:
@@ -30,6 +34,16 @@ func _ready() -> void:
 	money_manager = get_tree().get_first_node_in_group("money_manager")
 	life_manager = get_tree().get_first_node_in_group("life_manager")
 	ingredients_manager = get_tree().get_first_node_in_group("ingredients_manager")
+	
+	if is_sewing_kit or drink_type != Food.Drinks.NONE:
+		is_single_purchase = true
+		batch_quantity_label.visible = false
+	elif is_holy_water:
+		is_single_purchase = true
+	else:
+		is_single_purchase = false
+	
+	cost_label.text = "[img=38x38]"+doubloon_img_path+"[/img] "+str(price)
 
 
 func _process(_delta: float) -> void:
@@ -43,7 +57,7 @@ func _handle_potential_buy() -> void:
 	or (money_manager.get_money() < price):
 		return
 	
-	if is_health_potion:
+	if is_sewing_kit:
 		life_manager.fill_life()
 	else:
 		ingredients_manager.add_product(self, batch_quantity)
@@ -54,16 +68,16 @@ func _handle_potential_buy() -> void:
 
 
 func _update_visuals() -> void:
-	item_quantity.text = "Batch of: " + str(batch_quantity)
+	batch_quantity_label.text = "Batch of: " + str(batch_quantity)
 	
 	if (is_single_purchase and has_been_purchased)\
 	 or (money_manager.get_money() < price):
-		modulate = Color(0.8, 0.8, 0.8, 0.6)
+		modulate = Color(0.25, 0.25, 0.25, 1)
 
 
 func _check_exports() -> void:
 	var count := 0
-	if is_health_potion:
+	if is_sewing_kit:
 		count += 1
 	if is_holy_water:
 		count += 1

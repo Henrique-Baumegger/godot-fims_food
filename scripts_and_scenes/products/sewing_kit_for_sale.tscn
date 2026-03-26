@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dfut4lfgsaex0"]
+
+[ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_nvmws"]
+[ext_resource type="Texture2D" uid="uid://dxjwfmg45558r" path="res://art/place_holder/Sewing_Kit_Dropped.webp" id="2_0321a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fckdm"]
+size = Vector2(185.25, 152.75)
+
+[node name="SewingKitForSale" type="Node2D" unique_id=728635059]
+
+[node name="IngredientForSale" parent="." unique_id=1843319738 node_paths=PackedStringArray("collision_2d", "sprite_node") instance=ExtResource("1_nvmws")]
+collision_2d = NodePath("CollisionShape2D")
+sprite_node = NodePath("Sprite2D")
+is_sewing_kit = true
+price = 100
+batch_quantity = 1
+batch_increment = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=301628031]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_fckdm")
+
+[node name="Sprite2D" type="Sprite2D" parent="IngredientForSale" unique_id=670338345]
+texture = ExtResource("2_0321a")

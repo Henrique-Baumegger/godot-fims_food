@@ -32,7 +32,7 @@ func add_life_and_return_is_dead(amount : int) -> bool:
 
 func _ready() -> void:
 	_check_exports()
-	all_hats = [hat_1, hat_2, hat_3, hat_4, hat_5]
+	all_hats = [hat_1, hat_2, hat_3, hat_4, hat_5]	
 
 
 func _process(_delta: float) -> void:

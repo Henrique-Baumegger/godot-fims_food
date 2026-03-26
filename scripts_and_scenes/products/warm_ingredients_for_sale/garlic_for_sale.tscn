@@ -35,7 +35,8 @@ scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_2tnkh")
 
 [node name="Sprite2D3" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=961228737]
-position = Vector2(9, -22)
+position = Vector2(18, -20)
 rotation = 0.09250245
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_2tnkh")
+flip_h = true

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://by6dm4ylk0r3s"]
+
+[ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_u66ry"]
+[ext_resource type="Texture2D" uid="uid://cpco8dlho3uwe" path="res://art/food/drinks/drink g.png" id="2_43t06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx7lt"]
+size = Vector2(148, 164)
+
+[node name="LeftDrinkForSale" type="Node2D" unique_id=737456610]
+
+[node name="IngredientForSale" parent="." unique_id=1843319738 node_paths=PackedStringArray("collision_2d", "sprite_node") instance=ExtResource("1_u66ry")]
+collision_2d = NodePath("CollisionShape2D")
+sprite_node = NodePath("Sprite2D")
+drink_type = 1
+price = 10
+batch_quantity = 1
+batch_increment = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=269312982]
+position = Vector2(26, 2)
+shape = SubResource("RectangleShape2D_cx7lt")
+
+[node name="Sprite2D" type="Sprite2D" parent="IngredientForSale" unique_id=924679523]
+position = Vector2(23.999992, 0)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_43t06")

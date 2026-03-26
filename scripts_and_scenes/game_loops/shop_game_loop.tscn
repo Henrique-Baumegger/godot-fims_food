@@ -1,47 +1,111 @@
 [gd_scene format=3 uid="uid://dr2p42a0hcfva"]
 
+[ext_resource type="Script" uid="uid://c3xxadusxhtu1" path="res://scripts_and_scenes/game_loops/shop_game_loop.gd" id="1_01v7p"]
 [ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="1_4w47x"]
 [ext_resource type="PackedScene" uid="uid://ci6xj24a3hk57" path="res://scripts_and_scenes/products/warm_ingredients_for_sale/garlic_for_sale.tscn" id="2_1gcvd"]
 [ext_resource type="PackedScene" uid="uid://dahrppxmwi2j" path="res://scripts_and_scenes/products/warm_ingredients_for_sale/salt_for_sale.tscn" id="3_dptcc"]
 [ext_resource type="PackedScene" uid="uid://mdr75771v25" path="res://scripts_and_scenes/products/warm_ingredients_for_sale/silver_for_sale.tscn" id="4_hobuh"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="5_gveh5"]
 [ext_resource type="PackedScene" uid="uid://cxtrxgrmo2g8g" path="res://scripts_and_scenes/products/warm_ingredients_for_sale/holy_water_for_sale.tscn" id="5_oofkd"]
+[ext_resource type="StyleBox" uid="uid://c2lxio4kf5aag" path="res://art/themes/mildly_black_style_box_flat.tres" id="6_01v7p"]
 [ext_resource type="PackedScene" uid="uid://dfut4lfgsaex0" path="res://scripts_and_scenes/products/sewing_kit_for_sale.tscn" id="6_jwr17"]
 [ext_resource type="PackedScene" uid="uid://bppresrha25yo" path="res://scripts_and_scenes/products/drinks_for_sale/stay_drink_for_sale.tscn" id="7_igumj"]
 [ext_resource type="PackedScene" uid="uid://by6dm4ylk0r3s" path="res://scripts_and_scenes/products/drinks_for_sale/left_drink_for_sale.tscn" id="8_46mw3"]
 [ext_resource type="PackedScene" uid="uid://blfiacy2iy1se" path="res://scripts_and_scenes/products/drinks_for_sale/right_drink_for_sale.tscn" id="9_msbfq"]
 
 [node name="ShopGameLoop" type="Node2D" unique_id=817990306]
+script = ExtResource("1_01v7p")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=78660365]
 position = Vector2(960, 540)
 texture = ExtResource("1_4w47x")
 
 [node name="DrinkOfTheDay" type="Node2D" parent="." unique_id=1692454362]
+position = Vector2(656, 174)
 
 [node name="StayDrinkForSale" parent="DrinkOfTheDay" unique_id=2017963351 instance=ExtResource("7_igumj")]
-position = Vector2(868, 267)
+position = Vector2(410, 81)
 
 [node name="LeftDrinkForSale" parent="DrinkOfTheDay" unique_id=737456610 instance=ExtResource("8_46mw3")]
-position = Vector2(861, 268)
+position = Vector2(403, 82)
 
 [node name="RightDrinkForSale" parent="DrinkOfTheDay" unique_id=1708066774 instance=ExtResource("9_msbfq")]
-position = Vector2(863, 267)
+position = Vector2(405, 81)
+
+[node name="PanelContainer" type="PanelContainer" parent="DrinkOfTheDay" unique_id=696458760]
+offset_left = 266.0
+offset_top = -100.0
+offset_right = 561.0
+offset_bottom = -33.0
+theme = ExtResource("5_gveh5")
+theme_override_styles/panel = ExtResource("6_01v7p")
+
+[node name="MarginContainer" type="MarginContainer" parent="DrinkOfTheDay/PanelContainer" unique_id=1292974750]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="DrinkOfTheDay/PanelContainer/MarginContainer" unique_id=384267962]
+layout_mode = 2
+text = "Drink of the day :"
 
 [node name="LastInStock" type="Node2D" parent="." unique_id=2020339694]
 
 [node name="HolyWaterForSale" parent="LastInStock" unique_id=26116076 instance=ExtResource("5_oofkd")]
-position = Vector2(1635, 329)
+position = Vector2(1635, 300)
 
 [node name="SewingKitForSale" parent="LastInStock" unique_id=728635059 instance=ExtResource("6_jwr17")]
 position = Vector2(1647, 496)
 
+[node name="PanelContainer" type="PanelContainer" parent="LastInStock" unique_id=826728700]
+offset_left = 1539.0
+offset_top = 74.0
+offset_right = 1781.0
+offset_bottom = 141.0
+theme = ExtResource("5_gveh5")
+theme_override_styles/panel = ExtResource("6_01v7p")
+
+[node name="MarginContainer" type="MarginContainer" parent="LastInStock/PanelContainer" unique_id=248707332]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="LastInStock/PanelContainer/MarginContainer" unique_id=2059832178]
+layout_mode = 2
+text = "Last in Stock :"
+
 [node name="AbundanceOfTheVast" type="Node2D" parent="." unique_id=67454544]
+position = Vector2(30, -250)
 
 [node name="GarlicForSale" parent="AbundanceOfTheVast" unique_id=1609793054 instance=ExtResource("2_1gcvd")]
-position = Vector2(206, 548)
+position = Vector2(184, 548)
 
 [node name="SaltForSale" parent="AbundanceOfTheVast" unique_id=2022942909 instance=ExtResource("3_dptcc")]
-position = Vector2(525, 543)
+position = Vector2(525, 548)
 
 [node name="SilverForSale" parent="AbundanceOfTheVast" unique_id=1851945597 instance=ExtResource("4_hobuh")]
-position = Vector2(855, 550)
+position = Vector2(525, 800)
+
+[node name="PanelContainer" type="PanelContainer" parent="AbundanceOfTheVast" unique_id=1199113109]
+offset_left = 65.0
+offset_top = 270.0
+offset_right = 644.0
+offset_bottom = 391.0
+theme = ExtResource("5_gveh5")
+theme_override_styles/panel = ExtResource("6_01v7p")
+
+[node name="MarginContainer" type="MarginContainer" parent="AbundanceOfTheVast/PanelContainer" unique_id=1877086820]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="AbundanceOfTheVast/PanelContainer/MarginContainer" unique_id=180586363]
+layout_mode = 2
+text = "Abundance of the Vast - 
+The more you buy the more you get :"

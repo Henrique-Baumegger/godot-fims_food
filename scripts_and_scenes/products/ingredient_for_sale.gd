@@ -35,13 +35,16 @@ func _ready() -> void:
 	life_manager = get_tree().get_first_node_in_group("life_manager")
 	ingredients_manager = get_tree().get_first_node_in_group("ingredients_manager")
 	
-	if is_sewing_kit or drink_type != Food.Drinks.NONE:
+	if is_sewing_kit:
 		is_single_purchase = true
 		batch_quantity_label.visible = false
-	elif is_holy_water:
+	if is_holy_water:
 		is_single_purchase = true
-	else:
+	if poison_type != Customer.Creatures.NONE:
 		is_single_purchase = false
+	if drink_type != Food.Drinks.NONE:
+		is_single_purchase = false
+		batch_quantity_label.visible = false
 	
 	cost_label.text = "[img=38x38]"+doubloon_img_path+"[/img] "+str(price)
 
@@ -62,9 +65,17 @@ func _handle_potential_buy() -> void:
 	else:
 		ingredients_manager.add_product(self, batch_quantity)
 	
+	_animate_purchase()
 	batch_quantity = batch_quantity + batch_increment
 	money_manager.add_money(-price)
 	has_been_purchased = true
+
+
+func _animate_purchase() -> void:
+	var original_scale : Vector2 = sprite_node.scale
+	var tween := create_tween()
+	tween.tween_property(sprite_node, "scale", original_scale * Vector2(1.3, 1.3), 0.1)
+	tween.tween_property(sprite_node, "scale", original_scale, 0.15).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 
 
 func _update_visuals() -> void:

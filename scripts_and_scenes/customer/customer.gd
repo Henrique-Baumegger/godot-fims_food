@@ -55,9 +55,11 @@ var hated_customer : Customer = null
 var left_customer : Customer = null
 var right_customer : Customer = null
 
-@onready var sprites_wrapper: Node2D = $SpritesWrapper
-@onready var alive_sprite: Sprite2D = $SpritesWrapper/AliveSprite
-@onready var dead_sprite: Sprite2D = $SpritesWrapper/DeadSprite
+@onready var visuals_wrapper: Node2D = $VisualsWrapper
+@onready var alive_sprite: Sprite2D = $VisualsWrapper/AliveSprite
+@onready var dead_sprite: Sprite2D = $VisualsWrapper/DeadSprite
+@onready var adding_text: RichTextLabel = $VisualsWrapper/AddingText
+
 @onready var poison_indicator: PoisonIndicator = $PoisonIndicator
 @onready var tool_tip_area: ToolTipArea = $ToolTipArea
 @onready var collider_of_tool_tip: CollisionShape2D = $ToolTipArea/CollisionShape2D
@@ -132,11 +134,11 @@ func list_format(make_list : bool) -> void:
 	var normal_scale = 1.25
 	if make_list:
 		collider_of_tool_tip.scale = Vector2.ONE * list_scale
-		sprites_wrapper.scale = Vector2.ONE * list_scale
+		visuals_wrapper.scale = Vector2.ONE * list_scale
 		poison_indicator.position = on_list_counter_marker.position
 	else:
 		collider_of_tool_tip.scale = Vector2.ONE * normal_scale
-		sprites_wrapper.scale = Vector2.ONE * normal_scale
+		visuals_wrapper.scale = Vector2.ONE * normal_scale
 		poison_indicator.position = normal_counter_pos.position
 
 
@@ -185,6 +187,23 @@ func hitting_you_probability_check() -> bool:
 
 func tips(amount : int)-> void:
 	gives_tip.emit(amount)
+	
+	var lenght : float = 0.85
+	adding_text.visible = true
+	var original_y = -85.0
+	var target_y = -144
+	adding_text.position.y = original_y
+	adding_text.modulate.a = 1
+	adding_text.text = "+[img=36x36]res://art/place_holder/placeholder_doubloon.png[/img]%d" % amount
+	
+	var tween = self.create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(adding_text, "position:y", target_y, lenght)\
+	.set_ease(Tween.EASE_OUT)\
+	.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(adding_text, "modulate:a", 0, lenght)\
+	.set_ease(Tween.EASE_IN)\
+	.set_trans(Tween.TRANS_QUART)
 	return
 
 

@@ -26,4 +26,15 @@ func _ready() -> void:
 
 
 func _update_visuals() -> void:
-	text = str(money)+" [img=98x98]"+doubloon_img_path+"[/img]"
+	text = "[img=98x98]"+doubloon_img_path+"[/img] "+str(money)
+
+
+
+
+
+
+
+
+
+
+	

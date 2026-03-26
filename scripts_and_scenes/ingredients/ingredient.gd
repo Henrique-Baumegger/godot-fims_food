@@ -58,7 +58,6 @@ func _ready() -> void:
 	static_quantity = initial_quantity
 	static_sprite.texture = current_texture
 	dragged_sprite.texture = current_texture
-	_update_labels()
 
 
 func _process(_delta):
@@ -69,6 +68,7 @@ func _process(_delta):
 	
 	_handle_potential_click()
 	_handle_potential_dragging_movement()
+	_update_labels()
 
 
 func _handle_potential_click() -> void:
@@ -83,11 +83,9 @@ func _handle_potential_click() -> void:
 		_start_dragging()
 		dragged_quantity = 1
 		static_quantity -= 1
-		_update_labels()
 	elif dragged_quantity > 0 and mouse_is_on_static_ingredient and static_quantity >0:
 		dragged_quantity += 1
 		static_quantity -= 1
-		_update_labels()
 	elif not mouse_is_on_static_ingredient and dragging:
 		_cancel_drag()
 
@@ -117,7 +115,6 @@ func _handle_ingredient_addition(found_food: Food) -> void:
 func _cancel_drag() -> void:
 	static_quantity = dragged_quantity + static_quantity
 	dragged_quantity = 0
-	_update_labels()
 	
 	dragging = false
 	dragged_ingredient.visible = false

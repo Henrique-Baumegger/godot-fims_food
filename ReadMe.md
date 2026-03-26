@@ -13,8 +13,6 @@
 - Real icon on dobloons
 - Real icons for chef hats
 
-- Make death animation for custommers: normal sprite gets more purple and fades, new sprite appears
-
 -Shop: One shop visit inbetween days. 
 The more you buy of an ingredient/drink in a single shop visit, the cheaper it gets, 
 so you are incentivized to buy a specific product in bulk.

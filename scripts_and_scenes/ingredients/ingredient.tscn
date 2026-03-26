@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dehquvyb0j416" path="res://scripts_and_scenes/ingredients/ingredient.gd" id="1_wiup6"]
 [ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="2_e7njv"]
+[ext_resource type="PackedScene" uid="uid://d0sfhtdvrcnbx" path="res://scripts_and_scenes/UI/item_quantity.tscn" id="3_e7njv"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="3_qhpac"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cocjv"]
@@ -24,15 +25,7 @@ texture = ExtResource("2_e7njv")
 scale = Vector2(0.75, 1)
 shape = SubResource("RectangleShape2D_cocjv")
 
-[node name="StaticLabel" type="Label" parent="StaticIngredient" unique_id=122138272]
-offset_left = -156.0
-offset_top = 65.0
-offset_right = 26.0
-offset_bottom = 120.0
-theme = ExtResource("3_qhpac")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "XX"
-horizontal_alignment = 2
+[node name="StaticLabel" parent="StaticIngredient" unique_id=478237581 instance=ExtResource("3_e7njv")]
 
 [node name="DraggedIngredient" type="Node2D" parent="." unique_id=559503073]
 

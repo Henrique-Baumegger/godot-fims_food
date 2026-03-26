@@ -13,7 +13,7 @@
 [node name="IngredientsManager" type="Node2D" unique_id=1971960619 groups=["ingredients_manager"]]
 script = ExtResource("1_xx2xe")
 
-[node name="Onion" parent="." unique_id=1120000344 instance=ExtResource("1_gbgb0")]
+[node name="Garlic" parent="." unique_id=1120000344 instance=ExtResource("1_gbgb0")]
 position = Vector2(150, 941)
 poison_type = 1
 static_sprite_offset = Vector2(-100, 0)

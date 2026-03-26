@@ -1,9 +1,21 @@
 [gd_scene format=3 uid="uid://dr2p42a0hcfva"]
 
 [ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="1_4w47x"]
+[ext_resource type="PackedScene" uid="uid://ci6xj24a3hk57" path="res://scripts_and_scenes/products/garlic_for_sale.tscn" id="2_1gcvd"]
+[ext_resource type="PackedScene" uid="uid://dahrppxmwi2j" path="res://scripts_and_scenes/products/salt_for_sale.tscn" id="3_dptcc"]
+[ext_resource type="PackedScene" uid="uid://mdr75771v25" path="res://scripts_and_scenes/products/silver_for_sale.tscn" id="4_hobuh"]
 
 [node name="ShopGameLoop" type="Node2D" unique_id=817990306]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=78660365]
 position = Vector2(960, 540)
 texture = ExtResource("1_4w47x")
+
+[node name="GarlicForSale" parent="." unique_id=1609793054 instance=ExtResource("2_1gcvd")]
+position = Vector2(209, 311)
+
+[node name="SaltForSale" parent="." unique_id=2022942909 instance=ExtResource("3_dptcc")]
+position = Vector2(528, 306)
+
+[node name="SilverForSale" parent="." unique_id=1851945597 instance=ExtResource("4_hobuh")]
+position = Vector2(858, 313)

@@ -67,6 +67,7 @@ func end_round() -> void:
 			c.eat_and_free_food()
 	for c in client_positions_of_this_round:
 		c.after_eating_ability()
+	await get_tree().create_timer(0.75).timeout
 	for c in client_positions_of_this_round:
 		await c.dying_check()
 	for c in client_positions_of_this_round:

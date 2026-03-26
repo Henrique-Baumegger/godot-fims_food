@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dahrppxmwi2j"]
+
+[ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_1b3jr"]
+[ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="2_3u0kg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u0kg"]
+size = Vector2(154.5, 132.75)
+
+[node name="SaltForSale" type="Node2D" unique_id=2022942909]
+
+[node name="IngredientForSale" parent="." unique_id=1843319738 node_paths=PackedStringArray("collision_2d", "sprite_node") instance=ExtResource("1_1b3jr")]
+collision_2d = NodePath("CollisionShape2D")
+sprite_node = NodePath("SpritesWrapper")
+poison_type = 2
+batch_increment = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=1926233041]
+shape = SubResource("RectangleShape2D_3u0kg")
+
+[node name="SpritesWrapper" type="Node2D" parent="IngredientForSale" unique_id=2092496094]
+
+[node name="Sprite2D" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=665549973]
+position = Vector2(-43, 42)
+rotation = -0.62831855
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_3u0kg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=1201800709]
+position = Vector2(-20, 1.0000076)
+rotation = -0.15358898
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_3u0kg")
+
+[node name="Sprite2D3" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=874143097]
+position = Vector2(14, 30)
+rotation = 0.38397244
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_3u0kg")

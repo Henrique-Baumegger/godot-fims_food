@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ci6xj24a3hk57"]
+
+[ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_snny6"]
+[ext_resource type="Texture2D" uid="uid://kynw3kqa7dla" path="res://art/food/poisons/garlic.png" id="2_2tnkh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snny6"]
+size = Vector2(25.117004, 20.124805)
+
+[node name="GarlicForSale" type="Node2D" unique_id=1609793054]
+
+[node name="IngredientForSale" parent="." unique_id=1843319738 node_paths=PackedStringArray("collision_2d", "sprite_node") instance=ExtResource("1_snny6")]
+collision_2d = NodePath("CollisionShape2D")
+sprite_node = NodePath("SpritesWrapper")
+poison_type = 1
+batch_increment = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=7866343]
+position = Vector2(3.5, -14.500002)
+scale = Vector2(6.41, 6.41)
+shape = SubResource("RectangleShape2D_snny6")
+
+[node name="SpritesWrapper" type="Node2D" parent="IngredientForSale" unique_id=1761849841]
+position = Vector2(0, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=559516874]
+position = Vector2(38, 32.999996)
+rotation = 0.4607669
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_2tnkh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=1183282736]
+position = Vector2(-43, 30.999996)
+rotation = -0.6754424
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_2tnkh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="IngredientForSale/SpritesWrapper" unique_id=961228737]
+position = Vector2(9, -22)
+rotation = 0.09250245
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_2tnkh")

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://22781a262i13"]
+
+[ext_resource type="Script" uid="uid://cjxtwqauf7jk8" path="res://scripts_and_scenes/products/ingredient_for_sale.gd" id="1_qylj8"]
+[ext_resource type="PackedScene" uid="uid://d0sfhtdvrcnbx" path="res://scripts_and_scenes/UI/item_quantity.tscn" id="2_2upxf"]
+
+[node name="IngredientForSale" type="Area2D" unique_id=1843319738]
+script = ExtResource("1_qylj8")
+
+[node name="ItemQuantity" parent="." unique_id=478237581 instance=ExtResource("2_2upxf")]
+offset_left = -122.0
+offset_top = -152.0
+offset_right = 126.0
+offset_bottom = -83.0
+text = "Batch of: XX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

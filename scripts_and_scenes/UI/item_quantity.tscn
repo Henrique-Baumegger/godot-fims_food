@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d0sfhtdvrcnbx"]
+
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="1_5t388"]
+
+[node name="ItemQuantity" type="Label" unique_id=478237581]
+offset_left = -156.0
+offset_top = 65.0
+offset_right = 26.0
+offset_bottom = 120.0
+theme = ExtResource("1_5t388")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "XX"
+horizontal_alignment = 2

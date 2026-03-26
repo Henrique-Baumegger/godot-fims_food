@@ -21,6 +21,7 @@ func add_money(amount : int) -> void:
 	_update_visuals()
 	return 
 
+
 func _ready() -> void:
 	_update_visuals()
 

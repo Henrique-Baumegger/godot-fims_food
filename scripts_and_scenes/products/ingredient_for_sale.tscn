@@ -1,20 +1,10 @@
 [gd_scene format=3 uid="uid://22781a262i13"]
 
 [ext_resource type="Script" uid="uid://cjxtwqauf7jk8" path="res://scripts_and_scenes/products/ingredient_for_sale.gd" id="1_qylj8"]
-[ext_resource type="PackedScene" uid="uid://d0sfhtdvrcnbx" path="res://scripts_and_scenes/UI/item_quantity.tscn" id="2_2upxf"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="3_euh0m"]
 
 [node name="IngredientForSale" type="Area2D" unique_id=1843319738]
 script = ExtResource("1_qylj8")
-
-[node name="BatchQuantityLabel" parent="." unique_id=478237581 instance=ExtResource("2_2upxf")]
-offset_left = -122.0
-offset_top = -152.0
-offset_right = 126.0
-offset_bottom = -83.0
-text = "Batch of: XX"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="CostLabel" type="RichTextLabel" parent="." unique_id=14449052]
 z_index = 1
@@ -32,6 +22,16 @@ theme_override_font_sizes/mono_font_size = 40
 bbcode_enabled = true
 text = "[img=38x38]res://art/place_holder/placeholder_doubloon.png[/img] xx"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BatchQuantityLabel" type="Label" parent="." unique_id=1090466988]
+offset_left = -122.0
+offset_top = -152.0
+offset_right = 126.0
+offset_bottom = -83.0
+theme = ExtResource("3_euh0m")
+text = "Batch of: XX"
 horizontal_alignment = 1
 vertical_alignment = 1
 

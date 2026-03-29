@@ -168,6 +168,10 @@ func _sit_customers() -> void: #
 	for i in range(table_size):
 		client_positions_of_this_round[i].position = customers_on_table_markers[i].position
 	
+	for c in client_positions_of_this_round:
+		c.left_customer = null
+		c.right_customer = null
+	
 	client_positions_of_this_round[0].right_customer = client_positions_of_this_round[1]
 	client_positions_of_this_round[table_size-1].left_customer = client_positions_of_this_round[table_size-2]
 	for i in range(1, table_size-1):

@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cj3gs41xv2c5m" path="res://scripts_and_scenes/game_loops/table_game_loop.gd" id="1_snveh"]
 [ext_resource type="StyleBox" uid="uid://c2lxio4kf5aag" path="res://art/themes/mildly_black_style_box_flat.tres" id="4_bjfpk"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="6_bjfpk"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="10_4smxc"]
 [ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="11_iedsa"]
 [ext_resource type="PackedScene" uid="uid://dq2cprw3crs1n" path="res://scripts_and_scenes/life/DamageEffect.tscn" id="13_plnn2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjfpk"]
+size = Vector2(53, 69)
 
 [node name="TableGameLoop" type="Node2D" unique_id=959716859]
 script = ExtResource("1_snveh")
@@ -41,3 +45,23 @@ vertical_alignment = 1
 
 [node name="DamageEffect" parent="UI" unique_id=2013741325 instance=ExtResource("13_plnn2")]
 z_index = 3
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("6_bjfpk")]
+position = Vector2(26, 17)
+displayed_text = "You have 3 meals to kill all customers of a single day
+
+You do not know where customer will sit. Prepare the meals before they sit. After they sit, you will only ber able to serve them drinks.
+
+Salt poisons skeletons, garlic poisons vampires, silver poisons ghosts and holy water poisons them all. Drinks manipulate their sitting preferences for their next meal."
+
+[node name="Label" type="Label" parent="ToolTipArea" unique_id=73783941]
+modulate = Color(1, 1, 1, 0.6862745)
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("10_4smxc")
+theme_override_font_sizes/font_size = 46
+text = "?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=886152188]
+position = Vector2(16, 32)
+shape = SubResource("RectangleShape2D_bjfpk")

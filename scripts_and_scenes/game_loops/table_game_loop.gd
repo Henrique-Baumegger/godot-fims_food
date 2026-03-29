@@ -1,6 +1,9 @@
 extends Node2D
 class_name TableGameLoop
 
+signal done(success)
+signal we_died
+
 const day_size = 3
 
 @export var variable_seat_table: VariableSeatAmountTableContainer = null
@@ -16,8 +19,6 @@ var continue_button: Button = null
 
 @onready var round_label: Label = $UI/PanelContainer/MarginContainer/RoundLabel
 @onready var damage_effect: DamageEffect = $UI/DamageEffect
-@onready var you_die_label: Label = $UI/YouDieLabel
-@onready var end_of_day_lose: Label = $UI/EndOfDayLose
 
 @onready var table: Table = variable_seat_table.get_table()
 
@@ -55,7 +56,7 @@ func _on_hits_you()-> void:
 	damage_effect.play_damage_animation()
 	var player_life_went_to_zero = life_manager.add_life_and_return_is_dead(-1)
 	if player_life_went_to_zero:
-		you_die_label.visible = true
+		we_died.emit()
 
 
 func _on_continue_button_pressed() -> void:
@@ -100,12 +101,8 @@ func pos_sit_press() -> void:
 	if last_round:
 		var we_succeded : bool = table.end_day()
 		await get_tree().create_timer(wait_time).timeout
-		
-		if not we_succeded:
-			end_of_day_lose.visible = true
-		
-		table.start_day()
-		await get_tree().create_timer(wait_time).timeout
+		done.emit(we_succeded)
+		return
 	
 	table.start_round()
 	await get_tree().create_timer(wait_time).timeout

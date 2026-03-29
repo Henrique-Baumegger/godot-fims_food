@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://drck43sar6kej"]
+
+[ext_resource type="Script" uid="uid://brkxhgqfboqkr" path="res://scripts_and_scenes/game_loops/death_game_loop.gd" id="1_qef4s"]
+[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="2_grhm1"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="2_mdbno"]
+[ext_resource type="Texture2D" uid="uid://c26fumjhtaive" path="res://art/enviroment/gravestone good.png" id="3_grhm1"]
+
+[node name="DeathGameLoop" type="Node2D" unique_id=1699959075]
+script = ExtResource("1_qef4s")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1208987745]
+position = Vector2(960, 540)
+texture = ExtResource("2_grhm1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=565366657]
+clip_contents = true
+offset_left = 480.0
+offset_top = 102.0
+offset_right = 1440.0
+offset_bottom = 1082.0
+theme = ExtResource("2_mdbno")
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2056972736]
+layout_mode = 2
+text = "You grew careless ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=963203810]
+layout_mode = 2
+text = "Your hand trembled ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=897592562]
+layout_mode = 2
+text = "Their eyes opened ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=456009136]
+layout_mode = 2
+text = "Your flesh was the final course"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1191665797]
+position = Vector2(973, 833)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("3_grhm1")

@@ -21,6 +21,7 @@ func toggle_visibility(on:bool) -> void:
 		continue_button.modulate.a = 1
 	else:
 		continue_button.modulate.a = 0
+	continue_button.disabled = not on
 
 
 func set_button_text(text_to_write : String) -> void:
@@ -28,6 +29,7 @@ func set_button_text(text_to_write : String) -> void:
 
 
 func fade_button_in(time:float, delay:float) -> void:
+	continue_button.disabled = false
 	continue_button.visible = true
 	var tw : Tween = create_tween()
 	tw.tween_interval(delay)

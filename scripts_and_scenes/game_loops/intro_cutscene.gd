@@ -1,8 +1,6 @@
 extends Node2D
 class_name IntroCustscene
 
-signal done
-
 @onready var label: Label = $VBoxContainer/Label
 @onready var label_2: Label = $VBoxContainer/Label2
 @onready var label_3: Label = $VBoxContainer/Label3
@@ -76,14 +74,17 @@ func _ready() -> void:
 
 
 func _reveal_paragraphs() -> void:
-	var pause : float = 3
+	var pause : float = 3 # insert both of this on their places
+	var reveal_time : float = 2.5 # I made it quicker for debugging and testing
 	var tw := create_tween()
 	for l in _labels:
-		tw.tween_property(l, "modulate:a", 1.0, 2.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
-		tw.tween_interval(pause)
+		tw.tween_property(l, "modulate:a", 1.0, 0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+		tw.tween_interval(0.1)
 	
 	await tw.finished
-	done.emit()
+	var fade_in_time : float = 40
+	var fade_in_delay : float = 2
+	get_tree().get_first_node_in_group("persistent_accross_game_loops").fade_button_in(fade_in_time, fade_in_delay)
 	_haunt_loop()
 
 

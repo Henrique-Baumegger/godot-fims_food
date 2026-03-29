@@ -9,7 +9,9 @@ const general_instantiables: Dictionary[String, PackedScene] = {
 
 const game_loop_instantiables: Dictionary[Main.GameLoops, PackedScene] = {
 	Main.GameLoops.INTRO : preload("uid://vi2nre66use7"),
-	Main.GameLoops.TABLE : preload("uid://0yfyowa4gxej")
+	Main.GameLoops.TABLE : preload("uid://0yfyowa4gxej"),
+	Main.GameLoops.DEATH : preload("uid://drck43sar6kej"),
+	Main.GameLoops.SHOP : preload("uid://dr2p42a0hcfva")
 	}
 
 
@@ -33,6 +35,7 @@ static func instantiate_game_loop(loop : Main.GameLoops, size_for_potential_tabl
 		var variable_table = instantiate_table_container(size_for_potential_table)
 		var table_game_loop = game_loop_instantiables[Main.GameLoops.TABLE].instantiate()
 		table_game_loop.variable_seat_table = variable_table
+		table_game_loop.add_child(variable_table)
 		return table_game_loop
 	else:
 		return game_loop_instantiables[loop].instantiate()

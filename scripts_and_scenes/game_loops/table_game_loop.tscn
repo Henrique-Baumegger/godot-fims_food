@@ -41,25 +41,3 @@ vertical_alignment = 1
 
 [node name="DamageEffect" parent="UI" unique_id=2013741325 instance=ExtResource("13_plnn2")]
 z_index = 3
-
-[node name="YouDieLabel" type="Label" parent="UI" unique_id=1284491248]
-visible = false
-z_index = 3
-offset_left = 646.0
-offset_top = 529.0
-offset_right = 1566.0
-offset_bottom = 851.0
-theme = ExtResource("10_4smxc")
-theme_override_font_sizes/font_size = 125
-text = "You were killed"
-
-[node name="EndOfDayLose" type="Label" parent="UI" unique_id=934299594]
-visible = false
-z_index = 3
-offset_left = 428.0
-offset_top = 452.0
-offset_right = 1903.0
-offset_bottom = 651.0
-theme = ExtResource("10_4smxc")
-theme_override_font_sizes/font_size = 125
-text = "You did not kill all dudes"

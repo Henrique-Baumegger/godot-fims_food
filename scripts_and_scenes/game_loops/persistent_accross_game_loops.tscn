@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cvjd7mb2l2rft" path="res://scripts_and_scenes/UI/continue_button.tscn" id="4_go3jf"]
 [ext_resource type="StyleBox" uid="uid://c2lxio4kf5aag" path="res://art/themes/mildly_black_style_box_flat.tres" id="4_mvhsk"]
 
-[node name="PersistentAccrossGameLoops" type="Node" unique_id=1115983027]
+[node name="PersistentAccrossGameLoops" type="Node" unique_id=1115983027 groups=["persistent_accross_game_loops"]]
 script = ExtResource("1_r38cx")
 
 [node name="IngredientsManager" parent="." unique_id=1971960619 instance=ExtResource("1_6qf3f")]

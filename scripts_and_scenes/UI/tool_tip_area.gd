@@ -11,6 +11,8 @@ var opacity_tween: Tween = null
 @onready var tip_panel: PanelContainer = $TipPanel
 @onready var rich_text_label: RichTextLabel = $TipPanel/MarginContainer/RichTextLabel
 
+func _ready() -> void:
+	rich_text_label.text = displayed_text
 
 func change_displayed_text(new_text : String) -> void:
 	displayed_text = new_text

@@ -50,9 +50,11 @@ z_index = 3
 position = Vector2(26, 17)
 displayed_text = "You have 3 meals to kill all customers of a single day
 
-You do not know where customer will sit. Prepare the meals before they sit. After they sit, you will only be able to serve them drinks.
+You do not know where customer will sit. Prepare the meals before . After they sit, you will only be able to serve them drinks.
 
-Salt poisons skeletons, garlic poisons vampires, silver poisons ghosts and holy water poisons them all. Drinks manipulate their sitting preferences for their next meal."
+Salt poisons skeletons, garlic poisons vampires, silver poisons ghosts and holy water poisons them all. Drinks manipulate their sitting preferences for their next meal.
+
+After a meal each customer alive has a chance to notice you poisoning them. This chance is based on it`s poison levels. "
 
 [node name="Label" type="Label" parent="ToolTipArea" unique_id=73783941]
 modulate = Color(1, 1, 1, 0.6862745)

@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dv84mlm028guj"]
 
 [ext_resource type="PackedScene" uid="uid://vbubgf4220dc" path="res://scripts_and_scenes/ingredients/ingredients_manager.tscn" id="1_6qf3f"]
+[ext_resource type="Script" uid="uid://bose4u2bcgedc" path="res://scripts_and_scenes/game_loops/persistent_accross_game_loops.gd" id="1_r38cx"]
 [ext_resource type="PackedScene" uid="uid://dl0myvfp8j3eb" path="res://scripts_and_scenes/life/life_manager.tscn" id="2_mvhsk"]
 [ext_resource type="PackedScene" uid="uid://cmd7h4w7hs6pb" path="res://scripts_and_scenes/money/money_manager.tscn" id="3_r38cx"]
 [ext_resource type="PackedScene" uid="uid://cvjd7mb2l2rft" path="res://scripts_and_scenes/UI/continue_button.tscn" id="4_go3jf"]
 [ext_resource type="StyleBox" uid="uid://c2lxio4kf5aag" path="res://art/themes/mildly_black_style_box_flat.tres" id="4_mvhsk"]
 
 [node name="PersistentAccrossGameLoops" type="Node" unique_id=1115983027]
+script = ExtResource("1_r38cx")
 
 [node name="IngredientsManager" parent="." unique_id=1971960619 instance=ExtResource("1_6qf3f")]
 

@@ -6,6 +6,13 @@ const general_instantiables: Dictionary[String, PackedScene] = {
 	"food" : preload("res://scripts_and_scenes/food/food.tscn"),
 	}
 
+
+const game_loop_instantiables: Dictionary[Main.GameLoops, PackedScene] = {
+	Main.GameLoops.INTRO : preload("uid://vi2nre66use7"),
+	Main.GameLoops.TABLE : preload("uid://0yfyowa4gxej")
+	}
+
+
 const customer_containers_instantiables: Dictionary[Customer.Creatures, PackedScene] = {
 	Customer.Creatures.VAMPIRE : preload("res://scripts_and_scenes/customer/vampire.tscn"),
 	Customer.Creatures.SKELETON : preload("res://scripts_and_scenes/customer/skeleton.tscn"),
@@ -19,6 +26,16 @@ const table_instantiables : Dictionary[int , PackedScene] = {
 	5 : preload("res://scripts_and_scenes/table/5_seat_table.tscn"),
 	6 : preload("res://scripts_and_scenes/table/6_seat_table.tscn"),
 }
+
+
+static func instantiate_game_loop(loop : Main.GameLoops, size_for_potential_table : int) -> Node2D:
+	if loop == Main.GameLoops.TABLE:
+		var variable_table = instantiate_table_container(size_for_potential_table)
+		var table_game_loop = game_loop_instantiables[Main.GameLoops.TABLE].instantiate()
+		table_game_loop.variable_seat_table = variable_table
+		return table_game_loop
+	else:
+		return game_loop_instantiables[loop].instantiate()
 
 
 static func instantiate_table_container(number_of_seats : int) ->VariableSeatAmountTableContainer:

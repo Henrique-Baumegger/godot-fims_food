@@ -76,10 +76,10 @@ func _ready() -> void:
 
 
 func _reveal_paragraphs() -> void:
-	var pause : float = 2
+	var pause : float = 3
 	var tw := create_tween()
 	for l in _labels:
-		tw.tween_property(l, "modulate:a", 1.0, 1.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+		tw.tween_property(l, "modulate:a", 1.0, 2.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 		tw.tween_interval(pause)
 	
 	await tw.finished
@@ -93,7 +93,7 @@ func _haunt_loop() -> void:
 		chosen.texture = _monster_textures.pick_random()
 		chosen.rotation_degrees = randf_range(-15.0, 15.0)
 		
-		var peak_alpha := randf_range(0.10, 0.35)
+		var peak_alpha := randf_range(0.10, 0.25)
 		var fade_in_time := randf_range(1.5, 3.0)
 		var hold_time := randf_range(0.6, 2.0)
 		var fade_out_time := randf_range(1.5, 3.5)

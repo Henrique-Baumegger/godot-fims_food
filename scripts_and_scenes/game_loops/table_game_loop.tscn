@@ -1,17 +1,13 @@
 [gd_scene format=3 uid="uid://0yfyowa4gxej"]
 
 [ext_resource type="Script" uid="uid://cj3gs41xv2c5m" path="res://scripts_and_scenes/game_loops/table_game_loop.gd" id="1_snveh"]
-[ext_resource type="PackedScene" uid="uid://bsvk1r7u6c4vu" path="res://scripts_and_scenes/table/5_seat_table.tscn" id="2_2h71t"]
 [ext_resource type="StyleBox" uid="uid://c2lxio4kf5aag" path="res://art/themes/mildly_black_style_box_flat.tres" id="4_bjfpk"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="10_4smxc"]
 [ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="11_iedsa"]
 [ext_resource type="PackedScene" uid="uid://dq2cprw3crs1n" path="res://scripts_and_scenes/life/DamageEffect.tscn" id="13_plnn2"]
 
-[node name="TableGameLoop" type="Node2D" unique_id=959716859 node_paths=PackedStringArray("variable_seat_table")]
+[node name="TableGameLoop" type="Node2D" unique_id=959716859]
 script = ExtResource("1_snveh")
-variable_seat_table = NodePath("5SeatTable")
-
-[node name="5SeatTable" parent="." unique_id=1402043585 instance=ExtResource("2_2h71t")]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=81512445]
 z_index = -1

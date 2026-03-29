@@ -143,11 +143,6 @@ func list_format(make_list : bool) -> void:
 
 
 func eat_and_free_food() -> void:
-	if dead:
-		await food_this_round.slowely_dissapear()
-		food_this_round = null
-		return
-	
 	var is_seating_next_to_hated : bool = is_hater and \
 	((left_customer != null and left_customer == hated_customer )or \
 	(right_customer != null and right_customer == hated_customer))
@@ -156,13 +151,16 @@ func eat_and_free_food() -> void:
 	((left_customer != null and left_customer == loved_customer )or \
 	(right_customer != null and right_customer == loved_customer))
 	
+	if dead or is_seating_next_to_hated:
+		await food_this_round.slowely_dissapear()
+		food_this_round = null
+		return
 	
 	var potential_love_multiplier = 1
 	if is_seating_next_to_loved:
 		potential_love_multiplier = 2
-	if not is_seating_next_to_hated:
-		current_poison += potential_love_multiplier * food_this_round.poison_present.get(creature_type, 0)
-		last_drink_eaten = food_this_round.single_drink_present
+	current_poison += potential_love_multiplier * food_this_round.poison_present.get(creature_type, 0)
+	last_drink_eaten = food_this_round.single_drink_present
 	
 	
 	await food_this_round.be_eaten()

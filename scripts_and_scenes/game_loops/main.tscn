@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://b2ivt8qq0feqp"]
 
 [ext_resource type="Script" uid="uid://w68dlegdom1h" path="res://scripts_and_scenes/game_loops/main.gd" id="1_jk826"]
-[ext_resource type="PackedScene" uid="uid://dv84mlm028guj" path="res://scripts_and_scenes/game_loops/persistent_accross_game_loops.tscn" id="2_jk826"]
 [ext_resource type="Script" uid="uid://dsrwi3gtvakvb" path="res://scripts_and_scenes/UI/scene_transition.gd" id="3_1cire"]
+[ext_resource type="PackedScene" uid="uid://dq6fhaslk0b2i" path="res://scripts_and_scenes/game_loops/main_menu.tscn" id="3_sy4rv"]
 
 [node name="Main" type="Node2D" unique_id=1379625702]
 script = ExtResource("1_jk826")
-
-[node name="PersistentAccrossGameLoops" parent="." unique_id=1115983027 instance=ExtResource("2_jk826")]
 
 [node name="SceneTransition" type="ColorRect" parent="." unique_id=1047638109]
 modulate = Color(0, 0, 0, 0)
@@ -17,3 +15,5 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("3_1cire")
+
+[node name="MainMenu" parent="." unique_id=458020138 instance=ExtResource("3_sy4rv")]

@@ -16,18 +16,22 @@ var ingredients_manager : IngredientsManager = null
 var money_manager: MoneyManager = null
 var life_manager: LifeManager = null
 var continue_button: Button = null
+var persistent_accross_game_loops : PersistentAccrossGameLoops = null
 
-@onready var round_label: Label = $UI/PanelContainer/MarginContainer/RoundLabel
+@onready var round_label: Label = $UI/RoundCounterWrapper/MarginContainer/RoundLabel
+
 @onready var damage_effect: DamageEffect = $UI/DamageEffect
 
 @onready var table: Table = variable_seat_table.get_table()
 
 
 func _ready() -> void:
+	persistent_accross_game_loops = get_tree().get_first_node_in_group("persistent_accross_game_loops")
 	ingredients_manager = get_tree().get_first_node_in_group("ingredients_manager")
 	money_manager = get_tree().get_first_node_in_group("money_manager")
 	life_manager = get_tree().get_first_node_in_group("life_manager")
 	continue_button = get_tree().get_first_node_in_group("continue_button")
+	
 	
 	assert(ingredients_manager != null, "The scene tree must always have a IngredientsManager")
 	assert(money_manager != null, "The scene tree must always have a MoneyManager")	
@@ -41,6 +45,8 @@ func _ready() -> void:
 	variable_seat_table.position = Vector2(966, 546)
 	table.player_is_hitted.connect(_on_hits_you)
 	table.recive_tip.connect(_on_recives_tip)
+	
+	persistent_accross_game_loops.toggle_visibility(true)
 	
 	table.start_day()
 	table.start_round()

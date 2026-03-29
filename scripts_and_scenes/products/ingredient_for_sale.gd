@@ -1,7 +1,7 @@
 extends Area2D
 class_name IngredientForSale
 
-const doubloon_img_path : String = "res://art/place_holder/placeholder_doubloon.png"
+const doubloon_img_path : String = "res://art/items/coin_skull.png"
 
 @export var collision_2d : CollisionShape2D = null
 @export var sprite_node : Node = null

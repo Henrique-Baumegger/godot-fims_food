@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://vi2nre66use7"]
 
-[ext_resource type="Script" uid="uid://b7ioy86s2qdih" path="res://scripts_and_scenes/game_loops/intro_cutscene.gd" id="1_5qey2"]
-[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="1_s1xpw"]
-[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="2_wu40p"]
-[ext_resource type="Texture2D" uid="uid://clo885p4hkli1" path="res://art/characters/skeletons/skeleton1.png" id="3_wu40p"]
+[ext_resource type="Script" uid="uid://b7ioy86s2qdih" path="res://scripts_and_scenes/game_loops/cutscenes/monsters_appearing_cutscene.gd" id="1_sx52a"]
+[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="2_cp0b8"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="3_2rf3n"]
+[ext_resource type="Texture2D" uid="uid://clo885p4hkli1" path="res://art/characters/skeletons/skeleton1.png" id="4_tegr2"]
 
-[node name="IntroCutscene" type="Node2D" unique_id=72827111]
-script = ExtResource("1_5qey2")
+[node name="MonstersAppearingCutscene" type="Node2D" unique_id=72827111]
+script = ExtResource("1_sx52a")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2023368606]
 position = Vector2(960, 540)
-texture = ExtResource("1_s1xpw")
+texture = ExtResource("2_cp0b8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=149129894]
 clip_contents = true
@@ -18,8 +18,8 @@ offset_left = 480.0
 offset_top = 102.0
 offset_right = 1440.0
 offset_bottom = 1082.0
-theme = ExtResource("2_wu40p")
-theme_override_constants/separation = 100
+theme = ExtResource("3_2rf3n")
+theme_override_constants/separation = 42
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1815330977]
 layout_mode = 2
@@ -58,105 +58,105 @@ autowrap_mode = 3
 
 [node name="MonsterVisual" type="Sprite2D" parent="." unique_id=524908963]
 position = Vector2(186, 525.99994)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual2" type="Sprite2D" parent="." unique_id=894635074]
 position = Vector2(496.00003, 768.00006)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual3" type="Sprite2D" parent="." unique_id=1407676969]
 position = Vector2(299.99997, 247.99997)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual4" type="Sprite2D" parent="." unique_id=1628722786]
 position = Vector2(1770.9999, 579)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual5" type="Sprite2D" parent="." unique_id=738575805]
 position = Vector2(1607, 258.0001)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual6" type="Sprite2D" parent="." unique_id=193240108]
 position = Vector2(1399, 690.00006)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual7" type="Sprite2D" parent="." unique_id=718624712]
 position = Vector2(163.00002, 931.00006)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual8" type="Sprite2D" parent="." unique_id=446314132]
 position = Vector2(240, 712)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual9" type="Sprite2D" parent="." unique_id=1082026969]
 position = Vector2(425, 553)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual10" type="Sprite2D" parent="." unique_id=623080626]
 position = Vector2(150, 277)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual11" type="Sprite2D" parent="." unique_id=1787323187]
 position = Vector2(1623, 507)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual12" type="Sprite2D" parent="." unique_id=963938861]
 position = Vector2(1728, 380)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual13" type="Sprite2D" parent="." unique_id=539425616]
 position = Vector2(1550, 382)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual14" type="Sprite2D" parent="." unique_id=18112225]
 position = Vector2(1743, 200)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual15" type="Sprite2D" parent="." unique_id=1539418777]
 position = Vector2(318, 417)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual16" type="Sprite2D" parent="." unique_id=1200677044]
 position = Vector2(364, 888)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual17" type="Sprite2D" parent="." unique_id=16040918]
 position = Vector2(528, 927)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual18" type="Sprite2D" parent="." unique_id=2075767493]
 position = Vector2(1554, 626)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual19" type="Sprite2D" parent="." unique_id=1238781440]
 position = Vector2(360, 671)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual20" type="Sprite2D" parent="." unique_id=1709945427]
 position = Vector2(86, 433)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual21" type="Sprite2D" parent="." unique_id=1279892018]
 position = Vector2(175, 192)
-texture = ExtResource("3_wu40p")
+texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)

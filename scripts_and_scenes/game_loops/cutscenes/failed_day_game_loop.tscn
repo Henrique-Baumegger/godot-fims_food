@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://kmunhq1vetwk"]
+
+[ext_resource type="Script" uid="uid://bs0gapunfrl3l" path="res://scripts_and_scenes/game_loops/cutscenes/game_over_loop.gd" id="1_0gjy6"]
+[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="2_bubd7"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="3_e0cqj"]
+[ext_resource type="Texture2D" uid="uid://c26fumjhtaive" path="res://art/enviroment/gravestone good.png" id="4_0taul"]
+
+[node name="FailedDayGameLoop" type="Node2D" unique_id=1375268073]
+script = ExtResource("1_0gjy6")
+metadata/_custom_type_script = "uid://bs0gapunfrl3l"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1890610454]
+position = Vector2(960, 540)
+texture = ExtResource("2_bubd7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1694525405]
+clip_contents = true
+offset_left = 480.0
+offset_top = 102.0
+offset_right = 1440.0
+offset_bottom = 1082.0
+theme = ExtResource("3_e0cqj")
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1706506971]
+layout_mode = 2
+text = "You hesitated ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1418527762]
+layout_mode = 2
+text = "Some still breathe ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=922022690]
+layout_mode = 2
+text = "They never intended to let you out ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=208920904]
+layout_mode = 2
+text = "Your flesh was the final course"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1774327276]
+position = Vector2(973, 833)
+scale = Vector2(0.085, 0.085)
+texture = ExtResource("4_0taul")

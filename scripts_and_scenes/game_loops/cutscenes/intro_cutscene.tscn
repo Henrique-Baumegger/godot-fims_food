@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bc7hhp0nsx32o"]
+
+[ext_resource type="PackedScene" uid="uid://vi2nre66use7" path="res://scripts_and_scenes/game_loops/cutscenes/monsters_appearing_cutscene.tscn" id="1_0ek46"]
+
+[node name="IntroCutscene" type="Node2D" unique_id=1155338113]
+
+[node name="MonstersAppearingCutscene" parent="." unique_id=72827111 instance=ExtResource("1_0ek46")]
+use_alive_sprites_not_dead = true
+ButtonText = "Cook for them"
+text1 = "Once a decade, the lifeless, the bloodthirsty and the ones who haunt reunite in a single place. Driven by the sinful pleasures of food, they come to feast.
+"
+text2 = "An extraordinary opportunity arrises. If there is still good in this world, it shall strike. The decayed would never expect a betrayal from their own banquet.
+"
+text3 = "By salt, bones crumble ...
+"
+text4 = "By garlic, blood curdles ...
+"
+text5 = "By silver, spirits unravel ...
+"

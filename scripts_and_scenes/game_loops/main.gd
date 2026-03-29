@@ -2,111 +2,101 @@ extends Node2D
 class_name Main
 
 
-enum GameLoops {INTRO, TABLE, SHOP, DEATH}
+enum GameLoops {INTRO, TABLE, SHOP, DEATH, FAILED, VICTORY, MENU}
+enum Difficulties {MORTAL, GRIM, FORSAKEN}
+
+const difficulty_to_table_sizes_track : Dictionary[Difficulties, Array] = {
+	Difficulties.MORTAL : [2, 3, 3, 4],
+	Difficulties.GRIM : [2, 3, 4, 4, 5],
+	Difficulties.FORSAKEN : [2, 3, 4, 5, 5, 6, 6],
+}
+
+var current_table_sizes_track : Array = []
+var track_index : int = 0
 
 var current_loop : GameLoops
 var loop_node : Node2D
 var is_mid_transition : bool = false
 
-@onready var persistent_accross_game_loops: PersistentAccrossGameLoops = $PersistentAccrossGameLoops
+@onready var persistent_accross_game_loops: PersistentAccrossGameLoops = null
 @onready var scene_transition: SceneTransition = $SceneTransition
 
 
-func _ready() -> void:
-	persistent_accross_game_loops.get_button_signal().connect(_on_continue_button_pressed)
-	to_intro_game_loop()
+func _ready() -> void:	
+	loop_node = $MainMenu
+	current_loop = GameLoops.MENU
+	$MainMenu.difficulty_signal.connect(start_with_difficulty)
 
 
-func to_intro_game_loop() -> void:
+func transition_to(to_loop: GameLoops) -> void:
 	is_mid_transition = true
 	await scene_transition.go_to_black()
-	persistent_accross_game_loops.set_button_text("Cook for them")
-	persistent_accross_game_loops.toggle_visibility(false)
 	
-	var intro_cutscene : IntroCustscene = AssetDictionary.instantiate_game_loop(GameLoops.INTRO, -1)
-	add_child(intro_cutscene)
+	var new_scene: Node2D = AssetDictionary.instantiate_game_loop(to_loop, current_table_sizes_track[track_index])
+	
+	if to_loop == GameLoops.TABLE:
+		var table : TableGameLoop = new_scene as TableGameLoop
+		table.we_died.connect(_on_we_died)
+		table.done.connect(_on_day_is_done)
+		get_tree().get_first_node_in_group("day_label").text = "day "+str(track_index+1)+"/"+str(current_table_sizes_track.size())
+		track_index += 1
+	
+	if to_loop == GameLoops.MENU:
+		if persistent_accross_game_loops != null:
+			persistent_accross_game_loops.queue_free()
+		(new_scene as MainMenu).difficulty_signal.connect(start_with_difficulty)
+	
+	if current_loop == GameLoops.MENU:
+		persistent_accross_game_loops = AssetDictionary.instantiate_persistent_cluster()
+		add_child(persistent_accross_game_loops)
+		persistent_accross_game_loops.get_button_signal().connect(_on_continue_button_pressed)
+	
+	add_child(new_scene)
 	
 	if loop_node != null:
 		loop_node.queue_free()
-	loop_node = intro_cutscene
-	current_loop = GameLoops.INTRO
+	loop_node = new_scene
+	current_loop = to_loop
 	
 	scene_transition.wait_and_go_to_transparent()
 	is_mid_transition = false
 
 
-func to_table_game_loop(size : int) -> void:
-	is_mid_transition = true
-	await scene_transition.go_to_black()
-	
-	persistent_accross_game_loops.toggle_visibility(true)
-	var table_loop_scene : TableGameLoop = AssetDictionary.instantiate_game_loop(GameLoops.TABLE, size)
-	add_child(table_loop_scene)
-	table_loop_scene.we_died.connect(_on_we_died)
-	table_loop_scene.done.connect(_on_day_is_done)
-	
-	if loop_node != null:
-		loop_node.queue_free()
-	loop_node = table_loop_scene
-	current_loop = GameLoops.TABLE
-	
-	scene_transition.wait_and_go_to_transparent()
-	is_mid_transition = false
-
-
-func to_shop_loop() -> void:
-	is_mid_transition = true
-	await scene_transition.go_to_black()
-	persistent_accross_game_loops.set_button_text("Next day")
-	persistent_accross_game_loops.toggle_visibility(true)
-	var shop_scene : ShopGameLoop = AssetDictionary.instantiate_game_loop(GameLoops.SHOP, -1)
-	add_child(shop_scene)
-	
-	if loop_node != null:
-		loop_node.queue_free()
-	loop_node = shop_scene
-	current_loop = GameLoops.SHOP
-	
-	scene_transition.wait_and_go_to_transparent()
-	is_mid_transition = false
-
-
-func to_death_game_loop() -> void:
-	is_mid_transition = true
-	await scene_transition.go_to_black()
-	persistent_accross_game_loops.set_button_text("R.I.P.")
-	persistent_accross_game_loops.toggle_visibility(false)
-	
-	var death_cutscene : DeathGameLoop = AssetDictionary.instantiate_game_loop(GameLoops.DEATH, -1)
-	add_child(death_cutscene)
-	
-	if loop_node != null:
-		loop_node.queue_free()
-	loop_node = death_cutscene
-	current_loop = GameLoops.DEATH
-	
-	scene_transition.wait_and_go_to_transparent()
-	is_mid_transition = false
+func start_with_difficulty(dif : Difficulties) -> void:
+	current_table_sizes_track = difficulty_to_table_sizes_track[dif].duplicate()
+	track_index = 0
+	transition_to(GameLoops.INTRO)
 
 
 func _on_day_is_done(success : bool)-> void:
 	if success:
-		to_shop_loop()
-	else:
-		print("we failed the day")
+		if track_index == current_table_sizes_track.size():
+			transition_to(GameLoops.VICTORY)
+		else:
+			transition_to(GameLoops.SHOP)
+	elif not success:
+		transition_to(GameLoops.FAILED)
 
 
 func _on_we_died()-> void:
-	to_death_game_loop()
+	transition_to(GameLoops.DEATH)
 
 
 func _on_continue_button_pressed() -> void:
 	if is_mid_transition:
 		return
-	if current_loop==GameLoops.INTRO or current_loop==GameLoops.SHOP:
-		to_table_game_loop(2)
-
-
+	
+	match current_loop:
+		GameLoops.INTRO:
+			transition_to(GameLoops.TABLE)
+		GameLoops.SHOP:
+			transition_to(GameLoops.TABLE)
+		GameLoops.DEATH:
+			transition_to(GameLoops.MENU)
+		GameLoops.FAILED:
+			transition_to(GameLoops.MENU)
+		GameLoops.VICTORY:
+			transition_to(GameLoops.MENU)
 
 
 	

@@ -26,6 +26,7 @@ money_manager="For exactly one \"MoneyManager\" node"
 life_manager="For exactly one \"LifeManager\" node"
 continue_button=""
 persistent_accross_game_loops=""
+day_label=""
 
 [input]
 

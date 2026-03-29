@@ -2,7 +2,7 @@ extends Customer
 class_name Skeleton
 
 
-const upon_death_tip = 20
+const upon_death_tip = 6
 
 
 func start_of_round_ability() ->void:

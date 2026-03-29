@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dq6fhaslk0b2i"]
+
+[ext_resource type="Script" uid="uid://doy62ujs52bdn" path="res://scripts_and_scenes/game_loops/main_menu.gd" id="1_4j78h"]
+[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="1_un8hb"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="2_4j78h"]
+
+[node name="MainMenu" type="Node2D" unique_id=458020138]
+script = ExtResource("1_4j78h")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1785848636]
+position = Vector2(960, 540)
+texture = ExtResource("1_un8hb")
+
+[node name="MortalButton" type="Button" parent="." unique_id=1095062821]
+offset_left = 685.0
+offset_top = 399.0
+offset_right = 1235.0
+offset_bottom = 514.0
+theme = ExtResource("2_4j78h")
+theme_override_font_sizes/font_size = 44
+text = "MORTAL   - mode"
+
+[node name="GrimButton" type="Button" parent="." unique_id=1889708331]
+offset_left = 685.0
+offset_top = 559.0
+offset_right = 1235.0
+offset_bottom = 674.0
+theme = ExtResource("2_4j78h")
+theme_override_font_sizes/font_size = 44
+text = "GRIM   - mode"
+
+[node name="ForsakenButton" type="Button" parent="." unique_id=1086512942]
+offset_left = 685.0
+offset_top = 719.0
+offset_right = 1235.0
+offset_bottom = 834.0
+theme = ExtResource("2_4j78h")
+theme_override_font_sizes/font_size = 44
+text = "FORSAKEN   - mode"
+
+[node name="Title" type="Label" parent="." unique_id=872375566]
+offset_left = 498.5
+offset_top = 127.0
+offset_right = 1421.5
+offset_bottom = 304.0
+theme = ExtResource("2_4j78h")
+theme_override_constants/outline_size = 37
+theme_override_font_sizes/font_size = 141
+text = "F I M M F U"
+
+[connection signal="pressed" from="MortalButton" to="." method="_on_mortal_button_pressed"]
+[connection signal="pressed" from="GrimButton" to="." method="_on_grim_button_pressed"]
+[connection signal="pressed" from="ForsakenButton" to="." method="_on_forsaken_button_pressed"]

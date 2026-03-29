@@ -1,5 +1,15 @@
 extends Node2D
-class_name IntroCustscene
+class_name MonstersAppearingCutscene
+
+
+
+@export var use_alive_sprites_not_dead : bool
+@export var ButtonText : String 
+@export_multiline var text1 : String = ""
+@export_multiline var text2 : String = ""
+@export_multiline var text3 : String = ""
+@export_multiline var text4 : String = ""
+@export_multiline var text5 : String = ""
 
 @onready var label: Label = $VBoxContainer/Label
 @onready var label_2: Label = $VBoxContainer/Label2
@@ -44,17 +54,47 @@ const VAMPIRE_3 = preload("uid://byyq150c7bwg6")
 const VAMPIRE_4 = preload("uid://bm26amqolheg8")
 const VAMPIRE_5 = preload("uid://bmi6njxljtcf8")
 
+const GHOST_1D = preload("uid://b2kdp2jf3wxx4")
+const GHOST_2D = preload("uid://sl5tnv7agbm")
+const GHOST_3D = preload("uid://c5vipnuxhxlyh")
+const GHOST_4D = preload("uid://bnlwbjqn8cm12")
+const GHOST_5D = preload("uid://e8tq5fj852pu")
+const SKELETON_1D = preload("uid://cuywldlx7ncf5")
+const SKELETON_2D = preload("uid://dlncfwesos52a")
+const SKELETON_3D = preload("uid://ctprrwf5itf4n")
+const SKELETON_4D = preload("uid://ky2lq66301jw")
+const SKELETON_5D = preload("uid://vledc1gce23d")
+const VAMPIRE_1D = preload("uid://clg788p2dhx2a")
+const VAMPIRE_2D = preload("uid://dhngd2ib2vlmh")
+const VAMPIRE_3D = preload("uid://5kiu4yg0a3q1")
+const VAMPIRE_4D = preload("uid://eb50yj5iku6g")
+const VAMPIRE_5D = preload("uid://cyuy4cxjo30ic")
+
+
 var _labels: Array[Label] = []
 var _monster_textures: Array[Texture2D] = []
 var _sprites: Array[Sprite2D] = []
 
+var persistent_accross_game_loops : PersistentAccrossGameLoops = null
 
 func _ready() -> void:
-	_monster_textures = [
-		GHOST_1, GHOST_2, GHOST_3, GHOST_4, GHOST_5,
-		SKELETON_1, SKELETON_2, SKELETON_3, SKELETON_4, SKELETON_5,
-		VAMPIRE_1, VAMPIRE_2, VAMPIRE_3, VAMPIRE_4, VAMPIRE_5,
-	]
+	persistent_accross_game_loops = get_tree().get_first_node_in_group("persistent_accross_game_loops")
+	persistent_accross_game_loops.set_button_text(ButtonText)
+	persistent_accross_game_loops.toggle_visibility(false)
+	
+	if use_alive_sprites_not_dead:
+		_monster_textures = [
+			GHOST_1, GHOST_2, GHOST_3, GHOST_4, GHOST_5,
+			SKELETON_1, SKELETON_2, SKELETON_3, SKELETON_4, SKELETON_5,
+			VAMPIRE_1, VAMPIRE_2, VAMPIRE_3, VAMPIRE_4, VAMPIRE_5,
+		]
+	else:
+		_monster_textures = [
+			GHOST_1D, GHOST_2D, GHOST_3D, GHOST_4D, GHOST_5D,
+			SKELETON_1D, SKELETON_2D, SKELETON_3D, SKELETON_4D, SKELETON_5D,
+			VAMPIRE_1D, VAMPIRE_2D, VAMPIRE_3D, VAMPIRE_4D, VAMPIRE_5D,
+		]
+	
 	_sprites = [
 		monster_visual, monster_visual_2, monster_visual_3, monster_visual_4,
 		monster_visual_5, monster_visual_6, monster_visual_7, monster_visual_8, 
@@ -63,7 +103,15 @@ func _ready() -> void:
 		monster_visual_17, monster_visual_18, monster_visual_19, monster_visual_20,  
 		monster_visual_21
 	]
+	
+	label.text = text1
+	label_2.text = text2
+	label_3.text = text3
+	label_4.text = text4
+	label_5.text = text5
+	
 	_labels = [label, label_2, label_3, label_4, label_5]
+	
 	
 	for l in _labels:
 		l.modulate.a = 0.0
@@ -74,17 +122,17 @@ func _ready() -> void:
 
 
 func _reveal_paragraphs() -> void:
-	var pause : float = 3 # insert both of this on their places
-	var reveal_time : float = 2.5 # I made it quicker for debugging and testing
+	var pause : float = 1 
+	var reveal_time : float = 2.5 
 	var tw := create_tween()
 	for l in _labels:
-		tw.tween_property(l, "modulate:a", 1.0, 0.1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
-		tw.tween_interval(0.1)
+		tw.tween_property(l, "modulate:a", 1.0, reveal_time).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+		tw.tween_interval(pause)
 	
 	await tw.finished
-	var fade_in_time : float = 40
-	var fade_in_delay : float = 2
-	get_tree().get_first_node_in_group("persistent_accross_game_loops").fade_button_in(fade_in_time, fade_in_delay)
+	var fade_in_time : float = 10
+	var fade_in_delay : float = 1
+	persistent_accross_game_loops.fade_button_in(fade_in_time, fade_in_delay)
 	_haunt_loop()
 
 

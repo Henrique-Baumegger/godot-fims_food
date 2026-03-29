@@ -1,15 +1,22 @@
 extends Node2D
-class_name DeathGameLoop
+class_name GameOverLoop
 
 @onready var label: Label = $VBoxContainer/Label
 @onready var label_2: Label = $VBoxContainer/Label2
 @onready var label_3: Label = $VBoxContainer/Label3
 @onready var label_4: Label = $VBoxContainer/Label4
 
+var persistent_accross_game_loops : PersistentAccrossGameLoops = null
+
 var _labels: Array[Label] = []
 
 
 func _ready() -> void:
+	
+	persistent_accross_game_loops = get_tree().get_first_node_in_group("persistent_accross_game_loops")
+	persistent_accross_game_loops.set_button_text("R.I.P.")
+	persistent_accross_game_loops.toggle_visibility(false)
+	
 	_labels = [label, label_2, label_3, label_4]
 	
 	for l in _labels:
@@ -30,4 +37,4 @@ func _reveal_paragraphs() -> void:
 	
 	var fade_in_time : float = 40
 	var fade_in_delay : float = 2
-	get_tree().get_first_node_in_group("persistent_accross_game_loops").fade_button_in(fade_in_time, fade_in_delay)
+	persistent_accross_game_loops.fade_button_in(fade_in_time, fade_in_delay)

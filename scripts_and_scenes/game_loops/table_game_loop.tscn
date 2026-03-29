@@ -20,21 +20,21 @@ texture = ExtResource("11_iedsa")
 
 [node name="UI" type="Node" parent="." unique_id=768813572]
 
-[node name="PanelContainer" type="PanelContainer" parent="UI" unique_id=1521482625]
+[node name="RoundCounterWrapper" type="PanelContainer" parent="UI" unique_id=1521482625]
 offset_left = 854.0
 offset_top = 644.0
 offset_right = 1055.0005
 offset_bottom = 728.0
 theme_override_styles/panel = ExtResource("4_bjfpk")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/PanelContainer" unique_id=1029966607]
+[node name="MarginContainer" type="MarginContainer" parent="UI/RoundCounterWrapper" unique_id=1029966607]
 layout_mode = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 8
 
-[node name="RoundLabel" type="Label" parent="UI/PanelContainer/MarginContainer" unique_id=1015440697]
+[node name="RoundLabel" type="Label" parent="UI/RoundCounterWrapper/MarginContainer" unique_id=1015440697]
 layout_mode = 2
 theme = ExtResource("10_4smxc")
 theme_override_constants/outline_size = 4

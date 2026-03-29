@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ut5ayoyk5fvr"]
+
+[ext_resource type="PackedScene" uid="uid://vi2nre66use7" path="res://scripts_and_scenes/game_loops/cutscenes/monsters_appearing_cutscene.tscn" id="1_wn8mg"]
+
+[node name="VictoryCutscene" type="Node2D" unique_id=1712442670]
+
+[node name="MonstersAppearingCutscene" parent="." unique_id=72827111 instance=ExtResource("1_wn8mg")]
+ButtonText = "end it"
+text1 = "Night after night, you served them."
+text2 = "They gorged without question."
+text3 = "Gluttony blinded them. Poison took the rest."
+text4 = "The tables are empty now."
+text5 = "The feast is over."

@@ -14,8 +14,9 @@ theme_override_font_sizes/bold_italics_font_size = 60
 theme_override_font_sizes/italics_font_size = 60
 theme_override_font_sizes/mono_font_size = 60
 bbcode_enabled = true
-text = "[img=98x98]res://art/place_holder/placeholder_doubloon.png[/img] xx"
+text = "[img=200x200]res://art/items/coin_skull.png[/img]xx"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_qx3mp")

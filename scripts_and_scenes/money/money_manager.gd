@@ -1,7 +1,7 @@
 extends RichTextLabel
 class_name MoneyManager
 
-const doubloon_img_path : String = "res://art/place_holder/placeholder_doubloon.png"
+const doubloon_img_path : String = "res://art/items/coin_skull.png"
 
 @export var money = 0
 

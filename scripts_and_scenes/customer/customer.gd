@@ -19,8 +19,8 @@ signal gives_tip(amount)
 # enum are const
 enum Creatures {NONE, VAMPIRE, SKELETON, GHOST} 
 const creature_type_description_BBCode : Dictionary[Creatures, String] ={
-	Creatures.GHOST : "[b]GHOST[/b] - tips 15 doubloons on round end if dead.",
-	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating (or refusing to eat). tips 20 upon death",
+	Creatures.GHOST : "[b]GHOST[/b] - tips 2 doubloons on round end if dead.",
+	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating (or refusing to eat). tips 6 upon death",
 	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - if alive tips equal to poison at round start."
 	}
 
@@ -192,7 +192,7 @@ func tips(amount : int)-> void:
 	var target_y = -144
 	adding_text.position.y = original_y
 	adding_text.modulate.a = 1
-	adding_text.text = "+[img=36x36]res://art/place_holder/placeholder_doubloon.png[/img]%d" % amount
+	adding_text.text = "+[img=36x36]res://art/items/coin_skull.png[/img]%d" % amount
 	
 	var tween = self.create_tween()
 	tween.set_parallel(true)

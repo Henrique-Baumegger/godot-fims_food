@@ -1,47 +1,48 @@
 [gd_scene format=3 uid="uid://dl0myvfp8j3eb"]
 
 [ext_resource type="Script" uid="uid://h55hpj25x1hv" path="res://scripts_and_scenes/life/life_manager.gd" id="1_p13ea"]
-[ext_resource type="Texture2D" uid="uid://cxifdrtsqsegl" path="res://art/place_holder/placeholder_chef_hat.png" id="2_xn1p7"]
-[ext_resource type="Texture2D" uid="uid://dot4g4kf834br" path="res://art/place_holder/placeholder_broken_hat.png" id="3_hyyaw"]
+[ext_resource type="Texture2D" uid="uid://bwbsvhbwj8je1" path="res://art/items/chef_hat_good.png" id="2_hyyaw"]
+[ext_resource type="Texture2D" uid="uid://c8hu3gw4gy8jl" path="res://art/items/chef_hat_bad.png" id="3_wpcj7"]
 
 [node name="LifeManager" type="HBoxContainer" unique_id=534100850 groups=["life_manager"]]
-offset_right = 366.0
-offset_bottom = 70.0
+offset_right = 469.0
+offset_bottom = 85.0
+theme_override_constants/separation = 11
 script = ExtResource("1_p13ea")
-full_hat = ExtResource("2_xn1p7")
-broken_hat = ExtResource("3_hyyaw")
+full_hat = ExtResource("2_hyyaw")
+broken_hat = ExtResource("3_wpcj7")
 
 [node name="Hat1" type="TextureRect" parent="." unique_id=1278687923]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
-texture = ExtResource("2_xn1p7")
+texture = ExtResource("2_hyyaw")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Hat2" type="TextureRect" parent="." unique_id=577010205]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
-texture = ExtResource("2_xn1p7")
+texture = ExtResource("2_hyyaw")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Hat3" type="TextureRect" parent="." unique_id=840912165]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
-texture = ExtResource("2_xn1p7")
+texture = ExtResource("2_hyyaw")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Hat4" type="TextureRect" parent="." unique_id=1224073]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
-texture = ExtResource("2_xn1p7")
+texture = ExtResource("2_hyyaw")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Hat5" type="TextureRect" parent="." unique_id=839355307]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
-texture = ExtResource("2_xn1p7")
+texture = ExtResource("2_hyyaw")
 expand_mode = 1
 stretch_mode = 5

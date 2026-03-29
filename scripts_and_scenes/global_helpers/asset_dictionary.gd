@@ -4,14 +4,18 @@ extends Node
 
 const general_instantiables: Dictionary[String, PackedScene] = {
 	"food" : preload("res://scripts_and_scenes/food/food.tscn"),
+	"persistent_accross_game_loops" : preload("uid://dv84mlm028guj"),
 	}
 
 
 const game_loop_instantiables: Dictionary[Main.GameLoops, PackedScene] = {
-	Main.GameLoops.INTRO : preload("uid://vi2nre66use7"),
+	Main.GameLoops.INTRO : preload("uid://bc7hhp0nsx32o"),
 	Main.GameLoops.TABLE : preload("uid://0yfyowa4gxej"),
 	Main.GameLoops.DEATH : preload("uid://drck43sar6kej"),
-	Main.GameLoops.SHOP : preload("uid://dr2p42a0hcfva")
+	Main.GameLoops.SHOP : preload("uid://dr2p42a0hcfva"),
+	Main.GameLoops.FAILED : preload("uid://kmunhq1vetwk"),
+	Main.GameLoops.VICTORY : preload("uid://ut5ayoyk5fvr"),
+	Main.GameLoops.MENU : preload("uid://dq6fhaslk0b2i"),
 	}
 
 
@@ -30,7 +34,7 @@ const table_instantiables : Dictionary[int , PackedScene] = {
 }
 
 
-static func instantiate_game_loop(loop : Main.GameLoops, size_for_potential_table : int) -> Node2D:
+static func instantiate_game_loop(loop : Main.GameLoops, size_for_potential_table : int = -1) -> Node2D:
 	if loop == Main.GameLoops.TABLE:
 		var variable_table = instantiate_table_container(size_for_potential_table)
 		var table_game_loop = game_loop_instantiables[Main.GameLoops.TABLE].instantiate()
@@ -73,3 +77,6 @@ static func instantiate_customer_containers_in_order(n:int) -> Array[CustomerCon
 
 static func instantiate_general_object(object_name: Variant) -> Node2D:
 	return general_instantiables[object_name].instantiate()
+
+static func instantiate_persistent_cluster() -> PersistentAccrossGameLoops:
+	return general_instantiables["persistent_accross_game_loops"].instantiate()

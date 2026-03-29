@@ -12,8 +12,12 @@ class_name ShopGameLoop
 @onready var salt_for_sale: Node2D = $AbundanceOfTheVast/SaltForSale
 @onready var silver_for_sale: Node2D = $AbundanceOfTheVast/SilverForSale
 
+var persistent_accross_game_loops : PersistentAccrossGameLoops = null
 
 func _ready() -> void:
+	persistent_accross_game_loops = get_tree().get_first_node_in_group("persistent_accross_game_loops")
+	persistent_accross_game_loops.set_button_text("Next day")
+	persistent_accross_game_loops.toggle_visibility(true)
 	_keep_one_drink()
 
 

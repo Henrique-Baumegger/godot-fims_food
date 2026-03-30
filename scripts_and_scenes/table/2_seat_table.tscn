@@ -16,7 +16,7 @@ customers_on_table_markers = [NodePath("CustomerMarkers/CustomerMarker1"), NodeP
 [node name="FoodMarkers" type="Node2D" parent="Table" unique_id=445483271]
 
 [node name="FoodMarker1" type="Marker2D" parent="Table/FoodMarkers" unique_id=975917519]
-position = Vector2(258, -215)
+position = Vector2(-246, -215)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker1" unique_id=1899372211]
 visible = false
@@ -24,7 +24,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_p6n2t")
 
 [node name="FoodMarker2" type="Marker2D" parent="Table/FoodMarkers" unique_id=78309228]
-position = Vector2(-246, -215)
+position = Vector2(258, -215)
 
 [node name="TestSprite" type="Sprite2D" parent="Table/FoodMarkers/FoodMarker2" unique_id=830620158]
 visible = false

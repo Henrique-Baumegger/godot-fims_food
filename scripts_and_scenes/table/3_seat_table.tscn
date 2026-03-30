@@ -72,19 +72,13 @@ offset = Vector2(274, 365)
 [node name="Candles" type="Node2D" parent="." unique_id=505238029]
 
 [node name="Candle" parent="Candles" unique_id=212600361 instance=ExtResource("5_rskcv")]
-position = Vector2(-285, -31)
-
-[node name="Candle2" parent="Candles" unique_id=835899085 instance=ExtResource("5_rskcv")]
-position = Vector2(-173, -31)
+position = Vector2(-223, -25)
 
 [node name="Candle3" parent="Candles" unique_id=524807691 instance=ExtResource("5_rskcv")]
 position = Vector2(-216, -180)
 
 [node name="Candle4" parent="Candles" unique_id=853799947 instance=ExtResource("5_rskcv")]
-position = Vector2(182, -33)
-
-[node name="Candle5" parent="Candles" unique_id=2014284532 instance=ExtResource("5_rskcv")]
-position = Vector2(312, -38)
+position = Vector2(236, -41)
 
 [node name="Candle6" parent="Candles" unique_id=901788801 instance=ExtResource("5_rskcv")]
 position = Vector2(237, -194)

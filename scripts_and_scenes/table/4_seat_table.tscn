@@ -101,4 +101,4 @@ position = Vector2(-1.0000305, -136)
 position = Vector2(430, -195)
 
 [node name="Candle5" parent="Candles" unique_id=1341812562 instance=ExtResource("5_q2lk5")]
-position = Vector2(423, -30)
+position = Vector2(431.00003, -30.000002)

@@ -7,8 +7,8 @@ enum Difficulties {MORTAL, GRIM, FORSAKEN}
 
 const difficulty_to_table_sizes_track : Dictionary[Difficulties, Array] = {
 	Difficulties.MORTAL : [2, 3, 3, 4],
-	Difficulties.GRIM : [2, 3, 4, 4, 5],
-	Difficulties.FORSAKEN : [2, 3, 4, 4, 5, 6, 6],
+	Difficulties.GRIM : [2, 3, 3, 4, 5],
+	Difficulties.FORSAKEN : [2, 3, 3, 4, 5, 6, 6],
 }
 
 var current_table_sizes_track : Array = []

@@ -130,9 +130,8 @@ func _reveal_paragraphs() -> void:
 		tw.tween_property(l, "modulate:a", 1.0, reveal_time).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 		tw.tween_interval(pause)
 	
-	await tw.finished
-	var fade_in_time : float = 7
-	var fade_in_delay : float = 0
+	var fade_in_time : float = 14
+	var fade_in_delay : float = 4
 	persistent_accross_game_loops.fade_button_in(fade_in_time, fade_in_delay)
 
 

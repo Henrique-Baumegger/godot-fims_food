@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_u66ry"]
 [ext_resource type="Texture2D" uid="uid://cpco8dlho3uwe" path="res://art/food/drinks/drink g.png" id="2_43t06"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_mchoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx7lt"]
 size = Vector2(148, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11gdi"]
+size = Vector2(136, 150)
 
 [node name="LeftDrinkForSale" type="Node2D" unique_id=737456610]
 
@@ -24,3 +28,10 @@ shape = SubResource("RectangleShape2D_cx7lt")
 position = Vector2(23.999992, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_43t06")
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_mchoo")]
+displayed_text = "Customer will want to sit to it`s left spot on the next meal."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=1419706881]
+position = Vector2(19, 3)
+shape = SubResource("RectangleShape2D_11gdi")

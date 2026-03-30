@@ -118,11 +118,12 @@ func _ready() -> void:
 	for s in _sprites:
 		s.modulate.a = 0.0
 	
+	_haunt_loop()
 	_reveal_paragraphs()
 
 
 func _reveal_paragraphs() -> void:
-	var pause : float = 1 
+	var pause : float = 2 
 	var reveal_time : float = 2.5 
 	var tw := create_tween()
 	for l in _labels:
@@ -130,10 +131,9 @@ func _reveal_paragraphs() -> void:
 		tw.tween_interval(pause)
 	
 	await tw.finished
-	var fade_in_time : float = 10
-	var fade_in_delay : float = 1
+	var fade_in_time : float = 7
+	var fade_in_delay : float = 0
 	persistent_accross_game_loops.fade_button_in(fade_in_time, fade_in_delay)
-	_haunt_loop()
 
 
 func _haunt_loop() -> void:

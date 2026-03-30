@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_nvmws"]
 [ext_resource type="Texture2D" uid="uid://dxjwfmg45558r" path="res://art/place_holder/Sewing_Kit_Dropped.webp" id="2_0321a"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_0321a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fckdm"]
 size = Vector2(185.25, 152.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7hqi"]
+size = Vector2(184, 150.5)
 
 [node name="SewingKitForSale" type="Node2D" unique_id=728635059]
 
@@ -12,7 +16,7 @@ size = Vector2(185.25, 152.75)
 collision_2d = NodePath("CollisionShape2D")
 sprite_node = NodePath("Sprite2D")
 is_sewing_kit = true
-price = 18
+price = 16
 batch_quantity = 1
 batch_increment = 0
 
@@ -22,3 +26,10 @@ shape = SubResource("RectangleShape2D_fckdm")
 
 [node name="Sprite2D" type="Sprite2D" parent="IngredientForSale" unique_id=670338345]
 texture = ExtResource("2_0321a")
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_0321a")]
+displayed_text = "Fully stitches your alibi."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=131753853]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_y7hqi")

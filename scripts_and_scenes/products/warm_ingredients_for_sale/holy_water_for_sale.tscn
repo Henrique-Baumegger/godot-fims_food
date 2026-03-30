@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_sudha"]
 [ext_resource type="Texture2D" uid="uid://b61su7lejdsv6" path="res://art/food/poisons/holly_water.png" id="2_upg8y"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_k04qj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upg8y"]
 size = Vector2(182.25, 138.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ank0"]
+size = Vector2(182, 137)
 
 [node name="HolyWaterForSale" type="Node2D" unique_id=26116076]
 
@@ -44,3 +48,10 @@ texture = ExtResource("2_upg8y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=1025202025]
 position = Vector2(9.875, -15.25)
 shape = SubResource("RectangleShape2D_upg8y")
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_k04qj")]
+displayed_text = "Holy water poisons any decayed."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=2100927010]
+position = Vector2(10, -15.5)
+shape = SubResource("RectangleShape2D_3ank0")

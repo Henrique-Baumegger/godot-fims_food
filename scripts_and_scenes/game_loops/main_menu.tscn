@@ -18,7 +18,7 @@ offset_right = 1235.0
 offset_bottom = 514.0
 theme = ExtResource("2_4j78h")
 theme_override_font_sizes/font_size = 44
-text = "MORTAL   - mode"
+text = "MORTAL   - challenge"
 
 [node name="GrimButton" type="Button" parent="." unique_id=1889708331]
 offset_left = 685.0
@@ -27,7 +27,7 @@ offset_right = 1235.0
 offset_bottom = 674.0
 theme = ExtResource("2_4j78h")
 theme_override_font_sizes/font_size = 44
-text = "GRIM   - mode"
+text = "GRIM   - challenge"
 
 [node name="ForsakenButton" type="Button" parent="." unique_id=1086512942]
 offset_left = 685.0
@@ -36,7 +36,7 @@ offset_right = 1235.0
 offset_bottom = 834.0
 theme = ExtResource("2_4j78h")
 theme_override_font_sizes/font_size = 44
-text = "FORSAKEN   - mode"
+text = "FORSAKEN   - challenge"
 
 [node name="Title" type="Label" parent="." unique_id=872375566]
 offset_left = 498.5

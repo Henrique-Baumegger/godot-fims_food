@@ -88,7 +88,7 @@ position = Vector2(184, 548)
 position = Vector2(525, 548)
 
 [node name="SilverForSale" parent="AbundanceOfTheVast" unique_id=1851945597 instance=ExtResource("4_hobuh")]
-position = Vector2(525, 800)
+position = Vector2(186, 800)
 
 [node name="PanelContainer" type="PanelContainer" parent="AbundanceOfTheVast" unique_id=1199113109]
 offset_left = 65.0

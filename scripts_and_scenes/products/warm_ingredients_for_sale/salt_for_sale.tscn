@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_1b3jr"]
 [ext_resource type="Texture2D" uid="uid://b8mudjqkkr3il" path="res://art/food/poisons/salt.png" id="2_3u0kg"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_fioc8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u0kg"]
 size = Vector2(154.5, 132.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5r8x"]
+size = Vector2(156, 133)
 
 [node name="SaltForSale" type="Node2D" unique_id=2022942909]
 
@@ -39,3 +43,10 @@ position = Vector2(14, 30)
 rotation = 0.38397244
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_3u0kg")
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_fioc8")]
+displayed_text = "Salt poisons skeletons."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=1149307958]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_j5r8x")

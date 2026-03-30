@@ -8,7 +8,7 @@ enum Difficulties {MORTAL, GRIM, FORSAKEN}
 const difficulty_to_table_sizes_track : Dictionary[Difficulties, Array] = {
 	Difficulties.MORTAL : [2, 3, 3, 4],
 	Difficulties.GRIM : [2, 3, 4, 4, 5],
-	Difficulties.FORSAKEN : [2, 3, 4, 5, 5, 6, 6],
+	Difficulties.FORSAKEN : [2, 3, 4, 4, 5, 6, 6],
 }
 
 var current_table_sizes_track : Array = []
@@ -25,26 +25,27 @@ var is_mid_transition : bool = false
 func _ready() -> void:	
 	loop_node = $MainMenu
 	current_loop = GameLoops.MENU
-	$MainMenu.difficulty_signal.connect(start_with_difficulty)
+	$MainMenu.difficulty_signal.connect(start_with_difficulty, CONNECT_ONE_SHOT)
 
 
 func transition_to(to_loop: GameLoops) -> void:
 	is_mid_transition = true
 	await scene_transition.go_to_black()
 	
+	
 	var new_scene: Node2D = null
 	if to_loop == GameLoops.TABLE:
 		new_scene = AssetDictionary.instantiate_game_loop(to_loop,current_table_sizes_track[track_index])
-	else:
-		new_scene = AssetDictionary.instantiate_game_loop(to_loop,-1)
-	
-	
-	if to_loop == GameLoops.TABLE:
 		var table : TableGameLoop = new_scene as TableGameLoop
 		table.we_died.connect(_on_we_died)
 		table.done.connect(_on_day_is_done)
 		get_tree().get_first_node_in_group("day_label").text = "day "+str(track_index+1)+"/"+str(current_table_sizes_track.size())
 		track_index += 1
+	else:
+		new_scene = AssetDictionary.instantiate_game_loop(to_loop,-1)
+	
+	if to_loop == GameLoops.SHOP:
+		get_tree().get_first_node_in_group("day_label").text = "day "+str(track_index+1)+"/"+str(current_table_sizes_track.size())
 	
 	if to_loop == GameLoops.MENU:
 		if persistent_accross_game_loops != null:
@@ -55,6 +56,7 @@ func transition_to(to_loop: GameLoops) -> void:
 		persistent_accross_game_loops = AssetDictionary.instantiate_persistent_cluster()
 		add_child(persistent_accross_game_loops)
 		persistent_accross_game_loops.get_button_signal().connect(_on_continue_button_pressed)
+	
 	
 	add_child(new_scene)
 	
@@ -93,7 +95,7 @@ func _on_continue_button_pressed() -> void:
 	
 	match current_loop:
 		GameLoops.INTRO:
-			transition_to(GameLoops.TABLE)
+			transition_to(GameLoops.SHOP)
 		GameLoops.SHOP:
 			transition_to(GameLoops.TABLE)
 		GameLoops.DEATH:

@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_snny6"]
 [ext_resource type="Texture2D" uid="uid://kynw3kqa7dla" path="res://art/food/poisons/garlic.png" id="2_2tnkh"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_g8t6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snny6"]
 size = Vector2(25.117004, 20.124805)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vlyo"]
+size = Vector2(161, 133)
 
 [node name="GarlicForSale" type="Node2D" unique_id=1609793054]
 
@@ -42,3 +46,10 @@ rotation = 0.09250245
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_2tnkh")
 flip_h = true
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_g8t6x")]
+displayed_text = "Garlic poisons vampires."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=894004304]
+position = Vector2(2.5, -13.5)
+shape = SubResource("RectangleShape2D_1vlyo")

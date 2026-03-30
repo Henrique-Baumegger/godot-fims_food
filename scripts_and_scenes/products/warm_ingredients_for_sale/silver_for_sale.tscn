@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_bi07i"]
 [ext_resource type="Texture2D" uid="uid://bqa864xcxjlh4" path="res://art/food/poisons/silver.png" id="2_ukc72"]
+[ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_uvxnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oeef7"]
 size = Vector2(169.5, 141.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l571"]
+size = Vector2(165, 141)
 
 [node name="SilverForSale" type="Node2D" unique_id=1851945597]
 
@@ -39,3 +43,10 @@ rotation = 0.35604715
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("2_ukc72")
 flip_h = true
+
+[node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_uvxnf")]
+displayed_text = "Silver poisons ghosts."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=441632649]
+position = Vector2(1.5, -2.5)
+shape = SubResource("RectangleShape2D_1l571")

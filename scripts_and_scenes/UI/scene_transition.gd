@@ -2,8 +2,8 @@ extends ColorRect
 class_name SceneTransition
 
 
-const FADE_IN_TIME := 3
-const FADE_OUT_TIME := 5
+const FADE_IN_TIME := 1.5
+const FADE_OUT_TIME := 1.5
 const HOLD_TIME := 1
 
 

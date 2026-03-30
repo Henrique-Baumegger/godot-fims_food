@@ -1,9 +1,11 @@
 extends Node2D
 class_name IngredientsManager
 
-@export var initial_holly_water_quantity = 200
-@export var initial_warm_ingredient_quantity = 200
-@export var initial_drinks_quantity = 200
+@export var initial_holly_water_quantity: int = 4
+@export var initial_garlic_quantity: int = 12
+@export var initial_salt_quantity: int = 4
+@export var initial_silver_quantity: int = 8
+@export var initial_drinks_quantity: int = 2
 
 var warm_ingredients : Dictionary[Customer.Creatures , Ingredient]
 var drinks : Dictionary[Food.Drinks, Ingredient]
@@ -51,9 +53,9 @@ func toggle_all_ingredients_selectability(on : bool) -> void:
 func _enter_tree():
 	#ready has not ran yet
 	$HolyWater.set_initial_quantity(initial_holly_water_quantity)
-	$Garlic.set_initial_quantity(initial_warm_ingredient_quantity)
-	$Salt.set_initial_quantity(initial_warm_ingredient_quantity)
-	$Silver.set_initial_quantity(initial_warm_ingredient_quantity)
+	$Garlic.set_initial_quantity(initial_garlic_quantity)
+	$Salt.set_initial_quantity(initial_salt_quantity)
+	$Silver.set_initial_quantity(initial_silver_quantity)
 	$LeftDessert.set_initial_quantity(initial_drinks_quantity)
 	$StayDessert.set_initial_quantity(initial_drinks_quantity)
 	$RightDessert.set_initial_quantity(initial_drinks_quantity)

@@ -12,8 +12,7 @@ size = Vector2(182.25, 138.5)
 collision_2d = NodePath("CollisionShape2D")
 sprite_node = NodePath("SpritesWrapper")
 is_holy_water = true
-price = 0
-batch_quantity = 10
+price = 14
 batch_increment = 0
 
 [node name="SpritesWrapper" type="Node2D" parent="IngredientForSale" unique_id=652209326]

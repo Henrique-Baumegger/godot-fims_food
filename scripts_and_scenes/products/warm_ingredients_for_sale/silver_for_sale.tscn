@@ -12,6 +12,7 @@ size = Vector2(169.5, 141.5)
 collision_2d = NodePath("CollisionShape2D")
 sprite_node = NodePath("SpritesWrapper")
 poison_type = 3
+batch_quantity = 4
 batch_increment = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=390645978]

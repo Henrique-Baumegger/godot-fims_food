@@ -12,7 +12,7 @@ size = Vector2(185.25, 152.75)
 collision_2d = NodePath("CollisionShape2D")
 sprite_node = NodePath("Sprite2D")
 is_sewing_kit = true
-price = 100
+price = 18
 batch_quantity = 1
 batch_increment = 0
 

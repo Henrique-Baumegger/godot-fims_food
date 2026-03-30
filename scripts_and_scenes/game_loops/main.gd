@@ -32,7 +32,12 @@ func transition_to(to_loop: GameLoops) -> void:
 	is_mid_transition = true
 	await scene_transition.go_to_black()
 	
-	var new_scene: Node2D = AssetDictionary.instantiate_game_loop(to_loop, current_table_sizes_track[track_index])
+	var new_scene: Node2D = null
+	if to_loop == GameLoops.TABLE:
+		new_scene = AssetDictionary.instantiate_game_loop(to_loop,current_table_sizes_track[track_index])
+	else:
+		new_scene = AssetDictionary.instantiate_game_loop(to_loop,-1)
+	
 	
 	if to_loop == GameLoops.TABLE:
 		var table : TableGameLoop = new_scene as TableGameLoop

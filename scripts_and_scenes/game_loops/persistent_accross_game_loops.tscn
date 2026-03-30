@@ -48,7 +48,6 @@ theme_override_constants/margin_bottom = 6
 [node name="MoneyManager" parent="MoneyManagerWrapper/MarginContainer" unique_id=105379311 instance=ExtResource("3_r38cx")]
 layout_mode = 2
 text = "[img=140x140]res://art/items/coin_skull.png[/img]xx"
-money = 15
 
 [node name="ContinueButton" parent="." unique_id=1605215447 instance=ExtResource("4_go3jf")]
 offset_left = 1422.0

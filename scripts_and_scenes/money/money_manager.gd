@@ -3,7 +3,7 @@ class_name MoneyManager
 
 const doubloon_img_path : String = "res://art/items/coin_skull.png"
 
-@export var money = 0
+@export var money = 10
 
 
 func get_money() -> int:

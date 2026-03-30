@@ -48,6 +48,24 @@ theme_override_constants/outline_size = 37
 theme_override_font_sizes/font_size = 141
 text = "F I M M F U"
 
+[node name="Credits" type="HBoxContainer" parent="." unique_id=653815292]
+offset_left = 13.0
+offset_top = 1033.0
+offset_right = 782.0
+offset_bottom = 1069.0
+theme = ExtResource("2_4j78h")
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="Credits" unique_id=1888461881]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "art: lisanne van lunteren ,"
+
+[node name="Label2" type="Label" parent="Credits" unique_id=967791014]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "programming: henrique baumegger ranieri"
+
 [connection signal="pressed" from="MortalButton" to="." method="_on_mortal_button_pressed"]
 [connection signal="pressed" from="GrimButton" to="." method="_on_grim_button_pressed"]
 [connection signal="pressed" from="ForsakenButton" to="." method="_on_forsaken_button_pressed"]

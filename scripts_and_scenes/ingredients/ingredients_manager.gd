@@ -5,7 +5,7 @@ class_name IngredientsManager
 @export var initial_garlic_quantity: int = 12
 @export var initial_salt_quantity: int = 4
 @export var initial_silver_quantity: int = 8
-@export var initial_drinks_quantity: int = 2
+@export var initial_drinks_quantity: int = 1
 
 var warm_ingredients : Dictionary[Customer.Creatures , Ingredient]
 var drinks : Dictionary[Food.Drinks, Ingredient]

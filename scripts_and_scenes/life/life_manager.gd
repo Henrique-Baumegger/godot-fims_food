@@ -1,7 +1,7 @@
 extends HBoxContainer
 class_name LifeManager
 
-const max_life = 5
+const max_life = 6
 
 @export var full_hat : Texture2D = null
 @export var broken_hat : Texture2D = null
@@ -14,6 +14,7 @@ var current_life = max_life
 @onready var hat_3: TextureRect = $Hat3
 @onready var hat_4: TextureRect = $Hat4
 @onready var hat_5: TextureRect = $Hat5
+@onready var hat_6: TextureRect = $Hat6
 
 
 func get_life() -> int:
@@ -32,7 +33,7 @@ func add_life_and_return_is_dead(amount : int) -> bool:
 
 func _ready() -> void:
 	_check_exports()
-	all_hats = [hat_1, hat_2, hat_3, hat_4, hat_5]	
+	all_hats = [hat_1, hat_2, hat_3, hat_4, hat_5, hat_6]	
 
 
 func _process(_delta: float) -> void:

@@ -151,8 +151,14 @@ func eat_and_free_food() -> void:
 	((left_customer != null and left_customer == loved_customer )or \
 	(right_customer != null and right_customer == loved_customer))
 	
-	if dead or is_seating_next_to_hated:
-		await food_this_round.slowely_dissapear()
+	if dead:
+		await food_this_round.be_eaten(false, false)
+		food_this_round = null
+		return
+	
+	if is_seating_next_to_hated:
+		last_drink_eaten = food_this_round.single_drink_present
+		await food_this_round.be_eaten(false, true)
 		food_this_round = null
 		return
 	
@@ -161,10 +167,9 @@ func eat_and_free_food() -> void:
 		potential_love_multiplier = 2
 	current_poison += potential_love_multiplier * food_this_round.poison_present.get(creature_type, 0)
 	last_drink_eaten = food_this_round.single_drink_present
-	
-	
-	await food_this_round.be_eaten()
+	await food_this_round.be_eaten(true, true)
 	food_this_round = null
+	return
  
 
 func dying_check() -> bool:
@@ -288,7 +293,7 @@ func _get_updated_tool_tip_text() -> String:
 	
 	var hater_part := ""
 	if is_hater:
-		hater_part = "\nwhile sitting next to [color=#ff6b6b]" + hated_customer.customer_name + "[/color] : will [color=#ff6b6b]not eat or drink.[/color]\n"
+		hater_part = "\nwhile sitting next to [color=#ff6b6b]" + hated_customer.customer_name + "[/color] : will [color=#ff6b6b]not eat[/color], only drink.\n"
 	
 	var description := """{identity_part}
 

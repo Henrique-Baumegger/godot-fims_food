@@ -35,6 +35,6 @@ func _reveal_paragraphs() -> void:
 	
 	await tw.finished
 	
-	var fade_in_time : float = 7
+	var fade_in_time : float = 5
 	var fade_in_delay : float = 0
 	persistent_accross_game_loops.fade_button_in(fade_in_time, fade_in_delay)

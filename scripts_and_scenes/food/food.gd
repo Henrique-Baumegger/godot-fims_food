@@ -52,65 +52,46 @@ func try_to_add(ing: Ingredient, quantity: int) -> int:
 	return added
 
 
-func slowely_dissapear() -> void:
-	set_deferred("monitoring", false)
-	set_deferred("monitorable", false)
-	var tween := create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(rich_text_label, "modulate:a", 0.0, eat_duration)
-	tween.tween_property(food_sprite, "modulate:a", 0.0, eat_duration)
-	tween.tween_property(drink_sprite, "modulate:a", 0.0, eat_duration)
-	for sprite in sprite_of_poison_type.values():
-		tween.tween_property(sprite, "modulate:a", 0.0, eat_duration)
-	
-	await tween.finished
-	queue_free()
-
-
-func be_eaten() -> void:
+func be_eaten(eat_food: bool, eat_drink: bool) -> void:
 	set_deferred("monitoring", false)
 	set_deferred("monitorable", false)
 	rich_text_label.visible = false
 	for sprite in sprite_of_poison_type.values():
 		sprite.visible = false
-	
-	# bite animation 
+
 	var bite_scales := [0.65, 0.35, 0.12]
-	var bite_segment := eat_duration / 3.0
-	var tween : Tween = create_tween()
-	var tween_for_drink : Tween = create_tween()
+	var bite_segment := eat_duration / 2.5
+	var tweens: Array[Tween] = []
 	
-	for i in 3:
-		var wait_time = randf_range(bite_segment * 0.05, bite_segment * 0.35)
-		tween.tween_interval(wait_time)
-		tween_for_drink.tween_interval(wait_time)
+	for sprite in [food_sprite, drink_sprite]:
+		var is_eaten : bool = (sprite == food_sprite and eat_food) or (sprite == drink_sprite and eat_drink)
 		
-		# crunch: scale down + random rotation
-		var angle := randf_range(-30.0, 30.0)
-		tween.set_parallel(true)
-		tween.tween_property(food_sprite, "scale", Vector2.ONE * bite_scales[i], 0.08).set_trans(Tween.TRANS_BACK)
-		tween.tween_property(food_sprite, "rotation_degrees", angle, 0.08)
-		tween.set_parallel(false)
-		
-		tween_for_drink.set_parallel(true)
-		tween_for_drink.tween_property(drink_sprite, "scale", Vector2.ONE * bite_scales[i], 0.08).set_trans(Tween.TRANS_BACK)
-		tween_for_drink.tween_property(drink_sprite, "rotation_degrees", angle, 0.08)
-		tween_for_drink.set_parallel(false)
-		
-		# wobble: bounce back toward center
-		tween.tween_property(food_sprite, "rotation_degrees", -angle * 0.4, 0.10)
-		tween.tween_property(drink_sprite, "rotation_degrees", -angle * 0.4, 0.10)
-		tween.tween_property(food_sprite, "rotation_degrees", 0.0, 0.10)
-		tween.tween_property(drink_sprite, "rotation_degrees", 0.0, 0.10)
-		
-		tween_for_drink.tween_property(drink_sprite, "rotation_degrees", -angle * 0.4, 0.10)
-		tween_for_drink.tween_property(drink_sprite, "rotation_degrees", -angle * 0.4, 0.10)
-		tween_for_drink.tween_property(drink_sprite, "rotation_degrees", 0.0, 0.10)
-		tween_for_drink.tween_property(drink_sprite, "rotation_degrees", 0.0, 0.10)
+		if is_eaten:
+			var tw := create_tween()
+			for i in 3:
+				var wait_time := randf_range(bite_segment * 0.05, bite_segment * 0.35)
+				tw.tween_interval(wait_time)
+				
+				var angle := randf_range(-30.0, 30.0)
+				tw.set_parallel(true)
+				tw.tween_property(sprite, "scale", Vector2.ONE * bite_scales[i], 0.08).set_trans(Tween.TRANS_BACK)
+				tw.tween_property(sprite, "rotation_degrees", angle, 0.08)
+				tw.set_parallel(false)
+				
+				tw.tween_property(sprite, "rotation_degrees", -angle * 0.4, 0.10)
+				tw.tween_property(sprite, "rotation_degrees", 0.0, 0.10)
+				
+			tw.tween_property(sprite, "modulate:a", 0.0, 0.25)
+			tweens.append(tw)
+		else:
+			var tw := create_tween()
+			tw.tween_property(sprite, "modulate:a", 0.0, eat_duration)
+			tweens.append(tw)
+			
+	for tw in tweens:
+		if tw.is_running():
+			await tw.finished
 	
-	tween.tween_property(food_sprite, "modulate:a", 0.0, 0.25)
-	tween.tween_property(drink_sprite, "modulate:a", 0.0, 0.25)
-	await tween.finished
 	queue_free()
 
 

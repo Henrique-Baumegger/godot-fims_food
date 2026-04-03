@@ -18,7 +18,7 @@ initial_garlic_quantity = 10
 initial_silver_quantity = 7
 
 [node name="LifeManagerWrapper" type="PanelContainer" parent="." unique_id=1064626017]
-offset_left = 1421.0
+offset_left = 1325.0
 offset_top = 628.0
 offset_right = 1902.0
 offset_bottom = 725.0
@@ -51,6 +51,7 @@ theme_override_constants/margin_bottom = 6
 [node name="MoneyManager" parent="MoneyManagerWrapper/MarginContainer" unique_id=105379311 instance=ExtResource("3_r38cx")]
 layout_mode = 2
 text = "[img=140x140]res://art/items/coin_skull.png[/img]xx"
+money = 100
 
 [node name="ContinueButton" parent="." unique_id=1605215447 instance=ExtResource("4_go3jf")]
 offset_left = 1422.0

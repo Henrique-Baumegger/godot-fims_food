@@ -13,6 +13,9 @@ script = ExtResource("1_r38cx")
 
 [node name="IngredientsManager" parent="." unique_id=1971960619 instance=ExtResource("1_6qf3f")]
 position = Vector2(0, -2)
+initial_holly_water_quantity = 3
+initial_garlic_quantity = 10
+initial_silver_quantity = 7
 
 [node name="LifeManagerWrapper" type="PanelContainer" parent="." unique_id=1064626017]
 offset_left = 1421.0

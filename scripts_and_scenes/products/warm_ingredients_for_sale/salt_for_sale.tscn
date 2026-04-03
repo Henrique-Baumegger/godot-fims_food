@@ -17,7 +17,7 @@ collision_2d = NodePath("CollisionShape2D")
 sprite_node = NodePath("SpritesWrapper")
 poison_type = 2
 price = 4
-batch_quantity = 2
+batch_quantity = 3
 batch_increment = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=1926233041]

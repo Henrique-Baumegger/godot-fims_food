@@ -4,6 +4,8 @@ class_name ToolTipArea
 
 const OFFSET: Vector2 = Vector2.ONE * 60.0
 
+@export var tip_width: float = 400.0
+
 var opacity_tween: Tween = null
 
 @export_multiline var displayed_text : String = ""
@@ -12,6 +14,7 @@ var opacity_tween: Tween = null
 @onready var rich_text_label: RichTextLabel = $TipPanel/MarginContainer/RichTextLabel
 
 func _ready() -> void:
+	tip_panel.custom_minimum_size.x = tip_width
 	rich_text_label.text = displayed_text
 
 func change_displayed_text(new_text : String) -> void:

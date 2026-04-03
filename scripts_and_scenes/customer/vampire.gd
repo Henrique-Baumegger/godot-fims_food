@@ -6,7 +6,7 @@ func start_of_round_ability() ->void:
 	if dead:
 		return
 	if current_poison != 0:
-		tips(current_poison)
+		tips(2*current_poison)
 
 
 func end_of_round_ability() ->void:

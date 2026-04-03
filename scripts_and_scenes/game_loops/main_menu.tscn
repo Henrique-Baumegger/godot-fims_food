@@ -66,6 +66,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "programming: henrique baumegger ranieri"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=159187067]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="MortalButton" to="." method="_on_mortal_button_pressed"]
 [connection signal="pressed" from="GrimButton" to="." method="_on_grim_button_pressed"]
 [connection signal="pressed" from="ForsakenButton" to="." method="_on_forsaken_button_pressed"]

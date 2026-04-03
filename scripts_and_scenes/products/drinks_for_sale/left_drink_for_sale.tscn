@@ -16,6 +16,7 @@ size = Vector2(136, 150)
 collision_2d = NodePath("CollisionShape2D")
 sprite_node = NodePath("Sprite2D")
 drink_type = 1
+price = 4
 batch_quantity = 1
 batch_increment = 0
 
@@ -29,7 +30,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_43t06")
 
 [node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_mchoo")]
-displayed_text = "Customer will want to sit to it`s left spot on the next meal."
+displayed_text = "Customer will want to sit at its left spot on the next meal."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=1419706881]
 position = Vector2(19, 3)

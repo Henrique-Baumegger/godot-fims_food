@@ -19,13 +19,13 @@ signal gives_tip(amount)
 # enum are const
 enum Creatures {NONE, VAMPIRE, SKELETON, GHOST} 
 const creature_type_description_BBCode : Dictionary[Creatures, String] ={
-	Creatures.GHOST : "[b]GHOST[/b] - tips 2 doubloons on round end if dead.",
+	Creatures.GHOST : "[b]GHOST[/b] - tips 3 doubloons on round end if dead.",
 	Creatures.SKELETON : "[b]SKELETON[/b] — doubles its poison after eating (or refusing to eat). tips 6 upon death",
-	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - if alive tips equal to poison at round start."
+	Creatures.VAMPIRE : "[b]VAMPIRE[/b] - if alive, tips double its poison at round start."
 	}
 
 const MAX_POISON_NOT_SET : int = -1
-const percentage_probability_mult_hit_you : float = 0.5
+const percentage_probability_mult_hit_you : float = 1
 
 static var id_for_names_and_textures = 0
 

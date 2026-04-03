@@ -19,7 +19,7 @@ offset_top = 102.0
 offset_right = 1440.0
 offset_bottom = 1082.0
 theme = ExtResource("3_2rf3n")
-theme_override_constants/separation = 42
+theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1815330977]
 layout_mode = 2

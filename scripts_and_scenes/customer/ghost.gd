@@ -2,7 +2,7 @@ extends Customer
 class_name Ghost
 
 
-const dead_tip_amount = 2
+const dead_tip_amount = 3
 
 
 func start_of_round_ability() ->void:

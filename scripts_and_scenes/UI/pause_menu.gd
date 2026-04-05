@@ -26,6 +26,7 @@ func toggle_the_menu() -> void:
 
 
 func _ready() -> void:
+	is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 	speed_2.disabled = true
 
 

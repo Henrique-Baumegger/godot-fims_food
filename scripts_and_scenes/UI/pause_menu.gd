@@ -98,7 +98,8 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_toggle_fullscreen_pressed() -> void:
-	if is_fullscreen:
+	if not is_fullscreen:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	is_fullscreen = not is_fullscreen

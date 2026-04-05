@@ -18,6 +18,7 @@ offset_left = 480.0
 offset_top = 102.0
 offset_right = 1440.0
 offset_bottom = 1082.0
+mouse_filter = 2
 theme = ExtResource("3_2rf3n")
 theme_override_constants/separation = 50
 

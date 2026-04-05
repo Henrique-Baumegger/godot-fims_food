@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cwbuaqisgppca"]
+
+[ext_resource type="Script" uid="uid://cqvddcxe7mw8p" path="res://scripts_and_scenes/UI/pause_menu.gd" id="1_cuyt4"]
+[ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="2_mmbxx"]
+[ext_resource type="StyleBox" uid="uid://3v38s1fwfsw" path="res://art/themes/very_black_style_box_flat.tres" id="3_mmbxx"]
+
+[node name="PauseMenu" type="Control" unique_id=1295562850]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cuyt4")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=106390005]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.5
+offset_top = -286.0
+offset_right = 217.5
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_mmbxx")
+theme_override_styles/panel = ExtResource("3_mmbxx")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=333794795]
+layout_mode = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 46
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 46
+
+[node name="AllOptions" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1846250137]
+layout_mode = 2
+theme_override_constants/separation = 66
+
+[node name="GameSpeedStuff" type="VBoxContainer" parent="PanelContainer/MarginContainer/AllOptions" unique_id=1492026287]
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff" unique_id=768247193]
+layout_mode = 2
+text = "set game speed :"
+
+[node name="GameSpeeds" type="HBoxContainer" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff" unique_id=1184847467]
+layout_mode = 2
+
+[node name="speed1" type="Button" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds" unique_id=1171553726]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0.5"
+
+[node name="speed2" type="Button" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds" unique_id=398060252]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "1.0"
+
+[node name="speed3" type="Button" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds" unique_id=1189358901]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "1.5"
+
+[node name="speed4" type="Button" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds" unique_id=1757186151]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "2.0"
+
+[node name="speed5" type="Button" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds" unique_id=1726416775]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "3.0"
+
+[node name="speed6" type="Button" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds" unique_id=1710451863]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "4.0"
+
+[node name="speed7" type="Button" parent="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds" unique_id=280164283]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "8.0"
+
+[node name="ToggleFullscreen" type="Button" parent="PanelContainer/MarginContainer/AllOptions" unique_id=118527667]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "toggle fullscreen"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/AllOptions" unique_id=1648028230]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "quit game"
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/AllOptions" unique_id=1803378315]
+layout_mode = 2
+text = "ESC  to pause/unpause"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed1" to="." method="_on_speed_1_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed2" to="." method="_on_speed_2_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed3" to="." method="_on_speed_3_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed4" to="." method="_on_speed_4_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed5" to="." method="_on_speed_5_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed6" to="." method="_on_speed_6_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed7" to="." method="_on_speed_7_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/ToggleFullscreen" to="." method="_on_toggle_fullscreen_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/AllOptions/QuitButton" to="." method="_on_quit_button_pressed"]

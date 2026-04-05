@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://dq6fhaslk0b2i"]
 
 [ext_resource type="Script" uid="uid://doy62ujs52bdn" path="res://scripts_and_scenes/game_loops/main_menu.gd" id="1_4j78h"]
-[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="1_un8hb"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="2_4j78h"]
+[ext_resource type="Texture2D" uid="uid://bhs457aeamd6r" path="res://art/enviroment/Background 1.png" id="2_rqqvi"]
 
 [node name="MainMenu" type="Node2D" unique_id=458020138]
 script = ExtResource("1_4j78h")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1785848636]
 position = Vector2(960, 540)
-texture = ExtResource("1_un8hb")
+texture = ExtResource("2_rqqvi")
+flip_h = true
 
 [node name="MortalButton" type="Button" parent="." unique_id=1095062821]
 offset_left = 685.0
@@ -51,7 +52,7 @@ text = "F I M M F U"
 [node name="Credits" type="HBoxContainer" parent="." unique_id=653815292]
 offset_left = 13.0
 offset_top = 1033.0
-offset_right = 782.0
+offset_right = 782.00085
 offset_bottom = 1069.0
 theme = ExtResource("2_4j78h")
 theme_override_constants/separation = 50

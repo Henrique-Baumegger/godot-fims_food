@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dr2p42a0hcfva"]
 
 [ext_resource type="Script" uid="uid://c3xxadusxhtu1" path="res://scripts_and_scenes/game_loops/shop_game_loop.gd" id="1_01v7p"]
-[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="1_4w47x"]
 [ext_resource type="PackedScene" uid="uid://ci6xj24a3hk57" path="res://scripts_and_scenes/products/warm_ingredients_for_sale/garlic_for_sale.tscn" id="2_1gcvd"]
+[ext_resource type="Texture2D" uid="uid://b43fxp5k7785" path="res://art/enviroment/shop.png" id="2_01v7p"]
 [ext_resource type="PackedScene" uid="uid://dahrppxmwi2j" path="res://scripts_and_scenes/products/warm_ingredients_for_sale/salt_for_sale.tscn" id="3_dptcc"]
 [ext_resource type="PackedScene" uid="uid://mdr75771v25" path="res://scripts_and_scenes/products/warm_ingredients_for_sale/silver_for_sale.tscn" id="4_hobuh"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="5_gveh5"]
@@ -18,7 +18,7 @@ script = ExtResource("1_01v7p")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=78660365]
 position = Vector2(960, 540)
-texture = ExtResource("1_4w47x")
+texture = ExtResource("2_01v7p")
 
 [node name="DrinkOfTheDay" type="Node2D" parent="." unique_id=1692454362]
 position = Vector2(656, 174)

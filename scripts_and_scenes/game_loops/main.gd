@@ -104,6 +104,3 @@ func _on_continue_button_pressed() -> void:
 			transition_to(GameLoops.MENU)
 		GameLoops.VICTORY:
 			transition_to(GameLoops.MENU)
-
-
-	

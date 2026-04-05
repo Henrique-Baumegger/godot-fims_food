@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vi2nre66use7"]
 
 [ext_resource type="Script" uid="uid://b7ioy86s2qdih" path="res://scripts_and_scenes/game_loops/cutscenes/monsters_appearing_cutscene.gd" id="1_sx52a"]
-[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="2_cp0b8"]
+[ext_resource type="Texture2D" uid="uid://bhs457aeamd6r" path="res://art/enviroment/Background 1.png" id="2_sx52a"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="3_2rf3n"]
 [ext_resource type="Texture2D" uid="uid://clo885p4hkli1" path="res://art/characters/skeletons/skeleton1.png" id="4_tegr2"]
 
@@ -10,7 +10,7 @@ script = ExtResource("1_sx52a")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2023368606]
 position = Vector2(960, 540)
-texture = ExtResource("2_cp0b8")
+texture = ExtResource("2_sx52a")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=149129894]
 clip_contents = true
@@ -77,7 +77,7 @@ texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual5" type="Sprite2D" parent="." unique_id=738575805]
-position = Vector2(1607, 258.0001)
+position = Vector2(1584, 217)
 texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
@@ -87,7 +87,7 @@ texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual7" type="Sprite2D" parent="." unique_id=718624712]
-position = Vector2(163.00002, 931.00006)
+position = Vector2(754, 972)
 texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
@@ -97,7 +97,7 @@ texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual9" type="Sprite2D" parent="." unique_id=1082026969]
-position = Vector2(425, 553)
+position = Vector2(425, 554)
 texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
@@ -107,12 +107,12 @@ texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual11" type="Sprite2D" parent="." unique_id=1787323187]
-position = Vector2(1623, 507)
+position = Vector2(1542, 551)
 texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual12" type="Sprite2D" parent="." unique_id=963938861]
-position = Vector2(1728, 380)
+position = Vector2(1809, 716)
 texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
@@ -122,7 +122,7 @@ texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 
 [node name="MonsterVisual14" type="Sprite2D" parent="." unique_id=18112225]
-position = Vector2(1743, 200)
+position = Vector2(1073, 955)
 texture = ExtResource("4_tegr2")
 offset = Vector2(271.475, 323.075)
 

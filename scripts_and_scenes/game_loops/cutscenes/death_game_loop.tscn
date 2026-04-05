@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drck43sar6kej"]
 
 [ext_resource type="Script" uid="uid://bs0gapunfrl3l" path="res://scripts_and_scenes/game_loops/cutscenes/game_over_loop.gd" id="1_ois1l"]
-[ext_resource type="Texture2D" uid="uid://0pmb8fggv2p" path="res://art/enviroment/Background.png" id="2_6scnk"]
+[ext_resource type="Texture2D" uid="uid://bhs457aeamd6r" path="res://art/enviroment/Background 1.png" id="2_ois1l"]
 [ext_resource type="Theme" uid="uid://c3pgctkp31gj8" path="res://art/themes/base_theme.tres" id="3_iiyp5"]
 [ext_resource type="Texture2D" uid="uid://c26fumjhtaive" path="res://art/enviroment/gravestone good.png" id="4_lmfm4"]
 
@@ -11,7 +11,7 @@ metadata/_custom_type_script = "uid://bs0gapunfrl3l"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1208987745]
 position = Vector2(960, 540)
-texture = ExtResource("2_6scnk")
+texture = ExtResource("2_ois1l")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=565366657]
 clip_contents = true

@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://w68dlegdom1h" path="res://scripts_and_scenes/game_loops/main.gd" id="1_jk826"]
 [ext_resource type="Script" uid="uid://dsrwi3gtvakvb" path="res://scripts_and_scenes/UI/scene_transition.gd" id="3_1cire"]
 [ext_resource type="PackedScene" uid="uid://dq6fhaslk0b2i" path="res://scripts_and_scenes/game_loops/main_menu.tscn" id="3_sy4rv"]
+[ext_resource type="Script" uid="uid://dmo24h856oqgt" path="res://scripts_and_scenes/game_loops/pause_ui.gd" id="4_qyref"]
+[ext_resource type="PackedScene" uid="uid://cwbuaqisgppca" path="res://scripts_and_scenes/UI/pause_menu.tscn" id="4_sy4rv"]
+[ext_resource type="Texture2D" uid="uid://dlqffmo2brikf" path="res://art/items/gear.png" id="5_qyref"]
 
 [node name="Main" type="Node2D" unique_id=1379625702]
 script = ExtResource("1_jk826")
@@ -17,3 +20,43 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("3_1cire")
 
 [node name="MainMenu" parent="." unique_id=458020138 instance=ExtResource("3_sy4rv")]
+
+[node name="PauseUI" type="Control" parent="." unique_id=1366867949]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_qyref")
+
+[node name="TextureButton" type="TextureButton" parent="PauseUI" unique_id=172998734]
+z_index = 400
+layout_mode = 0
+offset_left = 1830.0
+offset_top = 1.0
+offset_right = 2008.0
+offset_bottom = 179.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_qyref")
+texture_pressed = ExtResource("5_qyref")
+texture_hover = ExtResource("5_qyref")
+texture_disabled = ExtResource("5_qyref")
+texture_focused = ExtResource("5_qyref")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="PauseMenu" parent="PauseUI" unique_id=1295562850 instance=ExtResource("4_sy4rv")]
+visible = false
+z_index = 4096
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="pressed" from="PauseUI/TextureButton" to="PauseUI" method="_on_texture_button_pressed"]

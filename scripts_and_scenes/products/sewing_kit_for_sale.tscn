@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dfut4lfgsaex0"]
 
 [ext_resource type="PackedScene" uid="uid://22781a262i13" path="res://scripts_and_scenes/products/ingredient_for_sale.tscn" id="1_nvmws"]
-[ext_resource type="Texture2D" uid="uid://dxjwfmg45558r" path="res://art/place_holder/Sewing_Kit_Dropped.webp" id="2_0321a"]
+[ext_resource type="Texture2D" uid="uid://b1lact278a5lw" path="res://art/items/sewing_kit.png" id="2_0321a"]
 [ext_resource type="PackedScene" uid="uid://qj5l5oibevij" path="res://scripts_and_scenes/UI/tool_tip_area.tscn" id="3_0321a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fckdm"]
-size = Vector2(185.25, 152.75)
+size = Vector2(235, 136.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7hqi"]
-size = Vector2(184, 150.5)
+size = Vector2(232, 134)
 
 [node name="SewingKitForSale" type="Node2D" unique_id=728635059]
 
@@ -21,15 +21,17 @@ batch_quantity = 1
 batch_increment = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IngredientForSale" unique_id=301628031]
-position = Vector2(1, -1)
+position = Vector2(0.5, -7.8125)
 shape = SubResource("RectangleShape2D_fckdm")
 
 [node name="Sprite2D" type="Sprite2D" parent="IngredientForSale" unique_id=670338345]
+scale = Vector2(1.15, 1.15)
 texture = ExtResource("2_0321a")
+offset = Vector2(19.505, -59.6)
 
 [node name="ToolTipArea" parent="." unique_id=1783049423 instance=ExtResource("3_0321a")]
 displayed_text = "Fully stitches your alibi as a kitchen chef."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToolTipArea" unique_id=131753853]
-position = Vector2(0, 0.25)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_y7hqi")

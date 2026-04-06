@@ -19,11 +19,10 @@ In *Fimmfu*, you manage ingredients, prepare dishes, and strategically poison mo
 - **Language:** GDScript (100%)
 - **Architecture:** Scene-based game loop (Main -> TableGameLoop -> SceneTransition) with modular UI systems
 - **Systems implemented:**
-  - Custom tween-based animation pipeline (death animations, intro cutscene, damage flash)
+  - Custom tween-based animation pipeline (death animations, intro cutscene, damage flash, CheckBar)
   - Dynamic shop/economy system (IngredientsManager, IngredientForSale)
-  - Poison mechanics with per-creature resistances and a visual needle indicator (CheckBar)
-  - Layered UI using CanvasLayer draw ordering, tooltip system, and RichTextLabel BBCode
-  - Fullscreen toggle, pause menu, and settings persistence
+  - Round flow, controled by mainly by table.gd -> customer.gd
+
 
 ## Play It
 

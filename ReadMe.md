@@ -1,23 +1,40 @@
-# godot-fims-food
+# Fimmfu
 
-## My conventions
-### Function order
-- possible overrider
-- public : no "_" at the start
-- private : "_" at the start
+A dark strategy game built in **Godot 4** using **GDScript**, where you run a restaurant that serves decayed customers, by poisoning their meals.
 
-## Groups
+## About the Game
 
+In *Fimmfu*, you manage ingredients, prepare dishes, and strategically poison monster patrons (Ghosts, Skeletons, and Vampires) to survive each night. Balance your economy, choose your poisons wisely, and keep your alibi up 
 
-## TODO
-- Real icon on dobloons
-- Real icons for chef hats
+**Key mechanics:**
+- Turn-based serving loop with resource management
+- Ingredient purchasing system with dynamic pricing and bulk incentives
+- Multiple poison types with creature-specific effectiveness
+- Escalating difficulty across increasingly dangerous nights
+- Shop phase between rounds for restocking and strategy
 
--Shop: One shop visit inbetween days. 
-The more you buy of an ingredient/drink in a single shop visit, the cheaper it gets, 
-so you are incentivized to buy a specific product in bulk.
-(first buy is 20->19->18->...->1->1->1->1...)
-Always all 3 ingredients, but only one drink type. Amount avalible is infinite.
-Each product has a chance to be on sale, or expensive. This influences the initial price for it..
-Also at each shop you can pay to refill your whole health. It always costs the same, no matter the health. Very expensive.
-BETTER: PRICE STAYS (adjusted by "sale" or "expensive" random tags) THE SAME QUANTITY INCREASES
+## Technical Highlights
+
+- **Engine:** Godot 4.x
+- **Language:** GDScript (100%)
+- **Architecture:** Scene-based game loop (`Main` → `TableGameLoop` → `SceneTransition`) with modular UI systems
+- **Systems implemented:**
+  - Custom tween-based animation pipeline (death animations, intro cutscene, damage flash)
+  - Dynamic shop/economy system (`IngredientsManager`, `IngredientForSale`)
+  - Poison mechanics with per-creature resistances and a visual needle indicator (`CheckBar`)
+  - Layered UI using `CanvasLayer` draw ordering, tooltip system, and `RichTextLabel` BBCode
+  - Fullscreen toggle, pause menu, and settings persistence
+
+## Play It
+
+https://gustapa8.itch.io/fimmfu
+
+## Author
+
+### Programming and game design
+**Henrique Baumegger**
+BSc Student — ETH Zürich
+
+### Art
+**Lisanne van Lunteren**
+BSc Student — ETH Zürich

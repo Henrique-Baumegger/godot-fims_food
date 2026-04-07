@@ -3,7 +3,6 @@ class_name PauseMenu
 
 
 var is_paused : bool = false
-var is_fullscreen = false
 
 @onready var speed_1: Button = $PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed1
 @onready var speed_2: Button = $PanelContainer/MarginContainer/AllOptions/GameSpeedStuff/GameSpeeds/speed2
@@ -26,7 +25,6 @@ func toggle_the_menu() -> void:
 
 
 func _ready() -> void:
-	is_fullscreen = DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
 	speed_2.disabled = true
 
 
@@ -99,8 +97,12 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_toggle_fullscreen_pressed() -> void:
-	if not is_fullscreen:
+	if not (DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	is_fullscreen = not is_fullscreen
+	toggle_the_menu()
+
+
+
+	

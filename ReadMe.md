@@ -8,27 +8,21 @@ In *Fimmfu*, you manage ingredients, prepare dishes, and strategically poison mo
 
 **Key mechanics:**
 - Turn-based serving loop with resource management
-- Ingredient purchasing system with dynamic pricing and bulk incentives
+- Shop phase between rounds for restocking and strategy. Ingredient purchasing system with bulk incentives
 - Multiple poison types with creature-specific effectiveness
 - Escalating difficulty across increasingly dangerous nights
-- Shop phase between rounds for restocking and strategy
 
 ## Technical Highlights
 
 - **Engine:** Godot 4.x
 - **Language:** GDScript (100%)
-- **Architecture:** Scene-based game loop (Main -> TableGameLoop -> SceneTransition) with modular UI systems
-- **Systems implemented:**
-  - Custom tween-based animation pipeline (death animations, intro cutscene, damage flash, CheckBar)
-  - Dynamic shop/economy system (IngredientsManager, IngredientForSale)
-  - Round flow, controled by mainly by table.gd -> customer.gd
 
 
 ## Play It
 
 https://gustapa8.itch.io/fimmfu
 
-## Author
+## Authors
 
 ### Programming and game design
 **Henrique Baumegger**
